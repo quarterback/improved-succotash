@@ -162,6 +162,77 @@ def fetch_llm_prices_historical() -> list:
         return []
 
 
+def fetch_pricepertoken() -> dict:
+    """
+    Fetch pricing from pricepertoken.com via their API.
+
+    Returns dict of model_id -> pricing info.
+    """
+    url = "https://api.pricepertoken.com/api/pricing"
+
+    try:
+        response = requests.get(url, timeout=30, headers={
+            "User-Agent": "Mozilla/5.0 (compatible; OccupantIndex/1.0)",
+            "Accept": "application/json",
+        })
+        response.raise_for_status()
+        data = response.json()
+
+        models = {}
+
+        # The API returns a dict with "results" containing model objects
+        model_list = data.get("results", []) if isinstance(data, dict) else data
+
+        for model in model_list:
+            if not isinstance(model, dict):
+                continue
+
+            # Extract model identifiers
+            slug = model.get("slug") or model.get("model_id") or model.get("id", "")
+            provider = model.get("provider_name") or model.get("provider", "")
+            name = model.get("model_name") or model.get("name", slug)
+
+            # Extract pricing (already per 1M tokens)
+            input_price = model.get("input_price_per_1m_tokens") or model.get("input_price", 0)
+            output_price = model.get("output_price_per_1m_tokens") or model.get("output_price", 0)
+
+            if slug and (input_price or output_price):
+                # Normalize provider name
+                provider_normalized = provider.lower().replace(" ", "").replace(".", "")
+                provider_map = {
+                    "openai": "openai",
+                    "anthropic": "anthropic",
+                    "google": "google",
+                    "mistralai": "mistralai",
+                    "mistral": "mistralai",
+                    "deepseek": "deepseek",
+                    "meta": "meta-llama",
+                    "xai": "x-ai",
+                    "cohere": "cohere",
+                    "amazon": "amazon",
+                    "qwen": "qwen",
+                    "alibaba": "qwen",
+                }
+                provider_key = provider_map.get(provider_normalized, provider_normalized)
+
+                model_id = f"{provider_key}/{slug}" if provider_key else slug
+
+                models[model_id] = {
+                    "input_mtok": round(float(input_price), 4),
+                    "output_mtok": round(float(output_price), 4),
+                    "name": name,
+                    "context_length": model.get("context_window") or model.get("context_length"),
+                    "source": "pricepertoken"
+                }
+
+        print(f"[pricepertoken] Fetched {len(models)} models")
+        return models
+
+    except Exception as e:
+        print(f"[pricepertoken] Error: {e}")
+        return {}
+
+
 # =============================================================================
 # DATA AGGREGATION
 # =============================================================================
@@ -285,12 +356,13 @@ def collect_all():
     openrouter = fetch_openrouter_models()
     litellm = fetch_litellm_prices()
     llm_prices = fetch_llm_prices_current()
+    pricepertoken = fetch_pricepertoken()
     historical = fetch_llm_prices_historical()
 
     # Phase 2: Merge pricing
     print("\n--- MERGING DATA ---")
 
-    merged = merge_pricing_sources(openrouter, litellm, llm_prices)
+    merged = merge_pricing_sources(openrouter, litellm, llm_prices, pricepertoken)
     print(f"[Merged] {len(merged)} unique models")
 
     # Phase 3: Save
@@ -309,6 +381,7 @@ def collect_all():
     print(f"  OpenRouter: {len(openrouter)} models")
     print(f"  LiteLLM: {len(litellm)} models")
     print(f"  llm-prices: {len(llm_prices)} models")
+    print(f"  pricepertoken: {len(pricepertoken)} models")
     print(f"  Historical snapshots: {len(historical)}")
     print(f"\nMerged total: {len(merged)} unique models")
 
