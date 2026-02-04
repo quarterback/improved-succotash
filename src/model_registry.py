@@ -13,6 +13,23 @@ from fetch_litellm import fetch_litellm_models, normalize_model_id
 TIERS_PATH = Path(__file__).parent.parent / "data" / "models" / "tiers.json"
 
 
+# Base currency for exchange rates - cheapest utility model
+EXCHANGE_BASE = {
+    "model_id": "google/gemini-2.0-flash-001",
+    "ticker": "$UTIL",
+    "name": "Utility Token (Gemini Flash)"
+}
+
+# Ticker mapping for tiers in exchange rate context
+TIER_TICKERS = {
+    "frontier": "$FRONT",
+    "reasoning": "$REASON",
+    "longctx": "$LCTX",
+    "budget": "$BULK",
+    "general": "$GEN"
+}
+
+
 # Model tier definitions based on capability and pricing
 MODEL_TIERS = {
     "budget": {
@@ -195,6 +212,120 @@ def calculate_tier_average(registry: dict, tier: str, input_tokens: int, output_
         return None
 
     return sum(costs) / len(costs)
+
+
+def get_blended_cost_per_token(registry: dict, model_id: str, input_ratio: float = 0.75) -> float:
+    """
+    Calculate blended cost per token using input:output ratio.
+
+    Args:
+        registry: Model registry
+        model_id: Model ID to get pricing for
+        input_ratio: Ratio of input tokens (default 0.75 = 3:1 input:output)
+
+    Returns:
+        Blended cost per token, or None if model not found
+    """
+    pricing = get_model_pricing(registry, model_id)
+    if not pricing:
+        return None
+
+    input_cost = pricing.get("input_cost_per_token", 0)
+    output_cost = pricing.get("output_cost_per_token", 0)
+
+    if input_cost == 0 and output_cost == 0:
+        return None
+
+    output_ratio = 1 - input_ratio
+    return (input_cost * input_ratio) + (output_cost * output_ratio)
+
+
+def calculate_tier_blended_cost(registry: dict, tier: str, input_ratio: float = 0.75) -> float:
+    """
+    Calculate average blended cost per token for a tier.
+
+    Args:
+        registry: Model registry
+        tier: Tier name
+        input_ratio: Ratio of input tokens (default 0.75 = 3:1 input:output)
+
+    Returns:
+        Average blended cost per token, or None if no models available
+    """
+    tier_models = get_tier_models(registry, tier)
+    if not tier_models:
+        return None
+
+    costs = []
+    for model_id in tier_models:
+        cost = get_blended_cost_per_token(registry, model_id, input_ratio)
+        if cost is not None and cost > 0:
+            costs.append(cost)
+
+    if not costs:
+        return None
+
+    return sum(costs) / len(costs)
+
+
+def calculate_exchange_rates(registry: dict) -> dict:
+    """
+    Calculate token exchange rates relative to the utility base model.
+
+    Exchange rates show how many tokens of the cheap "utility" model
+    equal one token of an expensive model - like forex cross-rates.
+
+    Returns:
+    {
+        "base": {
+            "ticker": "$UTIL",
+            "model": "google/gemini-2.0-flash-001",
+            "blended_cost_per_token": 0.000000175
+        },
+        "rates": {
+            "frontier": {
+                "ticker": "$FRONT",
+                "rate": 42,
+                "display": "1 $FRONT = 42 $UTIL"
+            },
+            ...
+        },
+        "generated_at": "2026-02-04T12:00:00Z"
+    }
+    """
+    # Get base model blended cost
+    base_cost = get_blended_cost_per_token(registry, EXCHANGE_BASE["model_id"])
+
+    if base_cost is None or base_cost == 0:
+        print(f"[Exchange] Warning: Could not get pricing for base model {EXCHANGE_BASE['model_id']}")
+        return None
+
+    rates = {}
+
+    for tier in ["frontier", "reasoning", "longctx", "budget"]:
+        tier_cost = calculate_tier_blended_cost(registry, tier)
+
+        if tier_cost is not None and tier_cost > 0:
+            rate = round(tier_cost / base_cost)
+            ticker = TIER_TICKERS.get(tier, f"${tier.upper()}")
+
+            rates[tier] = {
+                "ticker": ticker,
+                "rate": max(1, rate),  # Minimum rate of 1
+                "blended_cost": tier_cost,
+                "display": f"1 {ticker} = {max(1, rate)} $UTIL"
+            }
+
+    return {
+        "base": {
+            "ticker": EXCHANGE_BASE["ticker"],
+            "model": EXCHANGE_BASE["model_id"],
+            "name": EXCHANGE_BASE["name"],
+            "blended_cost_per_token": base_cost
+        },
+        "rates": rates,
+        "generated_at": datetime.now(timezone.utc).isoformat()
+    }
 
 
 if __name__ == "__main__":

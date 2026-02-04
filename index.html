@@ -305,6 +305,109 @@
             color: var(--dim);
         }
         
+        /* Exchange Rates */
+        .exchange-rates {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 0.625rem;
+            color: var(--dim);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-top: 0.25rem;
+        }
+
+        .rates-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        .rate-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .rate-ticker {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .rate-value {
+            font-size: 0.75rem;
+            color: var(--fg);
+        }
+
+        /* Persona CPIs / Build Cost Index */
+        .persona-cpis {
+            margin-bottom: 2rem;
+        }
+
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .persona-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .persona-ticker {
+            font-size: 0.625rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .persona-value {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .persona-name {
+            font-size: 0.75rem;
+            color: var(--fg);
+            margin-bottom: 0.25rem;
+        }
+
+        .persona-change {
+            font-size: 0.625rem;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .persona-change.negative {
+            color: #ff4444;
+        }
+
+        .persona-insight {
+            font-size: 0.625rem;
+            color: var(--dim);
+            font-style: italic;
+        }
+
         /* Responsive */
         @media (max-width: 600px) {
             .container {
@@ -321,6 +424,14 @@
             }
             
             .subindices {
+                grid-template-columns: 1fr;
+            }
+
+            .rates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .persona-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -379,6 +490,63 @@
                 </div>
             </section>
             
+            <!-- Exchange Rates -->
+            <section class="exchange-rates">
+                <div class="section-header">
+                    <div class="section-title">Cognitive Exchange Rates</div>
+                    <div class="section-subtitle" id="exchange-base">Base: $UTIL (Gemini Flash)</div>
+                </div>
+                <div class="rates-grid">
+                    <div class="rate-card">
+                        <span class="rate-ticker">$REASON</span>
+                        <span class="rate-value" id="reason-rate">= — $UTIL</span>
+                    </div>
+                    <div class="rate-card">
+                        <span class="rate-ticker">$FRONT</span>
+                        <span class="rate-value" id="front-rate">= — $UTIL</span>
+                    </div>
+                    <div class="rate-card">
+                        <span class="rate-ticker">$LCTX</span>
+                        <span class="rate-value" id="lctx-rate">= — $UTIL</span>
+                    </div>
+                    <div class="rate-card">
+                        <span class="rate-ticker">$BULK</span>
+                        <span class="rate-value" id="bulk-rate">= — $UTIL</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Build Cost Index (Persona CPIs) -->
+            <section class="persona-cpis">
+                <div class="section-header">
+                    <div class="section-title">Build Cost Index</div>
+                    <div class="section-subtitle">What does YOUR build cost?</div>
+                </div>
+                <div class="persona-grid">
+                    <div class="persona-card">
+                        <div class="persona-ticker">$START</div>
+                        <div class="persona-value" id="startup-cpi">—</div>
+                        <div class="persona-name">Startup Builder</div>
+                        <div class="persona-change" id="startup-change">—</div>
+                        <div class="persona-insight" id="startup-insight"></div>
+                    </div>
+                    <div class="persona-card">
+                        <div class="persona-ticker">$AGENT</div>
+                        <div class="persona-value" id="agentic-cpi">—</div>
+                        <div class="persona-name">Agentic Team</div>
+                        <div class="persona-change" id="agentic-change">—</div>
+                        <div class="persona-insight" id="agentic-insight"></div>
+                    </div>
+                    <div class="persona-card">
+                        <div class="persona-ticker">$THRU</div>
+                        <div class="persona-value" id="throughput-cpi">—</div>
+                        <div class="persona-name">Throughput</div>
+                        <div class="persona-change" id="throughput-change">—</div>
+                        <div class="persona-insight" id="throughput-insight"></div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Spreads -->
             <section class="spreads">
                 <div class="spreads-title">Spreads</div>
@@ -508,10 +676,68 @@
                         Math.abs(data.spreads.context_premium.value).toFixed(2) + '/1M';
                 }
                 
+                // Exchange Rates
+                if (data.exchange_rates && data.exchange_rates.rates) {
+                    const rates = data.exchange_rates.rates;
+                    if (rates.reasoning) {
+                        document.getElementById('reason-rate').textContent = '= ' + rates.reasoning.rate + ' $UTIL';
+                    }
+                    if (rates.frontier) {
+                        document.getElementById('front-rate').textContent = '= ' + rates.frontier.rate + ' $UTIL';
+                    }
+                    if (rates.longctx) {
+                        document.getElementById('lctx-rate').textContent = '= ' + rates.longctx.rate + ' $UTIL';
+                    }
+                    if (rates.budget) {
+                        document.getElementById('bulk-rate').textContent = '= ' + rates.budget.rate + ' $UTIL';
+                    }
+                }
+
+                // Persona CPIs
+                if (data.persona_cpis) {
+                    const personas = data.persona_cpis;
+
+                    if (personas.startup) {
+                        document.getElementById('startup-cpi').textContent = personas.startup.cpi.toFixed(1);
+                        const startupChange = document.getElementById('startup-change');
+                        if (personas.startup.mom_change !== null) {
+                            startupChange.textContent = (personas.startup.mom_change >= 0 ? '+' : '') + personas.startup.mom_change.toFixed(1) + '% MoM';
+                            if (personas.startup.mom_change < 0) startupChange.classList.add('negative');
+                        } else {
+                            startupChange.textContent = 'Benchmarking';
+                        }
+                        document.getElementById('startup-insight').textContent = personas.startup.insight;
+                    }
+
+                    if (personas.agentic) {
+                        document.getElementById('agentic-cpi').textContent = personas.agentic.cpi.toFixed(1);
+                        const agenticChange = document.getElementById('agentic-change');
+                        if (personas.agentic.mom_change !== null) {
+                            agenticChange.textContent = (personas.agentic.mom_change >= 0 ? '+' : '') + personas.agentic.mom_change.toFixed(1) + '% MoM';
+                            if (personas.agentic.mom_change < 0) agenticChange.classList.add('negative');
+                        } else {
+                            agenticChange.textContent = 'Benchmarking';
+                        }
+                        document.getElementById('agentic-insight').textContent = personas.agentic.insight;
+                    }
+
+                    if (personas.throughput) {
+                        document.getElementById('throughput-cpi').textContent = personas.throughput.cpi.toFixed(1);
+                        const throughputChange = document.getElementById('throughput-change');
+                        if (personas.throughput.mom_change !== null) {
+                            throughputChange.textContent = (personas.throughput.mom_change >= 0 ? '+' : '') + personas.throughput.mom_change.toFixed(1) + '% MoM';
+                            if (personas.throughput.mom_change < 0) throughputChange.classList.add('negative');
+                        } else {
+                            throughputChange.textContent = 'Benchmarking';
+                        }
+                        document.getElementById('throughput-insight').textContent = personas.throughput.insight;
+                    }
+                }
+
                 // Last updated
                 const updated = new Date(data.meta.generated_at);
                 document.getElementById('last-updated').textContent = updated.toISOString().split('T')[0] + ' ' + updated.toISOString().split('T')[1].split('.')[0] + ' UTC';
-                
+
             } catch (error) {
                 console.log('CPI data not yet available');
             }

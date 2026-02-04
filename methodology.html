@@ -412,8 +412,86 @@
             </section>
             
             <section>
+                <h2>Exchange Rates</h2>
+                <p>
+                    Cognitive Exchange Rates show the relative cost between model tiers,
+                    expressed as token equivalents. This makes opportunity cost instantly visible—like
+                    forex cross-rates for AI compute.
+                </p>
+
+                <p><strong>Base Currency: $UTIL (Utility Token)</strong></p>
+                <p>
+                    The base is Gemini Flash, representing cheap utility compute. All other tiers
+                    are expressed as multiples of this base cost.
+                </p>
+
+                <p><strong>Calculation:</strong></p>
+                <pre><code>Rate = TierBlendedCost / BaseBlendedCost
+BlendedCost = (InputCost × 0.75) + (OutputCost × 0.25)</code></pre>
+
+                <p>
+                    A rate of "1 $FRONT = 64 $UTIL" means one frontier token costs as much as
+                    64 utility tokens. This helps teams understand the opportunity cost of
+                    using expensive models for tasks that could run on cheaper ones.
+                </p>
+
+                <div class="note">
+                    <strong>Limitations:</strong> Exchange rates measure cost only, not capability.
+                    A task that requires frontier reasoning cannot simply be run on 64× more
+                    utility tokens.
+                </div>
+            </section>
+
+            <section>
+                <h2>Build Cost Index (Persona Baskets)</h2>
+                <p>
+                    Different teams have different workload mixes. The Build Cost Index tracks
+                    inflation for three representative build patterns, each with its own basket
+                    weightings.
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Persona</th>
+                            <th>Ticker</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Startup Builder</strong></td>
+                            <td><code>$START</code></td>
+                            <td>Building AI-first products: 50% coding, 30% RAG context, 20% routing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Agentic Team</strong></td>
+                            <td><code>$AGENT</code></td>
+                            <td>Running autonomous agents: 70% reasoning, 20% tool use, 10% final output</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Throughput</strong></td>
+                            <td><code>$THRU</code></td>
+                            <td>High-volume processing: 80% extraction, 20% classification</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    Each persona sees different inflation depending on which model tiers they
+                    rely on most heavily. A team building agents (heavy reasoning) will see
+                    different cost pressure than a team doing high-volume extraction (mostly budget tier).
+                </p>
+
+                <div class="note">
+                    <strong>Benchmarking Period:</strong> For the first 30 days after launch,
+                    persona MoM changes show "Benchmarking" as we accumulate historical data.
+                </div>
+            </section>
+
+            <section>
                 <h2>Data Sources</h2>
-                
+
                 <table>
                     <thead>
                         <tr>
@@ -426,25 +504,51 @@
                         <tr>
                             <td>OpenRouter API</td>
                             <td>Live prices</td>
-                            <td>Current spot rates</td>
+                            <td>Primary source for current spot rates</td>
                         </tr>
                         <tr>
-                            <td>Artificial Analysis</td>
-                            <td>Quality grades</td>
-                            <td>Model tier classification</td>
+                            <td>LiteLLM Database</td>
+                            <td>Comprehensive pricing</td>
+                            <td>2000+ models for coverage depth</td>
+                        </tr>
+                        <tr>
+                            <td>pydantic/genai-prices</td>
+                            <td>Historical prices</td>
+                            <td>Backfill for MoM/YoY calculations</td>
                         </tr>
                         <tr>
                             <td>simonw/llm-prices</td>
-                            <td>Historical prices</td>
-                            <td>Baseline and trends</td>
+                            <td>Historical archive</td>
+                            <td>Cross-reference and validation</td>
                         </tr>
                     </tbody>
                 </table>
-                
+
                 <div class="note">
-                    All data sources are publicly accessible. The methodology is fully auditable. 
+                    All data sources are publicly accessible. The methodology is fully auditable.
                     Anyone can verify our calculations using the same inputs.
                 </div>
+            </section>
+
+            <section>
+                <h2>Historical Methodology</h2>
+                <p>
+                    <strong>Baseline:</strong> February 2026 = 100. This baseline is immutable once set.
+                </p>
+                <p>
+                    <strong>Historical Reconstruction:</strong> To enable MoM and YoY calculations
+                    from day one, we backfilled historical data using archived prices from
+                    pydantic/genai-prices and simonw/llm-prices.
+                </p>
+                <p>
+                    <strong>Model Substitution:</strong> When exact historical models aren't available,
+                    we use the closest equivalent from the same provider and tier. For example,
+                    historical data may use gemini-1.5-pro where current data uses gemini-2.5-pro.
+                </p>
+                <p>
+                    <strong>Reconstructed Flag:</strong> Historical snapshots are marked with
+                    <code>reconstructed: true</code> to distinguish them from live calculations.
+                </p>
             </section>
             
             <section>
@@ -532,7 +636,7 @@
                 <a href="mailto:research@occupant.ee">Contact</a>
             </p>
             <p style="margin-top: 1rem;">
-                Methodology v1.0 · February 2026<br>
+                Methodology v1.1 · February 2026<br>
                 Published under open methodology. Verification encouraged.
             </p>
         </footer>

@@ -20,10 +20,11 @@ from datetime import datetime, timezone
 # Add src to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
 
-from model_registry import build_unified_registry, calculate_tier_average
+from model_registry import build_unified_registry, calculate_tier_average, calculate_exchange_rates
 from historical import (
     load_baseline, save_baseline, save_snapshot,
-    get_mom_change, get_yoy_change, get_trend
+    get_mom_change, get_yoy_change, get_trend,
+    get_persona_mom_change, get_days_since_baseline
 )
 
 # =============================================================================
@@ -76,6 +77,79 @@ WORKLOAD_BASKET = {
         "weight": 0.10,
         "tier": "longctx",
         "description": "Large document processing"
+    }
+}
+
+# Persona basket definitions - different CPI weightings for different build patterns
+PERSONA_BASKETS = {
+    "startup": {
+        "name": "Startup Builder",
+        "ticker": "$START",
+        "description": "Building an AI-first product",
+        "workloads": {
+            "coding": {
+                "tier": "frontier",
+                "input_tokens": 3000,
+                "output_tokens": 1000,
+                "weight": 0.50
+            },
+            "rag_context": {
+                "tier": "longctx",
+                "input_tokens": 20000,
+                "output_tokens": 500,
+                "weight": 0.30
+            },
+            "routing": {
+                "tier": "budget",
+                "input_tokens": 500,
+                "output_tokens": 50,
+                "weight": 0.20
+            }
+        }
+    },
+    "agentic": {
+        "name": "Agentic Team",
+        "ticker": "$AGENT",
+        "description": "Running autonomous AI agents",
+        "workloads": {
+            "thinking": {
+                "tier": "reasoning",
+                "input_tokens": 5000,
+                "output_tokens": 3000,
+                "weight": 0.70
+            },
+            "tool_use": {
+                "tier": "general",
+                "input_tokens": 1000,
+                "output_tokens": 500,
+                "weight": 0.20
+            },
+            "final_output": {
+                "tier": "frontier",
+                "input_tokens": 500,
+                "output_tokens": 1000,
+                "weight": 0.10
+            }
+        }
+    },
+    "throughput": {
+        "name": "Throughput",
+        "ticker": "$THRU",
+        "description": "High-volume processing at scale",
+        "workloads": {
+            "extraction": {
+                "tier": "general",
+                "input_tokens": 10000,
+                "output_tokens": 500,
+                "weight": 0.80
+            },
+            "classification": {
+                "tier": "budget",
+                "input_tokens": 500,
+                "output_tokens": 50,
+                "weight": 0.20
+            }
+        }
     }
 }
 
@@ -267,6 +341,91 @@ def calculate_spreads(registry: dict) -> dict:
     return spreads
 
 
+def calculate_persona_costs(registry: dict) -> dict:
+    """Calculate current costs for each persona basket."""
+    persona_costs = {}
+
+    for persona_name, persona in PERSONA_BASKETS.items():
+        total = 0.0
+
+        for workload_name, workload in persona["workloads"].items():
+            tier = workload["tier"]
+            avg_cost = calculate_tier_average(
+                registry, tier,
+                workload["input_tokens"],
+                workload["output_tokens"]
+            )
+
+            if avg_cost is not None:
+                total += avg_cost * workload["weight"]
+
+        persona_costs[persona_name] = total
+
+    return persona_costs
+
+
+def generate_insight(cpi_value: float, persona_name: str) -> str:
+    """Generate human-readable insight based on CPI value."""
+    diff = cpi_value - 100
+
+    if abs(diff) < 1:
+        return "Costs unchanged from baseline"
+
+    direction = "cheaper" if diff < 0 else "more expensive"
+    pct = abs(round(diff))
+
+    if persona_name == "startup":
+        action = "to build" if diff < 0 else "to build"
+    elif persona_name == "agentic":
+        action = "to run agents" if diff < 0 else "to run agents"
+    elif persona_name == "throughput":
+        action = "at scale" if diff < 0 else "at scale"
+    else:
+        action = ""
+
+    return f"{pct}% {direction} {action}".strip()
+
+
+def calculate_persona_cpis(registry: dict, baseline: dict, current_costs: dict) -> dict:
+    """
+    Calculate CPI values for each persona basket.
+
+    Returns dict with persona CPI data including MoM changes and insights.
+    """
+    persona_cpis = {}
+    baseline_personas = baseline.get("persona_costs", {})
+    days_since_baseline = get_days_since_baseline()
+
+    for persona_name, persona in PERSONA_BASKETS.items():
+        current_cost = current_costs.get(persona_name, 0)
+        baseline_cost = baseline_personas.get(persona_name, current_cost)
+
+        cpi_value = calculate_cpi(current_cost, baseline_cost)
+
+        # Get MoM change (return null if < 30 days of data)
+        mom_change = None
+        note = None
+
+        if days_since_baseline < 30:
+            note = "Benchmarking period - insufficient historical data"
+        else:
+            mom_change = get_persona_mom_change(persona_name, cpi_value)
+
+        persona_cpis[persona_name] = {
+            "ticker": persona["ticker"],
+            "name": persona["name"],
+            "description": persona["description"],
+            "cpi": cpi_value,
+            "mom_change": mom_change,
+            "basket_cost": round(current_cost, 6),
+            "basket_cost_unit": "$ per standardized workload",
+            "insight": generate_insight(cpi_value, persona_name),
+            "note": note
+        }
+
+    return persona_cpis
+
+
 # =============================================================================
 # MAIN REPORT GENERATION
 # =============================================================================
@@ -279,41 +438,53 @@ def generate_cpi_report(api_key: str = None) -> dict:
     print("=" * 60)
 
     # 1. Build unified model registry
-    print("\n[1/6] Building model registry...")
+    print("\n[1/8] Building model registry...")
     registry = build_unified_registry(api_key)
 
     # 2. Calculate basket costs
-    print("\n[2/6] Calculating basket costs...")
+    print("\n[2/8] Calculating basket costs...")
     basket_costs = calculate_basket_costs(registry)
     weighted_total = calculate_weighted_total(basket_costs)
 
     # 2b. Calculate subindex costs
     subindex_costs = calculate_subindex_costs(registry)
 
+    # 2c. Calculate persona costs
+    persona_costs = calculate_persona_costs(registry)
+
     # 3. Load or create baseline
-    print("\n[3/6] Loading baseline...")
+    print("\n[3/8] Loading baseline...")
     baseline = load_baseline()
     if baseline is None:
         print("[Baseline] No baseline found, setting today's prices as baseline")
         save_baseline(
             basket_costs={k: {"cost": v["cost"], "weight": v["weight"]} for k, v in basket_costs.items()},
             total_weighted=weighted_total,
-            subindex_costs=subindex_costs
+            subindex_costs=subindex_costs,
+            persona_costs=persona_costs
         )
         baseline = load_baseline()
 
     # 4. Calculate CPI
-    print("\n[4/6] Calculating CPI...")
+    print("\n[4/8] Calculating CPI...")
     baseline_total = baseline.get("total_weighted", weighted_total)
     cpi_value = calculate_cpi(weighted_total, baseline_total)
 
     # 5. Calculate subindices and spreads
-    print("\n[5/6] Calculating subindices and spreads...")
+    print("\n[5/8] Calculating subindices and spreads...")
     subindices = calculate_subindices(registry, baseline, subindex_costs)
     spreads = calculate_spreads(registry)
 
-    # 6. Get historical changes
-    print("\n[6/6] Computing historical changes...")
+    # 6. Calculate exchange rates
+    print("\n[6/8] Calculating exchange rates...")
+    exchange_rates = calculate_exchange_rates(registry)
+
+    # 7. Calculate persona CPIs
+    print("\n[7/8] Calculating persona CPIs...")
+    persona_cpis = calculate_persona_cpis(registry, baseline, persona_costs)
+
+    # 8. Get historical changes
+    print("\n[8/8] Computing historical changes...")
     mom_change = get_mom_change(cpi_value)
     yoy_change = get_yoy_change(cpi_value)
     trend = get_trend(mom_change)
@@ -325,7 +496,7 @@ def generate_cpi_report(api_key: str = None) -> dict:
             "generated_at": now.isoformat(),
             "baseline_date": baseline.get("date", now.strftime("%Y-%m-%d")),
             "data_sources": registry["meta"]["sources"],
-            "methodology_version": "1.0",
+            "methodology_version": "1.1",
             "models_count": registry["meta"]["total_models"]
         },
         "compute_cpi": {
@@ -341,6 +512,8 @@ def generate_cpi_report(api_key: str = None) -> dict:
         "subindices": {k: {kk: vv for kk, vv in v.items() if kk != "cost"}
                        for k, v in subindices.items()},
         "spreads": spreads,
+        "exchange_rates": exchange_rates,
+        "persona_cpis": persona_cpis,
         "basket_detail": {
             k: {
                 "cost": round(v["cost"] * 1000, 4),  # Per 1K workloads
@@ -351,13 +524,15 @@ def generate_cpi_report(api_key: str = None) -> dict:
         }
     }
 
-    # Save historical snapshot
+    # Save historical snapshot (including persona data)
     save_snapshot({
         "date": now.strftime("%Y-%m-%d"),
         "cpi": cpi_value,
         "basket_cost": weighted_total,
         "subindices": {k: v["value"] for k, v in subindices.items()},
-        "spreads": {k: v["value"] for k, v in spreads.items()}
+        "spreads": {k: v["value"] for k, v in spreads.items()},
+        "personas": {k: v["cpi"] for k, v in persona_cpis.items()},
+        "persona_costs": persona_costs
     })
 
     return report
@@ -376,6 +551,8 @@ def display_terminal_report(report: dict):
     cpi = report["compute_cpi"]
     subs = report["subindices"]
     spreads = report["spreads"]
+    exchange = report.get("exchange_rates", {})
+    personas = report.get("persona_cpis", {})
 
     print("\n" + "=" * 60)
     print("  OCCUPANT - Compute CPI")
@@ -389,7 +566,9 @@ def display_terminal_report(report: dict):
 
     # Changes
     if cpi.get("mom_change") is not None:
-        print(f"  MoM: {cpi['mom_change']:+.1f}%  |  YoY: {cpi.get('yoy_change', 'N/A')}")
+        yoy = cpi.get('yoy_change')
+        yoy_str = f"{yoy:+.1f}%" if yoy is not None else "N/A"
+        print(f"  MoM: {cpi['mom_change']:+.1f}%  |  YoY: {yoy_str}")
 
     # Subindices
     print("\n  SUBINDICES")
@@ -400,6 +579,20 @@ def display_terminal_report(report: dict):
     print("\n  SPREADS")
     for key, spread in spreads.items():
         print(f"  {spread['ticker']:10} {spread['value']:>+10.2f}    {spread['name']} ({spread['unit']})")
+
+    # Exchange Rates
+    if exchange and exchange.get("rates"):
+        print("\n  EXCHANGE RATES")
+        print(f"  Base: {exchange['base']['ticker']} ({exchange['base']['name']})")
+        for tier, rate in exchange["rates"].items():
+            print(f"  {rate['ticker']:10} = {rate['rate']:>4} $UTIL")
+
+    # Persona CPIs
+    if personas:
+        print("\n  BUILD COST INDEX")
+        for key, p in personas.items():
+            mom = f"{p['mom_change']:+.1f}%" if p.get('mom_change') is not None else "N/A"
+            print(f"  {p['ticker']:10} {p['cpi']:>8.1f}    {p['name']} (MoM: {mom})")
 
     print(f"\n  Last updated: {report['meta']['generated_at']}")
     print(f"  Data sources: {', '.join(report['meta']['data_sources'])}")

@@ -1,5 +1,145 @@
 [
   {
+    "date": "2025-02-01",
+    "cpi": 137.4,
+    "basket_cost": 0.03401526666666667,
+    "subindices": {
+      "judgment": 189.7,
+      "longctx": 133.6,
+      "budget": 28.7,
+      "frontier": 116.1
+    },
+    "spreads": {
+      "cognition_premium": 4.62,
+      "judgment_premium": 1.2,
+      "context_premium": -1.55
+    },
+    "personas": {
+      "startup": 125.4,
+      "agentic": 181.1,
+      "throughput": 139.3
+    },
+    "persona_costs": {
+      "startup": 0.030724433333333336,
+      "agentic": 0.04171916666666666,
+      "throughput": 0.025589433333333335
+    },
+    "reconstructed": true,
+    "source": "backfill"
+  },
+  {
+    "date": "2025-05-01",
+    "cpi": 101.2,
+    "basket_cost": 0.02507016666666667,
+    "subindices": {
+      "judgment": 133.9,
+      "longctx": 98.7,
+      "budget": 45.4,
+      "frontier": 91.9
+    },
+    "spreads": {
+      "cognition_premium": 3.52,
+      "judgment_premium": 0.44,
+      "context_premium": -1.4
+    },
+    "personas": {
+      "startup": 95.5,
+      "agentic": 129.7,
+      "throughput": 99.9
+    },
+    "persona_costs": {
+      "startup": 0.023399333333333334,
+      "agentic": 0.029877499999999994,
+      "throughput": 0.018344333333333337
+    },
+    "reconstructed": true,
+    "source": "backfill"
+  },
+  {
+    "date": "2025-08-01",
+    "cpi": 100.0,
+    "basket_cost": 0.0247635,
+    "subindices": {
+      "judgment": 100.0,
+      "longctx": 100.0,
+      "budget": 100.0,
+      "frontier": 100.0
+    },
+    "spreads": {
+      "cognition_premium": 3.52,
+      "judgment_premium": -0.97,
+      "context_premium": -1.7
+    },
+    "personas": {
+      "startup": 100.0,
+      "agentic": 100.0,
+      "throughput": 100.0
+    },
+    "persona_costs": {
+      "startup": 0.024509999999999997,
+      "agentic": 0.023037166666666668,
+      "throughput": 0.018371666666666668
+    },
+    "reconstructed": true,
+    "source": "backfill"
+  },
+  {
+    "date": "2025-11-01",
+    "cpi": 100.0,
+    "basket_cost": 0.0247635,
+    "subindices": {
+      "judgment": 100.0,
+      "longctx": 100.0,
+      "budget": 100.0,
+      "frontier": 100.0
+    },
+    "spreads": {
+      "cognition_premium": 3.52,
+      "judgment_premium": -0.97,
+      "context_premium": -1.7
+    },
+    "personas": {
+      "startup": 100.0,
+      "agentic": 100.0,
+      "throughput": 100.0
+    },
+    "persona_costs": {
+      "startup": 0.024509999999999997,
+      "agentic": 0.023037166666666668,
+      "throughput": 0.018371666666666668
+    },
+    "reconstructed": true,
+    "source": "backfill"
+  },
+  {
+    "date": "2026-01-01",
+    "cpi": 100.0,
+    "basket_cost": 0.0247635,
+    "subindices": {
+      "judgment": 100.0,
+      "longctx": 100.0,
+      "budget": 100.0,
+      "frontier": 100.0
+    },
+    "spreads": {
+      "cognition_premium": 3.52,
+      "judgment_premium": -0.97,
+      "context_premium": -1.7
+    },
+    "personas": {
+      "startup": 100.0,
+      "agentic": 100.0,
+      "throughput": 100.0
+    },
+    "persona_costs": {
+      "startup": 0.024509999999999997,
+      "agentic": 0.023037166666666668,
+      "throughput": 0.018371666666666668
+    },
+    "reconstructed": true,
+    "source": "backfill"
+  },
+  {
     "date": "2026-02-04",
     "cpi": 100.0,
     "basket_cost": 0.035919928571428575,
@@ -13,6 +153,16 @@
       "cognition_premium": 9.43,
       "judgment_premium": -2.12,
       "context_premium": -7.26
+    },
+    "personas": {
+      "startup": 100.0,
+      "agentic": 100.0,
+      "throughput": 100.0
+    },
+    "persona_costs": {
+      "startup": 0.039758428571428577,
+      "agentic": 0.05554949999999999,
+      "throughput": 0.023715428571428575
     }
   }
 ]
