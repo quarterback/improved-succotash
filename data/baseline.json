@@ -33,6 +33,11 @@
     "budget": 0.0015235714285714286,
     "frontier": 0.0251
   },
-  "locked_at": "2026-02-04T02:14:23.273781+00:00",
+  "persona_costs": {
+    "startup": 0.039758428571428577,
+    "agentic": 0.05554949999999999,
+    "throughput": 0.023715428571428575
+  },
+  "locked_at": "2026-02-04T03:28:45.977693+00:00",
   "note": "Baseline is immutable after initial setting"
 }

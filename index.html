@@ -305,6 +305,280 @@
             color: var(--dim);
         }
         
+        /* Exchange Rates */
+        .exchange-rates {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 0.625rem;
+            color: var(--dim);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-top: 0.25rem;
+        }
+
+        .rates-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        .rate-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .rate-ticker {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .rate-value {
+            font-size: 0.75rem;
+            color: var(--fg);
+        }
+
+        /* Persona CPIs / Build Cost Index */
+        .persona-cpis {
+            margin-bottom: 2rem;
+        }
+
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .persona-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .persona-ticker {
+            font-size: 0.625rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .persona-value {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .persona-name {
+            font-size: 0.75rem;
+            color: var(--fg);
+            margin-bottom: 0.25rem;
+        }
+
+        .persona-change {
+            font-size: 0.625rem;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .persona-change.negative {
+            color: #ff4444;
+        }
+
+        .persona-insight {
+            font-size: 0.625rem;
+            color: var(--dim);
+            font-style: italic;
+        }
+
+        /* Index Series */
+        .index-series {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5rem;
+        }
+
+        .series-item {
+            text-align: center;
+            padding: 0.75rem 0.25rem;
+        }
+
+        .series-ticker {
+            font-size: 0.625rem;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .series-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .series-label {
+            font-size: 0.625rem;
+            color: var(--dim);
+            margin-top: 0.25rem;
+        }
+
+        /* Methodology Variants */
+        .methodology-variants {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .variants-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5rem;
+        }
+
+        .variant-item {
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .variant-ticker {
+            font-size: 0.5rem;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .variant-value {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .variant-name {
+            font-size: 0.5rem;
+            color: var(--dim);
+            margin-top: 0.25rem;
+        }
+
+        /* Trend Analysis */
+        .trend-analysis {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .trend-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .trend-item {
+            text-align: center;
+        }
+
+        .trend-label {
+            font-size: 0.625rem;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .trend-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .trend-value.deflating {
+            color: var(--accent);
+        }
+
+        .trend-value.inflating {
+            color: #ff4444;
+        }
+
+        .trend-unit {
+            font-size: 0.625rem;
+            color: var(--dim);
+        }
+
+        /* Yield Curve */
+        .yield-curve {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .curve-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .curve-point {
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .curve-horizon {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .curve-rate {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .curve-rate.positive {
+            color: #ff4444;
+        }
+
+        .curve-rate.negative {
+            color: var(--accent);
+        }
+
+        .curve-label {
+            font-size: 0.5rem;
+            color: var(--dim);
+        }
+
+        .curve-interpretation {
+            font-size: 0.75rem;
+            color: var(--dim);
+            font-style: italic;
+            text-align: center;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--border);
+        }
+
         /* Responsive */
         @media (max-width: 600px) {
             .container {
@@ -322,6 +596,24 @@
             
             .subindices {
                 grid-template-columns: 1fr;
+            }
+
+            .rates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .persona-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .series-grid,
+            .variants-grid,
+            .curve-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .trend-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -351,6 +643,104 @@
                 <div class="cpi-base">Base = 100 (February 2026)</div>
             </section>
             
+            <!-- Index Series -->
+            <section class="index-series">
+                <div class="section-header">
+                    <div class="section-title">Index Series</div>
+                    <div class="section-subtitle">CPI across time periods</div>
+                </div>
+                <div class="series-grid" id="series-grid">
+                    <div class="series-item">
+                        <div class="series-ticker">$CPI-L</div>
+                        <div class="series-value" id="series-launch">—</div>
+                        <div class="series-label">Since Launch</div>
+                    </div>
+                    <div class="series-item">
+                        <div class="series-ticker">$CPI-Y</div>
+                        <div class="series-value" id="series-yoy">—</div>
+                        <div class="series-label">YoY</div>
+                    </div>
+                    <div class="series-item">
+                        <div class="series-ticker">$CPI-Q</div>
+                        <div class="series-value" id="series-qtd">—</div>
+                        <div class="series-label">QTD</div>
+                    </div>
+                    <div class="series-item">
+                        <div class="series-ticker">$CPI-M</div>
+                        <div class="series-value" id="series-mtd">—</div>
+                        <div class="series-label">MTD</div>
+                    </div>
+                    <div class="series-item">
+                        <div class="series-ticker">$CPI-W</div>
+                        <div class="series-value" id="series-wow">—</div>
+                        <div class="series-label">WoW</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trend Analysis -->
+            <section class="trend-analysis">
+                <div class="section-header">
+                    <div class="section-title">Trend Analysis</div>
+                    <div class="section-subtitle">Direction and velocity</div>
+                </div>
+                <div class="trend-grid">
+                    <div class="trend-item">
+                        <div class="trend-label">Direction</div>
+                        <div class="trend-value" id="trend-direction">—</div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-label">Velocity</div>
+                        <div class="trend-value" id="trend-velocity">—</div>
+                        <div class="trend-unit">pts/month</div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-label">30d Forecast</div>
+                        <div class="trend-value" id="trend-forecast">—</div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-label">Confidence</div>
+                        <div class="trend-value" id="trend-confidence">—</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Yield Curve -->
+            <section class="yield-curve">
+                <div class="section-header">
+                    <div class="section-title">Yield Curve</div>
+                    <div class="section-subtitle">Annualized deflation by horizon</div>
+                </div>
+                <div class="curve-grid" id="curve-grid">
+                    <div class="curve-point">
+                        <div class="curve-horizon">1W</div>
+                        <div class="curve-rate" id="curve-1w">—</div>
+                        <div class="curve-label">annualized</div>
+                    </div>
+                    <div class="curve-point">
+                        <div class="curve-horizon">1M</div>
+                        <div class="curve-rate" id="curve-1m">—</div>
+                        <div class="curve-label">annualized</div>
+                    </div>
+                    <div class="curve-point">
+                        <div class="curve-horizon">3M</div>
+                        <div class="curve-rate" id="curve-3m">—</div>
+                        <div class="curve-label">annualized</div>
+                    </div>
+                    <div class="curve-point">
+                        <div class="curve-horizon">6M</div>
+                        <div class="curve-rate" id="curve-6m">—</div>
+                        <div class="curve-label">annualized</div>
+                    </div>
+                    <div class="curve-point">
+                        <div class="curve-horizon">1Y</div>
+                        <div class="curve-rate" id="curve-1y">—</div>
+                        <div class="curve-label">annualized</div>
+                    </div>
+                </div>
+                <div class="curve-interpretation" id="curve-interpretation"></div>
+            </section>
+
             <!-- Subindices -->
             <section class="subindices">
                 <div class="subindex">
@@ -379,6 +769,98 @@
                 </div>
             </section>
             
+            <!-- Exchange Rates -->
+            <section class="exchange-rates">
+                <div class="section-header">
+                    <div class="section-title">Cognitive Exchange Rates</div>
+                    <div class="section-subtitle" id="exchange-base">Base: $UTIL (Gemini Flash)</div>
+                </div>
+                <div class="rates-grid">
+                    <div class="rate-card">
+                        <span class="rate-ticker">$REASON</span>
+                        <span class="rate-value" id="reason-rate">= — $UTIL</span>
+                    </div>
+                    <div class="rate-card">
+                        <span class="rate-ticker">$FRONT</span>
+                        <span class="rate-value" id="front-rate">= — $UTIL</span>
+                    </div>
+                    <div class="rate-card">
+                        <span class="rate-ticker">$LCTX</span>
+                        <span class="rate-value" id="lctx-rate">= — $UTIL</span>
+                    </div>
+                    <div class="rate-card">
+                        <span class="rate-ticker">$BULK</span>
+                        <span class="rate-value" id="bulk-rate">= — $UTIL</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Build Cost Index (Persona CPIs) -->
+            <section class="persona-cpis">
+                <div class="section-header">
+                    <div class="section-title">Build Cost Index</div>
+                    <div class="section-subtitle">What does YOUR build cost?</div>
+                </div>
+                <div class="persona-grid">
+                    <div class="persona-card">
+                        <div class="persona-ticker">$START</div>
+                        <div class="persona-value" id="startup-cpi">—</div>
+                        <div class="persona-name">Startup Builder</div>
+                        <div class="persona-change" id="startup-change">—</div>
+                        <div class="persona-insight" id="startup-insight"></div>
+                    </div>
+                    <div class="persona-card">
+                        <div class="persona-ticker">$AGENT</div>
+                        <div class="persona-value" id="agentic-cpi">—</div>
+                        <div class="persona-name">Agentic Team</div>
+                        <div class="persona-change" id="agentic-change">—</div>
+                        <div class="persona-insight" id="agentic-insight"></div>
+                    </div>
+                    <div class="persona-card">
+                        <div class="persona-ticker">$THRU</div>
+                        <div class="persona-value" id="throughput-cpi">—</div>
+                        <div class="persona-name">Throughput</div>
+                        <div class="persona-change" id="throughput-change">—</div>
+                        <div class="persona-insight" id="throughput-insight"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Methodology Variants -->
+            <section class="methodology-variants">
+                <div class="section-header">
+                    <div class="section-title">Methodology Variants</div>
+                    <div class="section-subtitle">CPI by workload mix</div>
+                </div>
+                <div class="variants-grid" id="variants-grid">
+                    <div class="variant-item">
+                        <div class="variant-ticker">$CPI-GEN</div>
+                        <div class="variant-value" id="variant-general">—</div>
+                        <div class="variant-name">General</div>
+                    </div>
+                    <div class="variant-item">
+                        <div class="variant-ticker">$CPI-FRO</div>
+                        <div class="variant-value" id="variant-frontier">—</div>
+                        <div class="variant-name">Frontier Heavy</div>
+                    </div>
+                    <div class="variant-item">
+                        <div class="variant-ticker">$CPI-BUD</div>
+                        <div class="variant-value" id="variant-budget">—</div>
+                        <div class="variant-name">Budget</div>
+                    </div>
+                    <div class="variant-item">
+                        <div class="variant-ticker">$CPI-REA</div>
+                        <div class="variant-value" id="variant-reasoning">—</div>
+                        <div class="variant-name">Reasoning</div>
+                    </div>
+                    <div class="variant-item">
+                        <div class="variant-ticker">$CPI-ENT</div>
+                        <div class="variant-value" id="variant-enterprise">—</div>
+                        <div class="variant-name">Enterprise</div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Spreads -->
             <section class="spreads">
                 <div class="spreads-title">Spreads</div>
@@ -508,10 +990,144 @@
                         Math.abs(data.spreads.context_premium.value).toFixed(2) + '/1M';
                 }
                 
+                // Exchange Rates
+                if (data.exchange_rates && data.exchange_rates.rates) {
+                    const rates = data.exchange_rates.rates;
+                    if (rates.reasoning) {
+                        document.getElementById('reason-rate').textContent = '= ' + rates.reasoning.rate + ' $UTIL';
+                    }
+                    if (rates.frontier) {
+                        document.getElementById('front-rate').textContent = '= ' + rates.frontier.rate + ' $UTIL';
+                    }
+                    if (rates.longctx) {
+                        document.getElementById('lctx-rate').textContent = '= ' + rates.longctx.rate + ' $UTIL';
+                    }
+                    if (rates.budget) {
+                        document.getElementById('bulk-rate').textContent = '= ' + rates.budget.rate + ' $UTIL';
+                    }
+                }
+
+                // Persona CPIs
+                if (data.persona_cpis) {
+                    const personas = data.persona_cpis;
+
+                    if (personas.startup) {
+                        document.getElementById('startup-cpi').textContent = personas.startup.cpi.toFixed(1);
+                        const startupChange = document.getElementById('startup-change');
+                        if (personas.startup.mom_change !== null) {
+                            startupChange.textContent = (personas.startup.mom_change >= 0 ? '+' : '') + personas.startup.mom_change.toFixed(1) + '% MoM';
+                            if (personas.startup.mom_change < 0) startupChange.classList.add('negative');
+                        } else {
+                            startupChange.textContent = 'Benchmarking';
+                        }
+                        document.getElementById('startup-insight').textContent = personas.startup.insight;
+                    }
+
+                    if (personas.agentic) {
+                        document.getElementById('agentic-cpi').textContent = personas.agentic.cpi.toFixed(1);
+                        const agenticChange = document.getElementById('agentic-change');
+                        if (personas.agentic.mom_change !== null) {
+                            agenticChange.textContent = (personas.agentic.mom_change >= 0 ? '+' : '') + personas.agentic.mom_change.toFixed(1) + '% MoM';
+                            if (personas.agentic.mom_change < 0) agenticChange.classList.add('negative');
+                        } else {
+                            agenticChange.textContent = 'Benchmarking';
+                        }
+                        document.getElementById('agentic-insight').textContent = personas.agentic.insight;
+                    }
+
+                    if (personas.throughput) {
+                        document.getElementById('throughput-cpi').textContent = personas.throughput.cpi.toFixed(1);
+                        const throughputChange = document.getElementById('throughput-change');
+                        if (personas.throughput.mom_change !== null) {
+                            throughputChange.textContent = (personas.throughput.mom_change >= 0 ? '+' : '') + personas.throughput.mom_change.toFixed(1) + '% MoM';
+                            if (personas.throughput.mom_change < 0) throughputChange.classList.add('negative');
+                        } else {
+                            throughputChange.textContent = 'Benchmarking';
+                        }
+                        document.getElementById('throughput-insight').textContent = personas.throughput.insight;
+                    }
+                }
+
+                // Index Series
+                if (data.index_series) {
+                    const series = data.index_series;
+                    if (series.launch) {
+                        document.getElementById('series-launch').textContent = series.launch.value.toFixed(1);
+                    }
+                    if (series.yoy) {
+                        document.getElementById('series-yoy').textContent = series.yoy.value.toFixed(1);
+                    }
+                    if (series.qtd) {
+                        document.getElementById('series-qtd').textContent = series.qtd.value.toFixed(1);
+                    }
+                    if (series.mtd) {
+                        document.getElementById('series-mtd').textContent = series.mtd.value.toFixed(1);
+                    }
+                    if (series.wow) {
+                        document.getElementById('series-wow').textContent = series.wow.value.toFixed(1);
+                    }
+                }
+
+                // Trend Analysis
+                if (data.trend_analysis) {
+                    const trend = data.trend_analysis;
+                    const directionEl = document.getElementById('trend-direction');
+                    const directionSymbol = trend.direction === 'deflating' ? '↓' : trend.direction === 'inflating' ? '↑' : '→';
+                    directionEl.textContent = directionSymbol + ' ' + trend.direction.toUpperCase();
+                    if (trend.direction === 'deflating') directionEl.classList.add('deflating');
+                    if (trend.direction === 'inflating') directionEl.classList.add('inflating');
+
+                    const velocityEl = document.getElementById('trend-velocity');
+                    velocityEl.textContent = (trend.velocity >= 0 ? '+' : '') + trend.velocity.toFixed(2);
+
+                    document.getElementById('trend-forecast').textContent = trend.forecast_30d.toFixed(1);
+                    document.getElementById('trend-confidence').textContent = trend.confidence.toUpperCase();
+                }
+
+                // Yield Curve
+                if (data.yield_curve && data.yield_curve.curve) {
+                    const curve = data.yield_curve.curve;
+                    const horizons = {'1w': 'curve-1w', '1m': 'curve-1m', '3m': 'curve-3m', '6m': 'curve-6m', '1y': 'curve-1y'};
+
+                    for (const [key, elemId] of Object.entries(horizons)) {
+                        if (curve[key]) {
+                            const el = document.getElementById(elemId);
+                            const rate = curve[key].annualized_pct;
+                            el.textContent = (rate >= 0 ? '+' : '') + rate.toFixed(1) + '%';
+                            if (rate > 0) el.classList.add('positive');
+                            if (rate < 0) el.classList.add('negative');
+                        }
+                    }
+
+                    if (data.yield_curve.interpretation) {
+                        document.getElementById('curve-interpretation').textContent = data.yield_curve.interpretation;
+                    }
+                }
+
+                // Methodology Variants
+                if (data.methodology_variants) {
+                    const variants = data.methodology_variants;
+                    if (variants.general) {
+                        document.getElementById('variant-general').textContent = variants.general.value.toFixed(1);
+                    }
+                    if (variants.frontier_heavy) {
+                        document.getElementById('variant-frontier').textContent = variants.frontier_heavy.value.toFixed(1);
+                    }
+                    if (variants.budget_heavy) {
+                        document.getElementById('variant-budget').textContent = variants.budget_heavy.value.toFixed(1);
+                    }
+                    if (variants.reasoning_focus) {
+                        document.getElementById('variant-reasoning').textContent = variants.reasoning_focus.value.toFixed(1);
+                    }
+                    if (variants.enterprise) {
+                        document.getElementById('variant-enterprise').textContent = variants.enterprise.value.toFixed(1);
+                    }
+                }
+
                 // Last updated
                 const updated = new Date(data.meta.generated_at);
                 document.getElementById('last-updated').textContent = updated.toISOString().split('T')[0] + ' ' + updated.toISOString().split('T')[1].split('.')[0] + ' UTC';
-                
+
             } catch (error) {
                 console.log('CPI data not yet available');
             }

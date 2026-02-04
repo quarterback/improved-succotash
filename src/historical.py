@@ -21,10 +21,18 @@ def load_baseline() -> Optional[dict]:
         return json.load(f)
 
 
-def save_baseline(basket_costs: dict, total_weighted: float, subindex_costs: dict = None, date: str = None):
+def save_baseline(basket_costs: dict, total_weighted: float, subindex_costs: dict = None,
+                  persona_costs: dict = None, date: str = None):
     """
     Save baseline prices. This should only be done once at launch.
     After setting, the baseline is immutable.
+
+    Args:
+        basket_costs: Per-workload costs
+        total_weighted: Weighted total basket cost
+        subindex_costs: Per-subindex costs (judgment, longctx, budget, frontier)
+        persona_costs: Per-persona basket costs (startup, agentic, throughput)
+        date: Baseline date (defaults to today)
     """
     if BASELINE_PATH.exists():
         print(f"[Baseline] Already exists, not overwriting")
@@ -37,6 +45,7 @@ def save_baseline(basket_costs: dict, total_weighted: float, subindex_costs: dic
         "basket_costs": basket_costs,
         "total_weighted": total_weighted,
         "subindex_costs": subindex_costs or {},
+        "persona_costs": persona_costs or {},
         "locked_at": datetime.now(timezone.utc).isoformat(),
         "note": "Baseline is immutable after initial setting"
     }
@@ -67,7 +76,9 @@ def save_snapshot(snapshot: dict):
         "cpi": 100.0,
         "basket_cost": 0.0409,
         "subindices": {"judgment": 100.0, ...},
-        "spreads": {"cognition_premium": 13.3, ...}
+        "spreads": {"cognition_premium": 13.3, ...},
+        "personas": {"startup": 97.2, "agentic": 112.4, "throughput": 94.1},
+        "persona_costs": {"startup": 0.0523, ...}
     }
     """
     history = load_historical()
@@ -141,6 +152,68 @@ def get_trend(mom_change: Optional[float]) -> str:
     if mom_change < -1:
         return "down"
     return "stable"
+
+
+def get_closest_snapshot(days_ago: int, tolerance: int = 5) -> Optional[dict]:
+    """
+    Get the snapshot closest to N days ago, within a tolerance window.
+
+    This is useful when we don't have data for every single day.
+    For example, if looking for 30 days ago but we only have data
+    from 28 or 32 days ago, return the closest one.
+    """
+    history = load_historical()
+    if not history:
+        return None
+
+    target = datetime.now(timezone.utc) - timedelta(days=days_ago)
+    target_str = target.strftime("%Y-%m-%d")
+
+    # First try exact match
+    for snapshot in history:
+        if snapshot["date"] == target_str:
+            return snapshot
+
+    # Find closest within tolerance
+    closest = None
+    closest_diff = None
+
+    for snapshot in history:
+        snapshot_date = datetime.strptime(snapshot["date"], "%Y-%m-%d")
+        diff = abs((target.replace(tzinfo=None) - snapshot_date).days)
+
+        if diff <= tolerance:
+            if closest_diff is None or diff < closest_diff:
+                closest = snapshot
+                closest_diff = diff
+
+    return closest
+
+
+def get_persona_mom_change(persona_key: str, current_cpi: float) -> Optional[float]:
+    """Get month-over-month change for a specific persona."""
+    snapshot = get_closest_snapshot(30, tolerance=7)
+    if snapshot and snapshot.get("personas", {}).get(persona_key):
+        return calculate_change(current_cpi, snapshot["personas"][persona_key])
+    return None
+
+
+def get_persona_yoy_change(persona_key: str, current_cpi: float) -> Optional[float]:
+    """Get year-over-year change for a specific persona."""
+    snapshot = get_closest_snapshot(365, tolerance=30)
+    if snapshot and snapshot.get("personas", {}).get(persona_key):
+        return calculate_change(current_cpi, snapshot["personas"][persona_key])
+    return None
+
+
+def get_days_since_baseline() -> int:
+    """Get number of days since baseline was set."""
+    baseline = load_baseline()
+    if not baseline:
+        return 0
+    baseline_date = datetime.strptime(baseline["date"], "%Y-%m-%d")
+    today = datetime.now(timezone.utc).replace(tzinfo=None)
+    return (today - baseline_date).days
 
 
 if __name__ == "__main__":
