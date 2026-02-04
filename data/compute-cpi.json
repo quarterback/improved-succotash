@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-02-04T05:09:16.589337+00:00",
+    "generated_at": "2026-02-04T05:16:48.435809+00:00",
     "baseline_date": "2025-02-01",
     "launch_date": "2025-02-01",
     "data_sources": [
@@ -38,6 +38,12 @@
       "name": "Quarter-to-Date",
       "base_date": "2026-01-01",
       "value": 145.1
+    },
+    "mtd": {
+      "ticker": "$CPI-M",
+      "name": "Month-to-Date",
+      "base_date": "2026-02-01",
+      "value": 100.0
     }
   },
   "methodology_variants": {
@@ -78,15 +84,21 @@
     }
   },
   "trend_analysis": {
-    "direction": "deflating",
-    "velocity": -2.29,
+    "direction": "inflating",
+    "velocity": 7.16,
     "velocity_unit": "points per month",
-    "acceleration": 8.87,
-    "forecast_30d": 103.3,
+    "acceleration": 29.23,
+    "forecast_30d": 112.8,
     "confidence": "low"
   },
   "yield_curve": {
     "curve": {
+      "1w": {
+        "days": 7,
+        "deflation_pct": 0.0,
+        "annualized_pct": 0.0,
+        "source_date": "2026-02-04"
+      },
       "1m": {
         "days": 30,
         "deflation_pct": 45.05,
@@ -113,31 +125,35 @@
       }
     },
     "interpretation": "Significant inflation - rapid increase in AI compute costs",
-    "generated_at": "2026-02-04T05:09:16.586147+00:00"
+    "generated_at": "2026-02-04T05:16:48.432979+00:00"
   },
   "subindices": {
     "judgment": {
       "ticker": "$JUDGE",
-      "name": "Judgment CPI",
-      "value": 132.0,
+      "name": "Reasoning Tier",
+      "value": 7.92,
+      "value_unit": "$/1M tokens",
       "models_count": 5
     },
     "longctx": {
       "ticker": "$LCTX",
-      "name": "LongContext CPI",
-      "value": 85.4,
+      "name": "Long Context Tier",
+      "value": 2.78,
+      "value_unit": "$/1M tokens",
       "models_count": 5
     },
     "budget": {
       "ticker": "$BULK",
       "name": "Budget Tier",
-      "value": 346.3,
+      "value": 0.61,
+      "value_unit": "$/1M tokens",
       "models_count": 7
     },
     "frontier": {
       "ticker": "$FRONT",
       "name": "Frontier Tier",
-      "value": 209.2,
+      "value": 10.04,
+      "value_unit": "$/1M tokens",
       "models_count": 5
     }
   },
@@ -197,7 +213,7 @@
         "display": "1 $BULK = 4 $UTIL"
       }
     },
-    "generated_at": "2026-02-04T05:09:16.576933+00:00"
+    "generated_at": "2026-02-04T05:16:48.421809+00:00"
   },
   "persona_cpis": {
     "startup": {

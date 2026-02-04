@@ -136,10 +136,10 @@
             color: var(--dim);
         }
         
-        .subindex-change {
-            font-size: 0.75rem;
-            color: var(--accent);
-            margin-top: 0.5rem;
+        .subindex-unit {
+            font-size: 0.625rem;
+            color: var(--dim);
+            margin-top: 0.25rem;
         }
         
         /* Spreads */
@@ -690,31 +690,31 @@
                 <div class="curve-interpretation" id="curve-interpretation"></div>
             </section>
 
-            <!-- Subindices -->
+            <!-- Subindices (Cost per 1M tokens) -->
             <section class="subindices">
                 <div class="subindex">
                     <div class="subindex-ticker">$JUDGE</div>
                     <div class="subindex-value" id="judge-value">—</div>
-                    <div class="subindex-name">Judgment CPI</div>
-                    <div class="subindex-change" id="judge-change"></div>
+                    <div class="subindex-name">Reasoning Tier</div>
+                    <div class="subindex-unit">per 1M tokens</div>
                 </div>
                 <div class="subindex">
                     <div class="subindex-ticker">$LCTX</div>
                     <div class="subindex-value" id="lctx-value">—</div>
-                    <div class="subindex-name">LongContext CPI</div>
-                    <div class="subindex-change" id="lctx-change"></div>
+                    <div class="subindex-name">Long Context Tier</div>
+                    <div class="subindex-unit">per 1M tokens</div>
                 </div>
                 <div class="subindex">
                     <div class="subindex-ticker">$BULK</div>
                     <div class="subindex-value" id="bulk-value">—</div>
                     <div class="subindex-name">Budget Tier</div>
-                    <div class="subindex-change" id="bulk-change"></div>
+                    <div class="subindex-unit">per 1M tokens</div>
                 </div>
                 <div class="subindex">
                     <div class="subindex-ticker">$FRONT</div>
                     <div class="subindex-value" id="front-value">—</div>
                     <div class="subindex-name">Frontier Tier</div>
-                    <div class="subindex-change" id="front-change"></div>
+                    <div class="subindex-unit">per 1M tokens</div>
                 </div>
             </section>
             
@@ -864,18 +864,18 @@
                     if (data.compute_cpi.yoy_change < 0) yoyEl.classList.add('negative');
                 }
                 
-                // Subindices
+                // Subindices (cost per 1M tokens)
                 if (data.subindices.judgment) {
-                    document.getElementById('judge-value').textContent = data.subindices.judgment.value.toFixed(1);
+                    document.getElementById('judge-value').textContent = '$' + data.subindices.judgment.value.toFixed(2);
                 }
                 if (data.subindices.longctx) {
-                    document.getElementById('lctx-value').textContent = data.subindices.longctx.value.toFixed(1);
+                    document.getElementById('lctx-value').textContent = '$' + data.subindices.longctx.value.toFixed(2);
                 }
                 if (data.subindices.budget) {
-                    document.getElementById('bulk-value').textContent = data.subindices.budget.value.toFixed(1);
+                    document.getElementById('bulk-value').textContent = '$' + data.subindices.budget.value.toFixed(2);
                 }
                 if (data.subindices.frontier) {
-                    document.getElementById('front-value').textContent = data.subindices.frontier.value.toFixed(1);
+                    document.getElementById('front-value').textContent = '$' + data.subindices.frontier.value.toFixed(2);
                 }
                 
                 // Spreads
