@@ -346,6 +346,127 @@ def calculate_category_concentration(category_volumes: dict) -> float:
     return round(hhi, 3)
 
 
+def calculate_vwar(model_share: float, baseline_share: float) -> float:
+    """
+    vWAR - Wins Above Replacement.
+
+    Measures how much more market share a model captures than
+    the replacement-level baseline (Gemini Flash = $UTIL).
+
+    Positive vWAR = capturing more than expected
+    Negative vWAR = underperforming vs commodity option
+    """
+    if model_share is None or baseline_share is None:
+        return None
+    return round(model_share - baseline_share, 3)
+
+
+def calculate_cognitive_arbitrage(arena_elo: int, blended_cost: float,
+                                  market_avg_ratio: float) -> float:
+    """
+    Cognitive Arbitrage Score.
+
+    Measures whether a model is over/underpriced for its capability.
+
+    Formula: (elo / price) / market_average_ratio
+
+    > 1.0 = underpriced for capability (buy signal)
+    < 1.0 = overpriced for capability (avoid)
+    = 1.0 = fairly priced
+    """
+    if not arena_elo or not blended_cost or blended_cost == 0:
+        return None
+    if not market_avg_ratio or market_avg_ratio == 0:
+        return None
+
+    model_ratio = arena_elo / blended_cost
+    arbitrage = model_ratio / market_avg_ratio
+    return round(arbitrage, 2)
+
+
+def calculate_completion_ratio(output_tokens: int, input_tokens: int) -> float:
+    """
+    Completion Ratio - Task signature metric.
+
+    Low (0.1-0.3): Summarization, extraction
+    Medium (0.5-1.0): Chat, Q&A
+    High (1.5-3.0): Generation, coding, agents
+
+    Tracks what kind of work a model/tier is doing.
+    """
+    if not input_tokens or input_tokens == 0:
+        return None
+    return round(output_tokens / input_tokens, 2)
+
+
+def calculate_stickiness(month5_retention: float, month1_retention: float) -> float:
+    """
+    Stickiness Index.
+
+    Measures user loyalty / lock-in.
+
+    High stickiness = harder to switch, specialized workflows
+    Low stickiness = commodity, easy to replace
+    """
+    if not month1_retention or month1_retention == 0:
+        return None
+    return round(month5_retention / month1_retention, 2)
+
+
+# =============================================================================
+# OCCUPANT INDICES
+# =============================================================================
+
+def calculate_flow_index(current_volume: int, previous_volume: int,
+                        days_between: int = 7) -> dict:
+    """
+    $FLOW - Token Velocity Index.
+
+    Measures whether compute demand is accelerating or decelerating.
+
+    Returns daily velocity and acceleration.
+    """
+    if not current_volume or not previous_volume or days_between == 0:
+        return {"velocity": None, "acceleration": None}
+
+    daily_velocity = (current_volume - previous_volume) / days_between
+
+    return {
+        "velocity": round(daily_velocity, 0),
+        "velocity_pct": round((current_volume / previous_volume - 1) * 100, 2) if previous_volume else None,
+        "interpretation": "accelerating" if daily_velocity > 0 else "decelerating"
+    }
+
+
+def calculate_switch_index(tier_migrations: dict) -> dict:
+    """
+    $SWITCH - Cross-tier Migration Index.
+
+    Tracks whether users are trading up or down tiers.
+
+    tier_migrations: {"budget_to_frontier": count, "frontier_to_budget": count, ...}
+    """
+    if not tier_migrations:
+        return {"direction": "stable", "intensity": 0}
+
+    up_migrations = sum(v for k, v in tier_migrations.items() if "to_frontier" in k or "to_reasoning" in k)
+    down_migrations = sum(v for k, v in tier_migrations.items() if "to_budget" in k)
+
+    total = up_migrations + down_migrations
+    if total == 0:
+        return {"direction": "stable", "intensity": 0}
+
+    net = up_migrations - down_migrations
+    intensity = abs(net) / total
+
+    return {
+        "direction": "premiumizing" if net > 0 else "commoditizing" if net < 0 else "stable",
+        "intensity": round(intensity, 2),
+        "up_migrations": up_migrations,
+        "down_migrations": down_migrations
+    }
+
+
 # =============================================================================
 # MARKET ANALYSIS
 # =============================================================================
@@ -431,6 +552,23 @@ def build_model_stats(registry: dict, arena_data: dict = None,
     for rank, (model_id, _) in enumerate(value_list, 1):
         stats[model_id]["value_rank"] = rank
 
+    # Calculate market average ELO/price ratio for cognitive arbitrage
+    ratios = []
+    for mid, s in stats.items():
+        if s.get("arena_elo") and s.get("blended_cost_mtok"):
+            ratios.append(s["arena_elo"] / s["blended_cost_mtok"])
+
+    market_avg_ratio = sum(ratios) / len(ratios) if ratios else None
+
+    # Calculate cognitive arbitrage for each model
+    for model_id, s in stats.items():
+        if s.get("arena_elo") and s.get("blended_cost_mtok") and market_avg_ratio:
+            s["arbitrage"] = calculate_cognitive_arbitrage(
+                s["arena_elo"], s["blended_cost_mtok"], market_avg_ratio
+            )
+        else:
+            s["arbitrage"] = None
+
     # Calculate PPC for models with both price and volume rank
     # (volume rank would come from rankings data)
 
@@ -482,6 +620,13 @@ def generate_market_report(registry: dict) -> dict:
         key=lambda x: x[1]["qap"]
     )[:5]
 
+    # Find arbitrage opportunities (highest arbitrage score = most underpriced)
+    arbitrage_leaders = sorted(
+        [(mid, s) for mid, s in model_stats.items() if s.get("arbitrage")],
+        key=lambda x: x[1]["arbitrage"],
+        reverse=True
+    )[:5]
+
     # Build report
     report = {
         "generated_at": now.isoformat(),
@@ -498,6 +643,17 @@ def generate_market_report(registry: dict) -> dict:
                 "value_rank": s.get("value_rank"),
             }
             for mid, s in value_leaders
+        ],
+
+        "arbitrage_opportunities": [
+            {
+                "model": mid,
+                "arbitrage": s["arbitrage"],
+                "interpretation": "underpriced" if s["arbitrage"] > 1.2 else "fair" if s["arbitrage"] > 0.8 else "overpriced",
+                "blended_cost": s["blended_cost_mtok"],
+                "arena_elo": s.get("arena_elo"),
+            }
+            for mid, s in arbitrage_leaders
         ],
 
         "price_summary": {
@@ -587,6 +743,13 @@ if __name__ == "__main__":
     for v in report["value_leaders"]:
         print(f"  {v['model']:40} QAP={v['qap']:.2f}  "
               f"${v['blended_cost']:.2f}/MTok  ELO={v['arena_elo'] or 'N/A'}")
+
+    print("\n--- ARBITRAGE OPPORTUNITIES ---")
+    print("  (>1.2 = underpriced, <0.8 = overpriced)")
+    for a in report["arbitrage_opportunities"]:
+        signal = "BUY" if a['arbitrage'] > 1.2 else "FAIR" if a['arbitrage'] > 0.8 else "SELL"
+        print(f"  {a['model']:40} arb={a['arbitrage']:.2f} [{signal:4}]  "
+              f"${a['blended_cost']:.2f}/MTok  ELO={a['arena_elo'] or 'N/A'}")
 
     # Save snapshot
     save_market_snapshot(report)
