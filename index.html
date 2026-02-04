@@ -3,14 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Occupant | Compute CPI</title>
-    <meta name="description" content="The inflation rate for AI work. We track the changing cost of representative AI workloads.">
+    <title>Occupant | The clearest view of AI compute pricing</title>
+    <meta name="description" content="We aggregate, analyze, and publish AI pricing daily. Budget with confidence.">
     <link rel="stylesheet" href="/styles.css">
+    <style>
+        .hero-insight {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--fg);
+            margin-bottom: 0.5rem;
+        }
+        .hero-insight .highlight {
+            color: var(--accent);
+        }
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .audience-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+        }
+        .audience-card h3 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+        .audience-card p {
+            font-size: 0.875rem;
+            color: var(--fg-muted);
+            line-height: 1.5;
+            margin: 0;
+        }
+        .market-insight {
+            background: var(--accent-glow);
+            border-left: 3px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            margin: 2rem 0;
+        }
+        .market-insight h2 {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+            color: var(--fg);
+        }
+        .market-insight p {
+            font-size: 0.9rem;
+            color: var(--fg-muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+        .market-insight a {
+            color: var(--accent);
+        }
+        .tier-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .tier-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .tier-name {
+            font-size: 0.875rem;
+            color: var(--fg-muted);
+        }
+        .tier-price {
+            font-weight: 600;
+            color: var(--fg);
+        }
+        .tier-change {
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-left: 0.5rem;
+        }
+        .cta-row {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        .cta-btn:hover {
+            opacity: 0.9;
+        }
+        .cta-btn.secondary {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--fg);
+        }
+        .cta-btn.secondary:hover {
+            border-color: var(--accent);
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <nav>
-            <a href="/" class="active">$CPI Index</a>
+            <a href="/" class="active">Index</a>
             <a href="/sabermetrics.html">Market Intel</a>
             <a href="/calculator.html">Calculator</a>
             <a href="/glossary.html">Glossary</a>
@@ -22,148 +131,93 @@
 
         <header>
             <div class="logo">Occupant</div>
-            <div class="tagline">The inflation rate for AI work</div>
+            <div class="tagline">The clearest view of AI compute pricing.</div>
+            <p style="color: var(--fg-muted); font-size: 0.875rem; margin-top: 0.5rem;">We aggregate, analyze, and publish daily—so you can budget with confidence.</p>
         </header>
 
         <main>
-            <!-- Main CPI Display -->
+            <!-- Hero: The Key Insight -->
             <section class="cpi-main">
-                <div class="cpi-ticker">$CPI - COMPUTE CPI</div>
+                <div class="hero-insight" id="hero-insight">AI compute costs are <span class="highlight">DOWN</span> year-over-year.</div>
+                <div class="cpi-ticker">$CPI</div>
                 <div class="cpi-value" id="cpi-value">100.0</div>
-                <div class="cpi-changes">
-                    <div class="change">
-                        <span class="change-label">MoM:</span>
-                        <span class="change-value" id="mom-change">-</span>
-                    </div>
-                    <div class="change">
-                        <span class="change-label">YoY:</span>
-                        <span class="change-value" id="yoy-change">-</span>
-                    </div>
-                </div>
                 <div class="cpi-base">Base = 100 (February 2025)</div>
+                <div class="cta-row">
+                    <a href="/calculator.html" class="cta-btn">Calculate your savings</a>
+                    <a href="/sabermetrics.html" class="cta-btn secondary">See market data</a>
+                </div>
+                <p style="margin-top: 1.5rem; font-size: 0.75rem; color: var(--fg-dim);">Aggregated from 2,300+ models across major providers</p>
             </section>
 
-            <!-- Index Series -->
-            <section class="index-series">
-                <div class="section-header">
-                    <div class="section-title">Index Series</div>
-                    <div class="section-subtitle">CPI across time periods</div>
-                </div>
-                <div class="series-grid" id="series-grid">
-                    <div class="series-item">
-                        <div class="series-ticker">$CPI-L</div>
-                        <div class="series-value" id="series-launch">-</div>
-                        <div class="series-label">Since Launch</div>
-                    </div>
-                    <div class="series-item">
-                        <div class="series-ticker">$CPI-Y</div>
-                        <div class="series-value" id="series-yoy">-</div>
-                        <div class="series-label">YoY</div>
-                    </div>
-                    <div class="series-item">
-                        <div class="series-ticker">$CPI-Q</div>
-                        <div class="series-value" id="series-qtd">-</div>
-                        <div class="series-label">QTD</div>
-                    </div>
-                    <div class="series-item">
-                        <div class="series-ticker">$CPI-M</div>
-                        <div class="series-value" id="series-mtd">-</div>
-                        <div class="series-label">MTD</div>
-                    </div>
-                    <div class="series-item">
-                        <div class="series-ticker">$CPI-W</div>
-                        <div class="series-value" id="series-wow">-</div>
-                        <div class="series-label">WoW</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Trend Analysis -->
-            <section class="trend-analysis">
-                <div class="section-header">
-                    <div class="section-title">Trend Analysis</div>
-                    <div class="section-subtitle">Direction and velocity</div>
-                </div>
-                <div class="trend-grid">
-                    <div class="trend-item">
-                        <div class="trend-label">Direction</div>
-                        <div class="trend-value" id="trend-direction">-</div>
-                    </div>
-                    <div class="trend-item">
-                        <div class="trend-label">Velocity</div>
-                        <div class="trend-value" id="trend-velocity">-</div>
-                        <div class="trend-unit">pts/month</div>
-                    </div>
-                    <div class="trend-item">
-                        <div class="trend-label">30d Forecast</div>
-                        <div class="trend-value" id="trend-forecast">-</div>
-                    </div>
-                    <div class="trend-item">
-                        <div class="trend-label">Confidence</div>
-                        <div class="trend-value" id="trend-confidence">-</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Subindices (Cost per 1M tokens) -->
+            <!-- The Market Today -->
             <section class="subindices">
-                <div class="subindex">
-                    <div class="subindex-ticker">$JUDGE</div>
-                    <div class="subindex-value" id="judge-value">-</div>
-                    <div class="subindex-name">Reasoning Tier</div>
-                    <div class="subindex-unit">per 1M tokens</div>
-                </div>
-                <div class="subindex">
-                    <div class="subindex-ticker">$LCTX</div>
-                    <div class="subindex-value" id="lctx-value">-</div>
-                    <div class="subindex-name">Long Context Tier</div>
-                    <div class="subindex-unit">per 1M tokens</div>
+                <div class="section-header">
+                    <div class="section-title">The Market Today</div>
                 </div>
                 <div class="subindex">
                     <div class="subindex-ticker">$BULK</div>
                     <div class="subindex-value" id="bulk-value">-</div>
-                    <div class="subindex-name">Budget Tier</div>
+                    <div class="subindex-name">Basic tasks</div>
                     <div class="subindex-unit">per 1M tokens</div>
                 </div>
                 <div class="subindex">
                     <div class="subindex-ticker">$FRONT</div>
                     <div class="subindex-value" id="front-value">-</div>
-                    <div class="subindex-name">Frontier Tier</div>
+                    <div class="subindex-name">Frontier models</div>
+                    <div class="subindex-unit">per 1M tokens</div>
+                </div>
+                <div class="subindex">
+                    <div class="subindex-ticker">$JUDGE</div>
+                    <div class="subindex-value" id="judge-value">-</div>
+                    <div class="subindex-name">Complex reasoning</div>
+                    <div class="subindex-unit">per 1M tokens</div>
+                </div>
+                <div class="subindex">
+                    <div class="subindex-ticker">$LCTX</div>
+                    <div class="subindex-value" id="lctx-value">-</div>
+                    <div class="subindex-name">Long context</div>
                     <div class="subindex-unit">per 1M tokens</div>
                 </div>
             </section>
 
-            <!-- Exchange Rates -->
-            <section class="exchange-rates">
+            <!-- What the Data Shows -->
+            <div class="market-insight">
+                <h2>What the Data Shows</h2>
+                <p id="market-insight-text">
+                    Commodity AI is in freefall. Reasoning AI is holding.
+                    The cost of basic inference keeps dropping as competition intensifies.
+                    But advanced reasoning models have found a floor.
+                    Your costs depend on which tier you're in.
+                </p>
+                <p style="margin-top: 1rem;"><a href="/sabermetrics.html">See full market analysis</a></p>
+            </div>
+
+            <!-- Why It Matters -->
+            <section style="margin: 3rem 0;">
                 <div class="section-header">
-                    <div class="section-title">Cognitive Exchange Rates</div>
-                    <div class="section-subtitle" id="exchange-base">Base: $UTIL (Gemini Flash)</div>
+                    <div class="section-title">Why It Matters</div>
                 </div>
-                <div class="rates-grid">
-                    <div class="rate-card">
-                        <span class="rate-ticker">$REASON</span>
-                        <span class="rate-value" id="reason-rate">= - $UTIL</span>
+                <div class="audience-grid">
+                    <div class="audience-card">
+                        <h3>For Tech Leaders</h3>
+                        <p>Stop guessing if you're overpaying. Benchmark your AI spend against the market and negotiate from data.</p>
                     </div>
-                    <div class="rate-card">
-                        <span class="rate-ticker">$FRONT</span>
-                        <span class="rate-value" id="front-rate">= - $UTIL</span>
+                    <div class="audience-card">
+                        <h3>For Finance Teams</h3>
+                        <p>Turn black-box AI costs into forecastable line items. Model next quarter with confidence.</p>
                     </div>
-                    <div class="rate-card">
-                        <span class="rate-ticker">$LCTX</span>
-                        <span class="rate-value" id="lctx-rate">= - $UTIL</span>
-                    </div>
-                    <div class="rate-card">
-                        <span class="rate-ticker">$BULK</span>
-                        <span class="rate-value" id="bulk-rate">= - $UTIL</span>
+                    <div class="audience-card">
+                        <h3>For the Public Sector</h3>
+                        <p>Prove every AI dollar delivers value. Hold vendors accountable with independent market data.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Build Cost Index (Persona CPIs) -->
+            <!-- Build Cost Index -->
             <section class="persona-cpis">
                 <div class="section-header">
                     <div class="section-title">Build Cost Index</div>
-                    <div class="section-subtitle">What does YOUR build cost?</div>
+                    <div class="section-subtitle">What does YOUR workload cost?</div>
                 </div>
                 <div class="persona-grid">
                     <div class="persona-card">
@@ -190,44 +244,30 @@
                 </div>
             </section>
 
-            <!-- Spreads -->
-            <section class="spreads">
-                <div class="spreads-title">Spreads</div>
-                <div class="spread-row">
-                    <span class="spread-ticker">$COG-P</span>
-                    <span class="spread-name">Cognition Premium</span>
-                    <span class="spread-value" id="cog-spread">-</span>
+            <!-- Trend Analysis -->
+            <section class="trend-analysis">
+                <div class="section-header">
+                    <div class="section-title">Trend</div>
                 </div>
-                <div class="spread-row">
-                    <span class="spread-ticker">$JDG-P</span>
-                    <span class="spread-name">Judgment Premium</span>
-                    <span class="spread-value" id="jdg-spread">-</span>
+                <div class="trend-grid">
+                    <div class="trend-item">
+                        <div class="trend-label">Direction</div>
+                        <div class="trend-value" id="trend-direction">-</div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-label">Velocity</div>
+                        <div class="trend-value" id="trend-velocity">-</div>
+                        <div class="trend-unit">pts/month</div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-label">30d Forecast</div>
+                        <div class="trend-value" id="trend-forecast">-</div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-label">Confidence</div>
+                        <div class="trend-value" id="trend-confidence">-</div>
+                    </div>
                 </div>
-                <div class="spread-row">
-                    <span class="spread-ticker">$CTX-P</span>
-                    <span class="spread-name">Context Premium</span>
-                    <span class="spread-value" id="ctx-spread">-</span>
-                </div>
-            </section>
-
-            <!-- About -->
-            <section class="methodology">
-                <h2>About the Index</h2>
-                <p>
-                    Compute CPI tracks the changing cost of a representative "basket" of AI work,
-                    expressed as an index where February 2025 = 100. We publish daily.
-                </p>
-                <p>
-                    The basket includes common workload categories weighted to reflect typical
-                    institutional usage patterns. Our methodology is proprietary.
-                </p>
-                <a href="/about.html" class="methodology-link">Learn more -></a>
-            </section>
-
-            <!-- Trust Signal -->
-            <section class="trust-signal">
-                <p>No referral fees. No sponsored rankings.</p>
-                <p>Independent index. We track - we don't sell.</p>
             </section>
 
             <!-- Coming Soon -->
@@ -259,73 +299,60 @@
 
     <script src="/theme.js"></script>
     <script>
-        // Load and display CPI data
         async function loadCPIData() {
             try {
                 const response = await fetch('/data/compute-cpi.json');
                 const data = await response.json();
 
                 // Main CPI
-                document.getElementById('cpi-value').textContent = data.compute_cpi.value.toFixed(1);
+                const cpiValue = data.compute_cpi.value;
+                document.getElementById('cpi-value').textContent = cpiValue.toFixed(1);
 
-                if (data.compute_cpi.mom_change !== null) {
-                    const momEl = document.getElementById('mom-change');
-                    momEl.textContent = (data.compute_cpi.mom_change >= 0 ? '+' : '') + data.compute_cpi.mom_change.toFixed(1) + '%';
-                    if (data.compute_cpi.mom_change < 0) momEl.classList.add('negative');
+                // Hero insight - lead with the outcome
+                const yoyChange = data.compute_cpi.yoy_change;
+                const heroEl = document.getElementById('hero-insight');
+                if (yoyChange !== null) {
+                    if (yoyChange < 0) {
+                        heroEl.innerHTML = `AI compute costs are <span class="highlight">DOWN ${Math.abs(yoyChange).toFixed(0)}%</span> year-over-year.`;
+                    } else if (yoyChange > 0) {
+                        heroEl.innerHTML = `AI compute costs are <span class="highlight">UP ${yoyChange.toFixed(0)}%</span> year-over-year.`;
+                    } else {
+                        heroEl.innerHTML = `AI compute costs are <span class="highlight">FLAT</span> year-over-year.`;
+                    }
                 }
 
-                if (data.compute_cpi.yoy_change !== null) {
-                    const yoyEl = document.getElementById('yoy-change');
-                    yoyEl.textContent = (data.compute_cpi.yoy_change >= 0 ? '+' : '') + data.compute_cpi.yoy_change.toFixed(1) + '%';
-                    if (data.compute_cpi.yoy_change < 0) yoyEl.classList.add('negative');
-                }
-
-                // Subindices (cost per 1M tokens)
-                if (data.subindices.judgment) {
-                    document.getElementById('judge-value').textContent = '$' + data.subindices.judgment.value.toFixed(2);
-                }
-                if (data.subindices.longctx) {
-                    document.getElementById('lctx-value').textContent = '$' + data.subindices.longctx.value.toFixed(2);
-                }
+                // Subindices (cost per 1M tokens) - reordered for clarity
                 if (data.subindices.budget) {
                     document.getElementById('bulk-value').textContent = '$' + data.subindices.budget.value.toFixed(2);
                 }
                 if (data.subindices.frontier) {
                     document.getElementById('front-value').textContent = '$' + data.subindices.frontier.value.toFixed(2);
                 }
-
-                // Spreads
-                if (data.spreads.cognition_premium) {
-                    document.getElementById('cog-spread').textContent =
-                        (data.spreads.cognition_premium.value >= 0 ? '+$' : '-$') +
-                        Math.abs(data.spreads.cognition_premium.value).toFixed(2) + '/1M';
+                if (data.subindices.judgment) {
+                    document.getElementById('judge-value').textContent = '$' + data.subindices.judgment.value.toFixed(2);
                 }
-                if (data.spreads.judgment_premium) {
-                    document.getElementById('jdg-spread').textContent =
-                        (data.spreads.judgment_premium.value >= 0 ? '+$' : '-$') +
-                        Math.abs(data.spreads.judgment_premium.value).toFixed(2) + '/1M';
-                }
-                if (data.spreads.context_premium) {
-                    document.getElementById('ctx-spread').textContent =
-                        (data.spreads.context_premium.value >= 0 ? '+$' : '-$') +
-                        Math.abs(data.spreads.context_premium.value).toFixed(2) + '/1M';
+                if (data.subindices.longctx) {
+                    document.getElementById('lctx-value').textContent = '$' + data.subindices.longctx.value.toFixed(2);
                 }
 
-                // Exchange Rates
-                if (data.exchange_rates && data.exchange_rates.rates) {
-                    const rates = data.exchange_rates.rates;
-                    if (rates.reasoning) {
-                        document.getElementById('reason-rate').textContent = '= ' + rates.reasoning.rate + ' $UTIL';
+                // Market insight - dynamic based on data
+                const insightEl = document.getElementById('market-insight-text');
+                const budget = data.subindices.budget?.value;
+                const frontier = data.subindices.frontier?.value;
+                const reasoning = data.subindices.judgment?.value;
+
+                if (budget && frontier && reasoning) {
+                    const spread = (frontier / budget).toFixed(0);
+                    let insight = `Basic tasks now cost $${budget.toFixed(2)} per million tokens. `;
+                    insight += `Frontier models run ${spread}x higher at $${frontier.toFixed(2)}. `;
+
+                    if (reasoning < frontier) {
+                        insight += `Reasoning models are surprisingly competitive at $${reasoning.toFixed(2)}.`;
+                    } else {
+                        insight += `Complex reasoning commands a premium at $${reasoning.toFixed(2)}.`;
                     }
-                    if (rates.frontier) {
-                        document.getElementById('front-rate').textContent = '= ' + rates.frontier.rate + ' $UTIL';
-                    }
-                    if (rates.longctx) {
-                        document.getElementById('lctx-rate').textContent = '= ' + rates.longctx.rate + ' $UTIL';
-                    }
-                    if (rates.budget) {
-                        document.getElementById('bulk-rate').textContent = '= ' + rates.budget.rate + ' $UTIL';
-                    }
+
+                    insightEl.textContent = insight;
                 }
 
                 // Persona CPIs
@@ -366,26 +393,6 @@
                             throughputChange.textContent = 'Benchmarking';
                         }
                         document.getElementById('throughput-insight').textContent = personas.throughput.insight;
-                    }
-                }
-
-                // Index Series
-                if (data.index_series) {
-                    const series = data.index_series;
-                    if (series.launch) {
-                        document.getElementById('series-launch').textContent = series.launch.value.toFixed(1);
-                    }
-                    if (series.yoy) {
-                        document.getElementById('series-yoy').textContent = series.yoy.value.toFixed(1);
-                    }
-                    if (series.qtd) {
-                        document.getElementById('series-qtd').textContent = series.qtd.value.toFixed(1);
-                    }
-                    if (series.mtd) {
-                        document.getElementById('series-mtd').textContent = series.mtd.value.toFixed(1);
-                    }
-                    if (series.wow) {
-                        document.getElementById('series-wow').textContent = series.wow.value.toFixed(1);
                     }
                 }
 
