@@ -12,15 +12,26 @@
             font-weight: 600;
             color: var(--fg);
             margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
         .hero-insight .highlight {
             color: var(--accent);
         }
+        @media (max-width: 480px) {
+            .hero-insight {
+                font-size: 1.1rem;
+            }
+        }
         .audience-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
             margin: 2rem 0;
+        }
+        @media (max-width: 600px) {
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
         }
         .audience-card {
             background: var(--bg-card);

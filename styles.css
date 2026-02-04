@@ -763,20 +763,48 @@ li {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .container {
         padding: 1rem;
     }
 
+    /* Mobile Nav - stack nicely */
     nav {
-        gap: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem 1.25rem;
+        padding-bottom: 1rem;
+    }
+
+    nav a {
+        font-size: 0.8rem;
     }
 
     .nav-right {
+        order: -1;
         width: 100%;
         margin-left: 0;
-        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
         justify-content: flex-end;
+    }
+
+    /* Header */
+    header {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    /* CPI Hero */
+    .cpi-main {
+        padding: 1.5rem;
     }
 
     .cpi-value {
@@ -788,8 +816,18 @@ li {
         gap: 0.5rem;
     }
 
+    /* Grids to single column */
     .subindices {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+
+    .subindex {
+        padding: 1rem;
+    }
+
+    .subindex-value {
+        font-size: 1.5rem;
     }
 
     .rates-grid {
@@ -800,12 +838,25 @@ li {
         grid-template-columns: 1fr;
     }
 
+    .persona-card {
+        padding: 1rem;
+    }
+
+    .persona-value {
+        font-size: 1.75rem;
+    }
+
     .series-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
     .trend-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .trend-value {
+        font-size: 1rem;
     }
 
     .tier-row {
@@ -821,7 +872,83 @@ li {
         grid-template-columns: 1fr;
     }
 
+    /* Tables */
     .leaders-table {
         font-size: 0.75rem;
+    }
+
+    .leaders-table th,
+    .leaders-table td {
+        padding: 0.5rem 0.25rem;
+    }
+
+    /* Footer */
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.75rem;
+    }
+
+    /* Extra small - nav stacks fully */
+    nav {
+        gap: 0.5rem 1rem;
+    }
+
+    nav a {
+        font-size: 0.75rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    /* CPI even smaller */
+    .cpi-main {
+        padding: 1rem;
+    }
+
+    .cpi-value {
+        font-size: 2.5rem;
+    }
+
+    .cpi-ticker {
+        font-size: 0.625rem;
+    }
+
+    /* Subindices single column on very small */
+    .subindices {
+        grid-template-columns: 1fr;
+    }
+
+    .series-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trend-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Audience cards stack */
+    .audience-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .audience-card {
+        padding: 1rem !important;
+    }
+
+    /* CTA buttons stack */
+    .cta-row {
+        flex-direction: column;
+    }
+
+    .cta-btn {
+        width: 100%;
+        text-align: center;
     }
 }
