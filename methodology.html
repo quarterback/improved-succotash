@@ -179,7 +179,7 @@
         <header>
             <a href="/" class="back-link">← Back to Dashboard</a>
             <h1>Compute CPI Methodology</h1>
-            <p class="subtitle">Version 1.0 • February 2026</p>
+            <p class="subtitle">Version 2.0 • February 2026</p>
         </header>
         
         <main>
@@ -377,6 +377,177 @@
                 </table>
             </section>
             
+            <section>
+                <h2>Index Series</h2>
+                <p>
+                    The index series allows comparison against multiple base periods,
+                    providing different perspectives on AI cost trends:
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Series</th>
+                            <th>Ticker</th>
+                            <th>Base Period</th>
+                            <th>Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Since Launch</td>
+                            <td><code>$CPI-L</code></td>
+                            <td>February 2025</td>
+                            <td>Long-term trend analysis</td>
+                        </tr>
+                        <tr>
+                            <td>Year-over-Year</td>
+                            <td><code>$CPI-Y</code></td>
+                            <td>365 days ago</td>
+                            <td>Annual comparison</td>
+                        </tr>
+                        <tr>
+                            <td>Quarter-to-Date</td>
+                            <td><code>$CPI-Q</code></td>
+                            <td>Start of current quarter</td>
+                            <td>Quarterly budgeting</td>
+                        </tr>
+                        <tr>
+                            <td>Month-to-Date</td>
+                            <td><code>$CPI-M</code></td>
+                            <td>Start of current month</td>
+                            <td>Monthly tracking</td>
+                        </tr>
+                        <tr>
+                            <td>Week-over-Week</td>
+                            <td><code>$CPI-W</code></td>
+                            <td>7 days ago</td>
+                            <td>Short-term changes</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    All series use the same basket and methodology—only the comparison
+                    period changes. A value of 100 means costs are unchanged from the
+                    base period; values below 100 indicate deflation.
+                </p>
+            </section>
+
+            <section>
+                <h2>Methodology Variants</h2>
+                <p>
+                    Different organizations have different workload mixes. Methodology
+                    variants apply alternative weightings to the same basket categories:
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Variant</th>
+                            <th>Ticker</th>
+                            <th>Focus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>General Purpose</td>
+                            <td><code>$CPI-GEN</code></td>
+                            <td>Balanced workload mix (default weights)</td>
+                        </tr>
+                        <tr>
+                            <td>Frontier Heavy</td>
+                            <td><code>$CPI-FRO</code></td>
+                            <td>Emphasis on coding (35%) and reasoning (25%)</td>
+                        </tr>
+                        <tr>
+                            <td>Budget Optimized</td>
+                            <td><code>$CPI-BUD</code></td>
+                            <td>Cost-conscious: classification (30%), chat (30%)</td>
+                        </tr>
+                        <tr>
+                            <td>Reasoning Focus</td>
+                            <td><code>$CPI-REA</code></td>
+                            <td>Heavy reasoning (45%), long context (15%)</td>
+                        </tr>
+                        <tr>
+                            <td>Enterprise Mix</td>
+                            <td><code>$CPI-ENT</code></td>
+                            <td>Summarization (30%), classification (25%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    Compare your organization's workload mix to these variants to find
+                    the most relevant inflation measure for your use case.
+                </p>
+            </section>
+
+            <section>
+                <h2>Trend Analysis</h2>
+                <p>
+                    Beyond point-in-time measurements, we provide trend analysis to
+                    help forecast future costs:
+                </p>
+
+                <ul>
+                    <li><strong>Direction:</strong> Deflating, stable, or inflating based on recent velocity</li>
+                    <li><strong>Velocity:</strong> Rate of change in CPI points per month</li>
+                    <li><strong>Acceleration:</strong> Change in velocity (is deflation speeding up or slowing?)</li>
+                    <li><strong>30-day Forecast:</strong> Projected CPI value if current trend continues</li>
+                    <li><strong>Confidence:</strong> High/medium/low based on data availability</li>
+                </ul>
+
+                <div class="formula">
+                    <div class="formula-main">
+                        Velocity = (ΔCPI / Δdays) × 30
+                    </div>
+                    <div class="formula-note">
+                        Normalized to monthly rate
+                    </div>
+                </div>
+
+                <p>
+                    Direction thresholds: velocity &lt; -1 = deflating, velocity &gt; +1 = inflating.
+                </p>
+            </section>
+
+            <section>
+                <h2>Yield Curve</h2>
+                <p>
+                    The yield curve shows annualized deflation (or inflation) rates at
+                    different time horizons—similar to bond yield curves but measuring
+                    AI compute cost changes:
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Horizon</th>
+                            <th>Calculation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1W, 1M, 3M, 6M, 1Y</td>
+                            <td>((current - historical) / historical) × (365 / days) × 100</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    <strong>Interpretation:</strong> Negative rates indicate deflation (costs falling),
+                    positive rates indicate inflation. A "normal" curve shows steeper deflation
+                    at shorter horizons that moderates over longer periods.
+                </p>
+
+                <div class="note">
+                    <strong>Note:</strong> The yield curve requires sufficient historical data.
+                    Points may be unavailable during the initial benchmarking period.
+                </div>
+            </section>
+
             <section>
                 <h2>Spreads</h2>
                 <p>
@@ -636,7 +807,7 @@ BlendedCost = (InputCost × 0.75) + (OutputCost × 0.25)</code></pre>
                 <a href="mailto:research@occupant.ee">Contact</a>
             </p>
             <p style="margin-top: 1rem;">
-                Methodology v1.1 · February 2026<br>
+                Methodology v2.0 · February 2026<br>
                 Published under open methodology. Verification encouraged.
             </p>
         </footer>
