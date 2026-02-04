@@ -27,7 +27,7 @@ jobs:
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
-          python compute_cpi.py
+          cd src && python calculate_cpi.py
       
       - name: Commit and push if changed
         run: |

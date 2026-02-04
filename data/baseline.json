@@ -1,0 +1,38 @@
+{
+  "date": "2026-02-04",
+  "basket_costs": {
+    "chat_drafting": {
+      "cost": 0.01038,
+      "weight": 0.2
+    },
+    "summarization": {
+      "cost": 0.029580000000000006,
+      "weight": 0.25
+    },
+    "classification": {
+      "cost": 0.0002571428571428571,
+      "weight": 0.2
+    },
+    "coding": {
+      "cost": 0.04465,
+      "weight": 0.15
+    },
+    "judgment": {
+      "cost": 0.055420000000000004,
+      "weight": 0.1
+    },
+    "long_context": {
+      "cost": 0.14158,
+      "weight": 0.1
+    }
+  },
+  "total_weighted": 0.035919928571428575,
+  "subindex_costs": {
+    "judgment": 0.055420000000000004,
+    "longctx": 0.14158,
+    "budget": 0.0015235714285714286,
+    "frontier": 0.0251
+  },
+  "locked_at": "2026-02-04T02:14:23.273781+00:00",
+  "note": "Baseline is immutable after initial setting"
+}

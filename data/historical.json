@@ -1,0 +1,18 @@
+[
+  {
+    "date": "2026-02-04",
+    "cpi": 100.0,
+    "basket_cost": 0.035919928571428575,
+    "subindices": {
+      "judgment": 100.0,
+      "longctx": 100.0,
+      "budget": 100.0,
+      "frontier": 100.0
+    },
+    "spreads": {
+      "cognition_premium": 9.43,
+      "judgment_premium": -2.12,
+      "context_premium": -7.26
+    }
+  }
+]

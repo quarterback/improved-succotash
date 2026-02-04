@@ -1,10 +1,13 @@
 {
   "meta": {
-    "generated_at": "2026-02-04T01:12:07.396247+00:00",
+    "generated_at": "2026-02-04T02:14:23.274991+00:00",
     "baseline_date": "2026-02-04",
-    "data_source": "openrouter",
+    "data_sources": [
+      "openrouter",
+      "litellm"
+    ],
     "methodology_version": "1.0",
-    "models_count": 346
+    "models_count": 2023
   },
   "compute_cpi": {
     "ticker": "$CPI",
@@ -12,79 +15,87 @@
     "value": 100.0,
     "mom_change": null,
     "yoy_change": null,
-    "basket_cost": 40.9692,
+    "trend": "stable",
+    "basket_cost": 35.9199,
     "basket_cost_unit": "$ per 1K standardized workloads"
   },
   "subindices": {
     "judgment": {
       "ticker": "$JUDGE",
       "name": "Judgment CPI",
-      "value": 100.0
+      "value": 100.0,
+      "models_count": 5
     },
     "longctx": {
       "ticker": "$LCTX",
       "name": "LongContext CPI",
-      "value": 100.0
+      "value": 100.0,
+      "models_count": 5
     },
     "budget": {
       "ticker": "$BULK",
       "name": "Budget Tier",
-      "value": 41.0
+      "value": 100.0,
+      "models_count": 7
     },
     "frontier": {
       "ticker": "$FRONT",
       "name": "Frontier Tier",
-      "value": 119.0
+      "value": 100.0,
+      "models_count": 5
     }
   },
   "spreads": {
     "cognition_premium": {
       "ticker": "$COG-P",
       "name": "Cognition Premium",
-      "value": 13300.0,
-      "unit": "$/1M tokens"
+      "value": 9.43,
+      "unit": "$/1M tokens",
+      "description": "Premium for frontier capability over budget tier"
     },
     "judgment_premium": {
       "ticker": "$JDG-P",
       "name": "Judgment Premium",
-      "value": 12648.81,
-      "unit": "$/1M tokens"
+      "value": -2.12,
+      "unit": "$/1M tokens",
+      "description": "Premium for reasoning capability over frontier"
     },
     "context_premium": {
       "ticker": "$CTX-P",
       "name": "Context Premium",
-      "value": -2.42,
-      "unit": "$/1M tokens"
+      "value": -7.26,
+      "unit": "$/1M tokens",
+      "description": "Premium for long context capability"
     }
   },
   "basket_detail": {
     "chat_drafting": {
-      "cost": 12.4667,
+      "cost": 10.38,
       "weight": 0.2,
       "cost_unit": "$ per 1K workloads"
     },
     "summarization": {
-      "cost": 35.4,
+      "cost": 29.58,
       "weight": 0.25,
       "cost_unit": "$ per 1K workloads"
     },
     "classification": {
-      "cost": 0.2583,
+      "cost": 0.2571,
       "weight": 0.2,
       "cost_unit": "$ per 1K workloads"
     },
     "coding": {
-      "cost": 26.4167,
+      "cost": 44.65,
       "weight": 0.15,
       "cost_unit": "$ per 1K workloads"
     },
     "judgment": {
-      "cost": 76.95,
+      "cost": 55.42,
       "weight": 0.1,
       "cost_unit": "$ per 1K workloads"
     },
     "long_context": {
-      "cost": 179.1667,
+      "cost": 141.58,
       "weight": 0.1,
       "cost_unit": "$ per 1K workloads"
     }
