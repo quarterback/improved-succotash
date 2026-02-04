@@ -475,60 +475,6 @@
             color: var(--dim);
         }
 
-        /* Yield Curve */
-        .yield-curve {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .curve-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .curve-point {
-            text-align: center;
-            padding: 0.5rem;
-        }
-
-        .curve-horizon {
-            font-size: 0.75rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .curve-rate {
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .curve-rate.positive {
-            color: #ff4444;
-        }
-
-        .curve-rate.negative {
-            color: var(--accent);
-        }
-
-        .curve-label {
-            font-size: 0.5rem;
-            color: var(--dim);
-        }
-
-        .curve-interpretation {
-            font-size: 0.75rem;
-            color: var(--dim);
-            font-style: italic;
-            text-align: center;
-            padding-top: 0.5rem;
-            border-top: 1px solid var(--border);
-        }
-
         /* Responsive */
         @media (max-width: 600px) {
             .container {
@@ -556,8 +502,7 @@
                 grid-template-columns: 1fr;
             }
 
-            .series-grid,
-            .curve-grid {
+            .series-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
 
@@ -652,42 +597,6 @@
                         <div class="trend-value" id="trend-confidence">—</div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Yield Curve -->
-            <section class="yield-curve">
-                <div class="section-header">
-                    <div class="section-title">Yield Curve</div>
-                    <div class="section-subtitle">Annualized deflation by horizon</div>
-                </div>
-                <div class="curve-grid" id="curve-grid">
-                    <div class="curve-point">
-                        <div class="curve-horizon">1W</div>
-                        <div class="curve-rate" id="curve-1w">—</div>
-                        <div class="curve-label">annualized</div>
-                    </div>
-                    <div class="curve-point">
-                        <div class="curve-horizon">1M</div>
-                        <div class="curve-rate" id="curve-1m">—</div>
-                        <div class="curve-label">annualized</div>
-                    </div>
-                    <div class="curve-point">
-                        <div class="curve-horizon">3M</div>
-                        <div class="curve-rate" id="curve-3m">—</div>
-                        <div class="curve-label">annualized</div>
-                    </div>
-                    <div class="curve-point">
-                        <div class="curve-horizon">6M</div>
-                        <div class="curve-rate" id="curve-6m">—</div>
-                        <div class="curve-label">annualized</div>
-                    </div>
-                    <div class="curve-point">
-                        <div class="curve-horizon">1Y</div>
-                        <div class="curve-rate" id="curve-1y">—</div>
-                        <div class="curve-label">annualized</div>
-                    </div>
-                </div>
-                <div class="curve-interpretation" id="curve-interpretation"></div>
             </section>
 
             <!-- Subindices (Cost per 1M tokens) -->
@@ -987,26 +896,6 @@
 
                     document.getElementById('trend-forecast').textContent = trend.forecast_30d.toFixed(1);
                     document.getElementById('trend-confidence').textContent = trend.confidence.toUpperCase();
-                }
-
-                // Yield Curve
-                if (data.yield_curve && data.yield_curve.curve) {
-                    const curve = data.yield_curve.curve;
-                    const horizons = {'1w': 'curve-1w', '1m': 'curve-1m', '3m': 'curve-3m', '6m': 'curve-6m', '1y': 'curve-1y'};
-
-                    for (const [key, elemId] of Object.entries(horizons)) {
-                        if (curve[key]) {
-                            const el = document.getElementById(elemId);
-                            const rate = curve[key].annualized_pct;
-                            el.textContent = (rate >= 0 ? '+' : '') + rate.toFixed(1) + '%';
-                            if (rate > 0) el.classList.add('positive');
-                            if (rate < 0) el.classList.add('negative');
-                        }
-                    }
-
-                    if (data.yield_curve.interpretation) {
-                        document.getElementById('curve-interpretation').textContent = data.yield_curve.interpretation;
-                    }
                 }
 
                 // Last updated
