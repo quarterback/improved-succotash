@@ -29,7 +29,7 @@ OPENROUTER_API = "https://openrouter.ai/api/v1/models"
 OPENROUTER_API_KEY = None  # Set this or use environment variable
 
 # Baseline period (Compute CPI = 100)
-BASELINE_DATE = "2026-02-01"
+BASELINE_DATE = "2026-02-04"
 
 # =============================================================================
 # BASKET DEFINITION
@@ -90,27 +90,27 @@ MODEL_TIERS = {
     "budget": [
         "openai/gpt-4o-mini",
         "google/gemini-2.0-flash-001",
-        "anthropic/claude-3-5-haiku",
+        "anthropic/claude-3.5-haiku",
     ],
     "general": [
         "openai/gpt-4o",
         "google/gemini-2.0-flash-001",
-        "anthropic/claude-3-5-sonnet",
+        "anthropic/claude-3.5-sonnet",
     ],
     "frontier": [
         "openai/gpt-4o",
-        "anthropic/claude-3-5-sonnet",
-        "google/gemini-2.0-pro-exp-02-05",
+        "anthropic/claude-3.5-sonnet",
+        "google/gemini-2.5-pro",
     ],
     "reasoning": [
         "openai/o1",
         "openai/o3-mini",
-        "anthropic/claude-3-5-sonnet",  # For comparison
+        "anthropic/claude-3.5-sonnet",  # For comparison
         "deepseek/deepseek-r1",
     ],
     "longctx": [
-        "google/gemini-2.0-pro-exp-02-05",  # 2M context
-        "anthropic/claude-3-5-sonnet",  # 200K context
+        "google/gemini-2.5-pro",  # 2M context
+        "anthropic/claude-3.5-sonnet",  # 200K context
         "openai/gpt-4o",  # 128K context
     ]
 }
@@ -123,15 +123,16 @@ MODEL_TIERS = {
 
 BASELINE_BASKET_COST = None  # Will be set on first run
 
-# Fallback baseline for development (approximate Feb 2026 prices)
+# Baseline prices (February 4, 2026 = 100)
+# These are live prices from OpenRouter on launch date
 FALLBACK_BASELINE_COST = {
-    "chat_drafting": 0.0045,      # $0.0045 per workload
-    "summarization": 0.0180,      # $0.018 per workload
-    "classification": 0.00025,    # $0.00025 per workload
-    "coding": 0.0120,             # $0.012 per workload
-    "judgment": 0.0850,           # $0.085 per workload (reasoning models expensive)
-    "long_context": 0.0750,       # $0.075 per workload
-    "total_weighted": 0.0198      # Weighted basket total
+    "chat_drafting": 0.0124667,   # $0.0125 per workload
+    "summarization": 0.0354,      # $0.0354 per workload
+    "classification": 0.000258,   # $0.00026 per workload
+    "coding": 0.0264167,          # $0.0264 per workload
+    "judgment": 0.07695,          # $0.077 per workload (reasoning models)
+    "long_context": 0.1791667,    # $0.179 per workload
+    "total_weighted": 0.0409692   # Weighted basket total
 }
 
 # =============================================================================

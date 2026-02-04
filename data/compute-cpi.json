@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "generated_at": "2026-02-04T01:12:07.396247+00:00",
+    "baseline_date": "2026-02-04",
+    "data_source": "openrouter",
+    "methodology_version": "1.0",
+    "models_count": 346
+  },
+  "compute_cpi": {
+    "ticker": "$CPI",
+    "name": "Compute CPI",
+    "value": 100.0,
+    "mom_change": null,
+    "yoy_change": null,
+    "basket_cost": 40.9692,
+    "basket_cost_unit": "$ per 1K standardized workloads"
+  },
+  "subindices": {
+    "judgment": {
+      "ticker": "$JUDGE",
+      "name": "Judgment CPI",
+      "value": 100.0
+    },
+    "longctx": {
+      "ticker": "$LCTX",
+      "name": "LongContext CPI",
+      "value": 100.0
+    },
+    "budget": {
+      "ticker": "$BULK",
+      "name": "Budget Tier",
+      "value": 41.0
+    },
+    "frontier": {
+      "ticker": "$FRONT",
+      "name": "Frontier Tier",
+      "value": 119.0
+    }
+  },
+  "spreads": {
+    "cognition_premium": {
+      "ticker": "$COG-P",
+      "name": "Cognition Premium",
+      "value": 13300.0,
+      "unit": "$/1M tokens"
+    },
+    "judgment_premium": {
+      "ticker": "$JDG-P",
+      "name": "Judgment Premium",
+      "value": 12648.81,
+      "unit": "$/1M tokens"
+    },
+    "context_premium": {
+      "ticker": "$CTX-P",
+      "name": "Context Premium",
+      "value": -2.42,
+      "unit": "$/1M tokens"
+    }
+  },
+  "basket_detail": {
+    "chat_drafting": {
+      "cost": 12.4667,
+      "weight": 0.2,
+      "cost_unit": "$ per 1K workloads"
+    },
+    "summarization": {
+      "cost": 35.4,
+      "weight": 0.25,
+      "cost_unit": "$ per 1K workloads"
+    },
+    "classification": {
+      "cost": 0.2583,
+      "weight": 0.2,
+      "cost_unit": "$ per 1K workloads"
+    },
+    "coding": {
+      "cost": 26.4167,
+      "weight": 0.15,
+      "cost_unit": "$ per 1K workloads"
+    },
+    "judgment": {
+      "cost": 76.95,
+      "weight": 0.1,
+      "cost_unit": "$ per 1K workloads"
+    },
+    "long_context": {
+      "cost": 179.1667,
+      "weight": 0.1,
+      "cost_unit": "$ per 1K workloads"
+    }
+  }
+}
