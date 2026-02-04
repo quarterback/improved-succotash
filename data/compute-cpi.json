@@ -1,12 +1,13 @@
 {
   "meta": {
-    "generated_at": "2026-02-04T03:31:08.337801+00:00",
+    "generated_at": "2026-02-04T04:29:47.768879+00:00",
     "baseline_date": "2026-02-04",
+    "launch_date": "2025-02-01",
     "data_sources": [
       "openrouter",
       "litellm"
     ],
-    "methodology_version": "1.1",
+    "methodology_version": "2.0",
     "models_count": 2023
   },
   "compute_cpi": {
@@ -18,6 +19,113 @@
     "trend": "stable",
     "basket_cost": 35.9199,
     "basket_cost_unit": "$ per 1K standardized workloads"
+  },
+  "index_series": {
+    "launch": {
+      "ticker": "$CPI-L",
+      "name": "Since Launch",
+      "base_date": "2025-02-01",
+      "value": 105.6
+    },
+    "yoy": {
+      "ticker": "$CPI-Y",
+      "name": "Year-over-Year",
+      "base_date": "2025-02-04",
+      "value": 105.6
+    },
+    "qtd": {
+      "ticker": "$CPI-Q",
+      "name": "Quarter-to-Date",
+      "base_date": "2026-01-01",
+      "value": 145.1
+    },
+    "mtd": {
+      "ticker": "$CPI-M",
+      "name": "Month-to-Date",
+      "base_date": "2026-02-01",
+      "value": 100.0
+    }
+  },
+  "methodology_variants": {
+    "general": {
+      "ticker": "$CPI-GEN",
+      "name": "General Purpose",
+      "description": "Balanced workload mix for typical usage",
+      "value": 100.0,
+      "basket_cost": 0.03592
+    },
+    "frontier_heavy": {
+      "ticker": "$CPI-FRO",
+      "name": "Frontier Heavy",
+      "description": "Emphasis on highest-capability models",
+      "value": 100.0,
+      "basket_cost": 0.054728
+    },
+    "budget_heavy": {
+      "ticker": "$CPI-BUD",
+      "name": "Budget Optimized",
+      "description": "Cost-conscious workload mix",
+      "value": 100.0,
+      "basket_cost": 0.022669
+    },
+    "reasoning_focus": {
+      "ticker": "$CPI-REA",
+      "name": "Reasoning Focus",
+      "description": "Heavy emphasis on complex reasoning tasks",
+      "value": 100.0,
+      "basket_cost": 0.058596
+    },
+    "enterprise": {
+      "ticker": "$CPI-ENT",
+      "name": "Enterprise Mix",
+      "description": "Typical enterprise automation workloads",
+      "value": 100.0,
+      "basket_cost": 0.025848
+    }
+  },
+  "trend_analysis": {
+    "direction": "stable",
+    "velocity": -0.1,
+    "velocity_unit": "points per month",
+    "acceleration": 0.39,
+    "forecast_30d": 99.9,
+    "confidence": "low"
+  },
+  "yield_curve": {
+    "curve": {
+      "1w": {
+        "days": 7,
+        "deflation_pct": 0.0,
+        "annualized_pct": 0.0,
+        "source_date": "2026-02-04"
+      },
+      "1m": {
+        "days": 30,
+        "deflation_pct": 45.05,
+        "annualized_pct": 548.13,
+        "source_date": "2026-01-01"
+      },
+      "3m": {
+        "days": 90,
+        "deflation_pct": 45.05,
+        "annualized_pct": 182.71,
+        "source_date": "2025-11-01"
+      },
+      "6m": {
+        "days": 180,
+        "deflation_pct": 45.05,
+        "annualized_pct": 91.36,
+        "source_date": "2025-08-01"
+      },
+      "1y": {
+        "days": 365,
+        "deflation_pct": 5.6,
+        "annualized_pct": 5.6,
+        "source_date": "2025-02-01"
+      }
+    },
+    "interpretation": "Significant inflation - rapid increase in AI compute costs",
+    "generated_at": "2026-02-04T04:29:47.766145+00:00"
   },
   "subindices": {
     "judgment": {
@@ -101,7 +209,7 @@
         "display": "1 $BULK = 4 $UTIL"
       }
     },
-    "generated_at": "2026-02-04T03:31:08.335146+00:00"
+    "generated_at": "2026-02-04T04:29:47.756639+00:00"
   },
   "persona_cpis": {
     "startup": {

@@ -445,42 +445,6 @@
             margin-top: 0.25rem;
         }
 
-        /* Methodology Variants */
-        .methodology-variants {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .variants-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0.5rem;
-        }
-
-        .variant-item {
-            text-align: center;
-            padding: 0.5rem;
-        }
-
-        .variant-ticker {
-            font-size: 0.5rem;
-            color: var(--accent);
-            margin-bottom: 0.25rem;
-        }
-
-        .variant-value {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .variant-name {
-            font-size: 0.5rem;
-            color: var(--dim);
-            margin-top: 0.25rem;
-        }
-
         /* Trend Analysis */
         .trend-analysis {
             background: var(--card-bg);
@@ -607,7 +571,6 @@
             }
 
             .series-grid,
-            .variants-grid,
             .curve-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -822,41 +785,6 @@
                         <div class="persona-name">Throughput</div>
                         <div class="persona-change" id="throughput-change">—</div>
                         <div class="persona-insight" id="throughput-insight"></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Methodology Variants -->
-            <section class="methodology-variants">
-                <div class="section-header">
-                    <div class="section-title">Methodology Variants</div>
-                    <div class="section-subtitle">CPI by workload mix</div>
-                </div>
-                <div class="variants-grid" id="variants-grid">
-                    <div class="variant-item">
-                        <div class="variant-ticker">$CPI-GEN</div>
-                        <div class="variant-value" id="variant-general">—</div>
-                        <div class="variant-name">General</div>
-                    </div>
-                    <div class="variant-item">
-                        <div class="variant-ticker">$CPI-FRO</div>
-                        <div class="variant-value" id="variant-frontier">—</div>
-                        <div class="variant-name">Frontier Heavy</div>
-                    </div>
-                    <div class="variant-item">
-                        <div class="variant-ticker">$CPI-BUD</div>
-                        <div class="variant-value" id="variant-budget">—</div>
-                        <div class="variant-name">Budget</div>
-                    </div>
-                    <div class="variant-item">
-                        <div class="variant-ticker">$CPI-REA</div>
-                        <div class="variant-value" id="variant-reasoning">—</div>
-                        <div class="variant-name">Reasoning</div>
-                    </div>
-                    <div class="variant-item">
-                        <div class="variant-ticker">$CPI-ENT</div>
-                        <div class="variant-value" id="variant-enterprise">—</div>
-                        <div class="variant-name">Enterprise</div>
                     </div>
                 </div>
             </section>
@@ -1101,26 +1029,6 @@
 
                     if (data.yield_curve.interpretation) {
                         document.getElementById('curve-interpretation').textContent = data.yield_curve.interpretation;
-                    }
-                }
-
-                // Methodology Variants
-                if (data.methodology_variants) {
-                    const variants = data.methodology_variants;
-                    if (variants.general) {
-                        document.getElementById('variant-general').textContent = variants.general.value.toFixed(1);
-                    }
-                    if (variants.frontier_heavy) {
-                        document.getElementById('variant-frontier').textContent = variants.frontier_heavy.value.toFixed(1);
-                    }
-                    if (variants.budget_heavy) {
-                        document.getElementById('variant-budget').textContent = variants.budget_heavy.value.toFixed(1);
-                    }
-                    if (variants.reasoning_focus) {
-                        document.getElementById('variant-reasoning').textContent = variants.reasoning_focus.value.toFixed(1);
-                    }
-                    if (variants.enterprise) {
-                        document.getElementById('variant-enterprise').textContent = variants.enterprise.value.toFixed(1);
                     }
                 }
 
