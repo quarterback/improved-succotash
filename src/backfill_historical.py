@@ -316,7 +316,7 @@ def calculate_cpi(current: float, baseline: float) -> float:
 # MAIN BACKFILL FUNCTION
 # =============================================================================
 
-def backfill_historical(baseline_date: str = "2026-02-04", force: bool = False):
+def backfill_historical(baseline_date: str = "2025-02-01", force: bool = False):
     """
     Backfill historical.json with reconstructed snapshots.
 
@@ -333,10 +333,10 @@ def backfill_historical(baseline_date: str = "2026-02-04", force: bool = False):
 
     print(f"[Backfill] Starting historical backfill with baseline {baseline_date}")
 
-    # First, calculate the baseline values using the most recent data
-    # We'll use the baseline_date or the closest available date
-    baseline_prices = HISTORICAL_PRICES.get("2026-01-01", list(HISTORICAL_PRICES.values())[-1])
-    baseline_tiers = HISTORICAL_TIERS.get("2026-01-01", list(HISTORICAL_TIERS.values())[-1])
+    # Use February 2025 as the baseline (when prices were highest)
+    # This way, current prices will show deflation relative to the launch
+    baseline_prices = HISTORICAL_PRICES.get("2025-02-01")
+    baseline_tiers = HISTORICAL_TIERS.get("2025-02-01")
 
     baseline_basket = calculate_basket_cost(baseline_prices, baseline_tiers)
     baseline_total = calculate_weighted_total(baseline_basket)

@@ -1,43 +1,43 @@
 {
-  "date": "2026-02-04",
+  "date": "2025-02-01",
   "basket_costs": {
     "chat_drafting": {
-      "cost": 0.01038,
+      "cost": 0.010433333333333334,
       "weight": 0.2
     },
     "summarization": {
-      "cost": 0.029580000000000006,
+      "cost": 0.031966666666666664,
       "weight": 0.25
     },
     "classification": {
-      "cost": 0.0002571428571428571,
+      "cost": 8.049999999999999e-05,
       "weight": 0.2
     },
     "coding": {
-      "cost": 0.04465,
+      "cost": 0.020916666666666667,
       "weight": 0.15
     },
     "judgment": {
-      "cost": 0.055420000000000004,
+      "cost": 0.042,
       "weight": 0.1
     },
     "long_context": {
-      "cost": 0.14158,
+      "cost": 0.16583333333333336,
       "weight": 0.1
     }
   },
-  "total_weighted": 0.035919928571428575,
+  "total_weighted": 0.03401526666666667,
   "subindex_costs": {
-    "judgment": 0.055420000000000004,
-    "longctx": 0.14158,
-    "budget": 0.0015235714285714286,
-    "frontier": 0.0251
+    "judgment": 0.042,
+    "longctx": 0.16583333333333336,
+    "budget": 0.00044,
+    "frontier": 0.012000000000000002
   },
   "persona_costs": {
-    "startup": 0.039758428571428577,
-    "agentic": 0.05554949999999999,
-    "throughput": 0.023715428571428575
+    "startup": 0.030724433333333336,
+    "agentic": 0.04171916666666666,
+    "throughput": 0.025589433333333335
   },
-  "locked_at": "2026-02-04T03:28:45.977693+00:00",
-  "note": "Baseline is immutable after initial setting"
+  "locked_at": "2026-02-04T05:06:50.677901+00:00",
+  "note": "Baseline is immutable after initial setting. February 2025 = 100."
 }

@@ -1,13 +1,13 @@
 [
   {
     "date": "2025-02-01",
-    "cpi": 137.4,
+    "cpi": 100.0,
     "basket_cost": 0.03401526666666667,
     "subindices": {
-      "judgment": 189.7,
-      "longctx": 133.6,
-      "budget": 28.7,
-      "frontier": 116.1
+      "judgment": 100.0,
+      "longctx": 100.0,
+      "budget": 100.0,
+      "frontier": 100.0
     },
     "spreads": {
       "cognition_premium": 4.62,
@@ -15,9 +15,9 @@
       "context_premium": -1.55
     },
     "personas": {
-      "startup": 125.4,
-      "agentic": 181.1,
-      "throughput": 139.3
+      "startup": 100.0,
+      "agentic": 100.0,
+      "throughput": 100.0
     },
     "persona_costs": {
       "startup": 0.030724433333333336,
@@ -29,13 +29,13 @@
   },
   {
     "date": "2025-05-01",
-    "cpi": 101.2,
+    "cpi": 73.7,
     "basket_cost": 0.02507016666666667,
     "subindices": {
-      "judgment": 133.9,
-      "longctx": 98.7,
-      "budget": 45.4,
-      "frontier": 91.9
+      "judgment": 70.6,
+      "longctx": 73.9,
+      "budget": 158.3,
+      "frontier": 79.2
     },
     "spreads": {
       "cognition_premium": 3.52,
@@ -43,9 +43,9 @@
       "context_premium": -1.4
     },
     "personas": {
-      "startup": 95.5,
-      "agentic": 129.7,
-      "throughput": 99.9
+      "startup": 76.2,
+      "agentic": 71.6,
+      "throughput": 71.7
     },
     "persona_costs": {
       "startup": 0.023399333333333334,
@@ -57,13 +57,13 @@
   },
   {
     "date": "2025-08-01",
-    "cpi": 100.0,
+    "cpi": 72.8,
     "basket_cost": 0.0247635,
     "subindices": {
-      "judgment": 100.0,
-      "longctx": 100.0,
-      "budget": 100.0,
-      "frontier": 100.0
+      "judgment": 52.7,
+      "longctx": 74.9,
+      "budget": 348.5,
+      "frontier": 86.1
     },
     "spreads": {
       "cognition_premium": 3.52,
@@ -71,9 +71,9 @@
       "context_premium": -1.7
     },
     "personas": {
-      "startup": 100.0,
-      "agentic": 100.0,
-      "throughput": 100.0
+      "startup": 79.8,
+      "agentic": 55.2,
+      "throughput": 71.8
     },
     "persona_costs": {
       "startup": 0.024509999999999997,
@@ -85,13 +85,13 @@
   },
   {
     "date": "2025-11-01",
-    "cpi": 100.0,
+    "cpi": 72.8,
     "basket_cost": 0.0247635,
     "subindices": {
-      "judgment": 100.0,
-      "longctx": 100.0,
-      "budget": 100.0,
-      "frontier": 100.0
+      "judgment": 52.7,
+      "longctx": 74.9,
+      "budget": 348.5,
+      "frontier": 86.1
     },
     "spreads": {
       "cognition_premium": 3.52,
@@ -99,9 +99,9 @@
       "context_premium": -1.7
     },
     "personas": {
-      "startup": 100.0,
-      "agentic": 100.0,
-      "throughput": 100.0
+      "startup": 79.8,
+      "agentic": 55.2,
+      "throughput": 71.8
     },
     "persona_costs": {
       "startup": 0.024509999999999997,
@@ -113,13 +113,13 @@
   },
   {
     "date": "2026-01-01",
-    "cpi": 100.0,
+    "cpi": 72.8,
     "basket_cost": 0.0247635,
     "subindices": {
-      "judgment": 100.0,
-      "longctx": 100.0,
-      "budget": 100.0,
-      "frontier": 100.0
+      "judgment": 52.7,
+      "longctx": 74.9,
+      "budget": 348.5,
+      "frontier": 86.1
     },
     "spreads": {
       "cognition_premium": 3.52,
@@ -127,9 +127,9 @@
       "context_premium": -1.7
     },
     "personas": {
-      "startup": 100.0,
-      "agentic": 100.0,
-      "throughput": 100.0
+      "startup": 79.8,
+      "agentic": 55.2,
+      "throughput": 71.8
     },
     "persona_costs": {
       "startup": 0.024509999999999997,
@@ -141,13 +141,13 @@
   },
   {
     "date": "2026-02-04",
-    "cpi": 100.0,
+    "cpi": 105.6,
     "basket_cost": 0.035919928571428575,
     "subindices": {
-      "judgment": 100.0,
-      "longctx": 100.0,
-      "budget": 100.0,
-      "frontier": 100.0
+      "judgment": 132.0,
+      "longctx": 85.4,
+      "budget": 346.3,
+      "frontier": 209.2
     },
     "spreads": {
       "cognition_premium": 9.43,
@@ -155,9 +155,9 @@
       "context_premium": -7.26
     },
     "personas": {
-      "startup": 100.0,
-      "agentic": 100.0,
-      "throughput": 100.0
+      "startup": 129.4,
+      "agentic": 133.2,
+      "throughput": 92.7
     },
     "persona_costs": {
       "startup": 0.039758428571428577,
