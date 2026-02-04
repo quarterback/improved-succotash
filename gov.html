@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gov AI Benchmarks | Occupant</title>
+    <meta name="description" content="Independent AI pricing benchmarks for government procurement. Know if you're getting a fair deal.">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .gov-hero {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .gov-hero h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .gov-hero .lead {
+            font-size: 1.1rem;
+            color: var(--fg);
+            margin-bottom: 1rem;
+            max-width: none;
+        }
+        .gov-hero .sublead {
+            font-size: 0.875rem;
+            color: var(--fg-muted);
+        }
+
+        .rate-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        .rate-card-header {
+            background: var(--accent-glow);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+        }
+        .rate-card-header h3 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin: 0;
+            color: var(--fg);
+        }
+        .rate-card-header .use-case {
+            font-size: 0.75rem;
+            color: var(--fg-muted);
+            margin-top: 0.25rem;
+        }
+        .rate-card-body {
+            padding: 1.5rem;
+        }
+        .rate-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .rate-row:last-child {
+            border-bottom: none;
+        }
+        .rate-label {
+            font-size: 0.8rem;
+            color: var(--fg-dim);
+        }
+        .rate-value {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .rate-value.benchmark {
+            color: var(--accent);
+        }
+
+        .guidance-box {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+        }
+        .guidance-box .label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--fg);
+        }
+        .guidance-item {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--fg-muted);
+        }
+        .guidance-item:last-child {
+            margin-bottom: 0;
+        }
+        .guidance-item .indicator {
+            font-weight: 600;
+        }
+        .guidance-item .indicator.red { color: var(--danger); }
+        .guidance-item .indicator.yellow { color: var(--warning); }
+        .guidance-item .indicator.green { color: var(--success); }
+
+        .section-intro {
+            margin-bottom: 2rem;
+        }
+        .section-intro h2 {
+            border-bottom: none;
+            margin-bottom: 0.5rem;
+        }
+        .section-intro p {
+            color: var(--fg-muted);
+            max-width: none;
+        }
+
+        .questions-list, .redflags-list {
+            list-style: none;
+            padding: 0;
+        }
+        .questions-list li, .redflags-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.875rem;
+        }
+        .questions-list li:last-child, .redflags-list li:last-child {
+            border-bottom: none;
+        }
+        .questions-list li::before {
+            content: "→ ";
+            color: var(--accent);
+        }
+        .redflags-list li::before {
+            content: "⚠ ";
+            color: var(--warning);
+        }
+
+        .callout {
+            background: var(--accent-glow);
+            border-left: 3px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            margin: 2rem 0;
+        }
+        .callout p {
+            margin: 0;
+            font-size: 0.95rem;
+            max-width: none;
+        }
+
+        .per-seat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .per-seat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 1.25rem;
+            text-align: center;
+        }
+        .per-seat-card .tier {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--fg-dim);
+            margin-bottom: 0.5rem;
+        }
+        .per-seat-card .range {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+        .per-seat-card .unit {
+            font-size: 0.7rem;
+            color: var(--fg-muted);
+            margin-bottom: 0.75rem;
+        }
+        .per-seat-card .desc {
+            font-size: 0.75rem;
+            color: var(--fg-muted);
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+            .per-seat-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .per-seat-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg);
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+        .download-btn:hover {
+            opacity: 0.9;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/">Index</a>
+            <a href="/sabermetrics.html">Market Intel</a>
+            <a href="/calculator.html">Calculator</a>
+            <a href="/gov.html" class="active">Gov Benchmarks</a>
+            <a href="/about.html">About</a>
+            <div class="nav-right">
+                <button id="theme-toggle" class="theme-toggle">Light</button>
+            </div>
+        </nav>
+
+        <div class="gov-hero">
+            <h1>Gov AI Benchmarks</h1>
+            <p class="lead">Would you sign a travel contract without checking per diem rates?</p>
+            <p class="sublead">Independent pricing benchmarks for government AI procurement. Know if you're getting a fair deal before you sign.</p>
+        </div>
+
+        <main>
+            <!-- Per-Seat Monthly Rates -->
+            <section>
+                <div class="section-intro">
+                    <h2>Monthly Per-Seat Benchmarks</h2>
+                    <p>What you should expect to pay, based on current market rates.</p>
+                </div>
+
+                <div class="per-seat-grid">
+                    <div class="per-seat-card">
+                        <div class="tier">Light Use</div>
+                        <div class="range" id="light-range">$5-15</div>
+                        <div class="unit">per seat/month</div>
+                        <div class="desc">Occasional AI assistance, basic queries</div>
+                    </div>
+                    <div class="per-seat-card">
+                        <div class="tier">Standard Use</div>
+                        <div class="range" id="standard-range">$25-40</div>
+                        <div class="unit">per seat/month</div>
+                        <div class="desc">Daily productivity AI, document drafting</div>
+                    </div>
+                    <div class="per-seat-card">
+                        <div class="tier">Heavy Use</div>
+                        <div class="range" id="heavy-range">$50-80</div>
+                        <div class="unit">per seat/month</div>
+                        <div class="desc">Power users, analysts, developers</div>
+                    </div>
+                    <div class="per-seat-card">
+                        <div class="tier">Enterprise</div>
+                        <div class="range" id="enterprise-range">$80-120</div>
+                        <div class="unit">per seat/month</div>
+                        <div class="desc">Full suite + advanced reasoning</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rate Cards by Use Case -->
+            <section>
+                <div class="section-intro">
+                    <h2>Benchmark Rates by Use Case</h2>
+                    <p>Current market rates for common government AI workloads.</p>
+                </div>
+
+                <div class="rate-card">
+                    <div class="rate-card-header">
+                        <h3>Basic AI</h3>
+                        <div class="use-case">Summarization, extraction, simple Q&A, form processing</div>
+                    </div>
+                    <div class="rate-card-body">
+                        <div class="rate-row">
+                            <span class="rate-label">Gov Benchmark Rate</span>
+                            <span class="rate-value benchmark" id="basic-rate">$0.61/MTok</span>
+                        </div>
+                        <div class="rate-row">
+                            <span class="rate-label">Typical Monthly (1000 queries)</span>
+                            <span class="rate-value" id="basic-monthly">$5-15</span>
+                        </div>
+                        <div class="guidance-box">
+                            <div class="label">Negotiation Guidance</div>
+                            <div class="guidance-item">
+                                <span class="indicator red">Above $1.00:</span>
+                                <span>Push back. You're overpaying.</span>
+                            </div>
+                            <div class="guidance-item">
+                                <span class="indicator yellow">$0.50-1.00:</span>
+                                <span>Fair, but negotiate toward low end.</span>
+                            </div>
+                            <div class="guidance-item">
+                                <span class="indicator green">Below $0.50:</span>
+                                <span>Good deal. Ask about Year 2+ pricing.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rate-card">
+                    <div class="rate-card-header">
+                        <h3>Standard AI</h3>
+                        <div class="use-case">General assistance, document drafting, analysis, translation</div>
+                    </div>
+                    <div class="rate-card-body">
+                        <div class="rate-row">
+                            <span class="rate-label">Gov Benchmark Rate</span>
+                            <span class="rate-value benchmark" id="standard-rate">$4.59/MTok</span>
+                        </div>
+                        <div class="rate-row">
+                            <span class="rate-label">Typical Monthly (500 queries)</span>
+                            <span class="rate-value" id="standard-monthly">$25-45</span>
+                        </div>
+                        <div class="guidance-box">
+                            <div class="label">Negotiation Guidance</div>
+                            <div class="guidance-item">
+                                <span class="indicator red">Above $7.00:</span>
+                                <span>Push back. You're overpaying.</span>
+                            </div>
+                            <div class="guidance-item">
+                                <span class="indicator yellow">$4.00-7.00:</span>
+                                <span>Fair range. Standard market rate.</span>
+                            </div>
+                            <div class="guidance-item">
+                                <span class="indicator green">Below $4.00:</span>
+                                <span>Good deal. Verify model quality.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rate-card">
+                    <div class="rate-card-header">
+                        <h3>Advanced AI</h3>
+                        <div class="use-case">Complex reasoning, research, coding, technical writing</div>
+                    </div>
+                    <div class="rate-card-body">
+                        <div class="rate-row">
+                            <span class="rate-label">Gov Benchmark Rate</span>
+                            <span class="rate-value benchmark" id="advanced-rate">$10.04/MTok</span>
+                        </div>
+                        <div class="rate-row">
+                            <span class="rate-label">Typical Monthly (heavy use)</span>
+                            <span class="rate-value" id="advanced-monthly">$60-100</span>
+                        </div>
+                        <div class="guidance-box">
+                            <div class="label">Negotiation Guidance</div>
+                            <div class="guidance-item">
+                                <span class="indicator red">Above $15.00:</span>
+                                <span>Push back unless premium features justify.</span>
+                            </div>
+                            <div class="guidance-item">
+                                <span class="indicator yellow">$8.00-15.00:</span>
+                                <span>Fair for frontier models.</span>
+                            </div>
+                            <div class="guidance-item">
+                                <span class="indicator green">Below $8.00:</span>
+                                <span>Excellent. Lock in multi-year.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rate-card">
+                    <div class="rate-card-header">
+                        <h3>Reasoning AI</h3>
+                        <div class="use-case">Multi-step judgment, decision support, policy analysis, complex problem-solving</div>
+                    </div>
+                    <div class="rate-card-body">
+                        <div class="rate-row">
+                            <span class="rate-label">Gov Benchmark Rate</span>
+                            <span class="rate-value benchmark" id="reasoning-rate">$7.92/MTok</span>
+                        </div>
+                        <div class="rate-row">
+                            <span class="rate-label">Typical Monthly (moderate use)</span>
+                            <span class="rate-value" id="reasoning-monthly">$40-80</span>
+                        </div>
+                        <div class="guidance-box">
+                            <div class="label">Negotiation Guidance</div>
+                            <div class="guidance-item">
+                                <span class="indicator red">Above $12.00:</span>
+                                <span>Premium pricing. Justify with benchmarks.</span>
+                            </div>
+                            <div class="guidance-item">
+                                <span class="indicator yellow">$6.00-12.00:</span>
+                                <span>Fair for reasoning-class models.</span>
+                            </div>
+                            <div class="guidance-item">
+                                <span class="indicator green">Below $6.00:</span>
+                                <span>Strong deal. Verify reasoning quality.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="callout">
+                <p><strong>Note on "per million tokens":</strong> One million tokens ≈ 750,000 words. A typical government document query uses 2,000-5,000 tokens. At $5/MTok, that's about $0.01-0.025 per query.</p>
+            </div>
+
+            <!-- Questions & Red Flags -->
+            <div class="two-col">
+                <section>
+                    <h2>Questions to Ask Vendors</h2>
+                    <ul class="questions-list">
+                        <li>What's your per-token or per-query pricing? (Not just per-seat)</li>
+                        <li>What model(s) power the service? What's the Arena ELO?</li>
+                        <li>Is pricing locked for the contract term, or variable?</li>
+                        <li>What happens to pricing after Year 1?</li>
+                        <li>Do you charge for failed queries or retries?</li>
+                        <li>What's included in the "seat" vs. metered usage?</li>
+                        <li>How do you handle data residency and FedRAMP?</li>
+                        <li>Can we audit actual usage vs. billed usage?</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Red Flags</h2>
+                    <ul class="redflags-list">
+                        <li>Won't disclose which AI models power the service</li>
+                        <li>Pricing significantly above market benchmarks</li>
+                        <li>"Unlimited" plans with hidden fair-use clauses</li>
+                        <li>Year 2+ pricing not disclosed upfront</li>
+                        <li>No usage dashboard or audit capability</li>
+                        <li>Requires multi-year without price protection</li>
+                        <li>Charges for "AI processing" as separate line item</li>
+                        <li>Can't explain per-token vs per-seat math</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- CTA -->
+            <section style="margin-top: 3rem; text-align: center;">
+                <h2 style="border-bottom: none;">Need Custom Analysis?</h2>
+                <p style="max-width: none; color: var(--fg-muted);">
+                    We provide custom benchmarking for government procurement teams.
+                </p>
+                <a href="mailto:hello@occupant.ee?subject=Gov%20AI%20Benchmarks%20Inquiry" class="download-btn">Contact Us</a>
+            </section>
+
+            <!-- Last Updated -->
+            <section style="margin-top: 3rem; text-align: center;">
+                <p style="font-size: 0.75rem; color: var(--fg-dim);">
+                    Benchmark rates updated: <span id="last-updated">-</span><br>
+                    Based on aggregated market data from OpenRouter, LiteLLM, and pricepertoken.com
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-links">
+                <a href="/">Main Index</a>
+                <a href="/about.html">About</a>
+                <a href="mailto:hello@occupant.ee">Contact</a>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.625rem; color: var(--fg-dim);">2025-2026 Occupant Index</p>
+        </footer>
+    </div>
+
+    <script src="/theme.js"></script>
+    <script>
+        // Load actual rates from CPI data
+        async function loadGovData() {
+            try {
+                const response = await fetch('/data/compute-cpi.json');
+                const data = await response.json();
+
+                // Update benchmark rates from actual data
+                if (data.subindices.budget) {
+                    document.getElementById('basic-rate').textContent = '$' + data.subindices.budget.value.toFixed(2) + '/MTok';
+                }
+                if (data.subindices.frontier) {
+                    document.getElementById('advanced-rate').textContent = '$' + data.subindices.frontier.value.toFixed(2) + '/MTok';
+                }
+                if (data.subindices.judgment) {
+                    document.getElementById('reasoning-rate').textContent = '$' + data.subindices.judgment.value.toFixed(2) + '/MTok';
+                }
+
+                // Calculate "Standard AI" as midpoint between budget and frontier
+                if (data.subindices.budget && data.subindices.frontier) {
+                    const standard = (data.subindices.budget.value + data.subindices.frontier.value) / 2;
+                    document.getElementById('standard-rate').textContent = '$' + standard.toFixed(2) + '/MTok';
+                }
+
+                // Last updated
+                if (data.meta && data.meta.generated_at) {
+                    const updated = new Date(data.meta.generated_at);
+                    document.getElementById('last-updated').textContent = updated.toISOString().split('T')[0];
+                }
+
+            } catch (error) {
+                console.log('CPI data not yet available');
+            }
+        }
+
+        loadGovData();
+    </script>
+</body>
+</html>
