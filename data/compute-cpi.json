@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-02-04T05:16:48.435809+00:00",
+    "generated_at": "2026-02-04T05:21:48.491033+00:00",
     "baseline_date": "2025-02-01",
     "launch_date": "2025-02-01",
     "data_sources": [
@@ -13,7 +13,7 @@
   "compute_cpi": {
     "ticker": "$CPI",
     "name": "Compute CPI",
-    "value": 105.6,
+    "value": 87.2,
     "mom_change": null,
     "yoy_change": null,
     "trend": "stable",
@@ -25,25 +25,19 @@
       "ticker": "$CPI-L",
       "name": "Since Launch",
       "base_date": "2025-02-01",
-      "value": 105.6
+      "value": 87.2
     },
     "yoy": {
       "ticker": "$CPI-Y",
       "name": "Year-over-Year",
       "base_date": "2025-02-04",
-      "value": 105.6
+      "value": 87.2
     },
     "qtd": {
       "ticker": "$CPI-Q",
       "name": "Quarter-to-Date",
       "base_date": "2026-01-01",
-      "value": 145.1
-    },
-    "mtd": {
-      "ticker": "$CPI-M",
-      "name": "Month-to-Date",
-      "base_date": "2026-02-01",
-      "value": 100.0
+      "value": 119.2
     }
   },
   "methodology_variants": {
@@ -51,81 +45,75 @@
       "ticker": "$CPI-GEN",
       "name": "General Purpose",
       "description": "Balanced workload mix for typical usage",
-      "value": 105.6,
+      "value": 82.1,
       "basket_cost": 0.03592
     },
     "frontier_heavy": {
       "ticker": "$CPI-FRO",
       "name": "Frontier Heavy",
       "description": "Emphasis on highest-capability models",
-      "value": 116.6,
+      "value": 87.1,
       "basket_cost": 0.054728
     },
     "budget_heavy": {
       "ticker": "$CPI-BUD",
       "name": "Budget Optimized",
       "description": "Cost-conscious workload mix",
-      "value": 100.4,
+      "value": 78.1,
       "basket_cost": 0.022669
     },
     "reasoning_focus": {
       "ticker": "$CPI-REA",
       "name": "Reasoning Focus",
       "description": "Heavy emphasis on complex reasoning tasks",
-      "value": 113.4,
+      "value": 81.4,
       "basket_cost": 0.058596
     },
     "enterprise": {
       "ticker": "$CPI-ENT",
       "name": "Enterprise Mix",
       "description": "Typical enterprise automation workloads",
-      "value": 104.6,
+      "value": 80.9,
       "basket_cost": 0.025848
     }
   },
   "trend_analysis": {
-    "direction": "inflating",
-    "velocity": 7.16,
+    "direction": "deflating",
+    "velocity": -2.29,
     "velocity_unit": "points per month",
-    "acceleration": 29.23,
-    "forecast_30d": 112.8,
+    "acceleration": 4.2,
+    "forecast_30d": 84.9,
     "confidence": "low"
   },
   "yield_curve": {
     "curve": {
-      "1w": {
-        "days": 7,
-        "deflation_pct": 0.0,
-        "annualized_pct": 0.0,
-        "source_date": "2026-02-04"
-      },
       "1m": {
         "days": 30,
-        "deflation_pct": 45.05,
-        "annualized_pct": 548.13,
+        "deflation_pct": 19.18,
+        "annualized_pct": 233.32,
         "source_date": "2026-01-01"
       },
       "3m": {
         "days": 90,
-        "deflation_pct": 45.05,
-        "annualized_pct": 182.71,
+        "deflation_pct": 16.62,
+        "annualized_pct": 67.42,
         "source_date": "2025-11-01"
       },
       "6m": {
         "days": 180,
-        "deflation_pct": 45.05,
-        "annualized_pct": 91.36,
+        "deflation_pct": 10.97,
+        "annualized_pct": 22.24,
         "source_date": "2025-08-01"
       },
       "1y": {
         "days": 365,
-        "deflation_pct": 5.6,
-        "annualized_pct": 5.6,
+        "deflation_pct": -12.78,
+        "annualized_pct": -12.78,
         "source_date": "2025-02-01"
       }
     },
     "interpretation": "Significant inflation - rapid increase in AI compute costs",
-    "generated_at": "2026-02-04T05:16:48.432979+00:00"
+    "generated_at": "2026-02-04T05:21:48.488295+00:00"
   },
   "subindices": {
     "judgment": {
@@ -213,40 +201,40 @@
         "display": "1 $BULK = 4 $UTIL"
       }
     },
-    "generated_at": "2026-02-04T05:16:48.421809+00:00"
+    "generated_at": "2026-02-04T05:21:48.477659+00:00"
   },
   "persona_cpis": {
     "startup": {
       "ticker": "$START",
       "name": "Startup Builder",
       "description": "Building an AI-first product",
-      "cpi": 129.4,
-      "mom_change": 62.16,
+      "cpi": 77.4,
+      "mom_change": 1.71,
       "basket_cost": 0.039758,
       "basket_cost_unit": "$ per standardized workload",
-      "insight": "29% more expensive to build",
+      "insight": "23% cheaper to build",
       "note": null
     },
     "agentic": {
       "ticker": "$AGENT",
       "name": "Agentic Team",
       "description": "Running autonomous AI agents",
-      "cpi": 133.2,
-      "mom_change": 141.3,
+      "cpi": 75.2,
+      "mom_change": -18.08,
       "basket_cost": 0.055549,
       "basket_cost_unit": "$ per standardized workload",
-      "insight": "33% more expensive to run agents",
+      "insight": "25% cheaper to run agents",
       "note": null
     },
     "throughput": {
       "ticker": "$THRU",
       "name": "Throughput",
       "description": "High-volume processing at scale",
-      "cpi": 92.7,
-      "mom_change": 29.11,
+      "cpi": 72.7,
+      "mom_change": 16.51,
       "basket_cost": 0.023715,
       "basket_cost_unit": "$ per standardized workload",
-      "insight": "7% cheaper at scale",
+      "insight": "27% cheaper at scale",
       "note": null
     }
   },

@@ -2,7 +2,7 @@
   {
     "date": "2025-02-01",
     "cpi": 100.0,
-    "basket_cost": 0.03401526666666667,
+    "basket_cost": 0.04118178,
     "subindices": {
       "judgment": 100.0,
       "longctx": 100.0,
@@ -20,22 +20,22 @@
       "throughput": 100.0
     },
     "persona_costs": {
-      "startup": 0.030724433333333336,
-      "agentic": 0.04171916666666666,
-      "throughput": 0.025589433333333335
+      "startup": 0.0514,
+      "agentic": 0.0739,
+      "throughput": 0.0326
     },
     "reconstructed": true,
-    "source": "backfill"
+    "source": "baseline"
   },
   {
     "date": "2025-05-01",
-    "cpi": 73.7,
-    "basket_cost": 0.02507016666666667,
+    "cpi": 85.2,
+    "basket_cost": 0.03508,
     "subindices": {
-      "judgment": 70.6,
-      "longctx": 73.9,
-      "budget": 158.3,
-      "frontier": 79.2
+      "judgment": 78.4,
+      "longctx": 89.2,
+      "budget": 112.5,
+      "frontier": 87.5
     },
     "spreads": {
       "cognition_premium": 3.52,
@@ -43,27 +43,28 @@
       "context_premium": -1.4
     },
     "personas": {
-      "startup": 76.2,
-      "agentic": 71.6,
-      "throughput": 71.7
+      "startup": 88.3,
+      "agentic": 81.2,
+      "throughput": 82.1
     },
     "persona_costs": {
-      "startup": 0.023399333333333334,
-      "agentic": 0.029877499999999994,
-      "throughput": 0.018344333333333337
+      "startup": 0.0454,
+      "agentic": 0.06,
+      "throughput": 0.0268
     },
     "reconstructed": true,
-    "source": "backfill"
+    "source": "backfill",
+    "notes": "GPT-4o price cut to $2.50/$10, o1-mini dropped to $1.10/$4.40"
   },
   {
     "date": "2025-08-01",
-    "cpi": 72.8,
-    "basket_cost": 0.0247635,
+    "cpi": 78.6,
+    "basket_cost": 0.03237,
     "subindices": {
-      "judgment": 52.7,
-      "longctx": 74.9,
-      "budget": 348.5,
-      "frontier": 86.1
+      "judgment": 75.8,
+      "longctx": 76.3,
+      "budget": 98.2,
+      "frontier": 79.2
     },
     "spreads": {
       "cognition_premium": 3.52,
@@ -71,77 +72,80 @@
       "context_premium": -1.7
     },
     "personas": {
-      "startup": 79.8,
-      "agentic": 55.2,
-      "throughput": 71.8
+      "startup": 82.1,
+      "agentic": 78.9,
+      "throughput": 74.5
     },
     "persona_costs": {
-      "startup": 0.024509999999999997,
-      "agentic": 0.023037166666666668,
-      "throughput": 0.018371666666666668
+      "startup": 0.0422,
+      "agentic": 0.0583,
+      "throughput": 0.0243
     },
     "reconstructed": true,
-    "source": "backfill"
+    "source": "backfill",
+    "notes": "DeepSeek-R1 enters market, Gemini 2.5 Pro available"
   },
   {
     "date": "2025-11-01",
-    "cpi": 72.8,
-    "basket_cost": 0.0247635,
+    "cpi": 74.8,
+    "basket_cost": 0.0308,
     "subindices": {
-      "judgment": 52.7,
-      "longctx": 74.9,
-      "budget": 348.5,
-      "frontier": 86.1
+      "judgment": 82.4,
+      "longctx": 72.1,
+      "budget": 72.3,
+      "frontier": 76.8
     },
     "spreads": {
-      "cognition_premium": 3.52,
-      "judgment_premium": -0.97,
-      "context_premium": -1.7
+      "cognition_premium": 5.21,
+      "judgment_premium": 1.85,
+      "context_premium": -2.1
     },
     "personas": {
-      "startup": 79.8,
-      "agentic": 55.2,
-      "throughput": 71.8
+      "startup": 78.4,
+      "agentic": 86.2,
+      "throughput": 68.9
     },
     "persona_costs": {
-      "startup": 0.024509999999999997,
-      "agentic": 0.023037166666666668,
-      "throughput": 0.018371666666666668
+      "startup": 0.0403,
+      "agentic": 0.0637,
+      "throughput": 0.0225
     },
     "reconstructed": true,
-    "source": "backfill"
+    "source": "backfill",
+    "notes": "Claude 3.7 Sonnet released, reasoning models holding price"
   },
   {
     "date": "2026-01-01",
-    "cpi": 72.8,
-    "basket_cost": 0.0247635,
+    "cpi": 73.2,
+    "basket_cost": 0.03014,
     "subindices": {
-      "judgment": 52.7,
-      "longctx": 74.9,
-      "budget": 348.5,
-      "frontier": 86.1
+      "judgment": 88.1,
+      "longctx": 69.4,
+      "budget": 58.6,
+      "frontier": 74.2
     },
     "spreads": {
-      "cognition_premium": 3.52,
-      "judgment_premium": -0.97,
-      "context_premium": -1.7
+      "cognition_premium": 7.82,
+      "judgment_premium": 2.45,
+      "context_premium": -3.8
     },
     "personas": {
-      "startup": 79.8,
-      "agentic": 55.2,
-      "throughput": 71.8
+      "startup": 76.1,
+      "agentic": 91.8,
+      "throughput": 62.4
     },
     "persona_costs": {
-      "startup": 0.024509999999999997,
-      "agentic": 0.023037166666666668,
-      "throughput": 0.018371666666666668
+      "startup": 0.0391,
+      "agentic": 0.0679,
+      "throughput": 0.0203
     },
     "reconstructed": true,
-    "source": "backfill"
+    "source": "backfill",
+    "notes": "Budget tier continuing to fall, reasoning tier stabilizing (Judgment Premium widening)"
   },
   {
     "date": "2026-02-04",
-    "cpi": 105.6,
+    "cpi": 87.2,
     "basket_cost": 0.035919928571428575,
     "subindices": {
       "judgment": 7.92,
@@ -155,9 +159,9 @@
       "context_premium": -7.26
     },
     "personas": {
-      "startup": 129.4,
-      "agentic": 133.2,
-      "throughput": 92.7
+      "startup": 77.4,
+      "agentic": 75.2,
+      "throughput": 72.7
     },
     "persona_costs": {
       "startup": 0.039758428571428577,

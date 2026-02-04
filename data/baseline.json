@@ -2,42 +2,42 @@
   "date": "2025-02-01",
   "basket_costs": {
     "chat_drafting": {
-      "cost": 0.010433333333333334,
+      "cost": 0.01425,
       "weight": 0.2
     },
     "summarization": {
-      "cost": 0.031966666666666664,
+      "cost": 0.04075,
       "weight": 0.25
     },
     "classification": {
-      "cost": 8.049999999999999e-05,
+      "cost": 0.000089,
       "weight": 0.2
     },
     "coding": {
-      "cost": 0.020916666666666667,
+      "cost": 0.032,
       "weight": 0.15
     },
     "judgment": {
-      "cost": 0.042,
+      "cost": 0.0732,
       "weight": 0.1
     },
     "long_context": {
-      "cost": 0.16583333333333336,
+      "cost": 0.1855,
       "weight": 0.1
     }
   },
-  "total_weighted": 0.03401526666666667,
+  "total_weighted": 0.04118178,
   "subindex_costs": {
-    "judgment": 0.042,
-    "longctx": 0.16583333333333336,
+    "judgment": 0.0732,
+    "longctx": 0.1855,
     "budget": 0.00044,
-    "frontier": 0.012000000000000002
+    "frontier": 0.012
   },
   "persona_costs": {
-    "startup": 0.030724433333333336,
-    "agentic": 0.04171916666666666,
-    "throughput": 0.025589433333333335
+    "startup": 0.0514,
+    "agentic": 0.0739,
+    "throughput": 0.0326
   },
-  "locked_at": "2026-02-04T05:06:50.677901+00:00",
-  "note": "Baseline is immutable after initial setting. February 2025 = 100."
+  "locked_at": "2025-02-01T00:00:00+00:00",
+  "note": "Baseline is February 2025 prices. CPI = 100 at this date. All subsequent calculations compare to these values."
 }
