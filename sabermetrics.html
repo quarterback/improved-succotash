@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Intelligence | Occupant</title>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --card-bg: #111;
+            --text: #e0e0e0;
+            --dim: #666;
+            --accent: #00ff88;
+            --border: #222;
+            --buy: #00ff88;
+            --sell: #ff4444;
+            --fair: #ffaa00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav a {
+            color: var(--dim);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+        }
+
+        header {
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--dim);
+            font-size: 0.875rem;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .section-subtitle {
+            font-size: 0.75rem;
+            color: var(--dim);
+        }
+
+        /* Tier Analysis */
+        .tier-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .tier-row {
+            display: grid;
+            grid-template-columns: 100px 1fr 100px 80px;
+            align-items: center;
+            padding: 0.75rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+        }
+
+        .tier-name {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .tier-bar {
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .tier-bar-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        .tier-price {
+            text-align: right;
+            font-size: 0.875rem;
+        }
+
+        .tier-elo {
+            text-align: right;
+            font-size: 0.75rem;
+            color: var(--dim);
+        }
+
+        /* Leaders Tables */
+        .leaders-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .leaders-table th {
+            text-align: left;
+            padding: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--dim);
+            font-size: 0.75rem;
+            font-weight: 400;
+        }
+
+        .leaders-table td {
+            padding: 0.75rem 0.5rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.875rem;
+        }
+
+        .leaders-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .model-name {
+            font-weight: 500;
+        }
+
+        .signal {
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .signal.buy {
+            background: rgba(0, 255, 136, 0.15);
+            color: var(--buy);
+        }
+
+        .signal.sell {
+            background: rgba(255, 68, 68, 0.15);
+            color: var(--sell);
+        }
+
+        .signal.fair {
+            background: rgba(255, 170, 0, 0.15);
+            color: var(--fair);
+        }
+
+        .value-cell {
+            font-family: 'SF Mono', monospace;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--dim);
+            margin-top: 0.25rem;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--dim);
+        }
+
+        footer a {
+            color: var(--dim);
+        }
+
+        .updated {
+            margin-top: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .tier-row {
+                grid-template-columns: 80px 1fr;
+                gap: 0.5rem;
+            }
+
+            .tier-bar, .tier-elo {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leaders-table {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/">$CPI Index</a>
+            <a href="/sabermetrics" class="active">Market Intel</a>
+            <a href="/glossary">Glossary</a>
+            <a href="/about">About</a>
+        </nav>
+
+        <header>
+            <h1>Market Intelligence</h1>
+            <p class="subtitle">Derived statistics for LLM market analysis</p>
+        </header>
+
+        <!-- Summary Stats -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-title">Market Summary</div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="models-count">—</div>
+                    <div class="stat-label">Models Tracked</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="avg-arbitrage">—</div>
+                    <div class="stat-label">Avg Arbitrage</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="value-spread">—</div>
+                    <div class="stat-label">Value Spread</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tier Analysis -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-title">Tier Analysis</div>
+                <div class="section-subtitle">Average price and quality by tier</div>
+            </div>
+            <div class="tier-grid" id="tier-grid">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- Arbitrage Opportunities -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-title">Cognitive Arbitrage</div>
+                <div class="section-subtitle">Models priced above or below their capability suggests</div>
+            </div>
+            <table class="leaders-table">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Arbitrage</th>
+                        <th>Signal</th>
+                        <th>Price</th>
+                        <th>ELO</th>
+                    </tr>
+                </thead>
+                <tbody id="arbitrage-table">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Value Leaders -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-title">Value Leaders</div>
+                <div class="section-subtitle">Lowest Quality-Adjusted Price (QAP)</div>
+            </div>
+            <table class="leaders-table">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>QAP</th>
+                        <th>Price</th>
+                        <th>ELO</th>
+                    </tr>
+                </thead>
+                <tbody id="value-table">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </section>
+
+        <footer>
+            <div>Data from OpenRouter, Arena Leaderboard</div>
+            <div class="updated">Last updated: <span id="last-updated">—</span></div>
+            <div style="margin-top: 1rem;">
+                <a href="/glossary">What do these metrics mean?</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        async function loadMarketData() {
+            try {
+                const response = await fetch('/data/market/latest.json');
+                const data = await response.json();
+
+                // Summary stats
+                document.getElementById('models-count').textContent = data.models_analyzed || '—';
+
+                // Calculate avg arbitrage from opportunities
+                if (data.arbitrage_opportunities && data.arbitrage_opportunities.length > 0) {
+                    const avg = data.arbitrage_opportunities.reduce((sum, a) => sum + a.arbitrage, 0) / data.arbitrage_opportunities.length;
+                    document.getElementById('avg-arbitrage').textContent = avg.toFixed(2);
+                }
+
+                // Value spread (highest QAP - lowest QAP)
+                if (data.value_leaders && data.value_leaders.length > 0) {
+                    const qaps = data.value_leaders.map(v => v.qap);
+                    const spread = (Math.max(...qaps) / Math.min(...qaps)).toFixed(1) + 'x';
+                    document.getElementById('value-spread').textContent = spread;
+                }
+
+                // Tier analysis
+                const tierGrid = document.getElementById('tier-grid');
+                tierGrid.innerHTML = '';
+
+                const tierOrder = ['budget', 'general', 'frontier', 'reasoning', 'longctx'];
+                const tierLabels = {
+                    'budget': '$BULK',
+                    'general': '$GEN',
+                    'frontier': '$FRONT',
+                    'reasoning': '$REASON',
+                    'longctx': '$LCTX'
+                };
+
+                const maxPrice = Math.max(...Object.values(data.tier_analysis).map(t => t.avg_price_mtok));
+
+                for (const tier of tierOrder) {
+                    if (data.tier_analysis[tier]) {
+                        const t = data.tier_analysis[tier];
+                        const barWidth = (t.avg_price_mtok / maxPrice) * 100;
+
+                        const row = document.createElement('div');
+                        row.className = 'tier-row';
+                        row.innerHTML = `
+                            <div class="tier-name">${tierLabels[tier] || tier}</div>
+                            <div class="tier-bar"><div class="tier-bar-fill" style="width: ${barWidth}%"></div></div>
+                            <div class="tier-price">$${t.avg_price_mtok.toFixed(2)}/MTok</div>
+                            <div class="tier-elo">ELO ${t.avg_elo || '—'}</div>
+                        `;
+                        tierGrid.appendChild(row);
+                    }
+                }
+
+                // Arbitrage table
+                const arbTable = document.getElementById('arbitrage-table');
+                arbTable.innerHTML = '';
+
+                for (const a of (data.arbitrage_opportunities || [])) {
+                    const signalClass = a.arbitrage > 1.2 ? 'buy' : a.arbitrage < 0.8 ? 'sell' : 'fair';
+                    const signalText = a.arbitrage > 1.2 ? 'BUY' : a.arbitrage < 0.8 ? 'SELL' : 'FAIR';
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="model-name">${a.model.split('/').pop()}</td>
+                        <td class="value-cell">${a.arbitrage.toFixed(2)}</td>
+                        <td><span class="signal ${signalClass}">${signalText}</span></td>
+                        <td class="value-cell">$${a.blended_cost.toFixed(2)}</td>
+                        <td class="value-cell">${a.arena_elo || '—'}</td>
+                    `;
+                    arbTable.appendChild(row);
+                }
+
+                // Value leaders table
+                const valueTable = document.getElementById('value-table');
+                valueTable.innerHTML = '';
+
+                for (const v of (data.value_leaders || [])) {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="model-name">${v.model.split('/').pop()}</td>
+                        <td class="value-cell">${v.qap.toFixed(2)}</td>
+                        <td class="value-cell">$${v.blended_cost.toFixed(2)}/MTok</td>
+                        <td class="value-cell">${v.arena_elo || '—'}</td>
+                    `;
+                    valueTable.appendChild(row);
+                }
+
+                // Last updated
+                if (data.generated_at) {
+                    const date = new Date(data.generated_at);
+                    document.getElementById('last-updated').textContent = date.toISOString().split('T')[0];
+                }
+
+            } catch (error) {
+                console.log('Market data not available:', error);
+            }
+        }
+
+        loadMarketData();
+    </script>
+</body>
+</html>

@@ -688,6 +688,11 @@ def save_market_snapshot(report: dict):
     with open(snapshot_path, "w") as f:
         json.dump(report, f, indent=2)
 
+    # Also save as latest.json for frontend
+    latest_path = MARKET_DATA_DIR / "latest.json"
+    with open(latest_path, "w") as f:
+        json.dump(report, f, indent=2)
+
     print(f"[Market] Saved snapshot to {snapshot_path}")
 
 

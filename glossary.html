@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glossary | Occupant</title>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --card-bg: #111;
+            --text: #e0e0e0;
+            --dim: #666;
+            --accent: #00ff88;
+            --border: #222;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav a {
+            color: var(--dim);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+        }
+
+        header {
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--dim);
+            font-size: 0.875rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term {
+            margin-bottom: 2rem;
+        }
+
+        .term-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .term-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .term-ticker {
+            font-size: 0.75rem;
+            color: var(--accent);
+            background: rgba(0, 255, 136, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+        }
+
+        .term-def {
+            color: var(--dim);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .term-insight {
+            font-size: 0.8rem;
+            color: var(--text);
+            background: var(--card-bg);
+            border-left: 2px solid var(--accent);
+            padding: 0.75rem 1rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--dim);
+        }
+
+        footer a {
+            color: var(--dim);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/">$CPI Index</a>
+            <a href="/sabermetrics">Market Intel</a>
+            <a href="/glossary" class="active">Glossary</a>
+            <a href="/about">About</a>
+        </nav>
+
+        <header>
+            <h1>Glossary</h1>
+            <p class="subtitle">What these metrics mean and why they matter</p>
+        </header>
+
+        <!-- Core Indices -->
+        <section class="section">
+            <div class="section-title">Core Indices</div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Compute CPI</span>
+                    <span class="term-ticker">$CPI</span>
+                </div>
+                <p class="term-def">
+                    The inflation rate for AI work. Tracks the cost of a standardized basket of AI workloads
+                    against a February 2025 baseline. A value of 87 means AI work is 13% cheaper than baseline.
+                </p>
+                <div class="term-insight">
+                    Like the consumer price index tracks groceries, we track prompts. If $CPI is falling,
+                    your AI budget goes further.
+                </div>
+            </div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Reasoning Tier</span>
+                    <span class="term-ticker">$JUDGE</span>
+                </div>
+                <p class="term-def">
+                    Cost per million tokens for models optimized for complex reasoning, chain-of-thought,
+                    and judgment tasks. Includes models like o1, o3-mini, DeepSeek-R1.
+                </p>
+                <div class="term-insight">
+                    The "cognitive premium" tier. Users pay more here because the tasks require
+                    capabilities budget models can't match.
+                </div>
+            </div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Frontier Tier</span>
+                    <span class="term-ticker">$FRONT</span>
+                </div>
+                <p class="term-def">
+                    Cost per million tokens for the most capable general-purpose models.
+                    Includes Claude Sonnet, GPT-4o, Gemini Pro.
+                </p>
+            </div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Budget Tier</span>
+                    <span class="term-ticker">$BULK</span>
+                </div>
+                <p class="term-def">
+                    Cost per million tokens for high-throughput, cost-optimized models.
+                    Includes GPT-4o-mini, Gemini Flash, Claude Haiku.
+                </p>
+                <div class="term-insight">
+                    The commodity tier. Prices here fall fastest because competition is fiercest.
+                </div>
+            </div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Long Context Tier</span>
+                    <span class="term-ticker">$LCTX</span>
+                </div>
+                <p class="term-def">
+                    Cost per million tokens for models optimized for large context windows (100K+ tokens).
+                    Used for document processing, RAG, and analysis of large codebases.
+                </p>
+            </div>
+        </section>
+
+        <!-- Market Intelligence -->
+        <section class="section">
+            <div class="section-title">Market Intelligence</div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Quality-Adjusted Price</span>
+                    <span class="term-ticker">QAP</span>
+                </div>
+                <p class="term-def">
+                    How much you pay per unit of model quality. Lower QAP means better value—more
+                    capability for your dollar.
+                </p>
+                <div class="term-insight">
+                    A model with QAP of 0.5 gives you twice the value of one with QAP of 1.0.
+                    Flash models typically have the lowest QAP.
+                </div>
+            </div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Cognitive Arbitrage</span>
+                </div>
+                <p class="term-def">
+                    Whether a model is over or underpriced relative to its capabilities compared to market average.
+                    Values above 1.2 suggest the model is underpriced (buy signal). Below 0.8 suggests overpriced.
+                </p>
+                <div class="term-insight">
+                    High arbitrage scores reveal market inefficiencies—models that deliver more capability
+                    than their price suggests. These are the "value stocks" of AI.
+                </div>
+            </div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Arena ELO</span>
+                </div>
+                <p class="term-def">
+                    Quality rating from the Chatbot Arena, where humans compare model outputs head-to-head.
+                    Higher ELO means the model wins more comparisons. Based on millions of human votes.
+                </p>
+            </div>
+        </section>
+
+        <!-- Spreads -->
+        <section class="section">
+            <div class="section-title">Spreads</div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Cognition Premium</span>
+                    <span class="term-ticker">$COG-P</span>
+                </div>
+                <p class="term-def">
+                    The price difference between frontier and budget tiers. Measures how much extra
+                    you pay for top-tier capability vs commodity.
+                </p>
+                <div class="term-insight">
+                    A widening cognition premium suggests frontier models are holding value
+                    while budget models commoditize. A narrowing spread means budget models
+                    are catching up in capability.
+                </div>
+            </div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Judgment Premium</span>
+                    <span class="term-ticker">$JDG-P</span>
+                </div>
+                <p class="term-def">
+                    The price difference between reasoning and frontier tiers. Measures the premium
+                    users pay for extended thinking and complex reasoning.
+                </p>
+            </div>
+        </section>
+
+        <!-- Build Cost Index -->
+        <section class="section">
+            <div class="section-title">Build Cost Index</div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Startup Builder</span>
+                    <span class="term-ticker">$START</span>
+                </div>
+                <p class="term-def">
+                    Cost index for a typical startup workload: heavy on coding assistance,
+                    some RAG/context, and light routing/classification.
+                </p>
+            </div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Agentic Team</span>
+                    <span class="term-ticker">$AGENT</span>
+                </div>
+                <p class="term-def">
+                    Cost index for autonomous agent workloads: dominated by reasoning/thinking,
+                    with tool use and structured output.
+                </p>
+                <div class="term-insight">
+                    Agentic workloads are reasoning-heavy. If $AGENT is rising while $CPI falls,
+                    reasoning models are holding premium while commodity deflates.
+                </div>
+            </div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Throughput</span>
+                    <span class="term-ticker">$THRU</span>
+                </div>
+                <p class="term-def">
+                    Cost index for high-volume processing: bulk extraction, classification,
+                    and summarization at scale.
+                </p>
+            </div>
+        </section>
+
+        <!-- Coming Soon -->
+        <section class="section">
+            <div class="section-title">Coming Soon</div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Market Share Velocity</span>
+                    <span class="term-ticker">MSV</span>
+                </div>
+                <p class="term-def">
+                    How fast a model is gaining or losing market share. Positive MSV means growing adoption.
+                </p>
+            </div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Token Flow Index</span>
+                    <span class="term-ticker">$FLOW</span>
+                </div>
+                <p class="term-def">
+                    Weekly token velocity across tiers. Measures whether overall compute demand
+                    is accelerating or decelerating.
+                </p>
+            </div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Tier Migration Index</span>
+                    <span class="term-ticker">$SWITCH</span>
+                </div>
+                <p class="term-def">
+                    Tracks whether users are trading up to premium tiers or down to budget.
+                    "Premiumizing" means money moving up-market. "Commoditizing" means the opposite.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Questions? <a href="mailto:hello@occupant.ee">hello@occupant.ee</a></p>
+        </footer>
+    </div>
+</body>
+</html>

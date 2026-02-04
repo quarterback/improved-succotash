@@ -36,12 +36,30 @@
             padding: 2rem;
         }
         
+        nav {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav a {
+            color: var(--dim);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+        }
+
         header {
             margin-bottom: 3rem;
             padding-bottom: 2rem;
             border-bottom: 1px solid var(--border);
         }
-        
+
         .logo {
             font-size: 0.875rem;
             letter-spacing: 0.2em;
@@ -514,6 +532,13 @@
 </head>
 <body>
     <div class="container">
+        <nav>
+            <a href="/" class="active">$CPI Index</a>
+            <a href="/sabermetrics">Market Intel</a>
+            <a href="/glossary">Glossary</a>
+            <a href="/about">About</a>
+        </nav>
+
         <header>
             <div class="logo">Occupant</div>
             <div class="tagline">The inflation rate for AI work</div>

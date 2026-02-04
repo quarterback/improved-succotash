@@ -36,20 +36,26 @@
             padding: 2rem;
         }
 
-        header {
-            margin-bottom: 3rem;
+        nav {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
         }
 
-        .back-link {
-            font-size: 0.75rem;
+        nav a {
             color: var(--dim);
             text-decoration: none;
-            display: inline-block;
-            margin-bottom: 1rem;
+            font-size: 0.875rem;
         }
 
-        .back-link:hover {
+        nav a:hover, nav a.active {
             color: var(--accent);
+        }
+
+        header {
+            margin-bottom: 3rem;
         }
 
         h1 {
@@ -129,8 +135,14 @@
 </head>
 <body>
     <div class="container">
+        <nav>
+            <a href="/">$CPI Index</a>
+            <a href="/sabermetrics">Market Intel</a>
+            <a href="/glossary">Glossary</a>
+            <a href="/about" class="active">About</a>
+        </nav>
+
         <header>
-            <a href="/" class="back-link">← Back to Dashboard</a>
             <h1>About Occupant Index</h1>
             <p class="subtitle">The inflation rate for AI work</p>
         </header>
