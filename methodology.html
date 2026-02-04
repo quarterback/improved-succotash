@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methodology | Occupant Compute CPI</title>
+    <meta name="description" content="Full methodology for Compute CPI - the inflation rate for AI work.">
+    
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --fg: #e8e8e8;
+            --dim: #666;
+            --accent: #00ff88;
+            --border: #222;
+            --card-bg: #111;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            margin-bottom: 3rem;
+        }
+        
+        .back-link {
+            font-size: 0.75rem;
+            color: var(--dim);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .back-link:hover {
+            color: var(--accent);
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 0.875rem;
+            color: var(--dim);
+        }
+        
+        section {
+            margin-bottom: 3rem;
+        }
+        
+        h2 {
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        p {
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            max-width: 65ch;
+        }
+        
+        ul, ol {
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        code {
+            background: var(--card-bg);
+            padding: 0.125rem 0.375rem;
+            border-radius: 2px;
+            font-size: 0.8125rem;
+        }
+        
+        pre {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+            font-size: 0.75rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+            font-size: 0.8125rem;
+        }
+        
+        th, td {
+            text-align: left;
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        th {
+            color: var(--dim);
+            font-weight: 400;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .formula {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .formula-main {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .formula-note {
+            font-size: 0.75rem;
+            color: var(--dim);
+        }
+        
+        .note {
+            background: var(--card-bg);
+            border-left: 2px solid var(--accent);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.8125rem;
+        }
+        
+        footer {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            margin-top: 3rem;
+            font-size: 0.75rem;
+            color: var(--dim);
+        }
+        
+        footer a {
+            color: var(--dim);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">← Back to Dashboard</a>
+            <h1>Compute CPI Methodology</h1>
+            <p class="subtitle">Version 1.0 • February 2026</p>
+        </header>
+        
+        <main>
+            <section>
+                <h2>What It Measures</h2>
+                <p>
+                    Compute CPI tracks the changing cost of a representative "basket" of AI work, 
+                    expressed as an index (base=100) and an inflation rate (MoM/YoY).
+                </p>
+                <p>
+                    Like the Consumer Price Index measures the cost of household goods over time, 
+                    Compute CPI measures the cost of common AI workloads. This enables organizations 
+                    to understand AI cost trends, forecast budgets, and benchmark procurement decisions.
+                </p>
+            </section>
+            
+            <section>
+                <h2>The Basket</h2>
+                <p>
+                    The index is built on six workload categories, each representing a common 
+                    pattern of AI usage:
+                </p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Input Tokens</th>
+                            <th>Output Tokens</th>
+                            <th>Weight</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Chat / Drafting</td>
+                            <td>2,000</td>
+                            <td>500</td>
+                            <td>20%</td>
+                        </tr>
+                        <tr>
+                            <td>Summarization</td>
+                            <td>10,000</td>
+                            <td>500</td>
+                            <td>25%</td>
+                        </tr>
+                        <tr>
+                            <td>Classification</td>
+                            <td>500</td>
+                            <td>50</td>
+                            <td>20%</td>
+                        </tr>
+                        <tr>
+                            <td>Coding</td>
+                            <td>3,000</td>
+                            <td>1,000</td>
+                            <td>15%</td>
+                        </tr>
+                        <tr>
+                            <td>Judgment / Reasoning</td>
+                            <td>5,000</td>
+                            <td>2,000</td>
+                            <td>10%</td>
+                        </tr>
+                        <tr>
+                            <td>Long-Context Synthesis</td>
+                            <td>50,000</td>
+                            <td>1,000</td>
+                            <td>10%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p>
+                    These weights reflect typical institutional usage patterns. The Civic CPI 
+                    (coming Q2 2026) will use different weights optimized for public sector workloads.
+                </p>
+            </section>
+            
+            <section>
+                <h2>Calculation</h2>
+                
+                <p>For each workload category <em>i</em>, we calculate cost as:</p>
+                
+                <div class="formula">
+                    <div class="formula-main">
+                        Cost(i) = (T<sub>in</sub>/1M × $/1M<sub>in</sub>) + (T<sub>out</sub>/1M × $/1M<sub>out</sub>)
+                    </div>
+                    <div class="formula-note">
+                        Where T<sub>in</sub> = input tokens, T<sub>out</sub> = output tokens
+                    </div>
+                </div>
+                
+                <p>The weighted basket cost is:</p>
+                
+                <div class="formula">
+                    <div class="formula-main">
+                        Basket Cost = Σ(weight<sub>i</sub> × Cost(i))
+                    </div>
+                </div>
+                
+                <p>The index value is calculated relative to the baseline period:</p>
+                
+                <div class="formula">
+                    <div class="formula-main">
+                        Compute CPI(t) = 100 × BasketCost(t) / BasketCost(base)
+                    </div>
+                    <div class="formula-note">
+                        Where base = February 2026
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Model Selection</h2>
+                <p>
+                    Each workload category uses prices from representative models in the appropriate tier:
+                </p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tier</th>
+                            <th>Used For</th>
+                            <th>Representative Models</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Budget</td>
+                            <td>Classification</td>
+                            <td>GPT-4o-mini, Gemini Flash, Claude Haiku</td>
+                        </tr>
+                        <tr>
+                            <td>General</td>
+                            <td>Chat, Summarization</td>
+                            <td>GPT-4o, Gemini Pro, Claude Sonnet</td>
+                        </tr>
+                        <tr>
+                            <td>Frontier</td>
+                            <td>Coding</td>
+                            <td>GPT-4o, Claude Sonnet, Gemini Pro</td>
+                        </tr>
+                        <tr>
+                            <td>Reasoning</td>
+                            <td>Judgment</td>
+                            <td>o1, o3-mini, DeepSeek-R1</td>
+                        </tr>
+                        <tr>
+                            <td>Long-Context</td>
+                            <td>Synthesis</td>
+                            <td>Gemini Pro (2M), Claude (200K)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p>
+                    Costs are averaged across models in each tier to reduce sensitivity to 
+                    any single provider's pricing decisions.
+                </p>
+            </section>
+            
+            <section>
+                <h2>Subindices</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ticker</th>
+                            <th>Name</th>
+                            <th>What It Tracks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>$JUDGE</code></td>
+                            <td>Judgment CPI</td>
+                            <td>Cost of reasoning-intensive workloads</td>
+                        </tr>
+                        <tr>
+                            <td><code>$LCTX</code></td>
+                            <td>LongContext CPI</td>
+                            <td>Cost of high-context workloads</td>
+                        </tr>
+                        <tr>
+                            <td><code>$BULK</code></td>
+                            <td>Budget Tier</td>
+                            <td>Cost of cheapest throughput models</td>
+                        </tr>
+                        <tr>
+                            <td><code>$FRONT</code></td>
+                            <td>Frontier Tier</td>
+                            <td>Cost of best capability models</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section>
+                <h2>Spreads</h2>
+                <p>
+                    Spreads measure the premium paid for specific capabilities:
+                </p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ticker</th>
+                            <th>Name</th>
+                            <th>Calculation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>$COG-P</code></td>
+                            <td>Cognition Premium</td>
+                            <td>$FRONT − $BULK</td>
+                        </tr>
+                        <tr>
+                            <td><code>$JDG-P</code></td>
+                            <td>Judgment Premium</td>
+                            <td>$JUDGE − $FRONT</td>
+                        </tr>
+                        <tr>
+                            <td><code>$CTX-P</code></td>
+                            <td>Context Premium</td>
+                            <td>$LCTX − $FRONT</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section>
+                <h2>Data Sources</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Source</th>
+                            <th>Data</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>OpenRouter API</td>
+                            <td>Live prices</td>
+                            <td>Current spot rates</td>
+                        </tr>
+                        <tr>
+                            <td>Artificial Analysis</td>
+                            <td>Quality grades</td>
+                            <td>Model tier classification</td>
+                        </tr>
+                        <tr>
+                            <td>simonw/llm-prices</td>
+                            <td>Historical prices</td>
+                            <td>Baseline and trends</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="note">
+                    All data sources are publicly accessible. The methodology is fully auditable. 
+                    Anyone can verify our calculations using the same inputs.
+                </div>
+            </section>
+            
+            <section>
+                <h2>Update Schedule</h2>
+                <ul>
+                    <li><strong>Daily:</strong> Index values updated at 06:00 UTC</li>
+                    <li><strong>Quarterly:</strong> Full reports with analysis and commentary</li>
+                    <li><strong>As needed:</strong> Methodology revisions (versioned and documented)</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h2>Independence</h2>
+                <p>
+                    Occupant does not accept referral fees, sponsored rankings, or payments 
+                    from model providers. The index is funded independently and maintained 
+                    as a public resource.
+                </p>
+                <p>
+                    Our incentive is accuracy and utility, not revenue from recommendations.
+                </p>
+            </section>
+            
+            <section>
+                <h2>Limitations</h2>
+                <ul>
+                    <li>
+                        <strong>Basket assumptions:</strong> The workload definitions and weights 
+                        reflect our best estimate of typical usage. Your organization's actual 
+                        usage may differ.
+                    </li>
+                    <li>
+                        <strong>Model selection:</strong> We track major commercial models. 
+                        Open-source and self-hosted options are not included in the current methodology.
+                    </li>
+                    <li>
+                        <strong>Quality normalization:</strong> We group models by tier but do not 
+                        adjust for quality differences within tiers.
+                    </li>
+                    <li>
+                        <strong>Latency and throughput:</strong> The index measures cost only, 
+                        not performance characteristics like speed or availability.
+                    </li>
+                </ul>
+            </section>
+            
+            <section>
+                <h2>Future Development</h2>
+                <ul>
+                    <li>
+                        <strong>Civic CPI:</strong> Weights optimized for public sector workloads 
+                        (intake, eligibility, appeals, compliance)
+                    </li>
+                    <li>
+                        <strong>Quality-adjusted indices:</strong> Incorporating capability scores 
+                        into cost calculations
+                    </li>
+                    <li>
+                        <strong>Regional indices:</strong> Tracking price differences across 
+                        deployment regions
+                    </li>
+                    <li>
+                        <strong>API access:</strong> Programmatic access for researchers and 
+                        governance teams
+                    </li>
+                </ul>
+            </section>
+            
+            <section>
+                <h2>Contact</h2>
+                <p>
+                    Questions about methodology? Suggestions for improvement? 
+                    Interested in collaboration?
+                </p>
+                <p>
+                    <a href="mailto:research@occupant.ee" style="color: var(--accent);">research@occupant.ee</a>
+                </p>
+            </section>
+        </main>
+        
+        <footer>
+            <p>
+                <a href="/">Occupant</a> · 
+                <a href="https://github.com/quarterback/occupant">GitHub</a> · 
+                <a href="mailto:research@occupant.ee">Contact</a>
+            </p>
+            <p style="margin-top: 1rem;">
+                Methodology v1.0 · February 2026<br>
+                Published under open methodology. Verification encouraged.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

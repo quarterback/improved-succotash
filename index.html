@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Occupant | Compute CPI</title>
+    <meta name="description" content="The inflation rate for AI work. We track the changing cost of representative AI workloads.">
+    
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --fg: #e8e8e8;
+            --dim: #666;
+            --accent: #00ff88;
+            --border: #222;
+            --card-bg: #111;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .logo {
+            font-size: 0.875rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--fg);
+        }
+        
+        /* Main CPI Display */
+        .cpi-main {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cpi-ticker {
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cpi-value {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cpi-changes {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .change {
+            font-size: 0.875rem;
+        }
+        
+        .change-label {
+            color: var(--dim);
+        }
+        
+        .change-value {
+            color: var(--accent);
+        }
+        
+        .change-value.negative {
+            color: #ff4444;
+        }
+        
+        .cpi-base {
+            font-size: 0.75rem;
+            color: var(--dim);
+        }
+        
+        /* Subindices */
+        .subindices {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .subindex {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.25rem;
+        }
+        
+        .subindex-ticker {
+            font-size: 0.625rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.25rem;
+        }
+        
+        .subindex-value {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .subindex-name {
+            font-size: 0.75rem;
+            color: var(--dim);
+        }
+        
+        .subindex-change {
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-top: 0.5rem;
+        }
+        
+        /* Spreads */
+        .spreads {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .spreads-title {
+            font-size: 0.625rem;
+            color: var(--dim);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .spread-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .spread-row:last-child {
+            border-bottom: none;
+        }
+        
+        .spread-ticker {
+            font-size: 0.75rem;
+            color: var(--accent);
+        }
+        
+        .spread-name {
+            font-size: 0.75rem;
+            color: var(--dim);
+            flex: 1;
+            margin-left: 1rem;
+        }
+        
+        .spread-value {
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        /* Methodology */
+        .methodology {
+            margin-bottom: 3rem;
+        }
+        
+        .methodology h2 {
+            font-size: 0.75rem;
+            color: var(--dim);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .methodology p {
+            font-size: 0.875rem;
+            color: var(--fg);
+            margin-bottom: 1rem;
+            max-width: 60ch;
+        }
+        
+        .methodology-link {
+            font-size: 0.875rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .methodology-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Trust Signal */
+        .trust-signal {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .trust-signal p {
+            font-size: 0.75rem;
+            color: var(--dim);
+            margin-bottom: 0.5rem;
+        }
+        
+        .trust-signal p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Coming Soon */
+        .coming-soon {
+            margin-bottom: 3rem;
+        }
+        
+        .coming-soon h2 {
+            font-size: 0.75rem;
+            color: var(--dim);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .coming-soon ul {
+            list-style: none;
+            font-size: 0.875rem;
+        }
+        
+        .coming-soon li {
+            padding: 0.25rem 0;
+            color: var(--dim);
+        }
+        
+        .coming-soon li::before {
+            content: "→ ";
+            color: var(--accent);
+        }
+        
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .founder {
+            margin-bottom: 2rem;
+        }
+        
+        .founder-name {
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .founder-title {
+            font-size: 0.75rem;
+            color: var(--dim);
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: var(--dim);
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .last-updated {
+            margin-top: 2rem;
+            font-size: 0.625rem;
+            color: var(--dim);
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .cpi-value {
+                font-size: 3rem;
+            }
+            
+            .cpi-changes {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .subindices {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Occupant</div>
+            <div class="tagline">The inflation rate for AI work</div>
+        </header>
+        
+        <main>
+            <!-- Main CPI Display -->
+            <section class="cpi-main">
+                <div class="cpi-ticker">$CPI • COMPUTE CPI</div>
+                <div class="cpi-value" id="cpi-value">100.0</div>
+                <div class="cpi-changes">
+                    <div class="change">
+                        <span class="change-label">MoM:</span>
+                        <span class="change-value" id="mom-change">—</span>
+                    </div>
+                    <div class="change">
+                        <span class="change-label">YoY:</span>
+                        <span class="change-value" id="yoy-change">—</span>
+                    </div>
+                </div>
+                <div class="cpi-base">Base = 100 (February 2026)</div>
+            </section>
+            
+            <!-- Subindices -->
+            <section class="subindices">
+                <div class="subindex">
+                    <div class="subindex-ticker">$JUDGE</div>
+                    <div class="subindex-value" id="judge-value">—</div>
+                    <div class="subindex-name">Judgment CPI</div>
+                    <div class="subindex-change" id="judge-change"></div>
+                </div>
+                <div class="subindex">
+                    <div class="subindex-ticker">$LCTX</div>
+                    <div class="subindex-value" id="lctx-value">—</div>
+                    <div class="subindex-name">LongContext CPI</div>
+                    <div class="subindex-change" id="lctx-change"></div>
+                </div>
+                <div class="subindex">
+                    <div class="subindex-ticker">$BULK</div>
+                    <div class="subindex-value" id="bulk-value">—</div>
+                    <div class="subindex-name">Budget Tier</div>
+                    <div class="subindex-change" id="bulk-change"></div>
+                </div>
+                <div class="subindex">
+                    <div class="subindex-ticker">$FRONT</div>
+                    <div class="subindex-value" id="front-value">—</div>
+                    <div class="subindex-name">Frontier Tier</div>
+                    <div class="subindex-change" id="front-change"></div>
+                </div>
+            </section>
+            
+            <!-- Spreads -->
+            <section class="spreads">
+                <div class="spreads-title">Spreads</div>
+                <div class="spread-row">
+                    <span class="spread-ticker">$COG-P</span>
+                    <span class="spread-name">Cognition Premium</span>
+                    <span class="spread-value" id="cog-spread">—</span>
+                </div>
+                <div class="spread-row">
+                    <span class="spread-ticker">$JDG-P</span>
+                    <span class="spread-name">Judgment Premium</span>
+                    <span class="spread-value" id="jdg-spread">—</span>
+                </div>
+                <div class="spread-row">
+                    <span class="spread-ticker">$CTX-P</span>
+                    <span class="spread-name">Context Premium</span>
+                    <span class="spread-value" id="ctx-spread">—</span>
+                </div>
+            </section>
+            
+            <!-- Methodology -->
+            <section class="methodology">
+                <h2>Methodology</h2>
+                <p>
+                    Compute CPI tracks the changing cost of a representative "basket" of AI work, 
+                    expressed as an index where February 2026 = 100.
+                </p>
+                <p>
+                    The basket includes six workload categories: chat/drafting, summarization, 
+                    classification, coding, judgment/reasoning, and long-context synthesis. 
+                    Each category is weighted to reflect typical institutional usage patterns.
+                </p>
+                <a href="/methodology" class="methodology-link">View full methodology →</a>
+            </section>
+            
+            <!-- Trust Signal -->
+            <section class="trust-signal">
+                <p>No referral fees. No sponsored rankings.</p>
+                <p>Public APIs. Auditable methodology.</p>
+                <p>Data sources: OpenRouter (prices), Artificial Analysis (quality grades), simonw/llm-prices (historical)</p>
+            </section>
+            
+            <!-- Coming Soon -->
+            <section class="coming-soon">
+                <h2>Coming Q2 2026</h2>
+                <ul>
+                    <li>Civic CPI (public sector workload basket)</li>
+                    <li>Quarterly reports with trend analysis</li>
+                    <li>Historical data explorer</li>
+                    <li>API access for researchers</li>
+                </ul>
+            </section>
+        </main>
+        
+        <footer>
+            <div class="founder">
+                <div class="founder-name">Ron Bronson</div>
+                <div class="founder-title">
+                    Former Head of Design, 18F<br>
+                    Former Chief of Staff, GSA Technology Transformation Services<br>
+                    Assistant Professor, University of Michigan
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <a href="/methodology">Methodology</a>
+                <a href="https://github.com/quarterback/occupant">GitHub</a>
+                <a href="mailto:research@occupant.ee">Contact</a>
+            </div>
+            
+            <div class="last-updated">
+                Last updated: <span id="last-updated">—</span>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        // Load and display CPI data
+        async function loadCPIData() {
+            try {
+                const response = await fetch('/data/compute-cpi.json');
+                const data = await response.json();
+                
+                // Main CPI
+                document.getElementById('cpi-value').textContent = data.compute_cpi.value.toFixed(1);
+                
+                if (data.compute_cpi.mom_change !== null) {
+                    const momEl = document.getElementById('mom-change');
+                    momEl.textContent = (data.compute_cpi.mom_change >= 0 ? '+' : '') + data.compute_cpi.mom_change.toFixed(1) + '%';
+                    if (data.compute_cpi.mom_change < 0) momEl.classList.add('negative');
+                }
+                
+                if (data.compute_cpi.yoy_change !== null) {
+                    const yoyEl = document.getElementById('yoy-change');
+                    yoyEl.textContent = (data.compute_cpi.yoy_change >= 0 ? '+' : '') + data.compute_cpi.yoy_change.toFixed(1) + '%';
+                    if (data.compute_cpi.yoy_change < 0) yoyEl.classList.add('negative');
+                }
+                
+                // Subindices
+                if (data.subindices.judgment) {
+                    document.getElementById('judge-value').textContent = data.subindices.judgment.value.toFixed(1);
+                }
+                if (data.subindices.longctx) {
+                    document.getElementById('lctx-value').textContent = data.subindices.longctx.value.toFixed(1);
+                }
+                if (data.subindices.budget) {
+                    document.getElementById('bulk-value').textContent = data.subindices.budget.value.toFixed(1);
+                }
+                if (data.subindices.frontier) {
+                    document.getElementById('front-value').textContent = data.subindices.frontier.value.toFixed(1);
+                }
+                
+                // Spreads
+                if (data.spreads.cognition_premium) {
+                    document.getElementById('cog-spread').textContent = 
+                        (data.spreads.cognition_premium.value >= 0 ? '+$' : '-$') + 
+                        Math.abs(data.spreads.cognition_premium.value).toFixed(2) + '/1M';
+                }
+                if (data.spreads.judgment_premium) {
+                    document.getElementById('jdg-spread').textContent = 
+                        (data.spreads.judgment_premium.value >= 0 ? '+$' : '-$') + 
+                        Math.abs(data.spreads.judgment_premium.value).toFixed(2) + '/1M';
+                }
+                if (data.spreads.context_premium) {
+                    document.getElementById('ctx-spread').textContent = 
+                        (data.spreads.context_premium.value >= 0 ? '+$' : '-$') + 
+                        Math.abs(data.spreads.context_premium.value).toFixed(2) + '/1M';
+                }
+                
+                // Last updated
+                const updated = new Date(data.meta.generated_at);
+                document.getElementById('last-updated').textContent = updated.toISOString().split('T')[0] + ' ' + updated.toISOString().split('T')[1].split('.')[0] + ' UTC';
+                
+            } catch (error) {
+                console.log('CPI data not yet available');
+            }
+        }
+        
+        loadCPIData();
+    </script>
+</body>
+</html>
