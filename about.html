@@ -5,132 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Occupant Index</title>
     <meta name="description" content="About Occupant Index - the inflation rate for AI work.">
-
-    <style>
-        :root {
-            --bg: #0a0a0a;
-            --fg: #e8e8e8;
-            --dim: #666;
-            --accent: #00ff88;
-            --border: #222;
-            --card-bg: #111;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
-            background: var(--bg);
-            color: var(--fg);
-            line-height: 1.7;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        header {
-            margin-bottom: 3rem;
-        }
-
-        .back-link {
-            font-size: 0.75rem;
-            color: var(--dim);
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .back-link:hover {
-            color: var(--accent);
-        }
-
-        h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .subtitle {
-            font-size: 0.875rem;
-            color: var(--dim);
-        }
-
-        section {
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            font-size: 0.75rem;
-            color: var(--accent);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        p {
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-            max-width: 65ch;
-        }
-
-        ul {
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        .highlight {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .highlight p {
-            margin-bottom: 0;
-        }
-
-        .ticker {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        footer {
-            border-top: 1px solid var(--border);
-            padding-top: 2rem;
-            margin-top: 3rem;
-            font-size: 0.75rem;
-            color: var(--dim);
-        }
-
-        footer a {
-            color: var(--dim);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: var(--accent);
-        }
-    </style>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" style="max-width: 700px;">
+        <nav>
+            <a href="/">$CPI Index</a>
+            <a href="/sabermetrics.html">Market Intel</a>
+            <a href="/glossary.html">Glossary</a>
+            <a href="/about.html" class="active">About</a>
+            <div class="nav-right">
+                <button id="theme-toggle" class="theme-toggle">Light</button>
+            </div>
+        </nav>
+
         <header>
-            <a href="/" class="back-link">← Back to Dashboard</a>
             <h1>About Occupant Index</h1>
             <p class="subtitle">The inflation rate for AI work</p>
         </header>
@@ -154,7 +43,7 @@
             <section>
                 <h2>Why It Matters</h2>
                 <p>
-                    AI inference costs are dropping—but how fast? And for which workloads?
+                    AI inference costs are dropping - but how fast? And for which workloads?
                     Different model tiers (budget vs frontier vs reasoning) deflate at different rates.
                     Different use cases see different cost pressure.
                 </p>
@@ -166,17 +55,52 @@
 
             <section>
                 <h2>What We Track</h2>
+
+                <p><strong>Price Indices</strong></p>
                 <ul>
-                    <li><span class="ticker">$CPI</span> — The main Compute Price Index</li>
-                    <li><span class="ticker">$JUDGE</span> — Reasoning-intensive workloads</li>
-                    <li><span class="ticker">$LCTX</span> — Long-context workloads</li>
-                    <li><span class="ticker">$BULK</span> — Budget tier (high-volume, low-cost)</li>
-                    <li><span class="ticker">$FRONT</span> — Frontier tier (best capability)</li>
+                    <li><span class="ticker">$CPI</span> - The main Compute Price Index</li>
+                    <li><span class="ticker">$JUDGE</span> - Reasoning-intensive workloads</li>
+                    <li><span class="ticker">$LCTX</span> - Long-context workloads</li>
+                    <li><span class="ticker">$BULK</span> - Budget tier (high-volume, low-cost)</li>
+                    <li><span class="ticker">$FRONT</span> - Frontier tier (best capability)</li>
                 </ul>
+
+                <p><strong>Market Intelligence</strong></p>
+                <ul>
+                    <li><span class="ticker">QAP</span> - Quality-Adjusted Price (value per dollar)</li>
+                    <li><span class="ticker">Cognitive Arbitrage</span> - Models over/underpriced vs capability</li>
+                    <li><span class="ticker">MSV</span> - Market Share Velocity (adoption trends)</li>
+                    <li><span class="ticker">Tier Analysis</span> - Price/quality by model tier</li>
+                </ul>
+
+                <p><strong>Build Cost Indices</strong></p>
+                <ul>
+                    <li><span class="ticker">$START</span> - Startup builder workload mix</li>
+                    <li><span class="ticker">$AGENT</span> - Agentic/autonomous workloads</li>
+                    <li><span class="ticker">$THRU</span> - High-throughput processing</li>
+                </ul>
+
                 <p>
                     We also publish spreads (premium for capability), exchange rates
-                    (relative token costs), and persona-based indices for different
-                    team profiles.
+                    (relative token costs), and trend analysis.
+                </p>
+            </section>
+
+            <section>
+                <h2>Data Sources</h2>
+                <p>
+                    We aggregate pricing data from multiple sources:
+                </p>
+                <ul>
+                    <li>OpenRouter API (primary pricing)</li>
+                    <li>LiteLLM (cross-provider validation)</li>
+                    <li>llm-prices.com (independent verification)</li>
+                    <li>OpenRouter Rankings (volume/market share)</li>
+                    <li>Chatbot Arena (quality ratings)</li>
+                </ul>
+                <p>
+                    Data is collected daily via automated pipelines and cross-validated
+                    across sources to ensure accuracy.
                 </p>
             </section>
 
@@ -192,34 +116,44 @@
             </section>
 
             <section>
+                <h2>Open Source</h2>
+                <p>
+                    The index methodology and data collection code is open source.
+                    You can audit our calculations, suggest improvements, or run your own instance.
+                </p>
+                <p>
+                    <a href="https://github.com/quarterback/occupant">View on GitHub</a>
+                </p>
+            </section>
+
+            <section>
                 <h2>Reports</h2>
                 <p>
                     Beyond the daily index, we publish periodic analysis reports covering
                     notable movements, spread analysis, and implications for AI cost planning.
-                </p>
-                <p>
-                    Reports archive: <a href="/reports" style="color: var(--accent);">/reports</a>
                 </p>
             </section>
 
             <section>
                 <h2>Contact</h2>
                 <p>
-                    <a href="mailto:hello@occupant.ee" style="color: var(--accent);">hello@occupant.ee</a>
+                    <a href="mailto:hello@occupant.ee">hello@occupant.ee</a>
                 </p>
             </section>
         </main>
 
         <footer>
             <p>
-                <a href="/">Occupant Index</a> ·
-                <a href="https://github.com/quarterback/occupant">GitHub</a> ·
+                <a href="/">Occupant Index</a> -
+                <a href="https://github.com/quarterback/occupant">GitHub</a> -
                 <a href="mailto:hello@occupant.ee">Contact</a>
             </p>
             <p style="margin-top: 1rem;">
-                © 2025–2026 Occupant Index
+                2025-2026 Occupant Index
             </p>
         </footer>
     </div>
+
+    <script src="/theme.js"></script>
 </body>
 </html>

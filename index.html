@@ -5,538 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Occupant | Compute CPI</title>
     <meta name="description" content="The inflation rate for AI work. We track the changing cost of representative AI workloads.">
-    
-    <style>
-        :root {
-            --bg: #0a0a0a;
-            --fg: #e8e8e8;
-            --dim: #666;
-            --accent: #00ff88;
-            --border: #222;
-            --card-bg: #111;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
-            background: var(--bg);
-            color: var(--fg);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        header {
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .logo {
-            font-size: 0.875rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--dim);
-            margin-bottom: 0.5rem;
-        }
-        
-        .tagline {
-            font-size: 1.25rem;
-            color: var(--fg);
-        }
-        
-        /* Main CPI Display */
-        .cpi-main {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .cpi-ticker {
-            font-size: 0.75rem;
-            color: var(--accent);
-            letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
-        }
-        
-        .cpi-value {
-            font-size: 4rem;
-            font-weight: 700;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-        
-        .cpi-changes {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .change {
-            font-size: 0.875rem;
-        }
-        
-        .change-label {
-            color: var(--dim);
-        }
-        
-        .change-value {
-            color: var(--accent);
-        }
-        
-        .change-value.negative {
-            color: #ff4444;
-        }
-        
-        .cpi-base {
-            font-size: 0.75rem;
-            color: var(--dim);
-        }
-        
-        /* Subindices */
-        .subindices {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .subindex {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 1.25rem;
-        }
-        
-        .subindex-ticker {
-            font-size: 0.625rem;
-            color: var(--accent);
-            letter-spacing: 0.1em;
-            margin-bottom: 0.25rem;
-        }
-        
-        .subindex-value {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-        
-        .subindex-name {
-            font-size: 0.75rem;
-            color: var(--dim);
-        }
-        
-        .subindex-unit {
-            font-size: 0.625rem;
-            color: var(--dim);
-            margin-top: 0.25rem;
-        }
-        
-        /* Spreads */
-        .spreads {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .spreads-title {
-            font-size: 0.625rem;
-            color: var(--dim);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-        
-        .spread-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .spread-row:last-child {
-            border-bottom: none;
-        }
-        
-        .spread-ticker {
-            font-size: 0.75rem;
-            color: var(--accent);
-        }
-        
-        .spread-name {
-            font-size: 0.75rem;
-            color: var(--dim);
-            flex: 1;
-            margin-left: 1rem;
-        }
-        
-        .spread-value {
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
-        
-        /* Methodology */
-        .methodology {
-            margin-bottom: 3rem;
-        }
-        
-        .methodology h2 {
-            font-size: 0.75rem;
-            color: var(--dim);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-        
-        .methodology p {
-            font-size: 0.875rem;
-            color: var(--fg);
-            margin-bottom: 1rem;
-            max-width: 60ch;
-        }
-        
-        .methodology-link {
-            font-size: 0.875rem;
-            color: var(--accent);
-            text-decoration: none;
-        }
-        
-        .methodology-link:hover {
-            text-decoration: underline;
-        }
-        
-        /* Trust Signal */
-        .trust-signal {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            margin-bottom: 3rem;
-        }
-        
-        .trust-signal p {
-            font-size: 0.75rem;
-            color: var(--dim);
-            margin-bottom: 0.5rem;
-        }
-        
-        .trust-signal p:last-child {
-            margin-bottom: 0;
-        }
-        
-        /* Coming Soon */
-        .coming-soon {
-            margin-bottom: 3rem;
-        }
-        
-        .coming-soon h2 {
-            font-size: 0.75rem;
-            color: var(--dim);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-        
-        .coming-soon ul {
-            list-style: none;
-            font-size: 0.875rem;
-        }
-        
-        .coming-soon li {
-            padding: 0.25rem 0;
-            color: var(--dim);
-        }
-        
-        .coming-soon li::before {
-            content: "→ ";
-            color: var(--accent);
-        }
-        
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border);
-            padding-top: 2rem;
-            margin-top: 2rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-            font-size: 0.75rem;
-        }
-        
-        .footer-links a {
-            color: var(--dim);
-            text-decoration: none;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-        
-        .last-updated {
-            margin-top: 2rem;
-            font-size: 0.625rem;
-            color: var(--dim);
-        }
-        
-        /* Exchange Rates */
-        .exchange-rates {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .section-header {
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: 0.625rem;
-            color: var(--dim);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .section-subtitle {
-            font-size: 0.75rem;
-            color: var(--accent);
-            margin-top: 0.25rem;
-        }
-
-        .rates-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.75rem;
-        }
-
-        .rate-card {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .rate-ticker {
-            font-size: 0.75rem;
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .rate-value {
-            font-size: 0.75rem;
-            color: var(--fg);
-        }
-
-        /* Persona CPIs / Build Cost Index */
-        .persona-cpis {
-            margin-bottom: 2rem;
-        }
-
-        .persona-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .persona-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 1.25rem;
-            text-align: center;
-        }
-
-        .persona-ticker {
-            font-size: 0.625rem;
-            color: var(--accent);
-            letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
-        }
-
-        .persona-value {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .persona-name {
-            font-size: 0.75rem;
-            color: var(--fg);
-            margin-bottom: 0.25rem;
-        }
-
-        .persona-change {
-            font-size: 0.625rem;
-            color: var(--accent);
-            margin-bottom: 0.25rem;
-        }
-
-        .persona-change.negative {
-            color: #ff4444;
-        }
-
-        .persona-insight {
-            font-size: 0.625rem;
-            color: var(--dim);
-            font-style: italic;
-        }
-
-        /* Index Series */
-        .index-series {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .series-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0.5rem;
-        }
-
-        .series-item {
-            text-align: center;
-            padding: 0.75rem 0.25rem;
-        }
-
-        .series-ticker {
-            font-size: 0.625rem;
-            color: var(--accent);
-            letter-spacing: 0.05em;
-            margin-bottom: 0.25rem;
-        }
-
-        .series-value {
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .series-label {
-            font-size: 0.625rem;
-            color: var(--dim);
-            margin-top: 0.25rem;
-        }
-
-        /* Trend Analysis */
-        .trend-analysis {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .trend-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-        }
-
-        .trend-item {
-            text-align: center;
-        }
-
-        .trend-label {
-            font-size: 0.625rem;
-            color: var(--dim);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.25rem;
-        }
-
-        .trend-value {
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .trend-value.deflating {
-            color: var(--accent);
-        }
-
-        .trend-value.inflating {
-            color: #ff4444;
-        }
-
-        .trend-unit {
-            font-size: 0.625rem;
-            color: var(--dim);
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .cpi-value {
-                font-size: 3rem;
-            }
-            
-            .cpi-changes {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .subindices {
-                grid-template-columns: 1fr;
-            }
-
-            .rates-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .persona-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .series-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .trend-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <div class="container">
+        <nav>
+            <a href="/" class="active">$CPI Index</a>
+            <a href="/sabermetrics.html">Market Intel</a>
+            <a href="/glossary.html">Glossary</a>
+            <a href="/about.html">About</a>
+            <div class="nav-right">
+                <button id="theme-toggle" class="theme-toggle">Light</button>
+            </div>
+        </nav>
+
         <header>
             <div class="logo">Occupant</div>
             <div class="tagline">The inflation rate for AI work</div>
         </header>
-        
+
         <main>
             <!-- Main CPI Display -->
             <section class="cpi-main">
-                <div class="cpi-ticker">$CPI • COMPUTE CPI</div>
+                <div class="cpi-ticker">$CPI - COMPUTE CPI</div>
                 <div class="cpi-value" id="cpi-value">100.0</div>
                 <div class="cpi-changes">
                     <div class="change">
                         <span class="change-label">MoM:</span>
-                        <span class="change-value" id="mom-change">—</span>
+                        <span class="change-value" id="mom-change">-</span>
                     </div>
                     <div class="change">
                         <span class="change-label">YoY:</span>
-                        <span class="change-value" id="yoy-change">—</span>
+                        <span class="change-value" id="yoy-change">-</span>
                     </div>
                 </div>
                 <div class="cpi-base">Base = 100 (February 2025)</div>
             </section>
-            
+
             <!-- Index Series -->
             <section class="index-series">
                 <div class="section-header">
@@ -546,27 +51,27 @@
                 <div class="series-grid" id="series-grid">
                     <div class="series-item">
                         <div class="series-ticker">$CPI-L</div>
-                        <div class="series-value" id="series-launch">—</div>
+                        <div class="series-value" id="series-launch">-</div>
                         <div class="series-label">Since Launch</div>
                     </div>
                     <div class="series-item">
                         <div class="series-ticker">$CPI-Y</div>
-                        <div class="series-value" id="series-yoy">—</div>
+                        <div class="series-value" id="series-yoy">-</div>
                         <div class="series-label">YoY</div>
                     </div>
                     <div class="series-item">
                         <div class="series-ticker">$CPI-Q</div>
-                        <div class="series-value" id="series-qtd">—</div>
+                        <div class="series-value" id="series-qtd">-</div>
                         <div class="series-label">QTD</div>
                     </div>
                     <div class="series-item">
                         <div class="series-ticker">$CPI-M</div>
-                        <div class="series-value" id="series-mtd">—</div>
+                        <div class="series-value" id="series-mtd">-</div>
                         <div class="series-label">MTD</div>
                     </div>
                     <div class="series-item">
                         <div class="series-ticker">$CPI-W</div>
-                        <div class="series-value" id="series-wow">—</div>
+                        <div class="series-value" id="series-wow">-</div>
                         <div class="series-label">WoW</div>
                     </div>
                 </div>
@@ -581,20 +86,20 @@
                 <div class="trend-grid">
                     <div class="trend-item">
                         <div class="trend-label">Direction</div>
-                        <div class="trend-value" id="trend-direction">—</div>
+                        <div class="trend-value" id="trend-direction">-</div>
                     </div>
                     <div class="trend-item">
                         <div class="trend-label">Velocity</div>
-                        <div class="trend-value" id="trend-velocity">—</div>
+                        <div class="trend-value" id="trend-velocity">-</div>
                         <div class="trend-unit">pts/month</div>
                     </div>
                     <div class="trend-item">
                         <div class="trend-label">30d Forecast</div>
-                        <div class="trend-value" id="trend-forecast">—</div>
+                        <div class="trend-value" id="trend-forecast">-</div>
                     </div>
                     <div class="trend-item">
                         <div class="trend-label">Confidence</div>
-                        <div class="trend-value" id="trend-confidence">—</div>
+                        <div class="trend-value" id="trend-confidence">-</div>
                     </div>
                 </div>
             </section>
@@ -603,30 +108,30 @@
             <section class="subindices">
                 <div class="subindex">
                     <div class="subindex-ticker">$JUDGE</div>
-                    <div class="subindex-value" id="judge-value">—</div>
+                    <div class="subindex-value" id="judge-value">-</div>
                     <div class="subindex-name">Reasoning Tier</div>
                     <div class="subindex-unit">per 1M tokens</div>
                 </div>
                 <div class="subindex">
                     <div class="subindex-ticker">$LCTX</div>
-                    <div class="subindex-value" id="lctx-value">—</div>
+                    <div class="subindex-value" id="lctx-value">-</div>
                     <div class="subindex-name">Long Context Tier</div>
                     <div class="subindex-unit">per 1M tokens</div>
                 </div>
                 <div class="subindex">
                     <div class="subindex-ticker">$BULK</div>
-                    <div class="subindex-value" id="bulk-value">—</div>
+                    <div class="subindex-value" id="bulk-value">-</div>
                     <div class="subindex-name">Budget Tier</div>
                     <div class="subindex-unit">per 1M tokens</div>
                 </div>
                 <div class="subindex">
                     <div class="subindex-ticker">$FRONT</div>
-                    <div class="subindex-value" id="front-value">—</div>
+                    <div class="subindex-value" id="front-value">-</div>
                     <div class="subindex-name">Frontier Tier</div>
                     <div class="subindex-unit">per 1M tokens</div>
                 </div>
             </section>
-            
+
             <!-- Exchange Rates -->
             <section class="exchange-rates">
                 <div class="section-header">
@@ -636,19 +141,19 @@
                 <div class="rates-grid">
                     <div class="rate-card">
                         <span class="rate-ticker">$REASON</span>
-                        <span class="rate-value" id="reason-rate">= — $UTIL</span>
+                        <span class="rate-value" id="reason-rate">= - $UTIL</span>
                     </div>
                     <div class="rate-card">
                         <span class="rate-ticker">$FRONT</span>
-                        <span class="rate-value" id="front-rate">= — $UTIL</span>
+                        <span class="rate-value" id="front-rate">= - $UTIL</span>
                     </div>
                     <div class="rate-card">
                         <span class="rate-ticker">$LCTX</span>
-                        <span class="rate-value" id="lctx-rate">= — $UTIL</span>
+                        <span class="rate-value" id="lctx-rate">= - $UTIL</span>
                     </div>
                     <div class="rate-card">
                         <span class="rate-ticker">$BULK</span>
-                        <span class="rate-value" id="bulk-rate">= — $UTIL</span>
+                        <span class="rate-value" id="bulk-rate">= - $UTIL</span>
                     </div>
                 </div>
             </section>
@@ -662,23 +167,23 @@
                 <div class="persona-grid">
                     <div class="persona-card">
                         <div class="persona-ticker">$START</div>
-                        <div class="persona-value" id="startup-cpi">—</div>
+                        <div class="persona-value" id="startup-cpi">-</div>
                         <div class="persona-name">Startup Builder</div>
-                        <div class="persona-change" id="startup-change">—</div>
+                        <div class="persona-change" id="startup-change">-</div>
                         <div class="persona-insight" id="startup-insight"></div>
                     </div>
                     <div class="persona-card">
                         <div class="persona-ticker">$AGENT</div>
-                        <div class="persona-value" id="agentic-cpi">—</div>
+                        <div class="persona-value" id="agentic-cpi">-</div>
                         <div class="persona-name">Agentic Team</div>
-                        <div class="persona-change" id="agentic-change">—</div>
+                        <div class="persona-change" id="agentic-change">-</div>
                         <div class="persona-insight" id="agentic-insight"></div>
                     </div>
                     <div class="persona-card">
                         <div class="persona-ticker">$THRU</div>
-                        <div class="persona-value" id="throughput-cpi">—</div>
+                        <div class="persona-value" id="throughput-cpi">-</div>
                         <div class="persona-name">Throughput</div>
-                        <div class="persona-change" id="throughput-change">—</div>
+                        <div class="persona-change" id="throughput-change">-</div>
                         <div class="persona-insight" id="throughput-insight"></div>
                     </div>
                 </div>
@@ -690,20 +195,20 @@
                 <div class="spread-row">
                     <span class="spread-ticker">$COG-P</span>
                     <span class="spread-name">Cognition Premium</span>
-                    <span class="spread-value" id="cog-spread">—</span>
+                    <span class="spread-value" id="cog-spread">-</span>
                 </div>
                 <div class="spread-row">
                     <span class="spread-ticker">$JDG-P</span>
                     <span class="spread-name">Judgment Premium</span>
-                    <span class="spread-value" id="jdg-spread">—</span>
+                    <span class="spread-value" id="jdg-spread">-</span>
                 </div>
                 <div class="spread-row">
                     <span class="spread-ticker">$CTX-P</span>
                     <span class="spread-name">Context Premium</span>
-                    <span class="spread-value" id="ctx-spread">—</span>
+                    <span class="spread-value" id="ctx-spread">-</span>
                 </div>
             </section>
-            
+
             <!-- About -->
             <section class="methodology">
                 <h2>About the Index</h2>
@@ -715,15 +220,15 @@
                     The basket includes common workload categories weighted to reflect typical
                     institutional usage patterns. Our methodology is proprietary.
                 </p>
-                <a href="/about" class="methodology-link">Learn more →</a>
+                <a href="/about.html" class="methodology-link">Learn more -></a>
             </section>
-            
+
             <!-- Trust Signal -->
             <section class="trust-signal">
                 <p>No referral fees. No sponsored rankings.</p>
-                <p>Independent index. We track—we don't sell.</p>
+                <p>Independent index. We track - we don't sell.</p>
             </section>
-            
+
             <!-- Coming Soon -->
             <section class="coming-soon">
                 <h2>Coming Q2 2026</h2>
@@ -735,44 +240,45 @@
                 </ul>
             </section>
         </main>
-        
+
         <footer>
             <div class="footer-links">
-                <a href="/about">About</a>
+                <a href="/about.html">About</a>
                 <a href="https://github.com/quarterback/occupant">GitHub</a>
                 <a href="mailto:hello@occupant.ee">Contact</a>
             </div>
 
             <div class="last-updated">
-                Last updated: <span id="last-updated">—</span>
+                Last updated: <span id="last-updated">-</span>
             </div>
 
-            <p style="margin-top: 1rem; font-size: 0.625rem; color: var(--dim);">© 2025–2026 Occupant Index</p>
+            <p style="margin-top: 1rem; font-size: 0.625rem; color: var(--fg-dim);">2025-2026 Occupant Index</p>
         </footer>
     </div>
-    
+
+    <script src="/theme.js"></script>
     <script>
         // Load and display CPI data
         async function loadCPIData() {
             try {
                 const response = await fetch('/data/compute-cpi.json');
                 const data = await response.json();
-                
+
                 // Main CPI
                 document.getElementById('cpi-value').textContent = data.compute_cpi.value.toFixed(1);
-                
+
                 if (data.compute_cpi.mom_change !== null) {
                     const momEl = document.getElementById('mom-change');
                     momEl.textContent = (data.compute_cpi.mom_change >= 0 ? '+' : '') + data.compute_cpi.mom_change.toFixed(1) + '%';
                     if (data.compute_cpi.mom_change < 0) momEl.classList.add('negative');
                 }
-                
+
                 if (data.compute_cpi.yoy_change !== null) {
                     const yoyEl = document.getElementById('yoy-change');
                     yoyEl.textContent = (data.compute_cpi.yoy_change >= 0 ? '+' : '') + data.compute_cpi.yoy_change.toFixed(1) + '%';
                     if (data.compute_cpi.yoy_change < 0) yoyEl.classList.add('negative');
                 }
-                
+
                 // Subindices (cost per 1M tokens)
                 if (data.subindices.judgment) {
                     document.getElementById('judge-value').textContent = '$' + data.subindices.judgment.value.toFixed(2);
@@ -786,24 +292,24 @@
                 if (data.subindices.frontier) {
                     document.getElementById('front-value').textContent = '$' + data.subindices.frontier.value.toFixed(2);
                 }
-                
+
                 // Spreads
                 if (data.spreads.cognition_premium) {
-                    document.getElementById('cog-spread').textContent = 
-                        (data.spreads.cognition_premium.value >= 0 ? '+$' : '-$') + 
+                    document.getElementById('cog-spread').textContent =
+                        (data.spreads.cognition_premium.value >= 0 ? '+$' : '-$') +
                         Math.abs(data.spreads.cognition_premium.value).toFixed(2) + '/1M';
                 }
                 if (data.spreads.judgment_premium) {
-                    document.getElementById('jdg-spread').textContent = 
-                        (data.spreads.judgment_premium.value >= 0 ? '+$' : '-$') + 
+                    document.getElementById('jdg-spread').textContent =
+                        (data.spreads.judgment_premium.value >= 0 ? '+$' : '-$') +
                         Math.abs(data.spreads.judgment_premium.value).toFixed(2) + '/1M';
                 }
                 if (data.spreads.context_premium) {
-                    document.getElementById('ctx-spread').textContent = 
-                        (data.spreads.context_premium.value >= 0 ? '+$' : '-$') + 
+                    document.getElementById('ctx-spread').textContent =
+                        (data.spreads.context_premium.value >= 0 ? '+$' : '-$') +
                         Math.abs(data.spreads.context_premium.value).toFixed(2) + '/1M';
                 }
-                
+
                 // Exchange Rates
                 if (data.exchange_rates && data.exchange_rates.rates) {
                     const rates = data.exchange_rates.rates;
@@ -886,7 +392,7 @@
                 if (data.trend_analysis) {
                     const trend = data.trend_analysis;
                     const directionEl = document.getElementById('trend-direction');
-                    const directionSymbol = trend.direction === 'deflating' ? '↓' : trend.direction === 'inflating' ? '↑' : '→';
+                    const directionSymbol = trend.direction === 'deflating' ? '|' : trend.direction === 'inflating' ? '^' : '->';
                     directionEl.textContent = directionSymbol + ' ' + trend.direction.toUpperCase();
                     if (trend.direction === 'deflating') directionEl.classList.add('deflating');
                     if (trend.direction === 'inflating') directionEl.classList.add('inflating');
@@ -906,7 +412,7 @@
                 console.log('CPI data not yet available');
             }
         }
-        
+
         loadCPIData();
     </script>
 </body>

@@ -1,0 +1,328 @@
+{
+  "fetched_at": "2026-02-04T14:45:29.614141+00:00",
+  "source": "openrouter_rankings",
+  "weekly_data": [],
+  "models": {
+    "anthropic/claude-4.5-sonnet-20250929": {
+      "tokens_weekly": 774854487648,
+      "market_share_pct": 5.571,
+      "tokens_formatted": "774.9B"
+    },
+    "x-ai/grok-code-fast-1": {
+      "tokens_weekly": 1467548178445,
+      "market_share_pct": 10.551,
+      "tokens_formatted": "1.5T"
+    },
+    "minimax/minimax-m2": {
+      "tokens_weekly": 283912146903,
+      "market_share_pct": 2.041,
+      "tokens_formatted": "283.9B"
+    },
+    "z-ai/glm-4.6": {
+      "tokens_weekly": 39508029600,
+      "market_share_pct": 0.284,
+      "tokens_formatted": "39.5B"
+    },
+    "qwen/qwen3-vl-235b-a22b-instruct": {
+      "tokens_weekly": 46497110210,
+      "market_share_pct": 0.334,
+      "tokens_formatted": "46.5B"
+    },
+    "openai/gpt-5-2025-08-07": {
+      "tokens_weekly": 138592013043,
+      "market_share_pct": 0.996,
+      "tokens_formatted": "138.6B"
+    },
+    "google/gemini-2.5-pro": {
+      "tokens_weekly": 388903978674,
+      "market_share_pct": 2.796,
+      "tokens_formatted": "388.9B"
+    },
+    "google/gemma-3-12b-it": {
+      "tokens_weekly": 20849010000,
+      "market_share_pct": 0.15,
+      "tokens_formatted": "20.8B"
+    },
+    "anthropic/claude-4-sonnet-20250522": {
+      "tokens_weekly": 602247714253,
+      "market_share_pct": 4.33,
+      "tokens_formatted": "602.2B"
+    },
+    "google/gemini-2.5-flash": {
+      "tokens_weekly": 454056622290,
+      "market_share_pct": 3.264,
+      "tokens_formatted": "454.1B"
+    },
+    "openrouter/polaris-alpha": {
+      "tokens_weekly": 150021167822,
+      "market_share_pct": 1.079,
+      "tokens_formatted": "150.0B"
+    },
+    "anthropic/claude-4.5-haiku-20251001": {
+      "tokens_weekly": 48065838666,
+      "market_share_pct": 0.346,
+      "tokens_formatted": "48.1B"
+    },
+    "qwen/qwen3-coder-30b-a3b-instruct": {
+      "tokens_weekly": 131942664810,
+      "market_share_pct": 0.949,
+      "tokens_formatted": "131.9B"
+    },
+    "google/gemini-3-pro-preview-20251117": {
+      "tokens_weekly": 170533456515,
+      "market_share_pct": 1.226,
+      "tokens_formatted": "170.5B"
+    },
+    "kwaipilot/kat-coder-pro-v1": {
+      "tokens_weekly": 118607020800,
+      "market_share_pct": 0.853,
+      "tokens_formatted": "118.6B"
+    },
+    "anthropic/claude-4.5-opus-20251124": {
+      "tokens_weekly": 623148633311,
+      "market_share_pct": 4.48,
+      "tokens_formatted": "623.1B"
+    },
+    "x-ai/grok-4.1-fast": {
+      "tokens_weekly": 389821930752,
+      "market_share_pct": 2.803,
+      "tokens_formatted": "389.8B"
+    },
+    "openai/gpt-4.1-mini-2025-04-14": {
+      "tokens_weekly": 172344206304,
+      "market_share_pct": 1.239,
+      "tokens_formatted": "172.3B"
+    },
+    "openai/gpt-oss-120b": {
+      "tokens_weekly": 319559293344,
+      "market_share_pct": 2.297,
+      "tokens_formatted": "319.6B"
+    },
+    "qwen/qwen3-coder-480b-a35b-07-25": {
+      "tokens_weekly": 148937520863,
+      "market_share_pct": 1.071,
+      "tokens_formatted": "148.9B"
+    },
+    "mistralai/devstral-2512": {
+      "tokens_weekly": 149510653600,
+      "market_share_pct": 1.075,
+      "tokens_formatted": "149.5B"
+    },
+    "openai/gpt-5.2-20251211": {
+      "tokens_weekly": 169730416800,
+      "market_share_pct": 1.22,
+      "tokens_formatted": "169.7B"
+    },
+    "google/gemini-3-flash-preview-20251217": {
+      "tokens_weekly": 689078782259,
+      "market_share_pct": 4.954,
+      "tokens_formatted": "689.1B"
+    },
+    "xiaomi/mimo-v2-flash-20251210": {
+      "tokens_weekly": 106920429600,
+      "market_share_pct": 0.769,
+      "tokens_formatted": "106.9B"
+    },
+    "minimax/minimax-m2.1": {
+      "tokens_weekly": 297149497600,
+      "market_share_pct": 2.136,
+      "tokens_formatted": "297.1B"
+    },
+    "z-ai/glm-4.7-20251222": {
+      "tokens_weekly": 141400578400,
+      "market_share_pct": 1.017,
+      "tokens_formatted": "141.4B"
+    },
+    "qwen/qwen3-next-80b-a3b-instruct-2509": {
+      "tokens_weekly": 68043715200,
+      "market_share_pct": 0.489,
+      "tokens_formatted": "68.0B"
+    },
+    "deepseek/deepseek-v3.2-20251201": {
+      "tokens_weekly": 507516486090,
+      "market_share_pct": 3.649,
+      "tokens_formatted": "507.5B"
+    },
+    "moonshotai/kimi-k2.5-0127": {
+      "tokens_weekly": 359411477206,
+      "market_share_pct": 2.584,
+      "tokens_formatted": "359.4B"
+    },
+    "openai/gpt-5.2-codex-20260114": {
+      "tokens_weekly": 98072714400,
+      "market_share_pct": 0.705,
+      "tokens_formatted": "98.1B"
+    },
+    "google/gemini-2.5-flash-lite": {
+      "tokens_weekly": 267062329149,
+      "market_share_pct": 1.92,
+      "tokens_formatted": "267.1B"
+    },
+    "google/gemini-2.0-flash-001": {
+      "tokens_weekly": 287866934161,
+      "market_share_pct": 2.07,
+      "tokens_formatted": "287.9B"
+    },
+    "mistralai/mistral-nemo": {
+      "tokens_weekly": 34331188697,
+      "market_share_pct": 0.247,
+      "tokens_formatted": "34.3B"
+    },
+    "deepseek/deepseek-chat-v3-0324": {
+      "tokens_weekly": 177135063877,
+      "market_share_pct": 1.273,
+      "tokens_formatted": "177.1B"
+    },
+    "qwen/qwen3-30b-a3b-04-28": {
+      "tokens_weekly": 116910240691,
+      "market_share_pct": 0.84,
+      "tokens_formatted": "116.9B"
+    },
+    "openai/gpt-4o-mini": {
+      "tokens_weekly": 481739760926,
+      "market_share_pct": 3.463,
+      "tokens_formatted": "481.7B"
+    },
+    "openai/gpt-oss-20b": {
+      "tokens_weekly": 145704767415,
+      "market_share_pct": 1.048,
+      "tokens_formatted": "145.7B"
+    },
+    "openai/gpt-4.1-nano-2025-04-14": {
+      "tokens_weekly": 13672258,
+      "market_share_pct": 0.0,
+      "tokens_formatted": "13.7M"
+    },
+    "x-ai/grok-4-fast": {
+      "tokens_weekly": 219485481636,
+      "market_share_pct": 1.578,
+      "tokens_formatted": "219.5B"
+    },
+    "deepseek/deepseek-v3.2-exp": {
+      "tokens_weekly": 11293187,
+      "market_share_pct": 0.0,
+      "tokens_formatted": "11.3M"
+    },
+    "deepseek/deepseek-chat-v3.1": {
+      "tokens_weekly": 149160255892,
+      "market_share_pct": 1.072,
+      "tokens_formatted": "149.2B"
+    },
+    "openrouter/sherlock-think-alpha": {
+      "tokens_weekly": 163037899055,
+      "market_share_pct": 1.172,
+      "tokens_formatted": "163.0B"
+    },
+    "google/gemini-2.5-flash-lite-preview-09-2025": {
+      "tokens_weekly": 18799270,
+      "market_share_pct": 0.0,
+      "tokens_formatted": "18.8M"
+    },
+    "openrouter/bert-nebulon-alpha": {
+      "tokens_weekly": 14968700,
+      "market_share_pct": 0.0,
+      "tokens_formatted": "15.0M"
+    },
+    "openai/gpt-5-mini-2025-08-07": {
+      "tokens_weekly": 13686202666,
+      "market_share_pct": 0.098,
+      "tokens_formatted": "13.7B"
+    },
+    "anthropic/claude-3.5-sonnet": {
+      "tokens_weekly": 225036064456,
+      "market_share_pct": 1.618,
+      "tokens_formatted": "225.0B"
+    },
+    "google/gemini-flash-1.5": {
+      "tokens_weekly": 50787759144,
+      "market_share_pct": 0.365,
+      "tokens_formatted": "50.8B"
+    },
+    "google/gemini-flash-1.5-8b": {
+      "tokens_weekly": 45594994639,
+      "market_share_pct": 0.328,
+      "tokens_formatted": "45.6B"
+    },
+    "meta-llama/llama-3.3-70b-instruct": {
+      "tokens_weekly": 107947321942,
+      "market_share_pct": 0.776,
+      "tokens_formatted": "107.9B"
+    },
+    "deepseek/deepseek-chat-v3": {
+      "tokens_weekly": 18634928511,
+      "market_share_pct": 0.134,
+      "tokens_formatted": "18.6B"
+    },
+    "anthropic/claude-3-7-sonnet-20250219": {
+      "tokens_weekly": 389609142884,
+      "market_share_pct": 2.801,
+      "tokens_formatted": "389.6B"
+    },
+    "anthropic/claude-3-5-haiku": {
+      "tokens_weekly": 46079225280,
+      "market_share_pct": 0.331,
+      "tokens_formatted": "46.1B"
+    },
+    "openrouter/quasar-alpha": {
+      "tokens_weekly": 208600546744,
+      "market_share_pct": 1.5,
+      "tokens_formatted": "208.6B"
+    },
+    "openrouter/optimus-alpha": {
+      "tokens_weekly": 118839696581,
+      "market_share_pct": 0.854,
+      "tokens_formatted": "118.8B"
+    },
+    "google/gemini-2.5-pro-preview-03-25": {
+      "tokens_weekly": 213782811271,
+      "market_share_pct": 1.537,
+      "tokens_formatted": "213.8B"
+    },
+    "openai/gpt-4.1-2025-04-14": {
+      "tokens_weekly": 45656301606,
+      "market_share_pct": 0.328,
+      "tokens_formatted": "45.7B"
+    },
+    "google/gemini-2.5-flash-preview-04-17": {
+      "tokens_weekly": 166683961890,
+      "market_share_pct": 1.198,
+      "tokens_formatted": "166.7B"
+    },
+    "google/gemini-2.5-pro-exp-03-25": {
+      "tokens_weekly": 119188276977,
+      "market_share_pct": 0.857,
+      "tokens_formatted": "119.2B"
+    },
+    "google/gemini-2.5-flash-preview-05-20": {
+      "tokens_weekly": 232440459461,
+      "market_share_pct": 1.671,
+      "tokens_formatted": "232.4B"
+    },
+    "google/gemini-2.5-pro-preview-06-05": {
+      "tokens_weekly": 100711290548,
+      "market_share_pct": 0.724,
+      "tokens_formatted": "100.7B"
+    },
+    "google/gemini-2.0-flash-lite-001": {
+      "tokens_weekly": 165089974539,
+      "market_share_pct": 1.187,
+      "tokens_formatted": "165.1B"
+    },
+    "google/gemini-2.5-flash-lite-preview-06-17": {
+      "tokens_weekly": 105525619036,
+      "market_share_pct": 0.759,
+      "tokens_formatted": "105.5B"
+    },
+    "openrouter/horizon-beta": {
+      "tokens_weekly": 189540499184,
+      "market_share_pct": 1.363,
+      "tokens_formatted": "189.5B"
+    },
+    "openrouter/sonoma-sky-alpha": {
+      "tokens_weekly": 226964872884,
+      "market_share_pct": 1.632,
+      "tokens_formatted": "227.0B"
+    }
+  },
+  "total_tokens": 13909678380565
+}
