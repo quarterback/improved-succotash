@@ -301,53 +301,37 @@ def calculate_subindex_costs(registry: dict) -> dict:
 
 
 def calculate_subindices(registry: dict, baseline: dict, current_costs: dict) -> dict:
-    """Calculate subindices for different tier segments."""
+    """
+    Calculate subindices for different tier segments.
+
+    Shows blended cost per 1M tokens for each tier (more useful than index
+    since model composition changes significantly over time).
+    """
     subindices = {}
-    baseline_subindex = baseline.get("subindex_costs", {})
 
-    # $JUDGE - Reasoning tier
-    if "judgment" in current_costs:
-        baseline_val = baseline_subindex.get("judgment", current_costs["judgment"])
-        subindices["judgment"] = {
-            "ticker": "$JUDGE",
-            "name": "Judgment CPI",
-            "value": calculate_cpi(current_costs["judgment"], baseline_val),
-            "cost": current_costs["judgment"],
-            "models_count": len(registry.get("tiers", {}).get("reasoning", []))
-        }
+    # Calculate each subindex with correct token counts per workload type
+    # (key, ticker, name, tier_key, tokens_in_workload)
+    tier_configs = [
+        ("judgment", "$JUDGE", "Reasoning Tier", "reasoning", 7000),   # 5000 in + 2000 out
+        ("longctx", "$LCTX", "Long Context Tier", "longctx", 51000),   # 50000 in + 1000 out
+        ("budget", "$BULK", "Budget Tier", "budget", 2500),            # 2000 in + 500 out
+        ("frontier", "$FRONT", "Frontier Tier", "frontier", 2500),     # 2000 in + 500 out
+    ]
 
-    # $LCTX - Long context tier
-    if "longctx" in current_costs:
-        baseline_val = baseline_subindex.get("longctx", current_costs["longctx"])
-        subindices["longctx"] = {
-            "ticker": "$LCTX",
-            "name": "LongContext CPI",
-            "value": calculate_cpi(current_costs["longctx"], baseline_val),
-            "cost": current_costs["longctx"],
-            "models_count": len(registry.get("tiers", {}).get("longctx", []))
-        }
+    for key, ticker, name, tier_key, tokens_per_workload in tier_configs:
+        if key in current_costs:
+            current_cost = current_costs[key]
 
-    # $BULK - Budget tier
-    if "budget" in current_costs:
-        baseline_val = baseline_subindex.get("budget", current_costs["budget"])
-        subindices["budget"] = {
-            "ticker": "$BULK",
-            "name": "Budget Tier",
-            "value": calculate_cpi(current_costs["budget"], baseline_val),
-            "cost": current_costs["budget"],
-            "models_count": len(registry.get("tiers", {}).get("budget", []))
-        }
+            # Convert to blended cost per 1M tokens
+            cost_per_mtok = round((current_cost / tokens_per_workload) * 1_000_000, 2)
 
-    # $FRONT - Frontier tier
-    if "frontier" in current_costs:
-        baseline_val = baseline_subindex.get("frontier", current_costs["frontier"])
-        subindices["frontier"] = {
-            "ticker": "$FRONT",
-            "name": "Frontier Tier",
-            "value": calculate_cpi(current_costs["frontier"], baseline_val),
-            "cost": current_costs["frontier"],
-            "models_count": len(registry.get("tiers", {}).get("frontier", []))
-        }
+            subindices[key] = {
+                "ticker": ticker,
+                "name": name,
+                "value": cost_per_mtok,
+                "value_unit": "$/1M tokens",
+                "models_count": len(registry.get("tiers", {}).get(tier_key, []))
+            }
 
     return subindices
 

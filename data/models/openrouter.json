@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-04T03:31:08.180849+00:00",
+  "fetched_at": "2026-02-04T05:21:48.309226+00:00",
   "models": {
     "qwen/qwen3-coder-next": {
       "input_cost_per_token": 2e-07,
