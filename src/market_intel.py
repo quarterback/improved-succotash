@@ -362,25 +362,29 @@ def calculate_vwar(model_share: float, baseline_share: float) -> float:
 
 
 def calculate_cognitive_arbitrage(arena_elo: int, blended_cost: float,
-                                  market_avg_ratio: float) -> float:
+                                  avg_elo: float, avg_price: float) -> float:
     """
     Cognitive Arbitrage Score.
 
     Measures whether a model is over/underpriced for its capability.
 
-    Formula: (elo / price) / market_average_ratio
+    Formula: (elo / avg_elo) / (price / avg_price)
 
     > 1.0 = underpriced for capability (buy signal)
     < 1.0 = overpriced for capability (avoid)
     = 1.0 = fairly priced
+
+    This compares the model's quality ratio to its price ratio.
+    If quality is above average but price is below average, arbitrage > 1.
     """
     if not arena_elo or not blended_cost or blended_cost == 0:
         return None
-    if not market_avg_ratio or market_avg_ratio == 0:
+    if not avg_elo or avg_elo == 0 or not avg_price or avg_price == 0:
         return None
 
-    model_ratio = arena_elo / blended_cost
-    arbitrage = model_ratio / market_avg_ratio
+    quality_ratio = arena_elo / avg_elo
+    price_ratio = blended_cost / avg_price
+    arbitrage = quality_ratio / price_ratio
     return round(arbitrage, 2)
 
 
@@ -552,19 +556,20 @@ def build_model_stats(registry: dict, arena_data: dict = None,
     for rank, (model_id, _) in enumerate(value_list, 1):
         stats[model_id]["value_rank"] = rank
 
-    # Calculate market average ELO/price ratio for cognitive arbitrage
-    ratios = []
-    for mid, s in stats.items():
-        if s.get("arena_elo") and s.get("blended_cost_mtok"):
-            ratios.append(s["arena_elo"] / s["blended_cost_mtok"])
+    # Calculate market averages for cognitive arbitrage
+    elos = [s["arena_elo"] for s in stats.values() if s.get("arena_elo")]
+    prices = [s["blended_cost_mtok"] for s in stats.values() if s.get("blended_cost_mtok") and s.get("arena_elo")]
 
-    market_avg_ratio = sum(ratios) / len(ratios) if ratios else None
+    avg_elo = sum(elos) / len(elos) if elos else None
+    avg_price = sum(prices) / len(prices) if prices else None
 
     # Calculate cognitive arbitrage for each model
+    # Formula: (elo / avg_elo) / (price / avg_price)
+    # > 1.0 means model delivers more quality per dollar than average
     for model_id, s in stats.items():
-        if s.get("arena_elo") and s.get("blended_cost_mtok") and market_avg_ratio:
+        if s.get("arena_elo") and s.get("blended_cost_mtok") and avg_elo and avg_price:
             s["arbitrage"] = calculate_cognitive_arbitrage(
-                s["arena_elo"], s["blended_cost_mtok"], market_avg_ratio
+                s["arena_elo"], s["blended_cost_mtok"], avg_elo, avg_price
             )
         else:
             s["arbitrage"] = None
@@ -575,7 +580,31 @@ def build_model_stats(registry: dict, arena_data: dict = None,
     return stats
 
 
-def generate_market_report(registry: dict) -> dict:
+def format_model_name(model_id: str) -> str:
+    """Format model ID for display (e.g., 'anthropic/claude-3.5-sonnet' -> 'Claude 3.5 Sonnet')."""
+    if not model_id:
+        return "Unknown"
+
+    # Extract model name part
+    name = model_id.split("/")[-1] if "/" in model_id else model_id
+
+    # Common formatting rules
+    name = name.replace("-", " ").replace("_", " ")
+
+    # Capitalize properly
+    words = name.split()
+    formatted = []
+    for word in words:
+        # Keep version numbers as-is
+        if any(c.isdigit() for c in word):
+            formatted.append(word)
+        else:
+            formatted.append(word.capitalize())
+
+    return " ".join(formatted)
+
+
+def generate_market_report(registry: dict, rankings_data: dict = None) -> dict:
     """
     Generate a market intelligence report.
 
@@ -588,6 +617,13 @@ def generate_market_report(registry: dict) -> dict:
 
     # Build model stats
     model_stats = build_model_stats(registry, arena_data)
+
+    # Load rankings data if not provided
+    if rankings_data is None:
+        rankings_path = DATA_DIR / "rankings" / "latest.json"
+        if rankings_path.exists():
+            with open(rankings_path) as f:
+                rankings_data = json.load(f)
 
     # Tier analysis
     tier_models = registry.get("tiers", {})
@@ -614,6 +650,52 @@ def generate_market_report(registry: dict) -> dict:
                 "avg_elo": round(sum(tier_elos) / len(tier_elos)) if tier_elos else None,
             }
 
+    # Calculate judgment share and provider concentration from rankings
+    judgment_share = None
+    provider_shares = {}
+    total_volume = 0
+
+    # Reasoning model patterns - models optimized for complex reasoning/thinking
+    reasoning_patterns = [
+        "o1", "o3",           # OpenAI reasoning series
+        "r1", "r2",           # DeepSeek reasoning
+        "thinking",           # Claude thinking variants
+        "reason",             # General reasoning models
+        "cot",                # Chain-of-thought models
+        "opus",               # Claude Opus (high reasoning)
+        "reflect",            # Reflection models
+    ]
+
+    if rankings_data and rankings_data.get("models"):
+        total_volume = sum(m.get("tokens_weekly", 0) for m in rankings_data["models"].values())
+
+        # Calculate judgment share
+        reasoning_volume = 0
+        for model_id, vol_data in rankings_data["models"].items():
+            tokens = vol_data.get("tokens_weekly", 0)
+            lower_id = model_id.lower()
+
+            # Check if it's a reasoning model using pattern matching
+            is_reasoning = any(pattern in lower_id for pattern in reasoning_patterns)
+
+            if is_reasoning:
+                reasoning_volume += tokens
+
+            # Track provider volumes
+            provider = model_id.split("/")[0] if "/" in model_id else "other"
+            provider_shares[provider] = provider_shares.get(provider, 0) + tokens
+
+        if total_volume > 0:
+            judgment_share = round(reasoning_volume / total_volume * 100, 1)
+
+        # Convert provider volumes to percentages and get top 3
+        provider_pcts = {p: round(v / total_volume * 100, 1) for p, v in provider_shares.items()}
+        top_providers = sorted(provider_pcts.items(), key=lambda x: x[1], reverse=True)[:3]
+        provider_shares = {p: pct for p, pct in top_providers}
+
+    # Generate headline insight
+    headline = generate_headline_insight(tier_stats, judgment_share, model_stats)
+
     # Find top value models (lowest QAP)
     value_leaders = sorted(
         [(mid, s) for mid, s in model_stats.items() if s.get("qap")],
@@ -632,11 +714,20 @@ def generate_market_report(registry: dict) -> dict:
         "generated_at": now.isoformat(),
         "models_analyzed": len(model_stats),
 
+        "headline": headline,
+
+        "market_pulse": {
+            "judgment_share": judgment_share,
+            "provider_concentration": provider_shares,
+            "total_weekly_tokens": total_volume,
+        },
+
         "tier_analysis": tier_stats,
 
         "value_leaders": [
             {
                 "model": mid,
+                "model_name": format_model_name(mid),
                 "qap": s["qap"],
                 "blended_cost": s["blended_cost_mtok"],
                 "arena_elo": s.get("arena_elo"),
@@ -648,6 +739,7 @@ def generate_market_report(registry: dict) -> dict:
         "arbitrage_opportunities": [
             {
                 "model": mid,
+                "model_name": format_model_name(mid),
                 "arbitrage": s["arbitrage"],
                 "interpretation": "underpriced" if s["arbitrage"] > 1.2 else "fair" if s["arbitrage"] > 0.8 else "overpriced",
                 "blended_cost": s["blended_cost_mtok"],
@@ -672,6 +764,36 @@ def generate_market_report(registry: dict) -> dict:
     }
 
     return report
+
+
+def generate_headline_insight(tier_stats: dict, judgment_share: float, model_stats: dict) -> str:
+    """Generate a one-sentence headline insight about the market."""
+    insights = []
+
+    # Check reasoning tier trends
+    if judgment_share is not None:
+        if judgment_share > 10:
+            insights.append(f"Reasoning demand strong at {judgment_share}% of volume")
+        elif judgment_share > 5:
+            insights.append(f"Reasoning models capturing {judgment_share}% market share")
+
+    # Check price trends
+    if tier_stats:
+        budget_price = tier_stats.get("budget", {}).get("avg_price_mtok")
+        frontier_price = tier_stats.get("frontier", {}).get("avg_price_mtok")
+        if budget_price and frontier_price:
+            spread = frontier_price / budget_price
+            if spread > 20:
+                insights.append(f"Frontier premium at {spread:.0f}x budget tier")
+
+    # Check for arbitrage opportunities
+    high_arb = [s for s in model_stats.values() if (s.get("arbitrage") or 0) > 2.0]
+    if len(high_arb) > 2:
+        insights.append(f"{len(high_arb)} models showing strong arbitrage signals")
+
+    if insights:
+        return ". ".join(insights[:2]) + "."
+    return "Market conditions stable. Flash models continue to lead on value."
 
 
 # =============================================================================
