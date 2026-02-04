@@ -4,140 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glossary | Occupant</title>
-    <style>
-        :root {
-            --bg: #0a0a0a;
-            --card-bg: #111;
-            --text: #e0e0e0;
-            --dim: #666;
-            --accent: #00ff88;
-            --border: #222;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        nav {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        nav a {
-            color: var(--dim);
-            text-decoration: none;
-            font-size: 0.875rem;
-        }
-
-        nav a:hover, nav a.active {
-            color: var(--accent);
-        }
-
-        header {
-            margin-bottom: 3rem;
-        }
-
-        h1 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-        }
-
-        .subtitle {
-            color: var(--dim);
-            font-size: 0.875rem;
-        }
-
-        .section {
-            margin-bottom: 3rem;
-        }
-
-        .section-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .term {
-            margin-bottom: 2rem;
-        }
-
-        .term-header {
-            display: flex;
-            align-items: baseline;
-            gap: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .term-name {
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .term-ticker {
-            font-size: 0.75rem;
-            color: var(--accent);
-            background: rgba(0, 255, 136, 0.1);
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
-        }
-
-        .term-def {
-            color: var(--dim);
-            font-size: 0.875rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .term-insight {
-            font-size: 0.8rem;
-            color: var(--text);
-            background: var(--card-bg);
-            border-left: 2px solid var(--accent);
-            padding: 0.75rem 1rem;
-        }
-
-        footer {
-            margin-top: 3rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.75rem;
-            color: var(--dim);
-        }
-
-        footer a {
-            color: var(--dim);
-        }
-    </style>
+    <meta name="description" content="Glossary of Occupant Index metrics - what they mean and why they matter.">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" style="max-width: 700px;">
         <nav>
             <a href="/">$CPI Index</a>
-            <a href="/sabermetrics">Market Intel</a>
-            <a href="/glossary" class="active">Glossary</a>
-            <a href="/about">About</a>
+            <a href="/sabermetrics.html">Market Intel</a>
+            <a href="/glossary.html" class="active">Glossary</a>
+            <a href="/about.html">About</a>
+            <div class="nav-right">
+                <button id="theme-toggle" class="theme-toggle">Light</button>
+            </div>
         </nav>
 
         <header>
@@ -146,8 +25,8 @@
         </header>
 
         <!-- Core Indices -->
-        <section class="section">
-            <div class="section-title">Core Indices</div>
+        <section class="section" style="background: transparent; border: none; padding: 0;">
+            <h2>Core Indices</h2>
 
             <div class="term">
                 <div class="term-header">
@@ -217,8 +96,8 @@
         </section>
 
         <!-- Market Intelligence -->
-        <section class="section">
-            <div class="section-title">Market Intelligence</div>
+        <section class="section" style="background: transparent; border: none; padding: 0;">
+            <h2>Market Intelligence</h2>
 
             <div class="term">
                 <div class="term-header">
@@ -226,7 +105,7 @@
                     <span class="term-ticker">QAP</span>
                 </div>
                 <p class="term-def">
-                    How much you pay per unit of model quality. Lower QAP means better value—more
+                    How much you pay per unit of model quality. Lower QAP means better value - more
                     capability for your dollar.
                 </p>
                 <div class="term-insight">
@@ -244,7 +123,7 @@
                     Values above 1.2 suggest the model is underpriced (buy signal). Below 0.8 suggests overpriced.
                 </p>
                 <div class="term-insight">
-                    High arbitrage scores reveal market inefficiencies—models that deliver more capability
+                    High arbitrage scores reveal market inefficiencies - models that deliver more capability
                     than their price suggests. These are the "value stocks" of AI.
                 </div>
             </div>
@@ -258,11 +137,22 @@
                     Higher ELO means the model wins more comparisons. Based on millions of human votes.
                 </p>
             </div>
+
+            <div class="term">
+                <div class="term-header">
+                    <span class="term-name">Market Share Velocity</span>
+                    <span class="term-ticker">MSV</span>
+                </div>
+                <p class="term-def">
+                    How fast a model is gaining or losing market share week-over-week.
+                    Positive MSV means growing adoption. Derived from OpenRouter volume data.
+                </p>
+            </div>
         </section>
 
         <!-- Spreads -->
-        <section class="section">
-            <div class="section-title">Spreads</div>
+        <section class="section" style="background: transparent; border: none; padding: 0;">
+            <h2>Spreads</h2>
 
             <div class="term">
                 <div class="term-header">
@@ -293,8 +183,8 @@
         </section>
 
         <!-- Build Cost Index -->
-        <section class="section">
-            <div class="section-title">Build Cost Index</div>
+        <section class="section" style="background: transparent; border: none; padding: 0;">
+            <h2>Build Cost Index</h2>
 
             <div class="term">
                 <div class="term-header">
@@ -335,18 +225,8 @@
         </section>
 
         <!-- Coming Soon -->
-        <section class="section">
-            <div class="section-title">Coming Soon</div>
-
-            <div class="term">
-                <div class="term-header">
-                    <span class="term-name">Market Share Velocity</span>
-                    <span class="term-ticker">MSV</span>
-                </div>
-                <p class="term-def">
-                    How fast a model is gaining or losing market share. Positive MSV means growing adoption.
-                </p>
-            </div>
+        <section class="section" style="background: transparent; border: none; padding: 0;">
+            <h2>Coming Soon</h2>
 
             <div class="term">
                 <div class="term-header">
@@ -375,5 +255,7 @@
             <p>Questions? <a href="mailto:hello@occupant.ee">hello@occupant.ee</a></p>
         </footer>
     </div>
+
+    <script src="/theme.js"></script>
 </body>
 </html>
