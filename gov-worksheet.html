@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Services Price Reasonableness Worksheet | Gov AI Benchmarks</title>
+    <style>
+        /* Print-optimized styles */
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, Georgia, serif;
+            font-size: 10pt;
+            line-height: 1.4;
+            color: #000;
+            background: #fff;
+        }
+
+        .page {
+            width: 7.5in;
+            min-height: 10in;
+            margin: 0 auto;
+            padding: 0.25in 0;
+            page-break-after: always;
+        }
+
+        .page:last-child {
+            page-break-after: avoid;
+        }
+
+        /* Header */
+        .doc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 3px solid #000080;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+
+        .doc-header-left {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 9pt;
+            font-weight: bold;
+            color: #000080;
+            letter-spacing: 0.5px;
+        }
+
+        .doc-header-right {
+            font-size: 8pt;
+            color: #333;
+            text-align: right;
+        }
+
+        .doc-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #000080;
+            text-align: center;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Meta fields row */
+        .meta-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .meta-field {
+            border: 1px solid #000;
+        }
+
+        .meta-field-label {
+            font-size: 7pt;
+            text-transform: uppercase;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-bottom: 1px solid #000;
+            font-weight: bold;
+        }
+
+        .meta-field-input {
+            height: 24px;
+            padding: 4px 6px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 14px;
+        }
+
+        .section-header {
+            background: #000080;
+            color: #fff;
+            font-weight: bold;
+            font-size: 9pt;
+            padding: 4px 8px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-content {
+            padding: 0 4px;
+        }
+
+        /* Checkbox grid */
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 24px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 4px 0;
+        }
+
+        .checkbox {
+            width: 14px;
+            height: 14px;
+            border: 1.5px solid #000;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .checkbox-label {
+            font-size: 9pt;
+        }
+
+        .checkbox-code {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 9pt;
+        }
+
+        .checkbox-rate {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 8pt;
+            color: #333;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 9pt;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 6px 8px;
+            text-align: left;
+        }
+
+        th {
+            background: #e8e8e8;
+            font-weight: bold;
+            font-size: 8pt;
+            text-transform: uppercase;
+        }
+
+        td.input-cell {
+            height: 28px;
+            background: #fafafa;
+        }
+
+        td.mono {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Determination checkboxes */
+        .determination-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .determination-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .determination-checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #000;
+            flex-shrink: 0;
+        }
+
+        .determination-label {
+            flex: 1;
+        }
+
+        .determination-title {
+            font-weight: bold;
+            font-size: 10pt;
+        }
+
+        .determination-desc {
+            font-size: 8pt;
+            color: #444;
+            margin-top: 2px;
+        }
+
+        .sub-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 1px dashed #999;
+        }
+
+        .sub-field {
+            font-size: 8pt;
+        }
+
+        .sub-field-label {
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .sub-field-input {
+            border-bottom: 1px solid #000;
+            height: 16px;
+        }
+
+        /* Signature block */
+        .signature-block {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1fr 1fr;
+            gap: 16px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #999;
+        }
+
+        .sig-field {
+            border-bottom: 1px solid #000;
+            padding-bottom: 4px;
+            margin-bottom: 4px;
+        }
+
+        .sig-field.tall {
+            height: 32px;
+        }
+
+        .sig-label {
+            font-size: 7pt;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        /* Footer */
+        .doc-footer {
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid #999;
+            font-size: 7pt;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Page 2 specific */
+        .rate-table th {
+            background: #000080;
+            color: #fff;
+        }
+
+        .rate-table td:first-child {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            width: 80px;
+        }
+
+        .rate-table td:nth-child(2) {
+            font-family: 'Courier New', Courier, monospace;
+            width: 120px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 5px 0;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-checkbox {
+            width: 12px;
+            height: 12px;
+            border: 1.5px solid #000;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .formula-box {
+            border: 2px solid #000080;
+            padding: 12px;
+            margin: 8px 0;
+            background: #f8f8fc;
+        }
+
+        .formula-title {
+            font-weight: bold;
+            color: #000080;
+            margin-bottom: 8px;
+            font-size: 10pt;
+        }
+
+        .formula {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 11pt;
+            background: #fff;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .formula-result {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .formula-field {
+            text-align: center;
+        }
+
+        .formula-field-input {
+            border-bottom: 1px solid #000;
+            height: 20px;
+            margin-bottom: 2px;
+        }
+
+        .formula-field-label {
+            font-size: 7pt;
+            text-transform: uppercase;
+        }
+
+        .notes-lines {
+            margin-top: 8px;
+        }
+
+        .note-line {
+            border-bottom: 1px solid #999;
+            height: 24px;
+            margin-bottom: 4px;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .page {
+                width: 100%;
+                min-height: auto;
+                padding: 0;
+            }
+
+            .section-header {
+                background: #000080 !important;
+                color: #fff !important;
+            }
+
+            .rate-table th {
+                background: #000080 !important;
+                color: #fff !important;
+            }
+        }
+
+        /* Screen view helpers */
+        @media screen {
+            body {
+                background: #e0e0e0;
+                padding: 20px;
+            }
+
+            .page {
+                background: #fff;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+                margin-bottom: 20px;
+                padding: 0.5in;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1: DETERMINATION -->
+<div class="page">
+    <div class="doc-header">
+        <div class="doc-header-left">GOV AI BENCHMARKS</div>
+        <div class="doc-header-right">AI Services Price Reasonableness Worksheet<br>Version 1.0 | February 2026</div>
+    </div>
+
+    <div class="doc-title">AI Services Price Reasonableness Determination</div>
+
+    <!-- Meta fields -->
+    <div class="meta-row">
+        <div class="meta-field">
+            <div class="meta-field-label">Procurement Reference No.</div>
+            <div class="meta-field-input"></div>
+        </div>
+        <div class="meta-field">
+            <div class="meta-field-label">Date</div>
+            <div class="meta-field-input"></div>
+        </div>
+        <div class="meta-field">
+            <div class="meta-field-label">Prepared By</div>
+            <div class="meta-field-input"></div>
+        </div>
+    </div>
+
+    <!-- Section A: Service Classification -->
+    <div class="section">
+        <div class="section-header">Section A — Service Classification (Select One)</div>
+        <div class="section-content">
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <div class="checkbox"></div>
+                    <div class="checkbox-label">
+                        <span class="checkbox-code">GAB-R</span> Reasoning AI<br>
+                        <span class="checkbox-rate">$18.00 – $28.00 / 1K queries</span>
+                    </div>
+                </div>
+                <div class="checkbox-item">
+                    <div class="checkbox"></div>
+                    <div class="checkbox-label">
+                        <span class="checkbox-code">GAB-B</span> Basic AI<br>
+                        <span class="checkbox-rate">$0.50 – $1.50 / 1K queries</span>
+                    </div>
+                </div>
+                <div class="checkbox-item">
+                    <div class="checkbox"></div>
+                    <div class="checkbox-label">
+                        <span class="checkbox-code">GAB-A</span> Advanced AI<br>
+                        <span class="checkbox-rate">$8.00 – $15.00 / 1K queries</span>
+                    </div>
+                </div>
+                <div class="checkbox-item">
+                    <div class="checkbox"></div>
+                    <div class="checkbox-label">
+                        <span class="checkbox-code">GAB-P1/P2</span> Productivity Tier<br>
+                        <span class="checkbox-rate">$8.00 – $45.00 / seat / month</span>
+                    </div>
+                </div>
+                <div class="checkbox-item">
+                    <div class="checkbox"></div>
+                    <div class="checkbox-label">
+                        <span class="checkbox-code">GAB-S</span> Standard AI<br>
+                        <span class="checkbox-rate">$3.00 – $8.00 / 1K queries</span>
+                    </div>
+                </div>
+                <div class="checkbox-item">
+                    <div class="checkbox"></div>
+                    <div class="checkbox-label">
+                        <span class="checkbox-code">GAB-P3/P4</span> Enterprise Tier<br>
+                        <span class="checkbox-rate">$45.00 – $100.00 / seat / month</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section B: Volume & Cost Analysis -->
+    <div class="section">
+        <div class="section-header">Section B — Volume & Cost Analysis</div>
+        <div class="section-content">
+            <table>
+                <tr>
+                    <th style="width: 35%;">Item</th>
+                    <th style="width: 32%;">Benchmark / Estimate</th>
+                    <th style="width: 33%;">Vendor Proposal</th>
+                </tr>
+                <tr>
+                    <td>Units / Seats</td>
+                    <td class="input-cell"></td>
+                    <td class="input-cell"></td>
+                </tr>
+                <tr>
+                    <td>Contract Term</td>
+                    <td class="input-cell"></td>
+                    <td class="input-cell"></td>
+                </tr>
+                <tr>
+                    <td>GAB Benchmark Rate</td>
+                    <td class="input-cell mono"></td>
+                    <td style="background: #e8e8e8; font-size: 8pt; color: #666;">N/A</td>
+                </tr>
+                <tr>
+                    <td>Estimated Annual Cost</td>
+                    <td class="input-cell mono"></td>
+                    <td class="input-cell mono"></td>
+                </tr>
+                <tr>
+                    <td>Total Contract Value</td>
+                    <td class="input-cell mono"></td>
+                    <td class="input-cell mono"></td>
+                </tr>
+                <tr>
+                    <td><strong>Variance from Benchmark</strong></td>
+                    <td style="background: #e8e8e8; font-size: 8pt; color: #666;">N/A</td>
+                    <td class="input-cell mono" style="font-weight: bold;"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Section C: Determination -->
+    <div class="section">
+        <div class="section-header">Section C — Price Reasonableness Determination</div>
+        <div class="section-content">
+            <div class="determination-grid">
+                <div class="determination-item">
+                    <div class="determination-checkbox"></div>
+                    <div class="determination-label">
+                        <div class="determination-title">WITHIN BENCHMARK</div>
+                        <div class="determination-desc">Vendor pricing is within GAB benchmark range. No further justification required.</div>
+                    </div>
+                </div>
+                <div class="determination-item">
+                    <div class="determination-checkbox"></div>
+                    <div class="determination-label">
+                        <div class="determination-title">ABOVE BENCHMARK — Justification Required</div>
+                        <div class="determination-desc">Vendor pricing exceeds GAB benchmark. Attach justification memo (e.g., specialized capability, security requirements, sole source).</div>
+                    </div>
+                </div>
+                <div class="determination-item">
+                    <div class="determination-checkbox"></div>
+                    <div class="determination-label">
+                        <div class="determination-title">BELOW BENCHMARK — Due Diligence Required</div>
+                        <div class="determination-desc">Vendor pricing is significantly below benchmark. Verify Year 2+ pricing and promotional terms.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-fields">
+                <div class="sub-field">
+                    <div class="sub-field-label">Year 2 Renewal Cost (if disclosed):</div>
+                    <div class="sub-field-input"></div>
+                </div>
+                <div class="sub-field">
+                    <div class="sub-field-label">Promotional Pricing Expiration:</div>
+                    <div class="sub-field-input"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section D: Certification -->
+    <div class="section">
+        <div class="section-header">Section D — Certification</div>
+        <div class="section-content">
+            <p style="font-size: 8pt; margin-bottom: 8px;">
+                I certify that the price analysis documented herein was conducted in accordance with applicable procurement regulations and that the determination above represents my professional judgment based on available market data.
+            </p>
+            <div class="signature-block">
+                <div>
+                    <div class="sig-field tall"></div>
+                    <div class="sig-label">Signature</div>
+                </div>
+                <div>
+                    <div class="sig-field tall"></div>
+                    <div class="sig-label">Printed Name</div>
+                </div>
+                <div>
+                    <div class="sig-field tall"></div>
+                    <div class="sig-label">Title</div>
+                </div>
+                <div>
+                    <div class="sig-field tall"></div>
+                    <div class="sig-label">Date</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="doc-footer">
+        <div>Source: Gov AI Benchmarks (GAB) v1.0 | occupant.ee/gov</div>
+        <div>Page 1 of 2</div>
+    </div>
+</div>
+
+<!-- PAGE 2: REFERENCE & AUDIT -->
+<div class="page">
+    <div class="doc-header">
+        <div class="doc-header-left">GOV AI BENCHMARKS</div>
+        <div class="doc-header-right">Reference & Audit Worksheet<br>Version 1.0 | February 2026</div>
+    </div>
+
+    <!-- Section E: Rate Reference Table -->
+    <div class="section">
+        <div class="section-header">Section E — GAB Rate Reference Table</div>
+        <div class="section-content">
+            <table class="rate-table">
+                <tr>
+                    <th>Code</th>
+                    <th>Benchmark Rate</th>
+                    <th>Service Tier</th>
+                    <th>Example Use Cases</th>
+                </tr>
+                <tr>
+                    <td>GAB-R</td>
+                    <td>$18–28 / 1K</td>
+                    <td>Reasoning AI</td>
+                    <td>Multi-step analysis, decision support, policy evaluation, complex problem-solving</td>
+                </tr>
+                <tr>
+                    <td>GAB-A</td>
+                    <td>$8–15 / 1K</td>
+                    <td>Advanced AI</td>
+                    <td>Research assistance, technical writing, code generation, detailed analysis</td>
+                </tr>
+                <tr>
+                    <td>GAB-S</td>
+                    <td>$3–8 / 1K</td>
+                    <td>Standard AI</td>
+                    <td>Document drafting, general Q&A, translation, summarization</td>
+                </tr>
+                <tr>
+                    <td>GAB-B</td>
+                    <td>$0.50–1.50 / 1K</td>
+                    <td>Basic AI</td>
+                    <td>Simple extraction, form processing, classification, basic queries</td>
+                </tr>
+                <tr>
+                    <td>GAB-P1/P2</td>
+                    <td>$8–45 / seat</td>
+                    <td>Productivity</td>
+                    <td>Light-to-standard monthly usage; occasional to daily AI assistance</td>
+                </tr>
+                <tr>
+                    <td>GAB-P3/P4</td>
+                    <td>$45–100 / seat</td>
+                    <td>Enterprise</td>
+                    <td>Heavy usage; power users, developers, full-suite access with reasoning</td>
+                </tr>
+            </table>
+            <p style="font-size: 7pt; color: #666; margin-top: 4px;">
+                Note: "1K" = 1,000 queries. Rates based on aggregated market data as of publication date. Verify current rates at occupant.ee/gov.
+            </p>
+        </div>
+    </div>
+
+    <!-- Section F: Audit Checklist -->
+    <div class="section">
+        <div class="section-header">Section F — Vendor Audit Checklist</div>
+        <div class="section-content">
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <div><strong>Renewal Pricing:</strong> Year 2+ pricing disclosed and documented</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <div><strong>Escalation Cap:</strong> Annual price increase cap specified (recommend ≤5%)</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <div><strong>Data Portability:</strong> Exit terms and data export provisions confirmed</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <div><strong>Usage Audit Rights:</strong> Agency can audit actual vs. billed usage</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <div><strong>Model Disclosure:</strong> AI model(s) powering service identified</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <div><strong>Security Compliance:</strong> FedRAMP / StateRAMP / applicable security certification verified</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-checkbox"></div>
+                <div><strong>SLA Terms:</strong> Uptime guarantee and remedies documented</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section G: Fiscal Impact Formula -->
+    <div class="section">
+        <div class="section-header">Section G — Fiscal Impact Projection</div>
+        <div class="section-content">
+            <div class="formula-box">
+                <div class="formula-title">Annual Cost Projection Formula</div>
+                <div class="formula">
+                    [ Seats ] &nbsp;×&nbsp; [ Midpoint Rate ] &nbsp;×&nbsp; [ 12 months ] &nbsp;=&nbsp; <strong>Annual Cost</strong>
+                </div>
+                <div class="formula-result">
+                    <div class="formula-field">
+                        <div class="formula-field-input"></div>
+                        <div class="formula-field-label">Seats</div>
+                    </div>
+                    <div class="formula-field">
+                        <div class="formula-field-input"></div>
+                        <div class="formula-field-label">Rate ($/seat/mo)</div>
+                    </div>
+                    <div class="formula-field">
+                        <div class="formula-field-input"></div>
+                        <div class="formula-field-label">Projected Annual</div>
+                    </div>
+                </div>
+            </div>
+            <p style="font-size: 8pt; color: #444; margin-top: 6px;">
+                For query-based pricing: [ Estimated Annual Queries ÷ 1,000 ] × [ GAB Rate ] = Annual Cost
+            </p>
+        </div>
+    </div>
+
+    <!-- Section H: Notes -->
+    <div class="section">
+        <div class="section-header">Section H — Additional Auditor Comments</div>
+        <div class="section-content">
+            <div class="notes-lines">
+                <div class="note-line"></div>
+                <div class="note-line"></div>
+                <div class="note-line"></div>
+                <div class="note-line"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="doc-footer">
+        <div>Source: Gov AI Benchmarks (GAB) v1.0 | occupant.ee/gov</div>
+        <div>Page 2 of 2</div>
+    </div>
+</div>
+
+</body>
+</html>
