@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Left side: Logo mark -->
+  <g transform="translate(80, 165)">
+    <!-- Mini chart bars -->
+    <rect x="0" y="180" width="50" height="120" fill="#00aaff" opacity="0.9"/>
+    <rect x="70" y="130" width="50" height="170" fill="#00aaff" opacity="0.75"/>
+    <rect x="140" y="80" width="50" height="220" fill="#00aaff" opacity="0.6"/>
+    <rect x="210" y="40" width="50" height="260" fill="#00aaff" opacity="0.45"/>
+
+    <!-- Trend line -->
+    <polyline points="25,230 95,180 165,130 235,90"
+              fill="none"
+              stroke="#ffffff"
+              stroke-width="5"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+
+    <!-- Data points -->
+    <circle cx="25" cy="230" r="8" fill="#ffffff"/>
+    <circle cx="95" cy="180" r="8" fill="#ffffff"/>
+    <circle cx="165" cy="130" r="8" fill="#ffffff"/>
+    <circle cx="235" cy="90" r="8" fill="#ffffff"/>
+  </g>
+
+  <!-- Right side: Text -->
+  <text x="420" y="260" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="700" fill="#ffffff" letter-spacing="2">OCCUPANT</text>
+
+  <text x="420" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#00aaff">The clearest view of AI compute pricing</text>
+
+  <text x="420" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#888888">Aggregated from 2,300+ models • Updated daily</text>
+
+  <!-- Bottom accent line -->
+  <rect x="420" y="440" width="200" height="4" fill="#00aaff"/>
+
+  <!-- URL -->
+  <text x="420" y="520" font-family="monospace" font-size="20" fill="#666666">occupant.ee</text>
+
+  <!-- Down indicator with percentage -->
+  <g transform="translate(900, 200)">
+    <polygon points="60,0 90,40 75,40 75,80 45,80 45,40 30,40" fill="#00ff88"/>
+    <text x="60" y="130" font-family="system-ui, sans-serif" font-size="48" font-weight="700" fill="#00ff88" text-anchor="middle">13%</text>
+    <text x="60" y="165" font-family="system-ui, sans-serif" font-size="18" fill="#666666" text-anchor="middle">YoY deflation</text>
+  </g>
+
+  <!-- Border accent -->
+  <rect x="0" y="0" width="1200" height="6" fill="#00aaff"/>
+</svg>
