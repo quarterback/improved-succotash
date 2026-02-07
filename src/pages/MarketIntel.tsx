@@ -35,9 +35,22 @@ const MarketIntel = () => {
   }
 
   const exchangeRates = cpiData?.exchange_rates;
-  const marketShare = rankingsData?.rankings.by_market_share || [];
-  const qualityAdjusted = rankingsData?.rankings.by_quality_adjusted_price || [];
-  const marketVelocity = rankingsData?.rankings.market_velocity;
+  
+  // Transform rankings data to match expected structure
+  const marketShare = rankingsData?.models ? Object.entries(rankingsData.models)
+    .map(([model, data]: [string, any]) => ({
+      rank: 0,
+      model: model.split('/').pop() || model,
+      provider: model.split('/')[0] || 'unknown',
+      market_share: (data.usage_pct || 0) * 100,
+      mom_change: 0,
+    }))
+    .sort((a, b) => b.market_share - a.market_share)
+    .map((item, index) => ({ ...item, rank: index + 1 }))
+    .slice(0, 10) : [];
+    
+  const qualityAdjusted = []; // Not available in current data structure
+  const marketVelocity = { fastest_growing: [], declining: [] }; // Not available in current data structure
 
   return (
     <div className="min-h-screen bg-background">
@@ -111,7 +124,7 @@ const MarketIntel = () => {
       </div>
 
       {/* Exchange Rates */}
-      {exchangeRates && (
+      {exchangeRates && exchangeRates.gpt4_to_claude_sonnet && (
         <section className="py-16 md:py-24 section-padding">
           <div className="content-max">
             <SectionHeader
