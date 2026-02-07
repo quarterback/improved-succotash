@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Intelligence | Occupant</title>
+    <meta name="description" content="LLM market intelligence - Quality-Adjusted Price, Cognitive Arbitrage, and tier analysis.">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .headline {
+            background: var(--accent-glow);
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            color: var(--fg);
+        }
+        .pulse-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .pulse-item {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 1rem;
+        }
+        .pulse-label {
+            font-size: 0.7rem;
+            color: var(--fg-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+        .pulse-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--fg);
+        }
+        .pulse-detail {
+            font-size: 0.75rem;
+            color: var(--fg-muted);
+            margin-top: 0.25rem;
+        }
+        .provider-bar {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+        .provider-tag {
+            font-size: 0.7rem;
+            padding: 0.25rem 0.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+        }
+        .provider-tag .pct {
+            color: var(--accent);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/">Index</a>
+            <a href="/sabermetrics.html" class="active">Market Intel</a>
+            <a href="/calculator.html">Calculator</a>
+            <a href="/gov.html">Gov Benchmarks</a>
+            <a href="/about.html">About</a>
+            <div class="nav-right">
+                <button id="theme-toggle" class="theme-toggle">Light</button>
+            </div>
+        </nav>
+
+        <header>
+            <h1>Market Intelligence</h1>
+            <p class="subtitle">Derived statistics for LLM market analysis</p>
+        </header>
+
+        <!-- Headline Insight -->
+        <div class="headline" id="headline">
+            Loading market intelligence...
+        </div>
+
+        <!-- Market Pulse -->
+        <section class="card">
+            <div class="section-header">
+                <div class="section-title">Market Pulse</div>
+            </div>
+            <div class="pulse-grid">
+                <div class="pulse-item">
+                    <div class="pulse-label">Models Tracked</div>
+                    <div class="pulse-value" id="models-count">-</div>
+                </div>
+                <div class="pulse-item">
+                    <div class="pulse-label">Judgment Share</div>
+                    <div class="pulse-value" id="judgment-share">-</div>
+                    <div class="pulse-detail">% volume to reasoning models</div>
+                </div>
+                <div class="pulse-item">
+                    <div class="pulse-label">Top Providers</div>
+                    <div class="provider-bar" id="provider-bar">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tier Analysis -->
+        <section class="card">
+            <div class="section-header">
+                <div class="section-title">Tier Analysis</div>
+                <div class="section-subtitle">Average price and quality by tier</div>
+            </div>
+            <div class="tier-grid" id="tier-grid">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- Arbitrage Opportunities -->
+        <section class="card">
+            <div class="section-header">
+                <div class="section-title">Cognitive Arbitrage</div>
+                <div class="section-subtitle">Models priced above or below capability (>1.2 = underpriced, <0.8 = overpriced)</div>
+            </div>
+            <table class="leaders-table">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Arbitrage</th>
+                        <th>Signal</th>
+                        <th>Price</th>
+                        <th>ELO</th>
+                    </tr>
+                </thead>
+                <tbody id="arbitrage-table">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Value Leaders -->
+        <section class="card">
+            <div class="section-header">
+                <div class="section-title">Value Leaders</div>
+                <div class="section-subtitle">Lowest Quality-Adjusted Price (QAP = price / quality)</div>
+            </div>
+            <table class="leaders-table">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>QAP</th>
+                        <th>Price</th>
+                        <th>ELO</th>
+                    </tr>
+                </thead>
+                <tbody id="value-table">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Rankings Data -->
+        <section class="card">
+            <div class="section-header">
+                <div class="section-title">Market Volume</div>
+                <div class="section-subtitle">Weekly token volume from OpenRouter</div>
+            </div>
+            <table class="leaders-table">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Volume</th>
+                        <th>Share</th>
+                    </tr>
+                </thead>
+                <tbody id="volume-table">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </section>
+
+        <footer>
+            <div>Data from OpenRouter, Arena Leaderboard</div>
+            <div class="last-updated">Last updated: <span id="last-updated">-</span></div>
+            <div style="margin-top: 1rem;">
+                <a href="/glossary.html">What do these metrics mean?</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/theme.js"></script>
+    <script>
+        // Format model name for display
+        function formatModelName(modelId) {
+            if (!modelId) return 'Unknown';
+
+            // Use model_name if available, otherwise format from ID
+            const name = modelId.split('/').pop();
+
+            // Clean up common patterns
+            return name
+                .replace(/-/g, ' ')
+                .replace(/_/g, ' ')
+                .split(' ')
+                .map(word => {
+                    // Keep version numbers as-is
+                    if (/\d/.test(word)) return word;
+                    return word.charAt(0).toUpperCase() + word.slice(1);
+                })
+                .join(' ');
+        }
+
+        async function loadMarketData() {
+            try {
+                const response = await fetch('/data/market/latest.json');
+                const data = await response.json();
+
+                // Headline
+                if (data.headline) {
+                    document.getElementById('headline').textContent = data.headline;
+                }
+
+                // Summary stats
+                document.getElementById('models-count').textContent = data.models_analyzed || '-';
+
+                // Judgment share
+                if (data.market_pulse && data.market_pulse.judgment_share !== null) {
+                    document.getElementById('judgment-share').textContent = data.market_pulse.judgment_share + '%';
+                }
+
+                // Provider concentration
+                if (data.market_pulse && data.market_pulse.provider_concentration) {
+                    const providerBar = document.getElementById('provider-bar');
+                    providerBar.innerHTML = '';
+
+                    for (const [provider, pct] of Object.entries(data.market_pulse.provider_concentration)) {
+                        const tag = document.createElement('span');
+                        tag.className = 'provider-tag';
+                        tag.innerHTML = `${provider}: <span class="pct">${pct}%</span>`;
+                        providerBar.appendChild(tag);
+                    }
+                }
+
+                // Tier analysis
+                const tierGrid = document.getElementById('tier-grid');
+                tierGrid.innerHTML = '';
+
+                const tierOrder = ['budget', 'general', 'frontier', 'reasoning', 'longctx'];
+                const tierLabels = {
+                    'budget': '$BULK',
+                    'general': '$GEN',
+                    'frontier': '$FRONT',
+                    'reasoning': '$REASON',
+                    'longctx': '$LCTX'
+                };
+
+                const maxPrice = Math.max(...Object.values(data.tier_analysis || {}).map(t => t.avg_price_mtok || 0));
+
+                for (const tier of tierOrder) {
+                    if (data.tier_analysis && data.tier_analysis[tier]) {
+                        const t = data.tier_analysis[tier];
+                        const barWidth = maxPrice > 0 ? (t.avg_price_mtok / maxPrice) * 100 : 0;
+
+                        const row = document.createElement('div');
+                        row.className = 'tier-row';
+                        row.innerHTML = `
+                            <div class="tier-name">${tierLabels[tier] || tier}</div>
+                            <div class="tier-bar"><div class="tier-bar-fill" style="width: ${barWidth}%"></div></div>
+                            <div class="tier-price">$${t.avg_price_mtok.toFixed(2)}/MTok</div>
+                            <div class="tier-elo">ELO ${t.avg_elo || '-'}</div>
+                        `;
+                        tierGrid.appendChild(row);
+                    }
+                }
+
+                // Arbitrage table
+                const arbTable = document.getElementById('arbitrage-table');
+                arbTable.innerHTML = '';
+
+                for (const a of (data.arbitrage_opportunities || [])) {
+                    const signalClass = a.arbitrage > 1.2 ? 'buy' : a.arbitrage < 0.8 ? 'sell' : 'fair';
+                    const signalText = a.arbitrage > 1.2 ? 'BUY' : a.arbitrage < 0.8 ? 'SELL' : 'FAIR';
+                    const displayName = a.model_name || formatModelName(a.model);
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="model-name">${displayName}</td>
+                        <td class="value-cell">${a.arbitrage.toFixed(2)}</td>
+                        <td><span class="signal ${signalClass}">${signalText}</span></td>
+                        <td class="value-cell">$${a.blended_cost.toFixed(2)}</td>
+                        <td class="value-cell">${a.arena_elo || '-'}</td>
+                    `;
+                    arbTable.appendChild(row);
+                }
+
+                // Value leaders table
+                const valueTable = document.getElementById('value-table');
+                valueTable.innerHTML = '';
+
+                for (const v of (data.value_leaders || [])) {
+                    const displayName = v.model_name || formatModelName(v.model);
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="model-name">${displayName}</td>
+                        <td class="value-cell">${v.qap.toFixed(2)}</td>
+                        <td class="value-cell">$${v.blended_cost.toFixed(2)}/MTok</td>
+                        <td class="value-cell">${v.arena_elo || '-'}</td>
+                    `;
+                    valueTable.appendChild(row);
+                }
+
+                // Last updated
+                if (data.generated_at) {
+                    const date = new Date(data.generated_at);
+                    const formatted = date.toISOString().split('T')[0] + ' ' +
+                                     date.toISOString().split('T')[1].split('.')[0] + ' UTC';
+                    document.getElementById('last-updated').textContent = formatted;
+                }
+
+            } catch (error) {
+                console.log('Market data not available:', error);
+                document.getElementById('headline').textContent = 'Market data loading...';
+            }
+        }
+
+        async function loadRankingsData() {
+            try {
+                const response = await fetch('/data/rankings/latest.json');
+                const data = await response.json();
+
+                const volumeTable = document.getElementById('volume-table');
+                volumeTable.innerHTML = '';
+
+                if (data.models) {
+                    // Sort by volume
+                    const sorted = Object.entries(data.models)
+                        .sort((a, b) => b[1].tokens_weekly - a[1].tokens_weekly)
+                        .slice(0, 10);
+
+                    for (const [model, info] of sorted) {
+                        const displayName = formatModelName(model);
+
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td class="model-name">${displayName}</td>
+                            <td class="value-cell">${info.tokens_formatted}</td>
+                            <td class="value-cell">${info.market_share_pct.toFixed(1)}%</td>
+                        `;
+                        volumeTable.appendChild(row);
+                    }
+                }
+            } catch (error) {
+                console.log('Rankings data not available:', error);
+            }
+        }
+
+        loadMarketData();
+        loadRankingsData();
+    </script>
+</body>
+</html>
