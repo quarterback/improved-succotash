@@ -26,25 +26,25 @@ const Index = () => {
     changePercent: cpiData.compute_cpi.mom_change || 0,
   } : { headline: 0, change: 0, changePercent: 0 };
 
-  // Map subindices from real data (using frontier, bulk, reason)
+  // Map subindices from real data (using frontier, longctx, judgment)
   const subIndices = cpiData ? [
     { 
       name: cpiData.subindices.frontier.name, 
       value: cpiData.subindices.frontier.value, 
-      change: cpiData.subindices.frontier.mom_change, 
-      changePercent: cpiData.subindices.frontier.mom_change 
+      change: 0, 
+      changePercent: 0 
     },
     { 
-      name: cpiData.subindices.lctx.name, 
-      value: cpiData.subindices.lctx.value, 
-      change: cpiData.subindices.lctx.mom_change, 
-      changePercent: cpiData.subindices.lctx.mom_change 
+      name: cpiData.subindices.longctx.name, 
+      value: cpiData.subindices.longctx.value, 
+      change: 0, 
+      changePercent: 0 
     },
     { 
-      name: cpiData.subindices.reason.name, 
-      value: cpiData.subindices.reason.value, 
-      change: cpiData.subindices.reason.mom_change, 
-      changePercent: cpiData.subindices.reason.mom_change 
+      name: cpiData.subindices.judgment.name, 
+      value: cpiData.subindices.judgment.value, 
+      change: 0, 
+      changePercent: 0 
     },
   ] : [];
 
@@ -54,16 +54,16 @@ const Index = () => {
       name: cpiData.spreads.cognition_premium.name,
       description: cpiData.spreads.cognition_premium.description,
       value: cpiData.spreads.cognition_premium.value,
-      trend: cpiData.spreads.cognition_premium.trend === "widening" ? "up" as const : 
-             cpiData.spreads.cognition_premium.trend === "narrowing" ? "down" as const : 
+      trend: cpiData.spreads.cognition_premium.value > 0 ? "up" as const : 
+             cpiData.spreads.cognition_premium.value < 0 ? "down" as const : 
              "stable" as const,
     },
     {
       name: cpiData.spreads.judgment_premium.name, 
       description: cpiData.spreads.judgment_premium.description,
       value: cpiData.spreads.judgment_premium.value,
-      trend: cpiData.spreads.judgment_premium.trend === "widening" ? "up" as const : 
-             cpiData.spreads.judgment_premium.trend === "narrowing" ? "down" as const : 
+      trend: cpiData.spreads.judgment_premium.value > 0 ? "up" as const : 
+             cpiData.spreads.judgment_premium.value < 0 ? "down" as const : 
              "stable" as const,
     },
   ] : [];

@@ -40,23 +40,38 @@ const ComputeCPI = () => {
   const subIndices = cpiData ? Object.values(cpiData.subindices).slice(0, 3).map(sub => ({
     name: sub.name,
     value: sub.value,
-    change: sub.mom_change,
-    changePercent: sub.mom_change,
-    description: sub.description,
+    change: 0,
+    changePercent: 0,
+    description: sub.value_unit || "",
   })) : [];
 
   const spreads = cpiData ? Object.values(cpiData.spreads).map(spread => ({
     name: spread.name,
     description: spread.description,
     value: spread.value,
-    trend: spread.trend === "widening" ? "up" as const : 
-           spread.trend === "narrowing" ? "down" as const : 
+    trend: spread.value > 0 ? "up" as const : 
+           spread.value < 0 ? "down" as const : 
            "stable" as const,
   })) : [];
 
-  const basketComponents = cpiData?.basket_components || [];
+  const basketComponents = cpiData?.basket_detail ? Object.entries(cpiData.basket_detail).map(([category, details]) => ({
+    category: category.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+    weight: (details.weight * 100),
+    examples: category.replace(/_/g, ' '),
+    avg_cost_per_1m_tokens: details.cost,
+  })) : [];
 
-  const historicalSeries = historicalData?.historical_series.slice(-8).reverse() || [];
+  const historicalSeries = historicalData ? (
+    Array.isArray(historicalData) 
+      ? historicalData.slice(-8).reverse().map(item => ({
+          period: item.date,
+          date: item.date,
+          value: item.cpi,
+          mom_change: null,
+          yoy_change: null,
+        }))
+      : historicalData.historical_series?.slice(-8).reverse() || []
+  ) : [];
 
   // Loading state
   if (isLoading) {
