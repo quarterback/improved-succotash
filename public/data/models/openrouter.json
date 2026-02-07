@@ -1,0 +1,2196 @@
+{
+  "fetched_at": "2026-02-04T15:09:06.983036+00:00",
+  "models": {
+    "qwen/qwen3-coder-next": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 1.5e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 Coder Next"
+    },
+    "moonshotai/kimi-k2.5": {
+      "input_cost_per_token": 4.5e-07,
+      "output_cost_per_token": 2.5e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "MoonshotAI: Kimi K2.5"
+    },
+    "minimax/minimax-m2-her": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 65536,
+      "source": "openrouter",
+      "name": "MiniMax: MiniMax M2-her"
+    },
+    "writer/palmyra-x5": {
+      "input_cost_per_token": 6e-07,
+      "output_cost_per_token": 6e-06,
+      "context_length": 1040000,
+      "source": "openrouter",
+      "name": "Writer: Palmyra X5"
+    },
+    "openai/gpt-audio": {
+      "input_cost_per_token": 2.5e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT Audio"
+    },
+    "openai/gpt-audio-mini": {
+      "input_cost_per_token": 6e-07,
+      "output_cost_per_token": 2.4e-06,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT Audio Mini"
+    },
+    "z-ai/glm-4.7-flash": {
+      "input_cost_per_token": 7e-08,
+      "output_cost_per_token": 4e-07,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "Z.AI: GLM 4.7 Flash"
+    },
+    "openai/gpt-5.2-codex": {
+      "input_cost_per_token": 1.75e-06,
+      "output_cost_per_token": 1.4e-05,
+      "context_length": 400000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5.2-Codex"
+    },
+    "allenai/olmo-3.1-32b-instruct": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 6e-07,
+      "context_length": 65536,
+      "source": "openrouter",
+      "name": "AllenAI: Olmo 3.1 32B Instruct"
+    },
+    "bytedance-seed/seed-1.6-flash": {
+      "input_cost_per_token": 7.5e-08,
+      "output_cost_per_token": 3e-07,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "ByteDance Seed: Seed 1.6 Flash"
+    },
+    "bytedance-seed/seed-1.6": {
+      "input_cost_per_token": 2.5e-07,
+      "output_cost_per_token": 2e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "ByteDance Seed: Seed 1.6"
+    },
+    "minimax/minimax-m2.1": {
+      "input_cost_per_token": 2.7e-07,
+      "output_cost_per_token": 1.1e-06,
+      "context_length": 196608,
+      "source": "openrouter",
+      "name": "MiniMax: MiniMax M2.1"
+    },
+    "z-ai/glm-4.7": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 1.5e-06,
+      "context_length": 202752,
+      "source": "openrouter",
+      "name": "Z.AI: GLM 4.7"
+    },
+    "google/gemini-3-flash-preview": {
+      "input_cost_per_token": 5e-07,
+      "output_cost_per_token": 3e-06,
+      "context_length": 1048576,
+      "source": "openrouter",
+      "name": "Google: Gemini 3 Flash Preview"
+    },
+    "mistralai/mistral-small-creative": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 3e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Mistral: Mistral Small Creative"
+    },
+    "allenai/olmo-3.1-32b-think": {
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 5e-07,
+      "context_length": 65536,
+      "source": "openrouter",
+      "name": "AllenAI: Olmo 3.1 32B Think"
+    },
+    "xiaomi/mimo-v2-flash": {
+      "input_cost_per_token": 9e-08,
+      "output_cost_per_token": 2.9e-07,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Xiaomi: MiMo-V2-Flash"
+    },
+    "nvidia/nemotron-3-nano-30b-a3b": {
+      "input_cost_per_token": 5e-08,
+      "output_cost_per_token": 2e-07,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "NVIDIA: Nemotron 3 Nano 30B A3B"
+    },
+    "openai/gpt-5.2-chat": {
+      "input_cost_per_token": 1.75e-06,
+      "output_cost_per_token": 1.4e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5.2 Chat"
+    },
+    "openai/gpt-5.2-pro": {
+      "input_cost_per_token": 2.1e-05,
+      "output_cost_per_token": 0.000168,
+      "context_length": 400000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5.2 Pro"
+    },
+    "openai/gpt-5.2": {
+      "input_cost_per_token": 1.75e-06,
+      "output_cost_per_token": 1.4e-05,
+      "context_length": 400000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5.2"
+    },
+    "mistralai/devstral-2512": {
+      "input_cost_per_token": 5e-08,
+      "output_cost_per_token": 2.2e-07,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Mistral: Devstral 2 2512"
+    },
+    "relace/relace-search": {
+      "input_cost_per_token": 1e-06,
+      "output_cost_per_token": 3e-06,
+      "context_length": 256000,
+      "source": "openrouter",
+      "name": "Relace: Relace Search"
+    },
+    "z-ai/glm-4.6v": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 9e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Z.AI: GLM 4.6V"
+    },
+    "nex-agi/deepseek-v3.1-nex-n1": {
+      "input_cost_per_token": 2.7e-07,
+      "output_cost_per_token": 1e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Nex AGI: DeepSeek V3.1 Nex N1"
+    },
+    "essentialai/rnj-1-instruct": {
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 1.5e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "EssentialAI: Rnj 1 Instruct"
+    },
+    "openai/gpt-5.1-codex-max": {
+      "input_cost_per_token": 1.25e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 400000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5.1-Codex-Max"
+    },
+    "amazon/nova-2-lite-v1": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 2.5e-06,
+      "context_length": 1000000,
+      "source": "openrouter",
+      "name": "Amazon: Nova 2 Lite"
+    },
+    "mistralai/ministral-14b-2512": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 2e-07,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Mistral: Ministral 3 14B 2512"
+    },
+    "mistralai/ministral-8b-2512": {
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 1.5e-07,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Mistral: Ministral 3 8B 2512"
+    },
+    "mistralai/ministral-3b-2512": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 1e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Mistral: Ministral 3 3B 2512"
+    },
+    "mistralai/mistral-large-2512": {
+      "input_cost_per_token": 5e-07,
+      "output_cost_per_token": 1.5e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Mistral: Mistral Large 3 2512"
+    },
+    "arcee-ai/trinity-mini": {
+      "input_cost_per_token": 4.5e-08,
+      "output_cost_per_token": 1.5e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Arcee AI: Trinity Mini"
+    },
+    "deepseek/deepseek-v3.2-speciale": {
+      "input_cost_per_token": 2.7e-07,
+      "output_cost_per_token": 4.1e-07,
+      "context_length": 163840,
+      "source": "openrouter",
+      "name": "DeepSeek: DeepSeek V3.2 Speciale"
+    },
+    "deepseek/deepseek-v3.2": {
+      "input_cost_per_token": 2.5e-07,
+      "output_cost_per_token": 3.8e-07,
+      "context_length": 163840,
+      "source": "openrouter",
+      "name": "DeepSeek: DeepSeek V3.2"
+    },
+    "prime-intellect/intellect-3": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 1.1e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Prime Intellect: INTELLECT-3"
+    },
+    "tngtech/tng-r1t-chimera": {
+      "input_cost_per_token": 2.5e-07,
+      "output_cost_per_token": 8.5e-07,
+      "context_length": 163840,
+      "source": "openrouter",
+      "name": "TNG: R1T Chimera"
+    },
+    "anthropic/claude-opus-4.5": {
+      "input_cost_per_token": 5e-06,
+      "output_cost_per_token": 2.5e-05,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "Anthropic: Claude Opus 4.5"
+    },
+    "allenai/olmo-3-32b-think": {
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 5e-07,
+      "context_length": 65536,
+      "source": "openrouter",
+      "name": "AllenAI: Olmo 3 32B Think"
+    },
+    "allenai/olmo-3-7b-instruct": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 2e-07,
+      "context_length": 65536,
+      "source": "openrouter",
+      "name": "AllenAI: Olmo 3 7B Instruct"
+    },
+    "allenai/olmo-3-7b-think": {
+      "input_cost_per_token": 1.2e-07,
+      "output_cost_per_token": 2e-07,
+      "context_length": 65536,
+      "source": "openrouter",
+      "name": "AllenAI: Olmo 3 7B Think"
+    },
+    "google/gemini-3-pro-image-preview": {
+      "input_cost_per_token": 2e-06,
+      "output_cost_per_token": 1.2e-05,
+      "context_length": 65536,
+      "source": "openrouter",
+      "name": "Google: Nano Banana Pro (Gemini 3 Pro Image Preview)"
+    },
+    "x-ai/grok-4.1-fast": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 5e-07,
+      "context_length": 2000000,
+      "source": "openrouter",
+      "name": "xAI: Grok 4.1 Fast"
+    },
+    "google/gemini-3-pro-preview": {
+      "input_cost_per_token": 2e-06,
+      "output_cost_per_token": 1.2e-05,
+      "context_length": 1048576,
+      "source": "openrouter",
+      "name": "Google: Gemini 3 Pro Preview"
+    },
+    "deepcogito/cogito-v2.1-671b": {
+      "input_cost_per_token": 1.25e-06,
+      "output_cost_per_token": 1.25e-06,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "Deep Cogito: Cogito v2.1 671B"
+    },
+    "openai/gpt-5.1": {
+      "input_cost_per_token": 1.25e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 400000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5.1"
+    },
+    "openai/gpt-5.1-chat": {
+      "input_cost_per_token": 1.25e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5.1 Chat"
+    },
+    "openai/gpt-5.1-codex": {
+      "input_cost_per_token": 1.25e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 400000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5.1-Codex"
+    },
+    "openai/gpt-5.1-codex-mini": {
+      "input_cost_per_token": 2.5e-07,
+      "output_cost_per_token": 2e-06,
+      "context_length": 400000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5.1-Codex-Mini"
+    },
+    "kwaipilot/kat-coder-pro": {
+      "input_cost_per_token": 2.07e-07,
+      "output_cost_per_token": 8.28e-07,
+      "context_length": 256000,
+      "source": "openrouter",
+      "name": "Kwaipilot: KAT-Coder-Pro V1"
+    },
+    "moonshotai/kimi-k2-thinking": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 1.75e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "MoonshotAI: Kimi K2 Thinking"
+    },
+    "amazon/nova-premier-v1": {
+      "input_cost_per_token": 2.5e-06,
+      "output_cost_per_token": 1.25e-05,
+      "context_length": 1000000,
+      "source": "openrouter",
+      "name": "Amazon: Nova Premier 1.0"
+    },
+    "perplexity/sonar-pro-search": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "Perplexity: Sonar Pro Search"
+    },
+    "mistralai/voxtral-small-24b-2507": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 3e-07,
+      "context_length": 32000,
+      "source": "openrouter",
+      "name": "Mistral: Voxtral Small 24B 2507"
+    },
+    "openai/gpt-oss-safeguard-20b": {
+      "input_cost_per_token": 7.5e-08,
+      "output_cost_per_token": 3e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "OpenAI: gpt-oss-safeguard-20b"
+    },
+    "nvidia/nemotron-nano-12b-v2-vl": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 6e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "NVIDIA: Nemotron Nano 12B 2 VL"
+    },
+    "minimax/minimax-m2": {
+      "input_cost_per_token": 2.55e-07,
+      "output_cost_per_token": 1e-06,
+      "context_length": 196608,
+      "source": "openrouter",
+      "name": "MiniMax: MiniMax M2"
+    },
+    "qwen/qwen3-vl-32b-instruct": {
+      "input_cost_per_token": 5e-07,
+      "output_cost_per_token": 1.5e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 VL 32B Instruct"
+    },
+    "liquid/lfm2-8b-a1b": {
+      "input_cost_per_token": 1e-08,
+      "output_cost_per_token": 2e-08,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "LiquidAI: LFM2-8B-A1B"
+    },
+    "liquid/lfm-2.2-6b": {
+      "input_cost_per_token": 1e-08,
+      "output_cost_per_token": 2e-08,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "LiquidAI: LFM2-2.6B"
+    },
+    "ibm-granite/granite-4.0-h-micro": {
+      "input_cost_per_token": 1.7e-08,
+      "output_cost_per_token": 1.1e-07,
+      "context_length": 131000,
+      "source": "openrouter",
+      "name": "IBM: Granite 4.0 Micro"
+    },
+    "deepcogito/cogito-v2-preview-llama-405b": {
+      "input_cost_per_token": 3.5e-06,
+      "output_cost_per_token": 3.5e-06,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Deep Cogito: Cogito V2 Preview Llama 405B"
+    },
+    "openai/gpt-5-image-mini": {
+      "input_cost_per_token": 2.5e-06,
+      "output_cost_per_token": 2e-06,
+      "context_length": 400000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5 Image Mini"
+    },
+    "anthropic/claude-haiku-4.5": {
+      "input_cost_per_token": 1e-06,
+      "output_cost_per_token": 5e-06,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "Anthropic: Claude Haiku 4.5"
+    },
+    "qwen/qwen3-vl-8b-thinking": {
+      "input_cost_per_token": 1.8e-07,
+      "output_cost_per_token": 2.1e-06,
+      "context_length": 256000,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 VL 8B Thinking"
+    },
+    "qwen/qwen3-vl-8b-instruct": {
+      "input_cost_per_token": 8e-08,
+      "output_cost_per_token": 5e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 VL 8B Instruct"
+    },
+    "openai/gpt-5-image": {
+      "input_cost_per_token": 1e-05,
+      "output_cost_per_token": 1e-05,
+      "context_length": 400000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5 Image"
+    },
+    "openai/o3-deep-research": {
+      "input_cost_per_token": 1e-05,
+      "output_cost_per_token": 4e-05,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "OpenAI: o3 Deep Research"
+    },
+    "openai/o4-mini-deep-research": {
+      "input_cost_per_token": 2e-06,
+      "output_cost_per_token": 8e-06,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "OpenAI: o4 Mini Deep Research"
+    },
+    "nvidia/llama-3.3-nemotron-super-49b-v1.5": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 4e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "NVIDIA: Llama 3.3 Nemotron Super 49B V1.5"
+    },
+    "baidu/ernie-4.5-21b-a3b-thinking": {
+      "input_cost_per_token": 7e-08,
+      "output_cost_per_token": 2.8e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Baidu: ERNIE 4.5 21B A3B Thinking"
+    },
+    "google/gemini-2.5-flash-image": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 2.5e-06,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Google: Gemini 2.5 Flash Image (Nano Banana)"
+    },
+    "qwen/qwen3-vl-30b-a3b-thinking": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 1e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 VL 30B A3B Thinking"
+    },
+    "qwen/qwen3-vl-30b-a3b-instruct": {
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 6e-07,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 VL 30B A3B Instruct"
+    },
+    "openai/gpt-5-pro": {
+      "input_cost_per_token": 1.5e-05,
+      "output_cost_per_token": 0.00012,
+      "context_length": 400000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5 Pro"
+    },
+    "z-ai/glm-4.6": {
+      "input_cost_per_token": 3.5e-07,
+      "output_cost_per_token": 1.5e-06,
+      "context_length": 202752,
+      "source": "openrouter",
+      "name": "Z.AI: GLM 4.6"
+    },
+    "z-ai/glm-4.6:exacto": {
+      "input_cost_per_token": 4.4e-07,
+      "output_cost_per_token": 1.76e-06,
+      "context_length": 204800,
+      "source": "openrouter",
+      "name": "Z.AI: GLM 4.6 (exacto)"
+    },
+    "anthropic/claude-sonnet-4.5": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 1000000,
+      "source": "openrouter",
+      "name": "Anthropic: Claude Sonnet 4.5"
+    },
+    "deepseek/deepseek-v3.2-exp": {
+      "input_cost_per_token": 2.7e-07,
+      "output_cost_per_token": 4.1e-07,
+      "context_length": 163840,
+      "source": "openrouter",
+      "name": "DeepSeek: DeepSeek V3.2 Exp"
+    },
+    "thedrummer/cydonia-24b-v4.1": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 5e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "TheDrummer: Cydonia 24B V4.1"
+    },
+    "relace/relace-apply-3": {
+      "input_cost_per_token": 8.5e-07,
+      "output_cost_per_token": 1.25e-06,
+      "context_length": 256000,
+      "source": "openrouter",
+      "name": "Relace: Relace Apply 3"
+    },
+    "google/gemini-2.5-flash-preview-09-2025": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 2.5e-06,
+      "context_length": 1048576,
+      "source": "openrouter",
+      "name": "Google: Gemini 2.5 Flash Preview 09-2025"
+    },
+    "google/gemini-2.5-flash-lite-preview-09-2025": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 4e-07,
+      "context_length": 1048576,
+      "source": "openrouter",
+      "name": "Google: Gemini 2.5 Flash Lite Preview 09-2025"
+    },
+    "qwen/qwen3-vl-235b-a22b-thinking": {
+      "input_cost_per_token": 4.5e-07,
+      "output_cost_per_token": 3.5e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 VL 235B A22B Thinking"
+    },
+    "qwen/qwen3-vl-235b-a22b-instruct": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 VL 235B A22B Instruct"
+    },
+    "qwen/qwen3-max": {
+      "input_cost_per_token": 1.2e-06,
+      "output_cost_per_token": 6e-06,
+      "context_length": 256000,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 Max"
+    },
+    "qwen/qwen3-coder-plus": {
+      "input_cost_per_token": 1e-06,
+      "output_cost_per_token": 5e-06,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 Coder Plus"
+    },
+    "openai/gpt-5-codex": {
+      "input_cost_per_token": 1.25e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 400000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5 Codex"
+    },
+    "deepseek/deepseek-v3.1-terminus:exacto": {
+      "input_cost_per_token": 2.1e-07,
+      "output_cost_per_token": 7.9e-07,
+      "context_length": 163840,
+      "source": "openrouter",
+      "name": "DeepSeek: DeepSeek V3.1 Terminus (exacto)"
+    },
+    "deepseek/deepseek-v3.1-terminus": {
+      "input_cost_per_token": 2.1e-07,
+      "output_cost_per_token": 7.9e-07,
+      "context_length": 163840,
+      "source": "openrouter",
+      "name": "DeepSeek: DeepSeek V3.1 Terminus"
+    },
+    "x-ai/grok-4-fast": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 5e-07,
+      "context_length": 2000000,
+      "source": "openrouter",
+      "name": "xAI: Grok 4 Fast"
+    },
+    "alibaba/tongyi-deepresearch-30b-a3b": {
+      "input_cost_per_token": 9e-08,
+      "output_cost_per_token": 4e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Tongyi DeepResearch 30B A3B"
+    },
+    "qwen/qwen3-coder-flash": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 1.5e-06,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 Coder Flash"
+    },
+    "opengvlab/internvl3-78b": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 3.9e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "OpenGVLab: InternVL3 78B"
+    },
+    "qwen/qwen3-next-80b-a3b-thinking": {
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 Next 80B A3B Thinking"
+    },
+    "qwen/qwen3-next-80b-a3b-instruct": {
+      "input_cost_per_token": 9e-08,
+      "output_cost_per_token": 1.1e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 Next 80B A3B Instruct"
+    },
+    "meituan/longcat-flash-chat": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 8e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Meituan: LongCat Flash Chat"
+    },
+    "qwen/qwen-plus-2025-07-28": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 1000000,
+      "source": "openrouter",
+      "name": "Qwen: Qwen Plus 0728"
+    },
+    "qwen/qwen-plus-2025-07-28:thinking": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 4e-06,
+      "context_length": 1000000,
+      "source": "openrouter",
+      "name": "Qwen: Qwen Plus 0728 (thinking)"
+    },
+    "nvidia/nemotron-nano-9b-v2": {
+      "input_cost_per_token": 4e-08,
+      "output_cost_per_token": 1.6e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "NVIDIA: Nemotron Nano 9B V2"
+    },
+    "moonshotai/kimi-k2-0905": {
+      "input_cost_per_token": 3.9e-07,
+      "output_cost_per_token": 1.9e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "MoonshotAI: Kimi K2 0905"
+    },
+    "moonshotai/kimi-k2-0905:exacto": {
+      "input_cost_per_token": 6e-07,
+      "output_cost_per_token": 2.5e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "MoonshotAI: Kimi K2 0905 (exacto)"
+    },
+    "deepcogito/cogito-v2-preview-llama-70b": {
+      "input_cost_per_token": 8.8e-07,
+      "output_cost_per_token": 8.8e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Deep Cogito: Cogito V2 Preview Llama 70B"
+    },
+    "deepcogito/cogito-v2-preview-llama-109b-moe": {
+      "input_cost_per_token": 1.8e-07,
+      "output_cost_per_token": 5.9e-07,
+      "context_length": 32767,
+      "source": "openrouter",
+      "name": "Cogito V2 Preview Llama 109B"
+    },
+    "stepfun-ai/step3": {
+      "input_cost_per_token": 5.7e-07,
+      "output_cost_per_token": 1.42e-06,
+      "context_length": 65536,
+      "source": "openrouter",
+      "name": "StepFun: Step3"
+    },
+    "qwen/qwen3-30b-a3b-thinking-2507": {
+      "input_cost_per_token": 5.1e-08,
+      "output_cost_per_token": 3.4e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 30B A3B Thinking 2507"
+    },
+    "x-ai/grok-code-fast-1": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 1.5e-06,
+      "context_length": 256000,
+      "source": "openrouter",
+      "name": "xAI: Grok Code Fast 1"
+    },
+    "nousresearch/hermes-4-70b": {
+      "input_cost_per_token": 1.1e-07,
+      "output_cost_per_token": 3.8e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Nous: Hermes 4 70B"
+    },
+    "nousresearch/hermes-4-405b": {
+      "input_cost_per_token": 1e-06,
+      "output_cost_per_token": 3e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Nous: Hermes 4 405B"
+    },
+    "deepseek/deepseek-chat-v3.1": {
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 7.5e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "DeepSeek: DeepSeek V3.1"
+    },
+    "openai/gpt-4o-audio-preview": {
+      "input_cost_per_token": 2.5e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4o Audio"
+    },
+    "mistralai/mistral-medium-3.1": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 2e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Mistral: Mistral Medium 3.1"
+    },
+    "baidu/ernie-4.5-21b-a3b": {
+      "input_cost_per_token": 7e-08,
+      "output_cost_per_token": 2.8e-07,
+      "context_length": 120000,
+      "source": "openrouter",
+      "name": "Baidu: ERNIE 4.5 21B A3B"
+    },
+    "baidu/ernie-4.5-vl-28b-a3b": {
+      "input_cost_per_token": 1.4e-07,
+      "output_cost_per_token": 5.6e-07,
+      "context_length": 30000,
+      "source": "openrouter",
+      "name": "Baidu: ERNIE 4.5 VL 28B A3B"
+    },
+    "z-ai/glm-4.5v": {
+      "input_cost_per_token": 6e-07,
+      "output_cost_per_token": 1.8e-06,
+      "context_length": 65536,
+      "source": "openrouter",
+      "name": "Z.AI: GLM 4.5V"
+    },
+    "ai21/jamba-mini-1.7": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 4e-07,
+      "context_length": 256000,
+      "source": "openrouter",
+      "name": "AI21: Jamba Mini 1.7"
+    },
+    "ai21/jamba-large-1.7": {
+      "input_cost_per_token": 2e-06,
+      "output_cost_per_token": 8e-06,
+      "context_length": 256000,
+      "source": "openrouter",
+      "name": "AI21: Jamba Large 1.7"
+    },
+    "openai/gpt-5-chat": {
+      "input_cost_per_token": 1.25e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5 Chat"
+    },
+    "openai/gpt-5": {
+      "input_cost_per_token": 1.25e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 400000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5"
+    },
+    "openai/gpt-5-mini": {
+      "input_cost_per_token": 2.5e-07,
+      "output_cost_per_token": 2e-06,
+      "context_length": 400000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5 Mini"
+    },
+    "openai/gpt-5-nano": {
+      "input_cost_per_token": 5e-08,
+      "output_cost_per_token": 4e-07,
+      "context_length": 400000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5 Nano"
+    },
+    "openai/gpt-oss-120b": {
+      "input_cost_per_token": 3.9e-08,
+      "output_cost_per_token": 1.9e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "OpenAI: gpt-oss-120b"
+    },
+    "openai/gpt-oss-120b:exacto": {
+      "input_cost_per_token": 3.9e-08,
+      "output_cost_per_token": 1.9e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "OpenAI: gpt-oss-120b (exacto)"
+    },
+    "openai/gpt-oss-20b": {
+      "input_cost_per_token": 2e-08,
+      "output_cost_per_token": 1e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "OpenAI: gpt-oss-20b"
+    },
+    "anthropic/claude-opus-4.1": {
+      "input_cost_per_token": 1.5e-05,
+      "output_cost_per_token": 7.5e-05,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "Anthropic: Claude Opus 4.1"
+    },
+    "mistralai/codestral-2508": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 9e-07,
+      "context_length": 256000,
+      "source": "openrouter",
+      "name": "Mistral: Codestral 2508"
+    },
+    "qwen/qwen3-coder-30b-a3b-instruct": {
+      "input_cost_per_token": 7e-08,
+      "output_cost_per_token": 2.7e-07,
+      "context_length": 160000,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 Coder 30B A3B Instruct"
+    },
+    "qwen/qwen3-30b-a3b-instruct-2507": {
+      "input_cost_per_token": 8e-08,
+      "output_cost_per_token": 3.3e-07,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 30B A3B Instruct 2507"
+    },
+    "z-ai/glm-4.5": {
+      "input_cost_per_token": 3.5e-07,
+      "output_cost_per_token": 1.55e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Z.AI: GLM 4.5"
+    },
+    "z-ai/glm-4.5-air": {
+      "input_cost_per_token": 5e-08,
+      "output_cost_per_token": 2.2e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Z.AI: GLM 4.5 Air"
+    },
+    "qwen/qwen3-235b-a22b-thinking-2507": {
+      "input_cost_per_token": 1.1e-07,
+      "output_cost_per_token": 6e-07,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 235B A22B Thinking 2507"
+    },
+    "z-ai/glm-4-32b": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 1e-07,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "Z.AI: GLM 4 32B "
+    },
+    "qwen/qwen3-coder": {
+      "input_cost_per_token": 2.2e-07,
+      "output_cost_per_token": 9.5e-07,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 Coder 480B A35B"
+    },
+    "qwen/qwen3-coder:exacto": {
+      "input_cost_per_token": 2.2e-07,
+      "output_cost_per_token": 1.8e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 Coder 480B A35B (exacto)"
+    },
+    "bytedance/ui-tars-1.5-7b": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 2e-07,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "ByteDance: UI-TARS 7B "
+    },
+    "google/gemini-2.5-flash-lite": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 4e-07,
+      "context_length": 1048576,
+      "source": "openrouter",
+      "name": "Google: Gemini 2.5 Flash Lite"
+    },
+    "qwen/qwen3-235b-a22b-2507": {
+      "input_cost_per_token": 7.1e-08,
+      "output_cost_per_token": 4.63e-07,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 235B A22B Instruct 2507"
+    },
+    "switchpoint/router": {
+      "input_cost_per_token": 8.5e-07,
+      "output_cost_per_token": 3.4e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Switchpoint Router"
+    },
+    "moonshotai/kimi-k2": {
+      "input_cost_per_token": 5e-07,
+      "output_cost_per_token": 2.4e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "MoonshotAI: Kimi K2 0711"
+    },
+    "mistralai/devstral-medium": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 2e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Mistral: Devstral Medium"
+    },
+    "mistralai/devstral-small": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 3e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Mistral: Devstral Small 1.1"
+    },
+    "x-ai/grok-4": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 256000,
+      "source": "openrouter",
+      "name": "xAI: Grok 4"
+    },
+    "tencent/hunyuan-a13b-instruct": {
+      "input_cost_per_token": 1.4e-07,
+      "output_cost_per_token": 5.7e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Tencent: Hunyuan A13B Instruct"
+    },
+    "tngtech/deepseek-r1t2-chimera": {
+      "input_cost_per_token": 2.5e-07,
+      "output_cost_per_token": 8.5e-07,
+      "context_length": 163840,
+      "source": "openrouter",
+      "name": "TNG: DeepSeek R1T2 Chimera"
+    },
+    "morph/morph-v3-large": {
+      "input_cost_per_token": 9e-07,
+      "output_cost_per_token": 1.9e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Morph: Morph V3 Large"
+    },
+    "morph/morph-v3-fast": {
+      "input_cost_per_token": 8e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 81920,
+      "source": "openrouter",
+      "name": "Morph: Morph V3 Fast"
+    },
+    "baidu/ernie-4.5-vl-424b-a47b": {
+      "input_cost_per_token": 4.2e-07,
+      "output_cost_per_token": 1.25e-06,
+      "context_length": 123000,
+      "source": "openrouter",
+      "name": "Baidu: ERNIE 4.5 VL 424B A47B "
+    },
+    "baidu/ernie-4.5-300b-a47b": {
+      "input_cost_per_token": 2.8e-07,
+      "output_cost_per_token": 1.1e-06,
+      "context_length": 123000,
+      "source": "openrouter",
+      "name": "Baidu: ERNIE 4.5 300B A47B "
+    },
+    "inception/mercury": {
+      "input_cost_per_token": 2.5e-07,
+      "output_cost_per_token": 1e-06,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "Inception: Mercury"
+    },
+    "mistralai/mistral-small-3.2-24b-instruct": {
+      "input_cost_per_token": 6e-08,
+      "output_cost_per_token": 1.8e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Mistral: Mistral Small 3.2 24B"
+    },
+    "minimax/minimax-m1": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 2.2e-06,
+      "context_length": 1000000,
+      "source": "openrouter",
+      "name": "MiniMax: MiniMax M1"
+    },
+    "google/gemini-2.5-flash": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 2.5e-06,
+      "context_length": 1048576,
+      "source": "openrouter",
+      "name": "Google: Gemini 2.5 Flash"
+    },
+    "google/gemini-2.5-pro": {
+      "input_cost_per_token": 1.25e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 1048576,
+      "source": "openrouter",
+      "name": "Google: Gemini 2.5 Pro"
+    },
+    "moonshotai/kimi-dev-72b": {
+      "input_cost_per_token": 2.9e-07,
+      "output_cost_per_token": 1.15e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "MoonshotAI: Kimi Dev 72B"
+    },
+    "openai/o3-pro": {
+      "input_cost_per_token": 2e-05,
+      "output_cost_per_token": 8e-05,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "OpenAI: o3 Pro"
+    },
+    "x-ai/grok-3-mini": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 5e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "xAI: Grok 3 Mini"
+    },
+    "x-ai/grok-3": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "xAI: Grok 3"
+    },
+    "google/gemini-2.5-pro-preview": {
+      "input_cost_per_token": 1.25e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 1048576,
+      "source": "openrouter",
+      "name": "Google: Gemini 2.5 Pro Preview 06-05"
+    },
+    "deepseek/deepseek-r1-0528": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 1.75e-06,
+      "context_length": 163840,
+      "source": "openrouter",
+      "name": "DeepSeek: R1 0528"
+    },
+    "anthropic/claude-opus-4": {
+      "input_cost_per_token": 1.5e-05,
+      "output_cost_per_token": 7.5e-05,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "Anthropic: Claude Opus 4"
+    },
+    "anthropic/claude-sonnet-4": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 1000000,
+      "source": "openrouter",
+      "name": "Anthropic: Claude Sonnet 4"
+    },
+    "google/gemma-3n-e4b-it": {
+      "input_cost_per_token": 2e-08,
+      "output_cost_per_token": 4e-08,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Google: Gemma 3n 4B"
+    },
+    "nousresearch/deephermes-3-mistral-24b-preview": {
+      "input_cost_per_token": 2e-08,
+      "output_cost_per_token": 1e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Nous: DeepHermes 3 Mistral 24B Preview"
+    },
+    "mistralai/mistral-medium-3": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 2e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Mistral: Mistral Medium 3"
+    },
+    "google/gemini-2.5-pro-preview-05-06": {
+      "input_cost_per_token": 1.25e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 1048576,
+      "source": "openrouter",
+      "name": "Google: Gemini 2.5 Pro Preview 05-06"
+    },
+    "arcee-ai/spotlight": {
+      "input_cost_per_token": 1.8e-07,
+      "output_cost_per_token": 1.8e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Arcee AI: Spotlight"
+    },
+    "arcee-ai/maestro-reasoning": {
+      "input_cost_per_token": 9e-07,
+      "output_cost_per_token": 3.3e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Arcee AI: Maestro Reasoning"
+    },
+    "arcee-ai/virtuoso-large": {
+      "input_cost_per_token": 7.5e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Arcee AI: Virtuoso Large"
+    },
+    "arcee-ai/coder-large": {
+      "input_cost_per_token": 5e-07,
+      "output_cost_per_token": 8e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Arcee AI: Coder Large"
+    },
+    "inception/mercury-coder": {
+      "input_cost_per_token": 2.5e-07,
+      "output_cost_per_token": 1e-06,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "Inception: Mercury Coder"
+    },
+    "meta-llama/llama-guard-4-12b": {
+      "input_cost_per_token": 1.8e-07,
+      "output_cost_per_token": 1.8e-07,
+      "context_length": 163840,
+      "source": "openrouter",
+      "name": "Meta: Llama Guard 4 12B"
+    },
+    "qwen/qwen3-30b-a3b": {
+      "input_cost_per_token": 6e-08,
+      "output_cost_per_token": 2.2e-07,
+      "context_length": 40960,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 30B A3B"
+    },
+    "qwen/qwen3-8b": {
+      "input_cost_per_token": 5e-08,
+      "output_cost_per_token": 4e-07,
+      "context_length": 32000,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 8B"
+    },
+    "qwen/qwen3-14b": {
+      "input_cost_per_token": 5e-08,
+      "output_cost_per_token": 2.2e-07,
+      "context_length": 40960,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 14B"
+    },
+    "qwen/qwen3-32b": {
+      "input_cost_per_token": 8e-08,
+      "output_cost_per_token": 2.4e-07,
+      "context_length": 40960,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 32B"
+    },
+    "qwen/qwen3-235b-a22b": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 6e-07,
+      "context_length": 40960,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 235B A22B"
+    },
+    "tngtech/deepseek-r1t-chimera": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 163840,
+      "source": "openrouter",
+      "name": "TNG: DeepSeek R1T Chimera"
+    },
+    "openai/o4-mini-high": {
+      "input_cost_per_token": 1.1e-06,
+      "output_cost_per_token": 4.4e-06,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "OpenAI: o4 Mini High"
+    },
+    "openai/o3": {
+      "input_cost_per_token": 2e-06,
+      "output_cost_per_token": 8e-06,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "OpenAI: o3"
+    },
+    "openai/o4-mini": {
+      "input_cost_per_token": 1.1e-06,
+      "output_cost_per_token": 4.4e-06,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "OpenAI: o4 Mini"
+    },
+    "qwen/qwen2.5-coder-7b-instruct": {
+      "input_cost_per_token": 3e-08,
+      "output_cost_per_token": 9e-08,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Qwen: Qwen2.5 Coder 7B Instruct"
+    },
+    "openai/gpt-4.1": {
+      "input_cost_per_token": 2e-06,
+      "output_cost_per_token": 8e-06,
+      "context_length": 1047576,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4.1"
+    },
+    "openai/gpt-4.1-mini": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 1.6e-06,
+      "context_length": 1047576,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4.1 Mini"
+    },
+    "openai/gpt-4.1-nano": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 4e-07,
+      "context_length": 1047576,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4.1 Nano"
+    },
+    "eleutherai/llemma_7b": {
+      "input_cost_per_token": 8e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 4096,
+      "source": "openrouter",
+      "name": "EleutherAI: Llemma 7b"
+    },
+    "alfredpros/codellama-7b-instruct-solidity": {
+      "input_cost_per_token": 8e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 4096,
+      "source": "openrouter",
+      "name": "AlfredPros: CodeLLaMa 7B Instruct Solidity"
+    },
+    "x-ai/grok-3-mini-beta": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 5e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "xAI: Grok 3 Mini Beta"
+    },
+    "x-ai/grok-3-beta": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "xAI: Grok 3 Beta"
+    },
+    "nvidia/llama-3.1-nemotron-ultra-253b-v1": {
+      "input_cost_per_token": 6e-07,
+      "output_cost_per_token": 1.8e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "NVIDIA: Llama 3.1 Nemotron Ultra 253B v1"
+    },
+    "meta-llama/llama-4-maverick": {
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 6e-07,
+      "context_length": 1048576,
+      "source": "openrouter",
+      "name": "Meta: Llama 4 Maverick"
+    },
+    "meta-llama/llama-4-scout": {
+      "input_cost_per_token": 8e-08,
+      "output_cost_per_token": 3e-07,
+      "context_length": 327680,
+      "source": "openrouter",
+      "name": "Meta: Llama 4 Scout"
+    },
+    "qwen/qwen2.5-vl-32b-instruct": {
+      "input_cost_per_token": 5e-08,
+      "output_cost_per_token": 2.2e-07,
+      "context_length": 16384,
+      "source": "openrouter",
+      "name": "Qwen: Qwen2.5 VL 32B Instruct"
+    },
+    "deepseek/deepseek-chat-v3-0324": {
+      "input_cost_per_token": 1.9e-07,
+      "output_cost_per_token": 8.7e-07,
+      "context_length": 163840,
+      "source": "openrouter",
+      "name": "DeepSeek: DeepSeek V3 0324"
+    },
+    "openai/o1-pro": {
+      "input_cost_per_token": 0.00015,
+      "output_cost_per_token": 0.0006,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "OpenAI: o1-pro"
+    },
+    "mistralai/mistral-small-3.1-24b-instruct": {
+      "input_cost_per_token": 3e-08,
+      "output_cost_per_token": 1.1e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Mistral: Mistral Small 3.1 24B"
+    },
+    "allenai/olmo-2-0325-32b-instruct": {
+      "input_cost_per_token": 5e-08,
+      "output_cost_per_token": 2e-07,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "AllenAI: Olmo 2 32B Instruct"
+    },
+    "google/gemma-3-4b-it": {
+      "input_cost_per_token": 1.703012e-08,
+      "output_cost_per_token": 6.81536e-08,
+      "context_length": 96000,
+      "source": "openrouter",
+      "name": "Google: Gemma 3 4B"
+    },
+    "google/gemma-3-12b-it": {
+      "input_cost_per_token": 3e-08,
+      "output_cost_per_token": 1e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Google: Gemma 3 12B"
+    },
+    "cohere/command-a": {
+      "input_cost_per_token": 2.5e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 256000,
+      "source": "openrouter",
+      "name": "Cohere: Command A"
+    },
+    "openai/gpt-4o-mini-search-preview": {
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 6e-07,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4o-mini Search Preview"
+    },
+    "openai/gpt-4o-search-preview": {
+      "input_cost_per_token": 2.5e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4o Search Preview"
+    },
+    "google/gemma-3-27b-it": {
+      "input_cost_per_token": 4e-08,
+      "output_cost_per_token": 1.5e-07,
+      "context_length": 96000,
+      "source": "openrouter",
+      "name": "Google: Gemma 3 27B"
+    },
+    "thedrummer/skyfall-36b-v2": {
+      "input_cost_per_token": 5.5e-07,
+      "output_cost_per_token": 8e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "TheDrummer: Skyfall 36B V2"
+    },
+    "perplexity/sonar-reasoning-pro": {
+      "input_cost_per_token": 2e-06,
+      "output_cost_per_token": 8e-06,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "Perplexity: Sonar Reasoning Pro"
+    },
+    "perplexity/sonar-pro": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "Perplexity: Sonar Pro"
+    },
+    "perplexity/sonar-deep-research": {
+      "input_cost_per_token": 2e-06,
+      "output_cost_per_token": 8e-06,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "Perplexity: Sonar Deep Research"
+    },
+    "qwen/qwq-32b": {
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 4e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Qwen: QwQ 32B"
+    },
+    "google/gemini-2.0-flash-lite-001": {
+      "input_cost_per_token": 7.5e-08,
+      "output_cost_per_token": 3e-07,
+      "context_length": 1048576,
+      "source": "openrouter",
+      "name": "Google: Gemini 2.0 Flash Lite"
+    },
+    "anthropic/claude-3.7-sonnet:thinking": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "Anthropic: Claude 3.7 Sonnet (thinking)"
+    },
+    "anthropic/claude-3.7-sonnet": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "Anthropic: Claude 3.7 Sonnet"
+    },
+    "mistralai/mistral-saba": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 6e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Mistral: Saba"
+    },
+    "meta-llama/llama-guard-3-8b": {
+      "input_cost_per_token": 2e-08,
+      "output_cost_per_token": 6e-08,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Llama Guard 3 8B"
+    },
+    "openai/o3-mini-high": {
+      "input_cost_per_token": 1.1e-06,
+      "output_cost_per_token": 4.4e-06,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "OpenAI: o3 Mini High"
+    },
+    "google/gemini-2.0-flash-001": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 4e-07,
+      "context_length": 1048576,
+      "source": "openrouter",
+      "name": "Google: Gemini 2.0 Flash"
+    },
+    "qwen/qwen-vl-plus": {
+      "input_cost_per_token": 2.1e-07,
+      "output_cost_per_token": 6.3e-07,
+      "context_length": 7500,
+      "source": "openrouter",
+      "name": "Qwen: Qwen VL Plus"
+    },
+    "aion-labs/aion-1.0": {
+      "input_cost_per_token": 4e-06,
+      "output_cost_per_token": 8e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "AionLabs: Aion-1.0"
+    },
+    "aion-labs/aion-1.0-mini": {
+      "input_cost_per_token": 7e-07,
+      "output_cost_per_token": 1.4e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "AionLabs: Aion-1.0-Mini"
+    },
+    "aion-labs/aion-rp-llama-3.1-8b": {
+      "input_cost_per_token": 8e-07,
+      "output_cost_per_token": 1.6e-06,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "AionLabs: Aion-RP 1.0 (8B)"
+    },
+    "qwen/qwen-vl-max": {
+      "input_cost_per_token": 8e-07,
+      "output_cost_per_token": 3.2e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Qwen: Qwen VL Max"
+    },
+    "qwen/qwen-turbo": {
+      "input_cost_per_token": 5e-08,
+      "output_cost_per_token": 2e-07,
+      "context_length": 1000000,
+      "source": "openrouter",
+      "name": "Qwen: Qwen-Turbo"
+    },
+    "qwen/qwen2.5-vl-72b-instruct": {
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 6e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Qwen: Qwen2.5 VL 72B Instruct"
+    },
+    "qwen/qwen-plus": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Qwen: Qwen-Plus"
+    },
+    "qwen/qwen-max": {
+      "input_cost_per_token": 1.6e-06,
+      "output_cost_per_token": 6.4e-06,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Qwen: Qwen-Max "
+    },
+    "openai/o3-mini": {
+      "input_cost_per_token": 1.1e-06,
+      "output_cost_per_token": 4.4e-06,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "OpenAI: o3 Mini"
+    },
+    "mistralai/mistral-small-24b-instruct-2501": {
+      "input_cost_per_token": 3e-08,
+      "output_cost_per_token": 1.1e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Mistral: Mistral Small 3"
+    },
+    "deepseek/deepseek-r1-distill-qwen-32b": {
+      "input_cost_per_token": 2.9e-07,
+      "output_cost_per_token": 2.9e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "DeepSeek: R1 Distill Qwen 32B"
+    },
+    "perplexity/sonar": {
+      "input_cost_per_token": 1e-06,
+      "output_cost_per_token": 1e-06,
+      "context_length": 127072,
+      "source": "openrouter",
+      "name": "Perplexity: Sonar"
+    },
+    "deepseek/deepseek-r1-distill-llama-70b": {
+      "input_cost_per_token": 3e-08,
+      "output_cost_per_token": 1.1e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "DeepSeek: R1 Distill Llama 70B"
+    },
+    "deepseek/deepseek-r1": {
+      "input_cost_per_token": 7e-07,
+      "output_cost_per_token": 2.5e-06,
+      "context_length": 64000,
+      "source": "openrouter",
+      "name": "DeepSeek: R1"
+    },
+    "minimax/minimax-01": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 1.1e-06,
+      "context_length": 1000192,
+      "source": "openrouter",
+      "name": "MiniMax: MiniMax-01"
+    },
+    "microsoft/phi-4": {
+      "input_cost_per_token": 6e-08,
+      "output_cost_per_token": 1.4e-07,
+      "context_length": 16384,
+      "source": "openrouter",
+      "name": "Microsoft: Phi 4"
+    },
+    "sao10k/l3.1-70b-hanami-x1": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 3e-06,
+      "context_length": 16000,
+      "source": "openrouter",
+      "name": "Sao10K: Llama 3.1 70B Hanami x1"
+    },
+    "deepseek/deepseek-chat": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 163840,
+      "source": "openrouter",
+      "name": "DeepSeek: DeepSeek V3"
+    },
+    "sao10k/l3.3-euryale-70b": {
+      "input_cost_per_token": 6.5e-07,
+      "output_cost_per_token": 7.5e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Sao10K: Llama 3.3 Euryale 70B"
+    },
+    "openai/o1": {
+      "input_cost_per_token": 1.5e-05,
+      "output_cost_per_token": 6e-05,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "OpenAI: o1"
+    },
+    "cohere/command-r7b-12-2024": {
+      "input_cost_per_token": 3.75e-08,
+      "output_cost_per_token": 1.5e-07,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "Cohere: Command R7B (12-2024)"
+    },
+    "meta-llama/llama-3.3-70b-instruct": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 3.2e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Meta: Llama 3.3 70B Instruct"
+    },
+    "amazon/nova-lite-v1": {
+      "input_cost_per_token": 6e-08,
+      "output_cost_per_token": 2.4e-07,
+      "context_length": 300000,
+      "source": "openrouter",
+      "name": "Amazon: Nova Lite 1.0"
+    },
+    "amazon/nova-micro-v1": {
+      "input_cost_per_token": 3.5e-08,
+      "output_cost_per_token": 1.4e-07,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "Amazon: Nova Micro 1.0"
+    },
+    "amazon/nova-pro-v1": {
+      "input_cost_per_token": 8e-07,
+      "output_cost_per_token": 3.2e-06,
+      "context_length": 300000,
+      "source": "openrouter",
+      "name": "Amazon: Nova Pro 1.0"
+    },
+    "openai/gpt-4o-2024-11-20": {
+      "input_cost_per_token": 2.5e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4o (2024-11-20)"
+    },
+    "mistralai/mistral-large-2411": {
+      "input_cost_per_token": 2e-06,
+      "output_cost_per_token": 6e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Mistral Large 2411"
+    },
+    "mistralai/mistral-large-2407": {
+      "input_cost_per_token": 2e-06,
+      "output_cost_per_token": 6e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Mistral Large 2407"
+    },
+    "mistralai/pixtral-large-2411": {
+      "input_cost_per_token": 2e-06,
+      "output_cost_per_token": 6e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Mistral: Pixtral Large 2411"
+    },
+    "qwen/qwen-2.5-coder-32b-instruct": {
+      "input_cost_per_token": 3e-08,
+      "output_cost_per_token": 1.1e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Qwen2.5 Coder 32B Instruct"
+    },
+    "raifle/sorcererlm-8x22b": {
+      "input_cost_per_token": 4.5e-06,
+      "output_cost_per_token": 4.5e-06,
+      "context_length": 16000,
+      "source": "openrouter",
+      "name": "SorcererLM 8x22B"
+    },
+    "thedrummer/unslopnemo-12b": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 4e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "TheDrummer: UnslopNemo 12B"
+    },
+    "anthropic/claude-3.5-haiku": {
+      "input_cost_per_token": 8e-07,
+      "output_cost_per_token": 4e-06,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "Anthropic: Claude 3.5 Haiku"
+    },
+    "anthracite-org/magnum-v4-72b": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 5e-06,
+      "context_length": 16384,
+      "source": "openrouter",
+      "name": "Magnum v4 72B"
+    },
+    "anthropic/claude-3.5-sonnet": {
+      "input_cost_per_token": 6e-06,
+      "output_cost_per_token": 3e-05,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "Anthropic: Claude 3.5 Sonnet"
+    },
+    "mistralai/ministral-8b": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 1e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Mistral: Ministral 8B"
+    },
+    "mistralai/ministral-3b": {
+      "input_cost_per_token": 4e-08,
+      "output_cost_per_token": 4e-08,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Mistral: Ministral 3B"
+    },
+    "qwen/qwen-2.5-7b-instruct": {
+      "input_cost_per_token": 4e-08,
+      "output_cost_per_token": 1e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Qwen: Qwen2.5 7B Instruct"
+    },
+    "nvidia/llama-3.1-nemotron-70b-instruct": {
+      "input_cost_per_token": 1.2e-06,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "NVIDIA: Llama 3.1 Nemotron 70B Instruct"
+    },
+    "inflection/inflection-3-pi": {
+      "input_cost_per_token": 2.5e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 8000,
+      "source": "openrouter",
+      "name": "Inflection: Inflection 3 Pi"
+    },
+    "inflection/inflection-3-productivity": {
+      "input_cost_per_token": 2.5e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 8000,
+      "source": "openrouter",
+      "name": "Inflection: Inflection 3 Productivity"
+    },
+    "thedrummer/rocinante-12b": {
+      "input_cost_per_token": 1.7e-07,
+      "output_cost_per_token": 4.3e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "TheDrummer: Rocinante 12B"
+    },
+    "meta-llama/llama-3.2-3b-instruct": {
+      "input_cost_per_token": 2e-08,
+      "output_cost_per_token": 2e-08,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Meta: Llama 3.2 3B Instruct"
+    },
+    "meta-llama/llama-3.2-1b-instruct": {
+      "input_cost_per_token": 2.7e-08,
+      "output_cost_per_token": 2e-07,
+      "context_length": 60000,
+      "source": "openrouter",
+      "name": "Meta: Llama 3.2 1B Instruct"
+    },
+    "meta-llama/llama-3.2-11b-vision-instruct": {
+      "input_cost_per_token": 4.9e-08,
+      "output_cost_per_token": 4.9e-08,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Meta: Llama 3.2 11B Vision Instruct"
+    },
+    "qwen/qwen-2.5-72b-instruct": {
+      "input_cost_per_token": 1.2e-07,
+      "output_cost_per_token": 3.9e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Qwen2.5 72B Instruct"
+    },
+    "neversleep/llama-3.1-lumimaid-8b": {
+      "input_cost_per_token": 9e-08,
+      "output_cost_per_token": 6e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "NeverSleep: Lumimaid v0.2 8B"
+    },
+    "mistralai/pixtral-12b": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 1e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Mistral: Pixtral 12B"
+    },
+    "cohere/command-r-08-2024": {
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 6e-07,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "Cohere: Command R (08-2024)"
+    },
+    "cohere/command-r-plus-08-2024": {
+      "input_cost_per_token": 2.5e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "Cohere: Command R+ (08-2024)"
+    },
+    "sao10k/l3.1-euryale-70b": {
+      "input_cost_per_token": 6.5e-07,
+      "output_cost_per_token": 7.5e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Sao10K: Llama 3.1 Euryale 70B v2.2"
+    },
+    "qwen/qwen-2.5-vl-7b-instruct": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 2e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Qwen: Qwen2.5-VL 7B Instruct"
+    },
+    "nousresearch/hermes-3-llama-3.1-70b": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 3e-07,
+      "context_length": 65536,
+      "source": "openrouter",
+      "name": "Nous: Hermes 3 70B Instruct"
+    },
+    "nousresearch/hermes-3-llama-3.1-405b": {
+      "input_cost_per_token": 1e-06,
+      "output_cost_per_token": 1e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Nous: Hermes 3 405B Instruct"
+    },
+    "openai/chatgpt-4o-latest": {
+      "input_cost_per_token": 5e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: ChatGPT-4o"
+    },
+    "sao10k/l3-lunaris-8b": {
+      "input_cost_per_token": 4e-08,
+      "output_cost_per_token": 5e-08,
+      "context_length": 8192,
+      "source": "openrouter",
+      "name": "Sao10K: Llama 3 8B Lunaris"
+    },
+    "openai/gpt-4o-2024-08-06": {
+      "input_cost_per_token": 2.5e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4o (2024-08-06)"
+    },
+    "meta-llama/llama-3.1-405b": {
+      "input_cost_per_token": 4e-06,
+      "output_cost_per_token": 4e-06,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Meta: Llama 3.1 405B (base)"
+    },
+    "meta-llama/llama-3.1-8b-instruct": {
+      "input_cost_per_token": 2e-08,
+      "output_cost_per_token": 5e-08,
+      "context_length": 16384,
+      "source": "openrouter",
+      "name": "Meta: Llama 3.1 8B Instruct"
+    },
+    "meta-llama/llama-3.1-405b-instruct": {
+      "input_cost_per_token": 3.5e-06,
+      "output_cost_per_token": 3.5e-06,
+      "context_length": 10000,
+      "source": "openrouter",
+      "name": "Meta: Llama 3.1 405B Instruct"
+    },
+    "meta-llama/llama-3.1-70b-instruct": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 4e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Meta: Llama 3.1 70B Instruct"
+    },
+    "mistralai/mistral-nemo": {
+      "input_cost_per_token": 2e-08,
+      "output_cost_per_token": 4e-08,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Mistral: Mistral Nemo"
+    },
+    "openai/gpt-4o-mini-2024-07-18": {
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 6e-07,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4o-mini (2024-07-18)"
+    },
+    "openai/gpt-4o-mini": {
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 6e-07,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4o-mini"
+    },
+    "google/gemma-2-27b-it": {
+      "input_cost_per_token": 6.5e-07,
+      "output_cost_per_token": 6.5e-07,
+      "context_length": 8192,
+      "source": "openrouter",
+      "name": "Google: Gemma 2 27B"
+    },
+    "google/gemma-2-9b-it": {
+      "input_cost_per_token": 3e-08,
+      "output_cost_per_token": 9e-08,
+      "context_length": 8192,
+      "source": "openrouter",
+      "name": "Google: Gemma 2 9B"
+    },
+    "sao10k/l3-euryale-70b": {
+      "input_cost_per_token": 1.48e-06,
+      "output_cost_per_token": 1.48e-06,
+      "context_length": 8192,
+      "source": "openrouter",
+      "name": "Sao10k: Llama 3 Euryale 70B v2.1"
+    },
+    "nousresearch/hermes-2-pro-llama-3-8b": {
+      "input_cost_per_token": 1.4e-07,
+      "output_cost_per_token": 1.4e-07,
+      "context_length": 8192,
+      "source": "openrouter",
+      "name": "NousResearch: Hermes 2 Pro - Llama-3 8B"
+    },
+    "mistralai/mistral-7b-instruct": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 2e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Mistral: Mistral 7B Instruct"
+    },
+    "mistralai/mistral-7b-instruct-v0.3": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 2e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Mistral: Mistral 7B Instruct v0.3"
+    },
+    "meta-llama/llama-guard-2-8b": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 2e-07,
+      "context_length": 8192,
+      "source": "openrouter",
+      "name": "Meta: LlamaGuard 2 8B"
+    },
+    "openai/gpt-4o-2024-05-13": {
+      "input_cost_per_token": 5e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4o (2024-05-13)"
+    },
+    "openai/gpt-4o": {
+      "input_cost_per_token": 2.5e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4o"
+    },
+    "openai/gpt-4o:extended": {
+      "input_cost_per_token": 6e-06,
+      "output_cost_per_token": 1.8e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4o (extended)"
+    },
+    "meta-llama/llama-3-70b-instruct": {
+      "input_cost_per_token": 5.1e-07,
+      "output_cost_per_token": 7.4e-07,
+      "context_length": 8192,
+      "source": "openrouter",
+      "name": "Meta: Llama 3 70B Instruct"
+    },
+    "meta-llama/llama-3-8b-instruct": {
+      "input_cost_per_token": 3e-08,
+      "output_cost_per_token": 4e-08,
+      "context_length": 8192,
+      "source": "openrouter",
+      "name": "Meta: Llama 3 8B Instruct"
+    },
+    "mistralai/mixtral-8x22b-instruct": {
+      "input_cost_per_token": 2e-06,
+      "output_cost_per_token": 6e-06,
+      "context_length": 65536,
+      "source": "openrouter",
+      "name": "Mistral: Mixtral 8x22B Instruct"
+    },
+    "microsoft/wizardlm-2-8x22b": {
+      "input_cost_per_token": 4.8e-07,
+      "output_cost_per_token": 4.8e-07,
+      "context_length": 65536,
+      "source": "openrouter",
+      "name": "WizardLM-2 8x22B"
+    },
+    "openai/gpt-4-turbo": {
+      "input_cost_per_token": 1e-05,
+      "output_cost_per_token": 3e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4 Turbo"
+    },
+    "anthropic/claude-3-haiku": {
+      "input_cost_per_token": 2.5e-07,
+      "output_cost_per_token": 1.25e-06,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "Anthropic: Claude 3 Haiku"
+    },
+    "mistralai/mistral-large": {
+      "input_cost_per_token": 2e-06,
+      "output_cost_per_token": 6e-06,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "Mistral Large"
+    },
+    "openai/gpt-3.5-turbo-0613": {
+      "input_cost_per_token": 1e-06,
+      "output_cost_per_token": 2e-06,
+      "context_length": 4095,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-3.5 Turbo (older v0613)"
+    },
+    "openai/gpt-4-turbo-preview": {
+      "input_cost_per_token": 1e-05,
+      "output_cost_per_token": 3e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4 Turbo Preview"
+    },
+    "mistralai/mistral-tiny": {
+      "input_cost_per_token": 2.5e-07,
+      "output_cost_per_token": 2.5e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Mistral Tiny"
+    },
+    "mistralai/mistral-7b-instruct-v0.2": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 2e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Mistral: Mistral 7B Instruct v0.2"
+    },
+    "mistralai/mixtral-8x7b-instruct": {
+      "input_cost_per_token": 5.4e-07,
+      "output_cost_per_token": 5.4e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Mistral: Mixtral 8x7B Instruct"
+    },
+    "neversleep/noromaid-20b": {
+      "input_cost_per_token": 1e-06,
+      "output_cost_per_token": 1.75e-06,
+      "context_length": 4096,
+      "source": "openrouter",
+      "name": "Noromaid 20B"
+    },
+    "alpindale/goliath-120b": {
+      "input_cost_per_token": 3.75e-06,
+      "output_cost_per_token": 7.5e-06,
+      "context_length": 6144,
+      "source": "openrouter",
+      "name": "Goliath 120B"
+    },
+    "openai/gpt-4-1106-preview": {
+      "input_cost_per_token": 1e-05,
+      "output_cost_per_token": 3e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4 Turbo (older v1106)"
+    },
+    "openai/gpt-3.5-turbo-instruct": {
+      "input_cost_per_token": 1.5e-06,
+      "output_cost_per_token": 2e-06,
+      "context_length": 4095,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-3.5 Turbo Instruct"
+    },
+    "mistralai/mistral-7b-instruct-v0.1": {
+      "input_cost_per_token": 1.1e-07,
+      "output_cost_per_token": 1.9e-07,
+      "context_length": 2824,
+      "source": "openrouter",
+      "name": "Mistral: Mistral 7B Instruct v0.1"
+    },
+    "openai/gpt-3.5-turbo-16k": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 4e-06,
+      "context_length": 16385,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-3.5 Turbo 16k"
+    },
+    "mancer/weaver": {
+      "input_cost_per_token": 7.5e-07,
+      "output_cost_per_token": 1e-06,
+      "context_length": 8000,
+      "source": "openrouter",
+      "name": "Mancer: Weaver (alpha)"
+    },
+    "undi95/remm-slerp-l2-13b": {
+      "input_cost_per_token": 4.5e-07,
+      "output_cost_per_token": 6.5e-07,
+      "context_length": 6144,
+      "source": "openrouter",
+      "name": "ReMM SLERP 13B"
+    },
+    "gryphe/mythomax-l2-13b": {
+      "input_cost_per_token": 6e-08,
+      "output_cost_per_token": 6e-08,
+      "context_length": 4096,
+      "source": "openrouter",
+      "name": "MythoMax 13B"
+    },
+    "openai/gpt-4-0314": {
+      "input_cost_per_token": 3e-05,
+      "output_cost_per_token": 6e-05,
+      "context_length": 8191,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4 (older v0314)"
+    },
+    "openai/gpt-4": {
+      "input_cost_per_token": 3e-05,
+      "output_cost_per_token": 6e-05,
+      "context_length": 8191,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4"
+    },
+    "openai/gpt-3.5-turbo": {
+      "input_cost_per_token": 5e-07,
+      "output_cost_per_token": 1.5e-06,
+      "context_length": 16385,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-3.5 Turbo"
+    }
+  }
+}

@@ -27,3 +27,17 @@ Thumbs.db
 # Secrets (never commit)
 .env.local
 *.key
+
+# Node.js Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Development
+*.local
+*.log
+
+# Testing
+coverage/

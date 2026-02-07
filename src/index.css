@@ -1,0 +1,293 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Occupant Design System
+   Terminal / Research Memo Aesthetic
+   Colors: Black, White, Grayscale
+   Typography: Strong, confident, precise
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Core palette - Monochrome with warmth */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 4%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 4%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 4%;
+    
+    /* Primary - Pure black */
+    --primary: 0 0% 4%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary - Light gray surface */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 4%;
+    
+    /* Muted - Subtle backgrounds */
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 40%;
+    
+    /* Accent - Warm gray */
+    --accent: 30 5% 92%;
+    --accent-foreground: 0 0% 4%;
+    
+    /* Destructive */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* System */
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 4%;
+    --radius: 0px;
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 20%;
+    --sidebar-primary: 0 0% 4%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 94%;
+    --sidebar-accent-foreground: 0 0% 4%;
+    --sidebar-border: 0 0% 88%;
+    --sidebar-ring: 0 0% 4%;
+    
+    /* Custom Occupant tokens */
+    --surface-elevated: 0 0% 98%;
+    --text-secondary: 0 0% 45%;
+    --text-tertiary: 0 0% 60%;
+    --divider: 0 0% 90%;
+    --divider-strong: 0 0% 20%;
+    
+    /* Index colors - Semantic */
+    --index-positive: 142 71% 35%;
+    --index-negative: 0 72% 51%;
+    --index-neutral: 0 0% 45%;
+    
+    /* Ticker display */
+    --ticker-bg: 0 0% 2%;
+    --ticker-fg: 0 0% 95%;
+    --ticker-accent: 52 100% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
+    
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 95%;
+    
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 95%;
+    
+    --primary: 0 0% 95%;
+    --primary-foreground: 0 0% 4%;
+    
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
+    
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+    
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 95%;
+    
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 95%;
+    
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 0% 80%;
+    
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 80%;
+    --sidebar-primary: 0 0% 95%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 0 0% 80%;
+    
+    --surface-elevated: 0 0% 8%;
+    --text-secondary: 0 0% 60%;
+    --text-tertiary: 0 0% 45%;
+    --divider: 0 0% 15%;
+    --divider-strong: 0 0% 80%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-feature-settings: 'ss01' 1, 'ss02' 1, 'cv01' 1;
+    letter-spacing: -0.011em;
+  }
+  
+  /* Typography scale */
+  h1 {
+    @apply text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight;
+    line-height: 0.95;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+    line-height: 1.05;
+  }
+  
+  h3 {
+    @apply text-xl md:text-2xl font-semibold tracking-tight;
+  }
+  
+  h4 {
+    @apply text-lg font-semibold tracking-tight;
+  }
+  
+  p {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+  
+  /* Mono text */
+  .font-mono {
+    font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+  }
+}
+
+@layer components {
+  /* Section numbering motif */
+  .section-number {
+    @apply font-mono text-sm md:text-base font-medium text-muted-foreground;
+  }
+  
+  /* Arrow motif */
+  .arrow-separator {
+    @apply inline-block mx-2 md:mx-3 text-muted-foreground;
+  }
+  
+  /* Bracketed signature [occupant] */
+  .brand-bracket {
+    @apply font-mono text-sm tracking-wide;
+  }
+  
+  /* Ticker row styling */
+  .ticker-row {
+    @apply flex items-center justify-between py-3 border-b border-divider;
+  }
+  
+  /* Index card */
+  .index-card {
+    @apply bg-card border border-border p-6 md:p-8;
+  }
+  
+  /* Memo block */
+  .memo-block {
+    @apply bg-secondary/50 border-l-2 border-foreground pl-4 py-3;
+  }
+  
+  /* Terminal style block */
+  .terminal-block {
+    @apply bg-ticker-bg text-ticker-fg font-mono text-sm p-4 md:p-6;
+  }
+  
+  /* Link underline animation */
+  .link-underline {
+    @apply relative;
+  }
+  
+  .link-underline::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-0 h-px bg-foreground transition-all duration-300;
+  }
+  
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+  
+  /* Section divider */
+  .section-divider {
+    @apply w-full h-px bg-divider my-16 md:my-24;
+  }
+  
+  .section-divider-strong {
+    @apply w-full h-px bg-divider-strong my-16 md:my-24;
+  }
+}
+
+@layer utilities {
+  /* Custom spacing */
+  .section-padding {
+    @apply px-5 md:px-8 lg:px-12;
+  }
+  
+  .content-max {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .content-narrow {
+    @apply max-w-3xl;
+  }
+  
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Animation utilities */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Selection styling */
+::selection {
+  @apply bg-foreground text-background;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground;
+}

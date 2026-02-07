@@ -1,0 +1,30 @@
+{
+  "fetched_at": "2026-02-04T00:00:00Z",
+  "source": "arena.ai/leaderboard",
+  "note": "Manual snapshot from Arena leaderboard",
+  "data": {
+    "google/gemini-3-pro": {"elo": 1487, "votes": 32205, "rank": 1},
+    "xai/grok-4.1-thinking": {"elo": 1475, "votes": 32194, "rank": 2},
+    "google/gemini-3-flash": {"elo": 1471, "votes": 22683, "rank": 3},
+    "anthropic/claude-opus-4-thinking": {"elo": 1468, "votes": 23990, "rank": 4},
+    "anthropic/claude-opus-4": {"elo": 1466, "votes": 28752, "rank": 5},
+    "openai/gpt-5": {"elo": 1458, "votes": 45000, "rank": 6},
+    "openai/o3": {"elo": 1455, "votes": 38000, "rank": 7},
+    "anthropic/claude-3.7-sonnet": {"elo": 1420, "votes": 89000, "rank": 12},
+    "anthropic/claude-3.5-sonnet": {"elo": 1395, "votes": 120000, "rank": 18},
+    "openai/gpt-4o": {"elo": 1380, "votes": 150000, "rank": 22},
+    "google/gemini-2.5-pro": {"elo": 1365, "votes": 75000, "rank": 28},
+    "openai/o1": {"elo": 1350, "votes": 55000, "rank": 32},
+    "openai/o3-mini": {"elo": 1340, "votes": 42000, "rank": 35},
+    "openai/o1-mini": {"elo": 1320, "votes": 48000, "rank": 40},
+    "deepseek/deepseek-r1": {"elo": 1315, "votes": 62000, "rank": 42},
+    "google/gemini-2.0-flash-001": {"elo": 1290, "votes": 68000, "rank": 50},
+    "anthropic/claude-3.5-haiku": {"elo": 1275, "votes": 45000, "rank": 55},
+    "openai/gpt-4o-mini": {"elo": 1250, "votes": 95000, "rank": 65},
+    "meta-llama/llama-3.1-405b-instruct": {"elo": 1240, "votes": 35000, "rank": 70},
+    "meta-llama/llama-3.1-70b-instruct": {"elo": 1210, "votes": 42000, "rank": 80},
+    "deepseek/deepseek-chat": {"elo": 1205, "votes": 38000, "rank": 82},
+    "google/gemini-1.5-flash": {"elo": 1195, "votes": 55000, "rank": 88},
+    "mistralai/mistral-large": {"elo": 1185, "votes": 28000, "rank": 92}
+  }
+}
