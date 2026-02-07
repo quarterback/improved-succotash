@@ -100,7 +100,8 @@ python -m python_src.calculate_cpi
 - Frontend: Complete rewrite in React/TypeScript
 - Build system: Now using Vite instead of no build system
 - Styling: Migrated to Tailwind CSS
-- Old HTML files: Backed up to `old_html_backup/`
+- Old HTML files: Backed up to `old_html_backup/` directory
+- Added SPA routing configuration (`public/_redirects` for Netlify, `vercel.json` for Vercel)
 
 ### What Was Preserved
 - All Python backend code
@@ -113,6 +114,22 @@ Some data structure differences were handled with adapters in the page component
 - `Index.tsx` - Maps subindices and spreads
 - `ComputeCPI.tsx` - Handles basket_detail transformation
 - `MarketIntel.tsx` - Transforms rankings data
+
+## Deployment
+
+This is a Single Page Application (SPA) and requires proper routing configuration:
+
+### Netlify
+The `public/_redirects` file is automatically included in the build and handles SPA routing.
+
+### Vercel
+The `vercel.json` configuration file handles SPA routing.
+
+### GitHub Pages
+Requires additional configuration for SPA routing (e.g., using a 404.html trick or custom actions).
+
+### Static Hosting
+Ensure your web server is configured to serve `index.html` for all routes (not just `/`).
 
 ## Troubleshooting
 
@@ -134,6 +151,12 @@ Python scripts expect modules to be in `python_src/`:
 # Update imports if needed
 from python_src.module_name import function
 ```
+
+### Deploy preview shows nothing / blank page
+- Check that the deployment platform is configured for SPA routing
+- Verify the build output includes `_redirects` (Netlify) or uses `vercel.json` (Vercel)
+- Check browser console for JavaScript errors
+- Ensure the base URL is configured correctly
 
 ## Contributing
 

@@ -43,4 +43,4 @@ build/
 coverage/
 
 # Backup files
-old_html_backup/
+# Note: old_html_backup/ is committed to preserve original HTML files

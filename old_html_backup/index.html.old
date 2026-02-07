@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Occupant | The clearest view of AI compute pricing</title>
+    <meta name="description" content="We aggregate, analyze, and publish AI pricing daily. Budget with confidence.">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/" class="active">Index</a>
+            <a href="/sabermetrics.html">Market Intel</a>
+            <a href="/calculator.html">Calculator</a>
+            <a href="/gov.html">Gov Benchmarks</a>
+            <a href="/about.html">About</a>
+            <div class="nav-right">
+                <button id="theme-toggle" class="theme-toggle">Light</button>
+            </div>
+        </nav>
+
+        <header>
+            <div class="logo">Occupant</div>
+            <div class="tagline">The clearest view of AI compute pricing.</div>
+            <p style="color: var(--fg-muted); font-size: 0.875rem; margin-top: 0.5rem;">We aggregate, analyze, and publish daily—so you can budget with confidence.</p>
+        </header>
+
+        <main>
+            <!-- Hero: The Key Insight -->
+            <section class="cpi-main">
+                <div class="hero-insight" id="hero-insight">AI compute costs are <span class="highlight">DOWN</span> year-over-year.</div>
+                <div class="cpi-ticker">$CPI</div>
+                <div class="cpi-value" id="cpi-value">100.0</div>
+                <div class="cpi-base">Base = 100 (February 2025)</div>
+                <div class="cta-row">
+                    <a href="/calculator.html" class="cta-btn">Calculate your savings</a>
+                    <a href="/sabermetrics.html" class="cta-btn secondary">See market data</a>
+                </div>
+                <p style="margin-top: 1.5rem; font-size: 0.75rem; color: var(--fg-dim);">Aggregated from 2,300+ models across major providers</p>
+            </section>
+
+            <!-- The Market Today -->
+            <section class="subindices">
+                <div class="section-header">
+                    <div class="section-title">The Market Today</div>
+                </div>
+                <div class="subindex">
+                    <div class="subindex-ticker">$BULK</div>
+                    <div class="subindex-value" id="bulk-value">-</div>
+                    <div class="subindex-name">Basic tasks</div>
+                    <div class="subindex-unit">per 1M tokens</div>
+                </div>
+                <div class="subindex">
+                    <div class="subindex-ticker">$FRONT</div>
+                    <div class="subindex-value" id="front-value">-</div>
+                    <div class="subindex-name">Frontier models</div>
+                    <div class="subindex-unit">per 1M tokens</div>
+                </div>
+                <div class="subindex">
+                    <div class="subindex-ticker">$JUDGE</div>
+                    <div class="subindex-value" id="judge-value">-</div>
+                    <div class="subindex-name">Complex reasoning</div>
+                    <div class="subindex-unit">per 1M tokens</div>
+                </div>
+                <div class="subindex">
+                    <div class="subindex-ticker">$LCTX</div>
+                    <div class="subindex-value" id="lctx-value">-</div>
+                    <div class="subindex-name">Long context</div>
+                    <div class="subindex-unit">per 1M tokens</div>
+                </div>
+            </section>
+
+            <!-- What the Data Shows -->
+            <div class="market-insight">
+                <h2>What the Data Shows</h2>
+                <p id="market-insight-text">
+                    Commodity AI is in freefall. Reasoning AI is holding.
+                    The cost of basic inference keeps dropping as competition intensifies.
+                    But advanced reasoning models have found a floor.
+                    Your costs depend on which tier you're in.
+                </p>
+                <p style="margin-top: 1rem;"><a href="/sabermetrics.html">See full market analysis</a></p>
+            </div>
+
+            <!-- Why It Matters -->
+            <section style="margin: 3rem 0;">
+                <div class="section-header">
+                    <div class="section-title">Why It Matters</div>
+                </div>
+                <div class="audience-grid">
+                    <div class="audience-card">
+                        <h3>For Tech Leaders</h3>
+                        <p>Stop guessing if you're overpaying. Benchmark your AI spend against the market and negotiate from data.</p>
+                    </div>
+                    <div class="audience-card">
+                        <h3>For Finance Teams</h3>
+                        <p>Turn black-box AI costs into forecastable line items. Model next quarter with confidence.</p>
+                    </div>
+                    <div class="audience-card">
+                        <h3>For the Public Sector</h3>
+                        <p>Prove every AI dollar delivers value. Hold vendors accountable with independent market data.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Build Cost Index -->
+            <section class="persona-cpis">
+                <div class="section-header">
+                    <div class="section-title">Build Cost Index</div>
+                    <div class="section-subtitle">What does YOUR workload cost?</div>
+                </div>
+                <div class="persona-grid">
+                    <div class="persona-card">
+                        <div class="persona-ticker">$START</div>
+                        <div class="persona-value" id="startup-cpi">-</div>
+                        <div class="persona-name">Startup Builder</div>
+                        <div class="persona-change" id="startup-change">-</div>
+                        <div class="persona-insight" id="startup-insight"></div>
+                    </div>
+                    <div class="persona-card">
+                        <div class="persona-ticker">$AGENT</div>
+                        <div class="persona-value" id="agentic-cpi">-</div>
+                        <div class="persona-name">Agentic Team</div>
+                        <div class="persona-change" id="agentic-change">-</div>
+                        <div class="persona-insight" id="agentic-insight"></div>
+                    </div>
+                    <div class="persona-card">
+                        <div class="persona-ticker">$THRU</div>
+                        <div class="persona-value" id="throughput-cpi">-</div>
+                        <div class="persona-name">Throughput</div>
+                        <div class="persona-change" id="throughput-change">-</div>
+                        <div class="persona-insight" id="throughput-insight"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trend Analysis -->
+            <section class="trend-analysis">
+                <div class="section-header">
+                    <div class="section-title">Trend</div>
+                </div>
+                <div class="trend-grid">
+                    <div class="trend-item">
+                        <div class="trend-label">Direction</div>
+                        <div class="trend-value" id="trend-direction">-</div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-label">Velocity</div>
+                        <div class="trend-value" id="trend-velocity">-</div>
+                        <div class="trend-unit">pts/month</div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-label">30d Forecast</div>
+                        <div class="trend-value" id="trend-forecast">-</div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-label">Confidence</div>
+                        <div class="trend-value" id="trend-confidence">-</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-links">
+                <a href="/about.html">About</a>
+                <a href="mailto:hello@occupant.ee">Contact</a>
+            </div>
+
+            <div class="last-updated">
+                Last updated: <span id="last-updated">-</span>
+            </div>
+
+            <p style="margin-top: 1rem; font-size: 0.625rem; color: var(--fg-dim);">2025-2026 Occupant Index</p>
+        </footer>
+    </div>
+
+    <script src="/theme.js"></script>
+    <script>
+        async function loadCPIData() {
+            try {
+                const response = await fetch('/data/compute-cpi.json');
+                const data = await response.json();
+
+                // Main CPI
+                const cpiValue = data.compute_cpi.value;
+                document.getElementById('cpi-value').textContent = cpiValue.toFixed(1);
+
+                // Hero insight - lead with the outcome
+                const yoyChange = data.compute_cpi.yoy_change;
+                const heroEl = document.getElementById('hero-insight');
+                if (yoyChange !== null) {
+                    if (yoyChange < 0) {
+                        heroEl.innerHTML = `AI compute costs are <span class="highlight">DOWN ${Math.abs(yoyChange).toFixed(0)}%</span> year-over-year.`;
+                    } else if (yoyChange > 0) {
+                        heroEl.innerHTML = `AI compute costs are <span class="highlight">UP ${yoyChange.toFixed(0)}%</span> year-over-year.`;
+                    } else {
+                        heroEl.innerHTML = `AI compute costs are <span class="highlight">FLAT</span> year-over-year.`;
+                    }
+                }
+
+                // Subindices (cost per 1M tokens) - reordered for clarity
+                if (data.subindices.budget) {
+                    document.getElementById('bulk-value').textContent = '$' + data.subindices.budget.value.toFixed(2);
+                }
+                if (data.subindices.frontier) {
+                    document.getElementById('front-value').textContent = '$' + data.subindices.frontier.value.toFixed(2);
+                }
+                if (data.subindices.judgment) {
+                    document.getElementById('judge-value').textContent = '$' + data.subindices.judgment.value.toFixed(2);
+                }
+                if (data.subindices.longctx) {
+                    document.getElementById('lctx-value').textContent = '$' + data.subindices.longctx.value.toFixed(2);
+                }
+
+                // Market insight - dynamic based on data
+                const insightEl = document.getElementById('market-insight-text');
+                const budget = data.subindices.budget?.value;
+                const frontier = data.subindices.frontier?.value;
+                const reasoning = data.subindices.judgment?.value;
+
+                if (budget && frontier && reasoning) {
+                    const spread = (frontier / budget).toFixed(0);
+                    let insight = `Basic tasks now cost $${budget.toFixed(2)} per million tokens. `;
+                    insight += `Frontier models run ${spread}x higher at $${frontier.toFixed(2)}. `;
+
+                    if (reasoning < frontier) {
+                        insight += `Reasoning models are surprisingly competitive at $${reasoning.toFixed(2)}.`;
+                    } else {
+                        insight += `Complex reasoning commands a premium at $${reasoning.toFixed(2)}.`;
+                    }
+
+                    insightEl.textContent = insight;
+                }
+
+                // Persona CPIs
+                if (data.persona_cpis) {
+                    const personas = data.persona_cpis;
+
+                    if (personas.startup) {
+                        document.getElementById('startup-cpi').textContent = personas.startup.cpi.toFixed(1);
+                        const startupChange = document.getElementById('startup-change');
+                        if (personas.startup.mom_change !== null) {
+                            startupChange.textContent = (personas.startup.mom_change >= 0 ? '+' : '') + personas.startup.mom_change.toFixed(1) + '% MoM';
+                            if (personas.startup.mom_change < 0) startupChange.classList.add('negative');
+                        } else {
+                            startupChange.textContent = 'Benchmarking';
+                        }
+                        document.getElementById('startup-insight').textContent = personas.startup.insight;
+                    }
+
+                    if (personas.agentic) {
+                        document.getElementById('agentic-cpi').textContent = personas.agentic.cpi.toFixed(1);
+                        const agenticChange = document.getElementById('agentic-change');
+                        if (personas.agentic.mom_change !== null) {
+                            agenticChange.textContent = (personas.agentic.mom_change >= 0 ? '+' : '') + personas.agentic.mom_change.toFixed(1) + '% MoM';
+                            if (personas.agentic.mom_change < 0) agenticChange.classList.add('negative');
+                        } else {
+                            agenticChange.textContent = 'Benchmarking';
+                        }
+                        document.getElementById('agentic-insight').textContent = personas.agentic.insight;
+                    }
+
+                    if (personas.throughput) {
+                        document.getElementById('throughput-cpi').textContent = personas.throughput.cpi.toFixed(1);
+                        const throughputChange = document.getElementById('throughput-change');
+                        if (personas.throughput.mom_change !== null) {
+                            throughputChange.textContent = (personas.throughput.mom_change >= 0 ? '+' : '') + personas.throughput.mom_change.toFixed(1) + '% MoM';
+                            if (personas.throughput.mom_change < 0) throughputChange.classList.add('negative');
+                        } else {
+                            throughputChange.textContent = 'Benchmarking';
+                        }
+                        document.getElementById('throughput-insight').textContent = personas.throughput.insight;
+                    }
+                }
+
+                // Trend Analysis
+                if (data.trend_analysis) {
+                    const trend = data.trend_analysis;
+                    const directionEl = document.getElementById('trend-direction');
+                    const directionSymbol = trend.direction === 'deflating' ? '|' : trend.direction === 'inflating' ? '^' : '->';
+                    directionEl.textContent = directionSymbol + ' ' + trend.direction.toUpperCase();
+                    if (trend.direction === 'deflating') directionEl.classList.add('deflating');
+                    if (trend.direction === 'inflating') directionEl.classList.add('inflating');
+
+                    const velocityEl = document.getElementById('trend-velocity');
+                    velocityEl.textContent = (trend.velocity >= 0 ? '+' : '') + trend.velocity.toFixed(2);
+
+                    document.getElementById('trend-forecast').textContent = trend.forecast_30d.toFixed(1);
+                    document.getElementById('trend-confidence').textContent = trend.confidence.toUpperCase();
+                }
+
+                // Last updated
+                const updated = new Date(data.meta.generated_at);
+                document.getElementById('last-updated').textContent = updated.toISOString().split('T')[0] + ' ' + updated.toISOString().split('T')[1].split('.')[0] + ' UTC';
+
+            } catch (error) {
+                console.log('CPI data not yet available');
+            }
+        }
+
+        loadCPIData();
+    </script>
+</body>
+</html>
