@@ -27,3 +27,20 @@ Thumbs.db
 # Secrets (never commit)
 .env.local
 *.key
+
+# Node.js Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Development
+*.local
+*.log
+
+# Testing
+coverage/
+
+# Backup files
+# Note: old_html_backup/ is committed to preserve original HTML files

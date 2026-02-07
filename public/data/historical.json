@@ -1,0 +1,172 @@
+[
+  {
+    "date": "2025-02-01",
+    "cpi": 100.0,
+    "basket_cost": 0.04118178,
+    "subindices": {
+      "judgment": 100.0,
+      "longctx": 100.0,
+      "budget": 100.0,
+      "frontier": 100.0
+    },
+    "spreads": {
+      "cognition_premium": 4.62,
+      "judgment_premium": 1.2,
+      "context_premium": -1.55
+    },
+    "personas": {
+      "startup": 100.0,
+      "agentic": 100.0,
+      "throughput": 100.0
+    },
+    "persona_costs": {
+      "startup": 0.0514,
+      "agentic": 0.0739,
+      "throughput": 0.0326
+    },
+    "reconstructed": true,
+    "source": "baseline"
+  },
+  {
+    "date": "2025-05-01",
+    "cpi": 85.2,
+    "basket_cost": 0.03508,
+    "subindices": {
+      "judgment": 78.4,
+      "longctx": 89.2,
+      "budget": 112.5,
+      "frontier": 87.5
+    },
+    "spreads": {
+      "cognition_premium": 3.52,
+      "judgment_premium": 0.44,
+      "context_premium": -1.4
+    },
+    "personas": {
+      "startup": 88.3,
+      "agentic": 81.2,
+      "throughput": 82.1
+    },
+    "persona_costs": {
+      "startup": 0.0454,
+      "agentic": 0.06,
+      "throughput": 0.0268
+    },
+    "reconstructed": true,
+    "source": "backfill",
+    "notes": "GPT-4o price cut to $2.50/$10, o1-mini dropped to $1.10/$4.40"
+  },
+  {
+    "date": "2025-08-01",
+    "cpi": 78.6,
+    "basket_cost": 0.03237,
+    "subindices": {
+      "judgment": 75.8,
+      "longctx": 76.3,
+      "budget": 98.2,
+      "frontier": 79.2
+    },
+    "spreads": {
+      "cognition_premium": 3.52,
+      "judgment_premium": -0.97,
+      "context_premium": -1.7
+    },
+    "personas": {
+      "startup": 82.1,
+      "agentic": 78.9,
+      "throughput": 74.5
+    },
+    "persona_costs": {
+      "startup": 0.0422,
+      "agentic": 0.0583,
+      "throughput": 0.0243
+    },
+    "reconstructed": true,
+    "source": "backfill",
+    "notes": "DeepSeek-R1 enters market, Gemini 2.5 Pro available"
+  },
+  {
+    "date": "2025-11-01",
+    "cpi": 74.8,
+    "basket_cost": 0.0308,
+    "subindices": {
+      "judgment": 82.4,
+      "longctx": 72.1,
+      "budget": 72.3,
+      "frontier": 76.8
+    },
+    "spreads": {
+      "cognition_premium": 5.21,
+      "judgment_premium": 1.85,
+      "context_premium": -2.1
+    },
+    "personas": {
+      "startup": 78.4,
+      "agentic": 86.2,
+      "throughput": 68.9
+    },
+    "persona_costs": {
+      "startup": 0.0403,
+      "agentic": 0.0637,
+      "throughput": 0.0225
+    },
+    "reconstructed": true,
+    "source": "backfill",
+    "notes": "Claude 3.7 Sonnet released, reasoning models holding price"
+  },
+  {
+    "date": "2026-01-01",
+    "cpi": 73.2,
+    "basket_cost": 0.03014,
+    "subindices": {
+      "judgment": 88.1,
+      "longctx": 69.4,
+      "budget": 58.6,
+      "frontier": 74.2
+    },
+    "spreads": {
+      "cognition_premium": 7.82,
+      "judgment_premium": 2.45,
+      "context_premium": -3.8
+    },
+    "personas": {
+      "startup": 76.1,
+      "agentic": 91.8,
+      "throughput": 62.4
+    },
+    "persona_costs": {
+      "startup": 0.0391,
+      "agentic": 0.0679,
+      "throughput": 0.0203
+    },
+    "reconstructed": true,
+    "source": "backfill",
+    "notes": "Budget tier continuing to fall, reasoning tier stabilizing (Judgment Premium widening)"
+  },
+  {
+    "date": "2026-02-04",
+    "cpi": 87.2,
+    "basket_cost": 0.035919928571428575,
+    "subindices": {
+      "judgment": 7.92,
+      "longctx": 2.78,
+      "budget": 0.61,
+      "frontier": 10.04
+    },
+    "spreads": {
+      "cognition_premium": 9.43,
+      "judgment_premium": -2.12,
+      "context_premium": -7.26
+    },
+    "personas": {
+      "startup": 77.4,
+      "agentic": 75.2,
+      "throughput": 72.7
+    },
+    "persona_costs": {
+      "startup": 0.039758428571428577,
+      "agentic": 0.05554949999999999,
+      "throughput": 0.023715428571428575
+    }
+  }
+]
