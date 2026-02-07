@@ -65,20 +65,21 @@
 <body>
     <div class="container">
         <nav>
-            <a href="/">Index</a>
-            <a href="/sabermetrics.html" class="active">Market Intel</a>
-            <a href="/calculator.html">Calculator</a>
-            <a href="/gov.html">Gov Benchmarks</a>
-            <a href="/about.html">About</a>
-            <div class="nav-right">
-                <button id="theme-toggle" class="theme-toggle">Light</button>
+            <a href="/" class="nav-logo">[occupant]</a>
+            <div class="nav-links">
+                <a href="/">Index</a>
+                <a href="/methodology.html">Methodology</a>
+                <a href="/memos.html">Memos</a>
+                <a href="/gov.html">Gov</a>
+                <a href="/about.html">About</a>
+                <a href="mailto:hello@occupant.ee" class="nav-contact">Contact</a>
             </div>
         </nav>
 
-        <header>
-            <h1>Market Intelligence</h1>
-            <p class="subtitle">Derived statistics for LLM market analysis</p>
-        </header>
+        <section class="hero" style="margin-bottom: 3rem;">
+            <h1 class="hero-headline" style="font-size: 3rem;">Market Intelligence</h1>
+            <p class="hero-subtitle">Derived statistics for LLM market analysis</p>
+        </section>
 
         <!-- Headline Insight -->
         <div class="headline" id="headline">
@@ -184,10 +185,36 @@
         </section>
 
         <footer>
-            <div>Data from OpenRouter, Arena Leaderboard</div>
-            <div class="last-updated">Last updated: <span id="last-updated">-</span></div>
-            <div style="margin-top: 1rem;">
-                <a href="/glossary.html">What do these metrics mean?</a>
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">[occupant]</div>
+                    <p class="footer-tagline">
+                        Trust + Decision Engineering. We build instruments that reprice
+                        what institutions think is real.
+                    </p>
+                    <p style="font-size: 0.8rem; color: var(--fg-dim); margin-top: 1rem;">
+                        Data from OpenRouter, Arena Leaderboard<br>
+                        Last updated: <span id="last-updated">-</span>
+                    </p>
+                </div>
+                <div>
+                    <div class="footer-column-title">Products</div>
+                    <ul class="footer-links">
+                        <li><a href="/">Compute CPI</a></li>
+                        <li><a href="/methodology.html">Methodology</a></li>
+                        <li><a href="/calculator.html">Calculator</a></li>
+                        <li><a href="/gov.html">Gov Benchmarks</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-column-title">Resources</div>
+                    <ul class="footer-links">
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/memos.html">Memos</a></li>
+                        <li><a href="/glossary.html">Glossary</a></li>
+                        <li><a href="mailto:hello@occupant.ee">Contact</a></li>
+                    </ul>
+                </div>
             </div>
         </footer>
     </div>

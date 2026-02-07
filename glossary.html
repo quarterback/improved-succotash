@@ -5,29 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glossary | Occupant</title>
     <meta name="description" content="Glossary of Occupant Index metrics - what they mean and why they matter.">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
     <link rel="stylesheet" href="/styles.css">
+    <style>
+        .term {
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
+        }
+        .term:last-child {
+            border-bottom: none;
+        }
+        .term-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .term-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .term-ticker {
+            font-family: 'SF Mono', monospace;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            color: var(--accent);
+        }
+        .term-def {
+            color: var(--fg-secondary);
+            margin-bottom: 0.75rem;
+        }
+        .term-insight {
+            font-size: 0.875rem;
+            color: var(--fg-muted);
+            font-style: italic;
+            padding-left: 1rem;
+            border-left: 2px solid var(--border);
+        }
+    </style>
 </head>
 <body>
-    <div class="container" style="max-width: 700px;">
+    <div class="container" style="max-width: 800px;">
         <nav>
-            <a href="/">Index</a>
-            <a href="/sabermetrics.html">Market Intel</a>
-            <a href="/calculator.html">Calculator</a>
-            <a href="/glossary.html" class="active">Glossary</a>
-            <a href="/about.html">About</a>
-            <div class="nav-right">
-                <button id="theme-toggle" class="theme-toggle">Light</button>
+            <a href="/" class="nav-logo">[occupant]</a>
+            <div class="nav-links">
+                <a href="/">Index</a>
+                <a href="/methodology.html">Methodology</a>
+                <a href="/memos.html">Memos</a>
+                <a href="/gov.html">Gov</a>
+                <a href="/about.html">About</a>
+                <a href="mailto:hello@occupant.ee" class="nav-contact">Contact</a>
             </div>
         </nav>
 
-        <header>
-            <h1>Glossary</h1>
-            <p class="subtitle">What these metrics mean and why they matter</p>
-        </header>
+        <section class="hero" style="margin-bottom: 3rem;">
+            <h1 class="hero-headline" style="font-size: 3rem;">Glossary</h1>
+            <p class="hero-subtitle">What these metrics mean and why they matter</p>
+        </section>
 
         <!-- Core Indices -->
-        <section class="section" style="background: transparent; border: none; padding: 0;">
-            <h2>Core Indices</h2>
+        <section class="section">
+            <h2 class="section-title">Core Indices</h2>
 
             <div class="term">
                 <div class="term-header">
@@ -97,8 +137,8 @@
         </section>
 
         <!-- Market Intelligence -->
-        <section class="section" style="background: transparent; border: none; padding: 0;">
-            <h2>Market Intelligence</h2>
+        <section class="section">
+            <h2 class="section-title">Market Intelligence</h2>
 
             <div class="term">
                 <div class="term-header">
@@ -152,8 +192,8 @@
         </section>
 
         <!-- Spreads -->
-        <section class="section" style="background: transparent; border: none; padding: 0;">
-            <h2>Spreads</h2>
+        <section class="section">
+            <h2 class="section-title">Spreads</h2>
 
             <div class="term">
                 <div class="term-header">
@@ -184,8 +224,8 @@
         </section>
 
         <!-- Build Cost Index -->
-        <section class="section" style="background: transparent; border: none; padding: 0;">
-            <h2>Build Cost Index</h2>
+        <section class="section">
+            <h2 class="section-title">Build Cost Index</h2>
 
             <div class="term">
                 <div class="term-header">
@@ -226,8 +266,8 @@
         </section>
 
         <!-- Coming Soon -->
-        <section class="section" style="background: transparent; border: none; padding: 0;">
-            <h2>Coming Soon</h2>
+        <section class="section">
+            <h2 class="section-title">Coming Soon</h2>
 
             <div class="term">
                 <div class="term-header">
@@ -253,7 +293,33 @@
         </section>
 
         <footer>
-            <p>Questions? <a href="mailto:hello@occupant.ee">hello@occupant.ee</a></p>
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">[occupant]</div>
+                    <p class="footer-tagline">
+                        Trust + Decision Engineering. We build instruments that reprice
+                        what institutions think is real.
+                    </p>
+                </div>
+                <div>
+                    <div class="footer-column-title">Products</div>
+                    <ul class="footer-links">
+                        <li><a href="/">Compute CPI</a></li>
+                        <li><a href="/methodology.html">Methodology</a></li>
+                        <li><a href="/calculator.html">Calculator</a></li>
+                        <li><a href="/gov.html">Gov Benchmarks</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-column-title">Resources</div>
+                    <ul class="footer-links">
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/memos.html">Memos</a></li>
+                        <li><a href="/glossary.html">Glossary</a></li>
+                        <li><a href="mailto:hello@occupant.ee">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
         </footer>
     </div>
 

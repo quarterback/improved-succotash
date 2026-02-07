@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methodology | Occupant</title>
+    <meta name="description" content="How we calculate the Compute CPI. Market-basket methodology, data sources, and index composition.">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/" class="nav-logo">[occupant]</a>
+            <div class="nav-links">
+                <a href="/">Index</a>
+                <a href="/methodology.html" class="active">Methodology</a>
+                <a href="/memos.html">Memos</a>
+                <a href="/gov.html">Gov</a>
+                <a href="/about.html">About</a>
+                <a href="mailto:hello@occupant.ee" class="nav-contact">Contact</a>
+            </div>
+        </nav>
+
+        <section class="hero" style="margin-bottom: 3rem;">
+            <h1 class="hero-headline" style="font-size: 3rem;">Methodology</h1>
+            <p class="hero-subtitle">
+                How we calculate the Compute CPI. A market-basket approach modeled on
+                the Consumer Price Index, adapted for AI inference costs.
+            </p>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Index Design</h2>
+                <p class="section-subtitle">
+                    The Compute CPI synthesizes publicly available pricing data into a volume-weighted
+                    basket across capability tiers. We cross-validate across sources and flag
+                    discrepancies before publication.
+                </p>
+            </div>
+
+            <div class="methodology-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Index</th>
+                            <th>Composition</th>
+                            <th>Weighting</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="mono text-accent">$CPI</span></td>
+                            <td>Composite of all tiers</td>
+                            <td>Volume-weighted</td>
+                        </tr>
+                        <tr>
+                            <td><span class="mono text-accent">$BULK</span></td>
+                            <td>Budget-tier models (&lt;$1/MTok)</td>
+                            <td>Equal-weighted basket</td>
+                        </tr>
+                        <tr>
+                            <td><span class="mono text-accent">$FRONT</span></td>
+                            <td>Frontier capability models</td>
+                            <td>Top-5 by Arena ELO</td>
+                        </tr>
+                        <tr>
+                            <td><span class="mono text-accent">$JUDGE</span></td>
+                            <td>Reasoning-intensive workloads</td>
+                            <td>o1/o3/R1 class models</td>
+                        </tr>
+                        <tr>
+                            <td><span class="mono text-accent">$LCTX</span></td>
+                            <td>Long-context workloads</td>
+                            <td>128K+ context models</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-muted" style="margin-top: 1.5rem;">
+                Build Cost Indices (<span class="mono">$START</span>, <span class="mono">$AGENT</span>,
+                <span class="mono">$THRU</span>) apply fixed workload mixes to current tier prices,
+                enabling organizations to track costs relevant to their specific use patterns.
+            </p>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Data Sources</h2>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Source</th>
+                        <th>Data Type</th>
+                        <th>Frequency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>OpenRouter API</td>
+                        <td>Primary pricing</td>
+                        <td>Daily</td>
+                    </tr>
+                    <tr>
+                        <td>LiteLLM</td>
+                        <td>Cross-provider validation</td>
+                        <td>Daily</td>
+                    </tr>
+                    <tr>
+                        <td>pricepertoken.com</td>
+                        <td>Independent verification</td>
+                        <td>Daily</td>
+                    </tr>
+                    <tr>
+                        <td>OpenRouter Rankings</td>
+                        <td>Volume / market share</td>
+                        <td>Weekly</td>
+                    </tr>
+                    <tr>
+                        <td>Chatbot Arena</td>
+                        <td>Quality ratings (ELO)</td>
+                        <td>Weekly</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="text-muted" style="margin-top: 1.5rem;">
+                Price discrepancies exceeding 10% between sources trigger manual review
+                before index publication.
+            </p>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Calculation</h2>
+            </div>
+
+            <p style="color: var(--fg-secondary); margin-bottom: 1.5rem;">
+                The index expresses current prices relative to a February 2025 baseline of 100.
+                This allows institutions to track percentage changes in AI costs over time,
+                independent of absolute dollar amounts.
+            </p>
+
+            <div class="spread-grid" style="margin-bottom: 1.5rem;">
+                <div class="spread-card">
+                    <div>
+                        <div class="spread-card-title">Base Period</div>
+                        <div class="spread-card-desc">All subindices normalized to February 2025</div>
+                    </div>
+                    <div class="spread-card-value">= 100</div>
+                </div>
+                <div class="spread-card">
+                    <div>
+                        <div class="spread-card-title">Update Frequency</div>
+                        <div class="spread-card-desc">Index values published daily by 09:00 UTC</div>
+                    </div>
+                    <div class="spread-card-value">Daily</div>
+                </div>
+            </div>
+
+            <p style="color: var(--fg-secondary);">
+                An index value of 87.2 means prices have fallen 12.8% from the baseline.
+                A value of 112 would indicate a 12% increase.
+            </p>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Spreads</h2>
+            </div>
+
+            <p style="color: var(--fg-secondary); margin-bottom: 1.5rem;">
+                We track two key spreads that reveal structural dynamics in the AI pricing market:
+            </p>
+
+            <div class="memos-list">
+                <div class="memo-item">
+                    <h4 class="memo-title">Cognition Premium</h4>
+                    <p class="memo-excerpt">
+                        The cost delta between frontier reasoning models and budget alternatives.
+                        A widening spread indicates increasing stratification of the market—basic
+                        tasks get cheaper while complex reasoning maintains its price.
+                    </p>
+                </div>
+                <div class="memo-item">
+                    <h4 class="memo-title">Judgment Premium</h4>
+                    <p class="memo-excerpt">
+                        The additional cost for models with reliable judgment versus raw capability.
+                        Measures the premium organizations pay for outputs they can trust in
+                        high-stakes decisions.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-eyebrow">Questions</div>
+            <h2 class="cta-headline">Need help interpreting the data?</h2>
+            <p class="cta-text">
+                We work with procurement teams, finance, and leadership to translate index
+                movements into actionable budget decisions.
+            </p>
+            <a href="mailto:hello@occupant.ee" class="btn btn-primary">Get in touch</a>
+        </section>
+
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">[occupant]</div>
+                    <p class="footer-tagline">
+                        Trust + Decision Engineering. We build instruments that reprice
+                        what institutions think is real.
+                    </p>
+                </div>
+                <div>
+                    <div class="footer-column-title">Products</div>
+                    <ul class="footer-links">
+                        <li><a href="/">Compute CPI</a></li>
+                        <li><a href="/methodology.html">Methodology</a></li>
+                        <li><a href="/calculator.html">Calculator</a></li>
+                        <li><a href="/gov.html">Gov Benchmarks</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-column-title">Company</div>
+                    <ul class="footer-links">
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/memos.html">Memos</a></li>
+                        <li><a href="mailto:hello@occupant.ee">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/theme.js"></script>
+</body>
+</html>

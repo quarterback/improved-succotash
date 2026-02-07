@@ -362,20 +362,21 @@
 <body>
     <div class="container">
         <nav>
-            <a href="/">Index</a>
-            <a href="/sabermetrics.html">Market Intel</a>
-            <a href="/calculator.html" class="active">Calculator</a>
-            <a href="/gov.html">Gov Benchmarks</a>
-            <a href="/about.html">About</a>
-            <div class="nav-right">
-                <button id="theme-toggle" class="theme-toggle">Light</button>
+            <a href="/" class="nav-logo">[occupant]</a>
+            <div class="nav-links">
+                <a href="/">Index</a>
+                <a href="/methodology.html">Methodology</a>
+                <a href="/memos.html">Memos</a>
+                <a href="/gov.html">Gov</a>
+                <a href="/about.html">About</a>
+                <a href="mailto:hello@occupant.ee" class="nav-contact">Contact</a>
             </div>
         </nav>
 
-        <header>
-            <h1>Savings Calculator</h1>
-            <p class="subtitle">See how much you could save by optimizing your model mix</p>
-        </header>
+        <section class="hero" style="margin-bottom: 3rem;">
+            <h1 class="hero-headline" style="font-size: 3rem;">Savings Calculator</h1>
+            <p class="hero-subtitle">See how much you could save by optimizing your model mix</p>
+        </section>
 
         <div class="calculator-container">
             <!-- Input Section -->
@@ -545,14 +546,35 @@
         </div>
 
         <footer>
-            <div class="footer-links">
-                <a href="/about.html">About</a>
-                <a href="mailto:hello@occupant.ee">Contact</a>
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">[occupant]</div>
+                    <p class="footer-tagline">
+                        Trust + Decision Engineering. We build instruments that reprice
+                        what institutions think is real.
+                    </p>
+                    <p style="font-size: 0.8rem; color: var(--fg-dim); margin-top: 1rem;">
+                        Last updated: <span id="last-updated">-</span>
+                    </p>
+                </div>
+                <div>
+                    <div class="footer-column-title">Products</div>
+                    <ul class="footer-links">
+                        <li><a href="/">Compute CPI</a></li>
+                        <li><a href="/methodology.html">Methodology</a></li>
+                        <li><a href="/calculator.html">Calculator</a></li>
+                        <li><a href="/gov.html">Gov Benchmarks</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-column-title">Company</div>
+                    <ul class="footer-links">
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/memos.html">Memos</a></li>
+                        <li><a href="mailto:hello@occupant.ee">Contact</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="last-updated">
-                Last updated: <span id="last-updated">-</span>
-            </div>
-            <p style="margin-top: 1rem; font-size: 0.625rem; color: var(--fg-dim);">2025-2026 Occupant Index</p>
         </footer>
     </div>
 
