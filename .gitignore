@@ -41,3 +41,6 @@ build/
 
 # Testing
 coverage/
+
+# Backup files
+old_html_backup/
