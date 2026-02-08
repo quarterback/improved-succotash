@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCC-2026-004: Gov AI Benchmarks | Occupant</title>
+    <meta name="description" content="Why independent pricing matters for government AI procurement. A collaboration between Occupant and State Capacity AI.">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .memo-header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2rem;
+            margin-bottom: 3rem;
+        }
+        .memo-id-large {
+            font-family: 'SF Mono', monospace;
+            font-size: 0.875rem;
+            color: var(--fg-muted);
+            margin-bottom: 1rem;
+        }
+        .memo-title-large {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        .memo-byline {
+            font-size: 1rem;
+            color: var(--fg-secondary);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        .memo-collab {
+            font-size: 0.875rem;
+            color: var(--fg-muted);
+        }
+        .memo-content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+        .memo-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        .memo-content p {
+            color: var(--fg-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+        .memo-content ul, .memo-content ol {
+            color: var(--fg-secondary);
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+        .memo-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+        .memo-content strong {
+            color: var(--fg);
+        }
+        .memo-content em {
+            color: var(--fg-muted);
+        }
+        .benchmark-table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+        }
+        .benchmark-table th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .benchmark-table td {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+        .benchmark-table td:first-child {
+            font-weight: 500;
+        }
+        .rate-value {
+            font-family: 'SF Mono', monospace;
+            color: var(--accent);
+        }
+        .callout {
+            background: var(--accent-light);
+            border-left: 3px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            margin: 2rem 0;
+        }
+        .callout p {
+            margin-bottom: 0;
+            color: var(--fg);
+        }
+        .red-flag-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .red-flag-list li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .red-flag-list li::before {
+            content: "⚠";
+            position: absolute;
+            left: 0;
+        }
+        .memo-footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .memo-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        .related-memos {
+            margin-top: 2rem;
+        }
+        .related-memos h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--fg-muted);
+            margin-bottom: 0.75rem;
+        }
+        .related-memos a {
+            display: block;
+            color: var(--fg-secondary);
+            text-decoration: none;
+            padding: 0.5rem 0;
+        }
+        .related-memos a:hover {
+            color: var(--fg);
+        }
+        @media (max-width: 600px) {
+            .memo-title-large {
+                font-size: 1.75rem;
+            }
+            .benchmark-table {
+                font-size: 0.8rem;
+            }
+            .benchmark-table th, .benchmark-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 800px;">
+        <nav>
+            <a href="/" class="nav-logo">[occupant]</a>
+            <div class="nav-links">
+                <a href="/">Index</a>
+                <a href="/methodology.html">Methodology</a>
+                <a href="/gov.html">Gov</a>
+                <a href="/about.html">About</a>
+                <a href="mailto:hello@occupant.ee" class="nav-contact">Contact</a>
+            </div>
+        </nav>
+
+        <article class="memo-content">
+            <header class="memo-header">
+                <div class="memo-id-large">OCC-2026-004</div>
+                <h1 class="memo-title-large">Gov AI Benchmarks: Why Independent Pricing Matters</h1>
+                <div class="memo-byline">February 2026</div>
+                <div class="memo-collab">A collaboration between Occupant and State Capacity AI</div>
+            </header>
+
+            <h2>The Problem: Flying Blind in AI Procurement</h2>
+            <p>
+                Government agencies are signing AI contracts worth millions—often without knowing if they're paying fair market rates. Unlike traditional IT procurement, AI pricing lacks transparency. Vendors bundle per-seat fees, token costs, and "premium features" into opaque packages. The result? Agencies risk overpaying by 2x–3x, locking into unfavorable terms, or worse, deploying underpowered models because the "enterprise" tier was the only option on the table.
+            </p>
+            <p>
+                This isn't just about cost. It's about <strong>mission risk</strong>. Overpaying for AI diverts funds from other critical programs. Underpaying can mean unreliable models that fail when it matters most. And without benchmarks, there's no way to tell the difference until it's too late.
+            </p>
+
+            <h2>Why This Collaboration Matters</h2>
+            <p>
+                <strong>Occupant</strong> brings the <strong>Compute CPI</strong> and <strong>market-based pricing instruments</strong> to measure the cost of AI work. <strong>State Capacity AI</strong> brings deep expertise in <strong>government AI deployment</strong> and the policy levers that shape procurement. Together, we're publishing the first <strong>independent, use-case-specific benchmarks</strong> for government AI contracts.
+            </p>
+            <p>
+                For the first time, procurement teams can answer:
+            </p>
+            <ul>
+                <li><em>Are we paying $0.61 or $1.50 per million tokens for basic summarization?</em></li>
+                <li><em>Is $80/seat/month for "Enterprise AI" a good deal—or a ripoff?</em></li>
+                <li><em>What should we expect to pay in Year 2, when the "introductory pricing" expires?</em></li>
+            </ul>
+            <p>
+                These benchmarks aren't theoretical. They're derived from <strong>real market data</strong> (OpenRouter, LiteLLM, pricepertoken.com) and <strong>government-specific use cases</strong>, from form processing to complex policy analysis.
+            </p>
+
+            <h2>What's in the Benchmarks</h2>
+
+            <h3>1. Per-Seat Pricing by Use Case</h3>
+            <table class="benchmark-table">
+                <thead>
+                    <tr>
+                        <th>Use Case</th>
+                        <th>Gov Benchmark Rate</th>
+                        <th>Typical Monthly Cost</th>
+                        <th>Negotiation Guidance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Light Use</td>
+                        <td class="rate-value">$5–15/seat</td>
+                        <td>Basic queries, forms</td>
+                        <td>Above $20? Push back.</td>
+                    </tr>
+                    <tr>
+                        <td>Standard Use</td>
+                        <td class="rate-value">$25–40/seat</td>
+                        <td>Daily drafting, analysis</td>
+                        <td>$45+? Demand justification.</td>
+                    </tr>
+                    <tr>
+                        <td>Heavy Use</td>
+                        <td class="rate-value">$50–80/seat</td>
+                        <td>Analysts, developers</td>
+                        <td>Above $100? You're paying for branding.</td>
+                    </tr>
+                    <tr>
+                        <td>Enterprise</td>
+                        <td class="rate-value">$80–120/seat</td>
+                        <td>Full suite + reasoning</td>
+                        <td>Lock in multi-year or walk.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>2. Per-Token Rates by Model Class</h3>
+            <table class="benchmark-table">
+                <thead>
+                    <tr>
+                        <th>Model Class</th>
+                        <th>Gov Benchmark Rate</th>
+                        <th>Negotiation Guidance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Basic AI</td>
+                        <td class="rate-value">$0.61/MTok</td>
+                        <td>Above $1.00? Overpaying.</td>
+                    </tr>
+                    <tr>
+                        <td>Standard AI</td>
+                        <td class="rate-value">$5.32/MTok</td>
+                        <td>Above $7.00? Unjustified.</td>
+                    </tr>
+                    <tr>
+                        <td>Advanced AI</td>
+                        <td class="rate-value">$10.04/MTok</td>
+                        <td>Above $15.00? Needs premium features.</td>
+                    </tr>
+                    <tr>
+                        <td>Reasoning AI</td>
+                        <td class="rate-value">$7.92/MTok</td>
+                        <td>Above $12.00? Get benchmarks.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><em>1 MTok ≈ 750,000 words. A typical query uses 2,000–5,000 tokens (~$0.01–0.025 at benchmark rates).</em></p>
+
+            <h3>3. Red Flags for Vendors</h3>
+            <ul class="red-flag-list">
+                <li>Won't disclose which models power the service.</li>
+                <li>"Unlimited" plans with hidden fair-use clauses.</li>
+                <li>Year 2+ pricing not disclosed upfront.</li>
+                <li>Charges for "AI processing" as a separate line item.</li>
+            </ul>
+
+            <h3>4. Questions to Ask Vendors</h3>
+            <ul>
+                <li><em>What's your per-token or per-query pricing? (Not just per-seat.)</em></li>
+                <li><em>Which models power the service? What's their Arena ELO?</em></li>
+                <li><em>Is pricing locked for the contract term, or variable?</em></li>
+                <li><em>What happens after Year 1?</em></li>
+                <li><em>Do you charge for failed queries or retries?</em></li>
+                <li><em>Can we audit actual usage vs. billed usage?</em></li>
+            </ul>
+            <p><em>(See the <a href="/gov-worksheet.html">Price Reasonableness Worksheet</a> for a print-ready audit tool.)</em></p>
+
+            <h2>Why This Is a Big Deal</h2>
+
+            <div class="callout">
+                <p><strong>No More Surprises.</strong> Agencies can now compare vendor quotes to market rates before signing. No more "take it or leave it" contracts.</p>
+            </div>
+
+            <h3>Better Negotiation Leverage</h3>
+            <p>Armed with benchmarks, procurement teams can:</p>
+            <ul>
+                <li>Push back on inflated pricing.</li>
+                <li>Lock in multi-year discounts.</li>
+                <li>Avoid "premium" upsells for basic features.</li>
+            </ul>
+
+            <h3>Future-Proofing</h3>
+            <p>AI pricing is volatile. Benchmarks help agencies <strong>anticipate Year 2+ costs</strong> and build flexibility into contracts.</p>
+
+            <h3>Accountability</h3>
+            <p>Vendors know agencies are watching. Transparent pricing <strong>reduces rent-seeking</strong> and aligns incentives with performance.</p>
+
+            <h2>How to Use This</h2>
+
+            <h3>For Procurement Teams</h3>
+            <ul>
+                <li>Use the benchmarks to <strong>set price ceilings</strong> in RFPs.</li>
+                <li>Require vendors to <strong>justify deviations</strong> from market rates.</li>
+                <li>Audit contracts against the <a href="/gov-worksheet.html">Price Reasonableness Worksheet</a>.</li>
+            </ul>
+
+            <h3>For Vendors</h3>
+            <ul>
+                <li>Align pricing with benchmarks to <strong>win trust and contracts</strong>.</li>
+                <li>Be prepared to explain <strong>model quality, data residency, and FedRAMP compliance</strong>.</li>
+            </ul>
+
+            <h3>For Oversight</h3>
+            <ul>
+                <li>Use benchmarks to <strong>flag outliers</strong> in agency spending.</li>
+                <li>Track trends over time to <strong>spot market manipulation</strong>.</li>
+            </ul>
+
+            <h2>The Bigger Picture</h2>
+            <p>
+                This isn't just about saving money. It's about <strong>repricing institutional reality</strong>. When government pays fair rates for AI, it:
+            </p>
+            <ul>
+                <li><strong>Frees up funds</strong> for other critical programs.</li>
+                <li><strong>Encourages competition</strong>, driving better tools at lower costs.</li>
+                <li><strong>Ensures AI deployments are sustainable</strong>, not just flashy pilot projects.</li>
+            </ul>
+            <p>AI procurement shouldn't be a black box. With these benchmarks, it doesn't have to be.</p>
+
+            <footer class="memo-footer">
+                <h3>Next Steps</h3>
+                <div class="memo-cta">
+                    <a href="/gov.html" class="btn btn-primary">View Full Benchmarks →</a>
+                    <a href="/gov-worksheet.html" class="btn btn-secondary">Download Worksheet</a>
+                    <a href="mailto:benchmarks@occupant.ee" class="btn btn-secondary">Request Custom Analysis</a>
+                </div>
+
+                <p style="font-size: 0.875rem; color: var(--fg-muted); margin-top: 2rem;">
+                    © 2026 Occupant + State Capacity AI. Benchmarks updated 2026-02-04.
+                </p>
+
+                <div class="related-memos">
+                    <h4>Related</h4>
+                    <a href="/gov.html">Gov AI Benchmarks (interactive)</a>
+                    <a href="/methodology.html">Compute CPI Methodology</a>
+                    <a href="/calculator.html">Savings Calculator</a>
+                </div>
+            </footer>
+        </article>
+
+        <footer style="margin-top: 4rem;">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">[occupant]</div>
+                    <p class="footer-tagline">
+                        Trust + Decision Engineering. We build instruments that reprice
+                        what institutions think is real.
+                    </p>
+                </div>
+                <div>
+                    <div class="footer-column-title">Products</div>
+                    <ul class="footer-links">
+                        <li><a href="/">Compute CPI</a></li>
+                        <li><a href="/methodology.html">Methodology</a></li>
+                        <li><a href="/calculator.html">Calculator</a></li>
+                        <li><a href="/gov.html">Gov Benchmarks</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-column-title">Company</div>
+                    <ul class="footer-links">
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="mailto:hello@occupant.ee">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/theme.js"></script>
+</body>
+</html>
