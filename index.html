@@ -44,86 +44,110 @@
 
         <header>
             <div class="logo">Occupant</div>
-            <div class="tagline">Instruments for pricing reality.</div>
-            <p style="color: var(--fg-muted); font-size: 0.875rem; margin-top: 0.5rem;">Public benchmarks for institutions navigating AI dependency. We publish what others assume.</p>
         </header>
 
         <main>
-            <!-- Hero: The Key Insight -->
-            <section class="cpi-main">
-                <div class="hero-insight" id="hero-insight">AI compute costs are <span class="highlight">DOWN</span> year-over-year.</div>
-                <div class="cpi-ticker">$CPI</div>
-                <div class="cpi-value" id="cpi-value">100.0</div>
-                <div class="cpi-base">Base = 100 (February 2025)</div>
-                <div class="cta-row">
-                    <a href="/calculator.html" class="cta-btn">Calculate your savings</a>
-                    <a href="/sabermetrics.html" class="cta-btn secondary">See market data</a>
-                </div>
-                <p style="margin-top: 1.5rem; font-size: 0.75rem; color: var(--fg-dim);">Aggregated from 2,300+ models across major providers</p>
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1 class="hero-headline">Instruments for pricing reality.</h1>
+                <p class="hero-description">Occupant builds public benchmarks and decision architecture for institutions navigating AI dependency. We publish what others assume.</p>
             </section>
 
-            <!-- The Market Today -->
-            <section class="subindices">
-                <div class="section-header">
-                    <div class="section-title">The Market Today</div>
+            <!-- Live CPI Index -->
+            <div class="live-index" id="live-index">
+                <div>
+                    <div class="live-index-label">OCCUPANT INDEX — LIVE</div>
+                    <div class="live-index-value" id="cpi-value">87.2</div>
+                    <div class="live-index-change" id="cpi-change">-12.8% YoY</div>
                 </div>
-                <div class="subindex">
-                    <div class="subindex-ticker">$BULK</div>
-                    <div class="subindex-value" id="bulk-value">-</div>
-                    <div class="subindex-name">Basic tasks</div>
-                    <div class="subindex-unit">per 1M tokens</div>
-                </div>
-                <div class="subindex">
-                    <div class="subindex-ticker">$FRONT</div>
-                    <div class="subindex-value" id="front-value">-</div>
-                    <div class="subindex-name">Frontier models</div>
-                    <div class="subindex-unit">per 1M tokens</div>
-                </div>
-                <div class="subindex">
-                    <div class="subindex-ticker">$JUDGE</div>
-                    <div class="subindex-value" id="judge-value">-</div>
-                    <div class="subindex-name">Complex reasoning</div>
-                    <div class="subindex-unit">per 1M tokens</div>
-                </div>
-                <div class="subindex">
-                    <div class="subindex-ticker">$LCTX</div>
-                    <div class="subindex-value" id="lctx-value">-</div>
-                    <div class="subindex-name">Long context</div>
-                    <div class="subindex-unit">per 1M tokens</div>
-                </div>
-            </section>
-
-            <!-- What the Data Shows -->
-            <div class="market-insight">
-                <h2>What the Data Shows</h2>
-                <p id="market-insight-text">
-                    Commodity AI is in freefall. Reasoning AI has found its floor.
-                    Basic inference costs drop as competition intensifies.
-                    Advanced reasoning models hold pricing power.
-                    Which tier you choose determines your cost trajectory.
-                </p>
-                <p style="margin-top: 1rem;"><a href="/sabermetrics.html">See full market analysis</a></p>
+                <a href="/cpi-data.html" class="live-index-cta">View Full Dashboard →</a>
             </div>
 
-            <!-- Why It Matters -->
-            <section style="margin: 3rem 0;">
-                <div class="section-header">
-                    <div class="section-title">Why It Matters</div>
+            <!-- What We Track -->
+            <section style="margin: 4rem 0;">
+                <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; text-transform: none; letter-spacing: normal; border: none; padding: 0;">What We Track</h2>
+                <p style="color: var(--fg-muted); margin-bottom: 2rem;">Compute CPI measures the cost of AI work using a market-basket methodology modeled on the Consumer Price Index.</p>
+
+                <!-- Subindices Grid -->
+                <div class="subindices" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 1.5rem;">
+                    <div class="subindex">
+                        <div class="subindex-ticker">$BULK</div>
+                        <div class="subindex-value" id="bulk-value">$0.61</div>
+                        <div class="subindex-name">Budget Inference</div>
+                        <div class="subindex-change" id="bulk-change">MoM</div>
+                    </div>
+                    <div class="subindex">
+                        <div class="subindex-ticker">$FRONT</div>
+                        <div class="subindex-value" id="front-value">$10.04</div>
+                        <div class="subindex-name">Frontier Reasoning</div>
+                        <div class="subindex-change" id="front-change">MoM</div>
+                    </div>
+                    <div class="subindex">
+                        <div class="subindex-ticker">$JUDGE</div>
+                        <div class="subindex-value" id="judge-value">$7.92</div>
+                        <div class="subindex-name">Judgment</div>
+                        <div class="subindex-change" id="judge-change">MoM</div>
+                    </div>
+                    <div class="subindex">
+                        <div class="subindex-ticker">$LCTX</div>
+                        <div class="subindex-value" id="lctx-value">$2.78</div>
+                        <div class="subindex-name">Long Context</div>
+                        <div class="subindex-change" id="lctx-change">MoM</div>
+                    </div>
                 </div>
-                <div class="audience-grid">
-                    <div class="audience-card">
-                        <h3>For Tech Leaders</h3>
-                        <p>Benchmark your AI spend against market reality. Negotiate from data, not vendor narratives.</p>
-                    </div>
-                    <div class="audience-card">
-                        <h3>For Finance Teams</h3>
-                        <p>Convert AI costs into forecastable line items. Budget with precision, not guesswork.</p>
-                    </div>
-                    <div class="audience-card">
-                        <h3>For the Public Sector</h3>
-                        <p>Hold vendors accountable with independent market benchmarks. Justify every AI dollar spent.</p>
+
+                <!-- Spreads Summary -->
+                <div style="margin-top: 2rem;">
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                        <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 1rem;">
+                            <div style="font-size: 0.75rem; color: var(--fg-dim); margin-bottom: 0.5rem;">Cognition Premium</div>
+                            <div style="font-size: 1.25rem; font-weight: 600; color: var(--fg);" id="cognition-premium">+$9.4 pts</div>
+                            <div style="font-size: 0.625rem; color: var(--fg-muted); margin-top: 0.25rem;">Cost delta between frontier reasoning and budget alternatives</div>
+                        </div>
+                        <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 1rem;">
+                            <div style="font-size: 0.75rem; color: var(--fg-dim); margin-bottom: 0.5rem;">Judgment Premium</div>
+                            <div style="font-size: 1.25rem; font-weight: 600; color: var(--fg);" id="judgment-premium">+-2.1 pts</div>
+                            <div style="font-size: 0.625rem; color: var(--fg-muted); margin-top: 0.25rem;">Additional cost for models with reliable judgment vs raw capability</div>
+                        </div>
                     </div>
                 </div>
+
+                <p style="margin-top: 2rem;"><a href="/about.html">Read methodology →</a></p>
+            </section>
+
+            <!-- What We Do -->
+            <section style="margin: 4rem 0;">
+                <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 2rem; text-transform: none; letter-spacing: normal; border: none; padding: 0;">What We Do</h2>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Advisory</h3>
+                        <p>Embedded work with procurement, platform, and leadership teams. We help organizations build decision architectures that remain auditable and contestable as AI capabilities expand.</p>
+                        <ul>
+                            <li>Decision budget frameworks</li>
+                            <li>Escalation path design</li>
+                            <li>Governance architecture</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>Research</h3>
+                        <p>Public instruments and analysis that reprice institutional assumptions. We publish indices, memos, and frameworks for organizations navigating AI dependency.</p>
+                        <ul>
+                            <li><a href="/cpi-data.html" class="service-link">Compute CPI index</a></li>
+                            <li><a href="/sabermetrics.html" class="service-link">Market intelligence</a></li>
+                            <li><a href="/calculator.html" class="service-link">Cost calculator</a></li>
+                            <li><a href="/gov.html" class="service-link">Gov benchmarks</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Get in Touch -->
+            <section class="contact-section">
+                <h2>Get in Touch</h2>
+                <p>We work with institutions navigating AI dependency. If your organization is building decision systems that depend on AI judgment, we should talk.</p>
+                <a href="mailto:hello@occupant.ee" class="contact-cta">Start a conversation →</a>
             </section>
         </main>
 
@@ -144,536 +168,69 @@
                 const response = await fetch('/data/compute-cpi.json');
                 const data = await response.json();
 
-                // Main CPI
+                // Live Index Display
                 const cpiValue = data.compute_cpi.value;
                 document.getElementById('cpi-value').textContent = cpiValue.toFixed(1);
 
-                // Hero insight - lead with the outcome
+                // YoY Change
                 const yoyChange = data.compute_cpi.yoy_change;
-                const heroEl = document.getElementById('hero-insight');
                 if (yoyChange !== null) {
-                    if (yoyChange < 0) {
-                        heroEl.innerHTML = `AI compute costs are <span class="highlight">DOWN ${Math.abs(yoyChange).toFixed(0)}%</span> year-over-year.`;
-                    } else if (yoyChange > 0) {
-                        heroEl.innerHTML = `AI compute costs are <span class="highlight">UP ${yoyChange.toFixed(0)}%</span> year-over-year.`;
-                    } else {
-                        heroEl.innerHTML = `AI compute costs are <span class="highlight">FLAT</span> year-over-year.`;
-                    }
+                    const changeText = yoyChange < 0 ? `${yoyChange.toFixed(1)}% YoY` : `+${yoyChange.toFixed(1)}% YoY`;
+                    document.getElementById('cpi-change').textContent = changeText;
                 }
 
-                // Subindices (cost per 1M tokens) - reordered for clarity
+                // Subindices - values
                 if (data.subindices.budget) {
                     document.getElementById('bulk-value').textContent = '$' + data.subindices.budget.value.toFixed(2);
+                    // MoM change
+                    const bulkChange = data.subindices.budget.mom_change;
+                    if (bulkChange !== null && document.getElementById('bulk-change')) {
+                        const changeEl = document.getElementById('bulk-change');
+                        changeEl.textContent = (bulkChange >= 0 ? '+' : '') + bulkChange.toFixed(1) + '% MoM';
+                        changeEl.style.color = bulkChange < 0 ? 'var(--success)' : 'var(--danger)';
+                    }
                 }
                 if (data.subindices.frontier) {
                     document.getElementById('front-value').textContent = '$' + data.subindices.frontier.value.toFixed(2);
+                    // MoM change
+                    const frontChange = data.subindices.frontier.mom_change;
+                    if (frontChange !== null && document.getElementById('front-change')) {
+                        const changeEl = document.getElementById('front-change');
+                        changeEl.textContent = (frontChange >= 0 ? '+' : '') + frontChange.toFixed(1) + '% MoM';
+                        changeEl.style.color = frontChange < 0 ? 'var(--success)' : 'var(--danger)';
+                    }
                 }
                 if (data.subindices.judgment) {
                     document.getElementById('judge-value').textContent = '$' + data.subindices.judgment.value.toFixed(2);
+                    // MoM change
+                    const judgeChange = data.subindices.judgment.mom_change;
+                    if (judgeChange !== null && document.getElementById('judge-change')) {
+                        const changeEl = document.getElementById('judge-change');
+                        changeEl.textContent = (judgeChange >= 0 ? '+' : '') + judgeChange.toFixed(1) + '% MoM';
+                        changeEl.style.color = judgeChange < 0 ? 'var(--success)' : 'var(--danger)';
+                    }
                 }
                 if (data.subindices.longctx) {
                     document.getElementById('lctx-value').textContent = '$' + data.subindices.longctx.value.toFixed(2);
-                }
-
-                // Market insight - dynamic based on data
-                const insightEl = document.getElementById('market-insight-text');
-                const budget = data.subindices.budget?.value;
-                const frontier = data.subindices.frontier?.value;
-                const reasoning = data.subindices.judgment?.value;
-
-                if (budget && frontier && reasoning) {
-                    const spread = (frontier / budget).toFixed(0);
-                    let insight = `Basic tasks now cost $${budget.toFixed(2)} per million tokens. `;
-                    insight += `Frontier models run ${spread}x higher at $${frontier.toFixed(2)}. `;
-
-                    if (reasoning < frontier) {
-                        insight += `Reasoning models are surprisingly competitive at $${reasoning.toFixed(2)}.`;
-                    } else {
-                        insight += `Complex reasoning commands a premium at $${reasoning.toFixed(2)}.`;
-                    }
-
-                    insightEl.textContent = insight;
-                }
-
-            } catch (error) {
-                console.log('CPI data not yet available');
-            }
-        }
-
-        loadCPIData();
-    </script>
-</body>
-</html>
-                <div class="section-header">
-                    <div class="section-title">Build Cost Index</div>
-                    <div class="section-subtitle">What does YOUR workload cost?</div>
-                </div>
-                <div class="persona-grid">
-                    <div class="persona-card">
-                        <div class="persona-ticker">$START</div>
-                        <div class="persona-value" id="startup-cpi">-</div>
-                        <div class="persona-name">Startup Builder</div>
-                        <div class="persona-change" id="startup-change">-</div>
-                        <div class="persona-insight" id="startup-insight"></div>
-                    </div>
-                    <div class="persona-card">
-                        <div class="persona-ticker">$AGENT</div>
-                        <div class="persona-value" id="agentic-cpi">-</div>
-                        <div class="persona-name">Agentic Team</div>
-                        <div class="persona-change" id="agentic-change">-</div>
-                        <div class="persona-insight" id="agentic-insight"></div>
-                    </div>
-                    <div class="persona-card">
-                        <div class="persona-ticker">$THRU</div>
-                        <div class="persona-value" id="throughput-cpi">-</div>
-                        <div class="persona-name">Throughput</div>
-                        <div class="persona-change" id="throughput-change">-</div>
-                        <div class="persona-insight" id="throughput-insight"></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Trend Analysis -->
-            <section class="trend-analysis">
-                <div class="section-header">
-                    <div class="section-title">Trend</div>
-                </div>
-                <div class="trend-grid">
-                    <div class="trend-item">
-                        <div class="trend-label">Direction</div>
-                        <div class="trend-value" id="trend-direction">-</div>
-                    </div>
-                    <div class="trend-item">
-                        <div class="trend-label">Velocity</div>
-                        <div class="trend-value" id="trend-velocity">-</div>
-                        <div class="trend-unit">pts/month</div>
-                    </div>
-                    <div class="trend-item">
-                        <div class="trend-label">30d Forecast</div>
-                        <div class="trend-value" id="trend-forecast">-</div>
-                    </div>
-                    <div class="trend-item">
-                        <div class="trend-label">Confidence</div>
-                        <div class="trend-value" id="trend-confidence">-</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Basket Detail -->
-            <section class="basket-detail">
-                <div class="section-header">
-                    <div class="section-title">Cost Breakdown by Workload</div>
-                    <div class="section-subtitle">Per 1K workloads</div>
-                </div>
-                <div class="basket-grid">
-                    <div class="basket-item">
-                        <div class="basket-label">Chat Drafting</div>
-                        <div class="basket-value" id="basket-chat">-</div>
-                        <div class="basket-weight" id="basket-chat-weight">-</div>
-                    </div>
-                    <div class="basket-item">
-                        <div class="basket-label">Summarization</div>
-                        <div class="basket-value" id="basket-summarization">-</div>
-                        <div class="basket-weight" id="basket-summarization-weight">-</div>
-                    </div>
-                    <div class="basket-item">
-                        <div class="basket-label">Classification</div>
-                        <div class="basket-value" id="basket-classification">-</div>
-                        <div class="basket-weight" id="basket-classification-weight">-</div>
-                    </div>
-                    <div class="basket-item">
-                        <div class="basket-label">Coding</div>
-                        <div class="basket-value" id="basket-coding">-</div>
-                        <div class="basket-weight" id="basket-coding-weight">-</div>
-                    </div>
-                    <div class="basket-item">
-                        <div class="basket-label">Judgment</div>
-                        <div class="basket-value" id="basket-judgment">-</div>
-                        <div class="basket-weight" id="basket-judgment-weight">-</div>
-                    </div>
-                    <div class="basket-item">
-                        <div class="basket-label">Long Context</div>
-                        <div class="basket-value" id="basket-longctx">-</div>
-                        <div class="basket-weight" id="basket-longctx-weight">-</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Spreads -->
-            <section class="spreads">
-                <div class="section-header">
-                    <div class="section-title">Tier Premiums</div>
-                    <div class="section-subtitle">Cost differentials between capability tiers</div>
-                </div>
-                <div class="spreads-grid">
-                    <div class="spread-item">
-                        <div class="spread-ticker">$COG-P</div>
-                        <div class="spread-value" id="spread-cognition">-</div>
-                        <div class="spread-name">Cognition Premium</div>
-                        <div class="spread-desc">Frontier vs Budget</div>
-                    </div>
-                    <div class="spread-item">
-                        <div class="spread-ticker">$JDG-P</div>
-                        <div class="spread-value" id="spread-judgment">-</div>
-                        <div class="spread-name">Judgment Premium</div>
-                        <div class="spread-desc">Reasoning vs Frontier</div>
-                    </div>
-                    <div class="spread-item">
-                        <div class="spread-ticker">$CTX-P</div>
-                        <div class="spread-value" id="spread-context">-</div>
-                        <div class="spread-name">Context Premium</div>
-                        <div class="spread-desc">Long context capability</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Exchange Rates -->
-            <section class="exchange-rates">
-                <div class="section-header">
-                    <div class="section-title">Token Exchange Rates</div>
-                    <div class="section-subtitle">Base: <span id="exchange-base">-</span></div>
-                </div>
-                <div class="exchange-grid">
-                    <div class="exchange-item">
-                        <div class="exchange-ticker">$FRONT</div>
-                        <div class="exchange-rate" id="exchange-frontier">-</div>
-                        <div class="exchange-display" id="exchange-frontier-display">-</div>
-                    </div>
-                    <div class="exchange-item">
-                        <div class="exchange-ticker">$REASON</div>
-                        <div class="exchange-rate" id="exchange-reasoning">-</div>
-                        <div class="exchange-display" id="exchange-reasoning-display">-</div>
-                    </div>
-                    <div class="exchange-item">
-                        <div class="exchange-ticker">$LCTX</div>
-                        <div class="exchange-rate" id="exchange-longctx">-</div>
-                        <div class="exchange-display" id="exchange-longctx-display">-</div>
-                    </div>
-                    <div class="exchange-item">
-                        <div class="exchange-ticker">$BULK</div>
-                        <div class="exchange-rate" id="exchange-budget">-</div>
-                        <div class="exchange-display" id="exchange-budget-display">-</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Index Series -->
-            <section class="index-series">
-                <div class="section-header">
-                    <div class="section-title">Index Series</div>
-                    <div class="section-subtitle">Different time horizons</div>
-                </div>
-                <div class="series-grid">
-                    <div class="series-item">
-                        <div class="series-ticker">$CPI-L</div>
-                        <div class="series-value" id="series-launch">-</div>
-                        <div class="series-name">Since Launch</div>
-                        <div class="series-date" id="series-launch-date">-</div>
-                    </div>
-                    <div class="series-item">
-                        <div class="series-ticker">$CPI-Y</div>
-                        <div class="series-value" id="series-yoy">-</div>
-                        <div class="series-name">Year-over-Year</div>
-                        <div class="series-date" id="series-yoy-date">-</div>
-                    </div>
-                    <div class="series-item">
-                        <div class="series-ticker">$CPI-Q</div>
-                        <div class="series-value" id="series-qtd">-</div>
-                        <div class="series-name">Quarter-to-Date</div>
-                        <div class="series-date" id="series-qtd-date">-</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Methodology Variants -->
-            <section class="methodology-variants">
-                <div class="section-header">
-                    <div class="section-title">Methodology Variants</div>
-                    <div class="section-subtitle">Different workload profiles</div>
-                </div>
-                <div class="variants-grid">
-                    <div class="variant-item">
-                        <div class="variant-ticker">$CPI-GEN</div>
-                        <div class="variant-value" id="variant-general">-</div>
-                        <div class="variant-name">General Purpose</div>
-                        <div class="variant-desc">Balanced mix</div>
-                    </div>
-                    <div class="variant-item">
-                        <div class="variant-ticker">$CPI-FRO</div>
-                        <div class="variant-value" id="variant-frontier">-</div>
-                        <div class="variant-name">Frontier Heavy</div>
-                        <div class="variant-desc">High capability</div>
-                    </div>
-                    <div class="variant-item">
-                        <div class="variant-ticker">$CPI-BUD</div>
-                        <div class="variant-value" id="variant-budget">-</div>
-                        <div class="variant-name">Budget Optimized</div>
-                        <div class="variant-desc">Cost conscious</div>
-                    </div>
-                    <div class="variant-item">
-                        <div class="variant-ticker">$CPI-REA</div>
-                        <div class="variant-value" id="variant-reasoning">-</div>
-                        <div class="variant-name">Reasoning Focus</div>
-                        <div class="variant-desc">Complex tasks</div>
-                    </div>
-                    <div class="variant-item">
-                        <div class="variant-ticker">$CPI-ENT</div>
-                        <div class="variant-value" id="variant-enterprise">-</div>
-                        <div class="variant-name">Enterprise Mix</div>
-                        <div class="variant-desc">Automation workloads</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Yield Curve -->
-            <section class="yield-curve">
-                <div class="section-header">
-                    <div class="section-title">Yield Curve</div>
-                    <div class="section-subtitle">Deflation rates by time horizon</div>
-                </div>
-                <div class="yield-grid">
-                    <div class="yield-item">
-                        <div class="yield-period">1M</div>
-                        <div class="yield-deflation" id="yield-1m">-</div>
-                        <div class="yield-annualized" id="yield-1m-ann">-</div>
-                    </div>
-                    <div class="yield-item">
-                        <div class="yield-period">3M</div>
-                        <div class="yield-deflation" id="yield-3m">-</div>
-                        <div class="yield-annualized" id="yield-3m-ann">-</div>
-                    </div>
-                    <div class="yield-item">
-                        <div class="yield-period">6M</div>
-                        <div class="yield-deflation" id="yield-6m">-</div>
-                        <div class="yield-annualized" id="yield-6m-ann">-</div>
-                    </div>
-                    <div class="yield-item">
-                        <div class="yield-period">1Y</div>
-                        <div class="yield-deflation" id="yield-1y">-</div>
-                        <div class="yield-annualized" id="yield-1y-ann">-</div>
-                    </div>
-                </div>
-                <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--fg-muted);" id="yield-interpretation">-</p>
-            </section>
-        </main>
-
-        <footer>
-            <div class="footer-links">
-                <a href="/about.html">About</a>
-                <a href="mailto:hello@occupant.ee">Contact</a>
-            </div>
-
-            <p style="margin-top: 1rem; font-size: 0.625rem; color: var(--fg-dim);">2025-2026 Occupant Index</p>
-        </footer>
-    </div>
-
-    <script src="/theme.js"></script>
-    <script>
-        async function loadCPIData() {
-            try {
-                const response = await fetch('/data/compute-cpi.json');
-                const data = await response.json();
-
-                // Main CPI
-                const cpiValue = data.compute_cpi.value;
-                document.getElementById('cpi-value').textContent = cpiValue.toFixed(1);
-
-                // Hero insight - lead with the outcome
-                const yoyChange = data.compute_cpi.yoy_change;
-                const heroEl = document.getElementById('hero-insight');
-                if (yoyChange !== null) {
-                    if (yoyChange < 0) {
-                        heroEl.innerHTML = `AI compute costs are <span class="highlight">DOWN ${Math.abs(yoyChange).toFixed(0)}%</span> year-over-year.`;
-                    } else if (yoyChange > 0) {
-                        heroEl.innerHTML = `AI compute costs are <span class="highlight">UP ${yoyChange.toFixed(0)}%</span> year-over-year.`;
-                    } else {
-                        heroEl.innerHTML = `AI compute costs are <span class="highlight">FLAT</span> year-over-year.`;
+                    // MoM change
+                    const lctxChange = data.subindices.longctx.mom_change;
+                    if (lctxChange !== null && document.getElementById('lctx-change')) {
+                        const changeEl = document.getElementById('lctx-change');
+                        changeEl.textContent = (lctxChange >= 0 ? '+' : '') + lctxChange.toFixed(1) + '% MoM';
+                        changeEl.style.color = lctxChange < 0 ? 'var(--success)' : 'var(--danger)';
                     }
                 }
 
-                // Subindices (cost per 1M tokens) - reordered for clarity
-                if (data.subindices.budget) {
-                    document.getElementById('bulk-value').textContent = '$' + data.subindices.budget.value.toFixed(2);
-                }
-                if (data.subindices.frontier) {
-                    document.getElementById('front-value').textContent = '$' + data.subindices.frontier.value.toFixed(2);
-                }
-                if (data.subindices.judgment) {
-                    document.getElementById('judge-value').textContent = '$' + data.subindices.judgment.value.toFixed(2);
-                }
-                if (data.subindices.longctx) {
-                    document.getElementById('lctx-value').textContent = '$' + data.subindices.longctx.value.toFixed(2);
-                }
-
-                // Market insight - dynamic based on data
-                const insightEl = document.getElementById('market-insight-text');
-                const budget = data.subindices.budget?.value;
-                const frontier = data.subindices.frontier?.value;
-                const reasoning = data.subindices.judgment?.value;
-
-                if (budget && frontier && reasoning) {
-                    const spread = (frontier / budget).toFixed(0);
-                    let insight = `Basic tasks now cost $${budget.toFixed(2)} per million tokens. `;
-                    insight += `Frontier models run ${spread}x higher at $${frontier.toFixed(2)}. `;
-
-                    if (reasoning < frontier) {
-                        insight += `Reasoning models are surprisingly competitive at $${reasoning.toFixed(2)}.`;
-                    } else {
-                        insight += `Complex reasoning commands a premium at $${reasoning.toFixed(2)}.`;
-                    }
-
-                    insightEl.textContent = insight;
-                }
-
-                // Persona CPIs
-                if (data.persona_cpis) {
-                    const personas = data.persona_cpis;
-
-                    if (personas.startup) {
-                        document.getElementById('startup-cpi').textContent = personas.startup.cpi.toFixed(1);
-                        const startupChange = document.getElementById('startup-change');
-                        if (personas.startup.mom_change !== null) {
-                            startupChange.textContent = (personas.startup.mom_change >= 0 ? '+' : '') + personas.startup.mom_change.toFixed(1) + '% MoM';
-                            if (personas.startup.mom_change < 0) startupChange.classList.add('negative');
-                        } else {
-                            startupChange.textContent = 'Benchmarking';
-                        }
-                        document.getElementById('startup-insight').textContent = personas.startup.insight;
-                    }
-
-                    if (personas.agentic) {
-                        document.getElementById('agentic-cpi').textContent = personas.agentic.cpi.toFixed(1);
-                        const agenticChange = document.getElementById('agentic-change');
-                        if (personas.agentic.mom_change !== null) {
-                            agenticChange.textContent = (personas.agentic.mom_change >= 0 ? '+' : '') + personas.agentic.mom_change.toFixed(1) + '% MoM';
-                            if (personas.agentic.mom_change < 0) agenticChange.classList.add('negative');
-                        } else {
-                            agenticChange.textContent = 'Benchmarking';
-                        }
-                        document.getElementById('agentic-insight').textContent = personas.agentic.insight;
-                    }
-
-                    if (personas.throughput) {
-                        document.getElementById('throughput-cpi').textContent = personas.throughput.cpi.toFixed(1);
-                        const throughputChange = document.getElementById('throughput-change');
-                        if (personas.throughput.mom_change !== null) {
-                            throughputChange.textContent = (personas.throughput.mom_change >= 0 ? '+' : '') + personas.throughput.mom_change.toFixed(1) + '% MoM';
-                            if (personas.throughput.mom_change < 0) throughputChange.classList.add('negative');
-                        } else {
-                            throughputChange.textContent = 'Benchmarking';
-                        }
-                        document.getElementById('throughput-insight').textContent = personas.throughput.insight;
-                    }
-                }
-
-                // Trend Analysis
-                if (data.trend_analysis) {
-                    const trend = data.trend_analysis;
-                    const directionEl = document.getElementById('trend-direction');
-                    const directionSymbol = trend.direction === 'deflating' ? '|' : trend.direction === 'inflating' ? '^' : '->';
-                    directionEl.textContent = directionSymbol + ' ' + trend.direction.toUpperCase();
-                    if (trend.direction === 'deflating') directionEl.classList.add('deflating');
-                    if (trend.direction === 'inflating') directionEl.classList.add('inflating');
-
-                    const velocityEl = document.getElementById('trend-velocity');
-                    velocityEl.textContent = (trend.velocity >= 0 ? '+' : '') + trend.velocity.toFixed(2);
-
-                    document.getElementById('trend-forecast').textContent = trend.forecast_30d.toFixed(1);
-                    document.getElementById('trend-confidence').textContent = trend.confidence.toUpperCase();
-                }
-
-                // Basket Detail
-                if (data.basket_detail) {
-                    const basket = data.basket_detail;
-                    document.getElementById('basket-chat').textContent = '$' + basket.chat_drafting.cost.toFixed(2);
-                    document.getElementById('basket-chat-weight').textContent = (basket.chat_drafting.weight * 100) + '% weight';
-
-                    document.getElementById('basket-summarization').textContent = '$' + basket.summarization.cost.toFixed(2);
-                    document.getElementById('basket-summarization-weight').textContent = (basket.summarization.weight * 100) + '% weight';
-
-                    document.getElementById('basket-classification').textContent = '$' + basket.classification.cost.toFixed(2);
-                    document.getElementById('basket-classification-weight').textContent = (basket.classification.weight * 100) + '% weight';
-
-                    document.getElementById('basket-coding').textContent = '$' + basket.coding.cost.toFixed(2);
-                    document.getElementById('basket-coding-weight').textContent = (basket.coding.weight * 100) + '% weight';
-
-                    document.getElementById('basket-judgment').textContent = '$' + basket.judgment.cost.toFixed(2);
-                    document.getElementById('basket-judgment-weight').textContent = (basket.judgment.weight * 100) + '% weight';
-
-                    document.getElementById('basket-longctx').textContent = '$' + basket.long_context.cost.toFixed(2);
-                    document.getElementById('basket-longctx-weight').textContent = (basket.long_context.weight * 100) + '% weight';
-                }
-
-                // Spreads
+                // Spreads/Premiums
                 if (data.spreads) {
-                    const spreads = data.spreads;
-                    const cogValue = spreads.cognition_premium.value;
-                    const jdgValue = spreads.judgment_premium.value;
-                    const ctxValue = spreads.context_premium.value;
-
-                    document.getElementById('spread-cognition').textContent = (cogValue >= 0 ? '+' : '') + '$' + cogValue.toFixed(2);
-                    document.getElementById('spread-judgment').textContent = (jdgValue >= 0 ? '+' : '') + '$' + jdgValue.toFixed(2);
-                    document.getElementById('spread-context').textContent = (ctxValue >= 0 ? '+' : '') + '$' + ctxValue.toFixed(2);
-                }
-
-                // Exchange Rates
-                if (data.exchange_rates) {
-                    const ex = data.exchange_rates;
-                    document.getElementById('exchange-base').textContent = ex.base.ticker + ' (' + ex.base.name + ')';
-
-                    const rates = ex.rates;
-                    document.getElementById('exchange-frontier').textContent = rates.frontier.rate + 'x';
-                    document.getElementById('exchange-frontier-display').textContent = rates.frontier.display;
-
-                    document.getElementById('exchange-reasoning').textContent = rates.reasoning.rate + 'x';
-                    document.getElementById('exchange-reasoning-display').textContent = rates.reasoning.display;
-
-                    document.getElementById('exchange-longctx').textContent = rates.longctx.rate + 'x';
-                    document.getElementById('exchange-longctx-display').textContent = rates.longctx.display;
-
-                    document.getElementById('exchange-budget').textContent = rates.budget.rate + 'x';
-                    document.getElementById('exchange-budget-display').textContent = rates.budget.display;
-                }
-
-                // Index Series
-                if (data.index_series) {
-                    const series = data.index_series;
-                    document.getElementById('series-launch').textContent = series.launch.value.toFixed(1);
-                    document.getElementById('series-launch-date').textContent = 'Base: ' + series.launch.base_date;
-
-                    document.getElementById('series-yoy').textContent = series.yoy.value.toFixed(1);
-                    document.getElementById('series-yoy-date').textContent = 'Base: ' + series.yoy.base_date;
-
-                    document.getElementById('series-qtd').textContent = series.qtd.value.toFixed(1);
-                    document.getElementById('series-qtd-date').textContent = 'Base: ' + series.qtd.base_date;
-                }
-
-                // Methodology Variants
-                if (data.methodology_variants) {
-                    const variants = data.methodology_variants;
-                    document.getElementById('variant-general').textContent = variants.general.value.toFixed(1);
-                    document.getElementById('variant-frontier').textContent = variants.frontier_heavy.value.toFixed(1);
-                    document.getElementById('variant-budget').textContent = variants.budget_heavy.value.toFixed(1);
-                    document.getElementById('variant-reasoning').textContent = variants.reasoning_focus.value.toFixed(1);
-                    document.getElementById('variant-enterprise').textContent = variants.enterprise.value.toFixed(1);
-                }
-
-                // Yield Curve
-                if (data.yield_curve) {
-                    const curve = data.yield_curve.curve;
-                    document.getElementById('yield-1m').textContent = curve['1m'].deflation_pct.toFixed(2) + '%';
-                    document.getElementById('yield-1m-ann').textContent = curve['1m'].annualized_pct.toFixed(2) + '% annualized';
-
-                    document.getElementById('yield-3m').textContent = curve['3m'].deflation_pct.toFixed(2) + '%';
-                    document.getElementById('yield-3m-ann').textContent = curve['3m'].annualized_pct.toFixed(2) + '% annualized';
-
-                    document.getElementById('yield-6m').textContent = curve['6m'].deflation_pct.toFixed(2) + '%';
-                    document.getElementById('yield-6m-ann').textContent = curve['6m'].annualized_pct.toFixed(2) + '% annualized';
-
-                    document.getElementById('yield-1y').textContent = curve['1y'].deflation_pct.toFixed(2) + '%';
-                    document.getElementById('yield-1y-ann').textContent = curve['1y'].annualized_pct.toFixed(2) + '% annualized';
-
-                    document.getElementById('yield-interpretation').textContent = data.yield_curve.interpretation;
+                    if (data.spreads.cognition_premium) {
+                        const cogValue = data.spreads.cognition_premium.value;
+                        document.getElementById('cognition-premium').textContent = (cogValue >= 0 ? '+' : '') + '$' + cogValue.toFixed(1) + ' pts';
+                    }
+                    if (data.spreads.judgment_premium) {
+                        const jdgValue = data.spreads.judgment_premium.value;
+                        document.getElementById('judgment-premium').textContent = (jdgValue >= 0 ? '+' : '') + '$' + jdgValue.toFixed(1) + ' pts';
+                    }
                 }
 
             } catch (error) {
