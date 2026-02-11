@@ -189,10 +189,6 @@
                 <a href="mailto:hello@occupant.ee">Contact</a>
             </div>
 
-            <div class="last-updated">
-                Last updated: <span id="last-updated">-</span>
-            </div>
-
             <p style="margin-top: 1rem; font-size: 0.625rem; color: var(--fg-dim);">2025-2026 Occupant Index</p>
         </footer>
     </div>
@@ -311,10 +307,6 @@
                     document.getElementById('trend-forecast').textContent = trend.forecast_30d.toFixed(1);
                     document.getElementById('trend-confidence').textContent = trend.confidence.toUpperCase();
                 }
-
-                // Last updated
-                const updated = new Date(data.meta.generated_at);
-                document.getElementById('last-updated').textContent = updated.toISOString().split('T')[0] + ' ' + updated.toISOString().split('T')[1].split('.')[0] + ' UTC';
 
             } catch (error) {
                 console.log('CPI data not yet available');
