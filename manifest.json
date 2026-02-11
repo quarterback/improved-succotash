@@ -63,6 +63,13 @@
       "icons": [{ "src": "/logo.svg", "sizes": "any" }]
     },
     {
+      "name": "AEAI Index",
+      "short_name": "AEAI",
+      "description": "AI Economic Activity Index dashboard",
+      "url": "/aeai.html",
+      "icons": [{ "src": "/logo.svg", "sizes": "any" }]
+    },
+    {
       "name": "Calculator",
       "short_name": "Calculator",
       "description": "Calculate your AI cost savings",

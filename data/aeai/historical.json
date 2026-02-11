@@ -1,0 +1,18 @@
+{
+  "entries": [
+    {
+      "date": "2026-02-11",
+      "aiu_index": 100.0,
+      "components": {
+        "token_index": 100.0,
+        "spend_index": 100.0,
+        "energy_index": 100.0
+      },
+      "activity": {
+        "tokens_weekly": 13909678380565,
+        "spend_usd_weekly": 46629717.81,
+        "energy_gwh_weekly": 0.000591
+      }
+    }
+  ]
+}

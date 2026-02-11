@@ -44,10 +44,14 @@ jobs:
         run: |
           python src/scrape_rankings.py
 
+      - name: Calculate AEAI (AI Economic Activity Index)
+        run: |
+          python src/calculate_aeai.py
+
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add data/
-          git diff --staged --quiet || git commit -m "Update CPI and market data $(date -u +%Y-%m-%d)"
+          git diff --staged --quiet || git commit -m "Update CPI, AEAI, and market data $(date -u +%Y-%m-%d)"
           git push
