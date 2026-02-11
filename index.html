@@ -181,6 +181,203 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Basket Detail -->
+            <section class="basket-detail">
+                <div class="section-header">
+                    <div class="section-title">Cost Breakdown by Workload</div>
+                    <div class="section-subtitle">Per 1K workloads</div>
+                </div>
+                <div class="basket-grid">
+                    <div class="basket-item">
+                        <div class="basket-label">Chat Drafting</div>
+                        <div class="basket-value" id="basket-chat">-</div>
+                        <div class="basket-weight" id="basket-chat-weight">-</div>
+                    </div>
+                    <div class="basket-item">
+                        <div class="basket-label">Summarization</div>
+                        <div class="basket-value" id="basket-summarization">-</div>
+                        <div class="basket-weight" id="basket-summarization-weight">-</div>
+                    </div>
+                    <div class="basket-item">
+                        <div class="basket-label">Classification</div>
+                        <div class="basket-value" id="basket-classification">-</div>
+                        <div class="basket-weight" id="basket-classification-weight">-</div>
+                    </div>
+                    <div class="basket-item">
+                        <div class="basket-label">Coding</div>
+                        <div class="basket-value" id="basket-coding">-</div>
+                        <div class="basket-weight" id="basket-coding-weight">-</div>
+                    </div>
+                    <div class="basket-item">
+                        <div class="basket-label">Judgment</div>
+                        <div class="basket-value" id="basket-judgment">-</div>
+                        <div class="basket-weight" id="basket-judgment-weight">-</div>
+                    </div>
+                    <div class="basket-item">
+                        <div class="basket-label">Long Context</div>
+                        <div class="basket-value" id="basket-longctx">-</div>
+                        <div class="basket-weight" id="basket-longctx-weight">-</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Spreads -->
+            <section class="spreads">
+                <div class="section-header">
+                    <div class="section-title">Tier Premiums</div>
+                    <div class="section-subtitle">Cost differentials between capability tiers</div>
+                </div>
+                <div class="spreads-grid">
+                    <div class="spread-item">
+                        <div class="spread-ticker">$COG-P</div>
+                        <div class="spread-value" id="spread-cognition">-</div>
+                        <div class="spread-name">Cognition Premium</div>
+                        <div class="spread-desc">Frontier vs Budget</div>
+                    </div>
+                    <div class="spread-item">
+                        <div class="spread-ticker">$JDG-P</div>
+                        <div class="spread-value" id="spread-judgment">-</div>
+                        <div class="spread-name">Judgment Premium</div>
+                        <div class="spread-desc">Reasoning vs Frontier</div>
+                    </div>
+                    <div class="spread-item">
+                        <div class="spread-ticker">$CTX-P</div>
+                        <div class="spread-value" id="spread-context">-</div>
+                        <div class="spread-name">Context Premium</div>
+                        <div class="spread-desc">Long context capability</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exchange Rates -->
+            <section class="exchange-rates">
+                <div class="section-header">
+                    <div class="section-title">Token Exchange Rates</div>
+                    <div class="section-subtitle">Base: <span id="exchange-base">-</span></div>
+                </div>
+                <div class="exchange-grid">
+                    <div class="exchange-item">
+                        <div class="exchange-ticker">$FRONT</div>
+                        <div class="exchange-rate" id="exchange-frontier">-</div>
+                        <div class="exchange-display" id="exchange-frontier-display">-</div>
+                    </div>
+                    <div class="exchange-item">
+                        <div class="exchange-ticker">$REASON</div>
+                        <div class="exchange-rate" id="exchange-reasoning">-</div>
+                        <div class="exchange-display" id="exchange-reasoning-display">-</div>
+                    </div>
+                    <div class="exchange-item">
+                        <div class="exchange-ticker">$LCTX</div>
+                        <div class="exchange-rate" id="exchange-longctx">-</div>
+                        <div class="exchange-display" id="exchange-longctx-display">-</div>
+                    </div>
+                    <div class="exchange-item">
+                        <div class="exchange-ticker">$BULK</div>
+                        <div class="exchange-rate" id="exchange-budget">-</div>
+                        <div class="exchange-display" id="exchange-budget-display">-</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Index Series -->
+            <section class="index-series">
+                <div class="section-header">
+                    <div class="section-title">Index Series</div>
+                    <div class="section-subtitle">Different time horizons</div>
+                </div>
+                <div class="series-grid">
+                    <div class="series-item">
+                        <div class="series-ticker">$CPI-L</div>
+                        <div class="series-value" id="series-launch">-</div>
+                        <div class="series-name">Since Launch</div>
+                        <div class="series-date" id="series-launch-date">-</div>
+                    </div>
+                    <div class="series-item">
+                        <div class="series-ticker">$CPI-Y</div>
+                        <div class="series-value" id="series-yoy">-</div>
+                        <div class="series-name">Year-over-Year</div>
+                        <div class="series-date" id="series-yoy-date">-</div>
+                    </div>
+                    <div class="series-item">
+                        <div class="series-ticker">$CPI-Q</div>
+                        <div class="series-value" id="series-qtd">-</div>
+                        <div class="series-name">Quarter-to-Date</div>
+                        <div class="series-date" id="series-qtd-date">-</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Methodology Variants -->
+            <section class="methodology-variants">
+                <div class="section-header">
+                    <div class="section-title">Methodology Variants</div>
+                    <div class="section-subtitle">Different workload profiles</div>
+                </div>
+                <div class="variants-grid">
+                    <div class="variant-item">
+                        <div class="variant-ticker">$CPI-GEN</div>
+                        <div class="variant-value" id="variant-general">-</div>
+                        <div class="variant-name">General Purpose</div>
+                        <div class="variant-desc">Balanced mix</div>
+                    </div>
+                    <div class="variant-item">
+                        <div class="variant-ticker">$CPI-FRO</div>
+                        <div class="variant-value" id="variant-frontier">-</div>
+                        <div class="variant-name">Frontier Heavy</div>
+                        <div class="variant-desc">High capability</div>
+                    </div>
+                    <div class="variant-item">
+                        <div class="variant-ticker">$CPI-BUD</div>
+                        <div class="variant-value" id="variant-budget">-</div>
+                        <div class="variant-name">Budget Optimized</div>
+                        <div class="variant-desc">Cost conscious</div>
+                    </div>
+                    <div class="variant-item">
+                        <div class="variant-ticker">$CPI-REA</div>
+                        <div class="variant-value" id="variant-reasoning">-</div>
+                        <div class="variant-name">Reasoning Focus</div>
+                        <div class="variant-desc">Complex tasks</div>
+                    </div>
+                    <div class="variant-item">
+                        <div class="variant-ticker">$CPI-ENT</div>
+                        <div class="variant-value" id="variant-enterprise">-</div>
+                        <div class="variant-name">Enterprise Mix</div>
+                        <div class="variant-desc">Automation workloads</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Yield Curve -->
+            <section class="yield-curve">
+                <div class="section-header">
+                    <div class="section-title">Yield Curve</div>
+                    <div class="section-subtitle">Deflation rates by time horizon</div>
+                </div>
+                <div class="yield-grid">
+                    <div class="yield-item">
+                        <div class="yield-period">1M</div>
+                        <div class="yield-deflation" id="yield-1m">-</div>
+                        <div class="yield-annualized" id="yield-1m-ann">-</div>
+                    </div>
+                    <div class="yield-item">
+                        <div class="yield-period">3M</div>
+                        <div class="yield-deflation" id="yield-3m">-</div>
+                        <div class="yield-annualized" id="yield-3m-ann">-</div>
+                    </div>
+                    <div class="yield-item">
+                        <div class="yield-period">6M</div>
+                        <div class="yield-deflation" id="yield-6m">-</div>
+                        <div class="yield-annualized" id="yield-6m-ann">-</div>
+                    </div>
+                    <div class="yield-item">
+                        <div class="yield-period">1Y</div>
+                        <div class="yield-deflation" id="yield-1y">-</div>
+                        <div class="yield-annualized" id="yield-1y-ann">-</div>
+                    </div>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--fg-muted);" id="yield-interpretation">-</p>
+            </section>
         </main>
 
         <footer>
@@ -306,6 +503,100 @@
 
                     document.getElementById('trend-forecast').textContent = trend.forecast_30d.toFixed(1);
                     document.getElementById('trend-confidence').textContent = trend.confidence.toUpperCase();
+                }
+
+                // Basket Detail
+                if (data.basket_detail) {
+                    const basket = data.basket_detail;
+                    document.getElementById('basket-chat').textContent = '$' + basket.chat_drafting.cost.toFixed(2);
+                    document.getElementById('basket-chat-weight').textContent = (basket.chat_drafting.weight * 100) + '% weight';
+
+                    document.getElementById('basket-summarization').textContent = '$' + basket.summarization.cost.toFixed(2);
+                    document.getElementById('basket-summarization-weight').textContent = (basket.summarization.weight * 100) + '% weight';
+
+                    document.getElementById('basket-classification').textContent = '$' + basket.classification.cost.toFixed(2);
+                    document.getElementById('basket-classification-weight').textContent = (basket.classification.weight * 100) + '% weight';
+
+                    document.getElementById('basket-coding').textContent = '$' + basket.coding.cost.toFixed(2);
+                    document.getElementById('basket-coding-weight').textContent = (basket.coding.weight * 100) + '% weight';
+
+                    document.getElementById('basket-judgment').textContent = '$' + basket.judgment.cost.toFixed(2);
+                    document.getElementById('basket-judgment-weight').textContent = (basket.judgment.weight * 100) + '% weight';
+
+                    document.getElementById('basket-longctx').textContent = '$' + basket.long_context.cost.toFixed(2);
+                    document.getElementById('basket-longctx-weight').textContent = (basket.long_context.weight * 100) + '% weight';
+                }
+
+                // Spreads
+                if (data.spreads) {
+                    const spreads = data.spreads;
+                    const cogValue = spreads.cognition_premium.value;
+                    const jdgValue = spreads.judgment_premium.value;
+                    const ctxValue = spreads.context_premium.value;
+
+                    document.getElementById('spread-cognition').textContent = (cogValue >= 0 ? '+' : '') + '$' + cogValue.toFixed(2);
+                    document.getElementById('spread-judgment').textContent = (jdgValue >= 0 ? '+' : '') + '$' + jdgValue.toFixed(2);
+                    document.getElementById('spread-context').textContent = (ctxValue >= 0 ? '+' : '') + '$' + ctxValue.toFixed(2);
+                }
+
+                // Exchange Rates
+                if (data.exchange_rates) {
+                    const ex = data.exchange_rates;
+                    document.getElementById('exchange-base').textContent = ex.base.ticker + ' (' + ex.base.name + ')';
+
+                    const rates = ex.rates;
+                    document.getElementById('exchange-frontier').textContent = rates.frontier.rate + 'x';
+                    document.getElementById('exchange-frontier-display').textContent = rates.frontier.display;
+
+                    document.getElementById('exchange-reasoning').textContent = rates.reasoning.rate + 'x';
+                    document.getElementById('exchange-reasoning-display').textContent = rates.reasoning.display;
+
+                    document.getElementById('exchange-longctx').textContent = rates.longctx.rate + 'x';
+                    document.getElementById('exchange-longctx-display').textContent = rates.longctx.display;
+
+                    document.getElementById('exchange-budget').textContent = rates.budget.rate + 'x';
+                    document.getElementById('exchange-budget-display').textContent = rates.budget.display;
+                }
+
+                // Index Series
+                if (data.index_series) {
+                    const series = data.index_series;
+                    document.getElementById('series-launch').textContent = series.launch.value.toFixed(1);
+                    document.getElementById('series-launch-date').textContent = 'Base: ' + series.launch.base_date;
+
+                    document.getElementById('series-yoy').textContent = series.yoy.value.toFixed(1);
+                    document.getElementById('series-yoy-date').textContent = 'Base: ' + series.yoy.base_date;
+
+                    document.getElementById('series-qtd').textContent = series.qtd.value.toFixed(1);
+                    document.getElementById('series-qtd-date').textContent = 'Base: ' + series.qtd.base_date;
+                }
+
+                // Methodology Variants
+                if (data.methodology_variants) {
+                    const variants = data.methodology_variants;
+                    document.getElementById('variant-general').textContent = variants.general.value.toFixed(1);
+                    document.getElementById('variant-frontier').textContent = variants.frontier_heavy.value.toFixed(1);
+                    document.getElementById('variant-budget').textContent = variants.budget_heavy.value.toFixed(1);
+                    document.getElementById('variant-reasoning').textContent = variants.reasoning_focus.value.toFixed(1);
+                    document.getElementById('variant-enterprise').textContent = variants.enterprise.value.toFixed(1);
+                }
+
+                // Yield Curve
+                if (data.yield_curve) {
+                    const curve = data.yield_curve.curve;
+                    document.getElementById('yield-1m').textContent = curve['1m'].deflation_pct.toFixed(2) + '%';
+                    document.getElementById('yield-1m-ann').textContent = curve['1m'].annualized_pct.toFixed(2) + '% annualized';
+
+                    document.getElementById('yield-3m').textContent = curve['3m'].deflation_pct.toFixed(2) + '%';
+                    document.getElementById('yield-3m-ann').textContent = curve['3m'].annualized_pct.toFixed(2) + '% annualized';
+
+                    document.getElementById('yield-6m').textContent = curve['6m'].deflation_pct.toFixed(2) + '%';
+                    document.getElementById('yield-6m-ann').textContent = curve['6m'].annualized_pct.toFixed(2) + '% annualized';
+
+                    document.getElementById('yield-1y').textContent = curve['1y'].deflation_pct.toFixed(2) + '%';
+                    document.getElementById('yield-1y-ann').textContent = curve['1y'].annualized_pct.toFixed(2) + '% annualized';
+
+                    document.getElementById('yield-interpretation').textContent = data.yield_curve.interpretation;
                 }
 
             } catch (error) {
