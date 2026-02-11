@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f8f9fc" media="(prefers-color-scheme: light)">
     <title>Occupant | Instruments for pricing reality</title>
     <meta name="description" content="Public benchmarks and decision architecture for institutions navigating AI dependency. We publish what others assume.">
+
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Occupant">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -29,24 +38,25 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="container">
-        <nav>
-            <a href="/" class="active">Index</a>
+        <nav role="navigation" aria-label="Main navigation">
+            <a href="/" class="active" aria-current="page">Index</a>
             <a href="/cpi-data.html">CPI Data</a>
             <a href="/sabermetrics.html">Market Intel</a>
             <a href="/calculator.html">Calculator</a>
             <a href="/gov.html">Gov Benchmarks</a>
             <a href="/about.html">About</a>
             <div class="nav-right">
-                <button id="theme-toggle" class="theme-toggle">Light</button>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme">Light</button>
             </div>
         </nav>
 
         <header>
-            <div class="logo">Occupant</div>
+            <div class="logo" aria-label="Occupant">Occupant</div>
         </header>
 
-        <main>
+        <main id="main-content" role="main">
             <!-- Hero Section -->
             <section class="hero">
                 <h1 class="hero-headline">Instruments for pricing reality.</h1>
@@ -54,22 +64,22 @@
             </section>
 
             <!-- Live CPI Index -->
-            <div class="live-index" id="live-index">
+            <div class="live-index" id="live-index" role="region" aria-label="Live Compute CPI Index">
                 <div>
                     <div class="live-index-label">OCCUPANT INDEX — LIVE</div>
-                    <div class="live-index-value" id="cpi-value">87.2</div>
-                    <div class="live-index-change" id="cpi-change">-12.8% YoY</div>
+                    <div class="live-index-value" id="cpi-value" aria-label="Current CPI value">87.2</div>
+                    <div class="live-index-change" id="cpi-change" aria-label="Year over year change">-12.8% YoY</div>
                 </div>
-                <a href="/cpi-data.html" class="live-index-cta">View Full Dashboard →</a>
+                <a href="/cpi-data.html" class="live-index-cta" aria-label="View full CPI data dashboard">View Full Dashboard →</a>
             </div>
 
             <!-- What We Track -->
-            <section style="margin: 4rem 0;">
-                <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; text-transform: none; letter-spacing: normal; border: none; padding: 0;">What We Track</h2>
+            <section aria-labelledby="what-we-track-heading" style="margin: 4rem 0;">
+                <h2 id="what-we-track-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; text-transform: none; letter-spacing: normal; border: none; padding: 0;">What We Track</h2>
                 <p style="color: var(--fg-muted); margin-bottom: 2rem;">Compute CPI measures the cost of AI work using a market-basket methodology modeled on the Consumer Price Index.</p>
 
                 <!-- Subindices Grid -->
-                <div class="subindices" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 1.5rem;">
+                <div class="subindices" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 1.5rem;" role="list" aria-label="AI compute cost subindices">
                     <div class="subindex">
                         <div class="subindex-ticker">$BULK</div>
                         <div class="subindex-value" id="bulk-value">$0.61</div>
@@ -163,6 +173,19 @@
 
     <script src="/theme.js"></script>
     <script>
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('ServiceWorker registered:', registration);
+                    })
+                    .catch((error) => {
+                        console.log('ServiceWorker registration failed:', error);
+                    });
+            });
+        }
+
         async function loadCPIData() {
             try {
                 const response = await fetch('/data/compute-cpi.json');

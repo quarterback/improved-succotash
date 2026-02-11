@@ -2,30 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f8f9fc" media="(prefers-color-scheme: light)">
     <title>CPI Data | Occupant</title>
     <meta name="description" content="Detailed LLM Compute CPI data - Build cost indices, trends, basket details, and exchange rates.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="apple-touch-icon" href="/logo.svg">
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="container">
-        <nav>
+        <nav role="navigation" aria-label="Main navigation">
             <a href="/">Index</a>
-            <a href="/cpi-data.html" class="active">CPI Data</a>
+            <a href="/cpi-data.html" class="active" aria-current="page">CPI Data</a>
             <a href="/sabermetrics.html">Market Intel</a>
             <a href="/calculator.html">Calculator</a>
             <a href="/gov.html">Gov Benchmarks</a>
             <a href="/about.html">About</a>
             <div class="nav-right">
-                <button id="theme-toggle" class="theme-toggle">Light</button>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme">Light</button>
             </div>
         </nav>
 
-        <div class="breadcrumb">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="/">Home</a>
-            <span class="breadcrumb-separator">></span>
-            <span class="breadcrumb-current">CPI Data Dashboard</span>
-        </div>
+            <span class="breadcrumb-separator" aria-hidden="true">></span>
+            <span class="breadcrumb-current" aria-current="page">CPI Data Dashboard</span>
+        </nav>
 
         <header>
             <h1>CPI Data Dashboard</h1>
