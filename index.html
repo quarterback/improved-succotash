@@ -66,17 +66,31 @@
             <!-- Live CPI Index -->
             <div class="live-index" id="live-index" role="region" aria-label="Live Compute CPI Index">
                 <div>
-                    <div class="live-index-label">OCCUPANT INDEX — LIVE</div>
+                    <div class="live-index-label">COMPUTE CPI — LIVE</div>
                     <div class="live-index-value" id="cpi-value" aria-label="Current CPI value">87.2</div>
                     <div class="live-index-change" id="cpi-change" aria-label="Year over year change">-12.8% YoY</div>
                 </div>
-                <a href="/cpi-data.html" class="live-index-cta" aria-label="View full CPI data dashboard">View Full Dashboard →</a>
+                <a href="/cpi-data.html" class="live-index-cta" aria-label="View full CPI data dashboard">View CPI Dashboard →</a>
+            </div>
+
+            <!-- Live AEAI Index -->
+            <div class="live-index" id="live-aeai" role="region" aria-label="Live AEAI Index" style="margin-top: 2rem;">
+                <div>
+                    <div class="live-index-label">AI ACTIVITY INDEX (AIU) — LIVE</div>
+                    <div class="live-index-value" id="aiu-value" aria-label="Current AIU value">100.0</div>
+                    <div class="live-index-change" id="aiu-change" aria-label="Activity change">Baseline: Feb 2025 = 100</div>
+                </div>
+                <a href="/aeai.html" class="live-index-cta" aria-label="View full AEAI dashboard">View AEAI Dashboard →</a>
             </div>
 
             <!-- What We Track -->
             <section aria-labelledby="what-we-track-heading" style="margin: 4rem 0;">
                 <h2 id="what-we-track-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; text-transform: none; letter-spacing: normal; border: none; padding: 0;">What We Track</h2>
-                <p style="color: var(--fg-muted); margin-bottom: 2rem;">Compute CPI measures the cost of AI work using a market-basket methodology modeled on the Consumer Price Index.</p>
+                <p style="color: var(--fg-muted); margin-bottom: 2rem;">
+                    <strong>Compute CPI</strong> measures the unit cost of AI work—tracking price deflation across model tiers.<br>
+                    <strong>AI Activity Index (AIU)</strong> measures total economic activity—tracking token volumes, spend, and energy consumption.<br>
+                    Together, they capture both efficiency (falling prices) and growth (rising usage).
+                </p>
 
                 <!-- Subindices Grid -->
                 <div class="subindices" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 1.5rem;" role="list" aria-label="AI compute cost subindices">
@@ -262,6 +276,36 @@
         }
 
         loadCPIData();
+
+        // Load AEAI data
+        async function loadAEAIData() {
+            try {
+                const response = await fetch('/data/aeai/latest.json');
+                const data = await response.json();
+
+                // Update AIU index
+                document.getElementById('aiu-value').textContent = data.aiu_index.toFixed(1);
+
+                // Calculate change from baseline (100)
+                const changeFromBaseline = data.aiu_index - 100;
+                if (changeFromBaseline !== 0) {
+                    const changeText = changeFromBaseline >= 0 ?
+                        `+${changeFromBaseline.toFixed(1)}% from baseline` :
+                        `${changeFromBaseline.toFixed(1)}% from baseline`;
+                    document.getElementById('aiu-change').textContent = changeText;
+                } else {
+                    // Show activity summary instead
+                    const tokensT = (data.activity.tokens_weekly / 1e12).toFixed(1);
+                    const spendM = (data.activity.spend_usd_weekly / 1e6).toFixed(0);
+                    document.getElementById('aiu-change').textContent = `${tokensT}T tokens/week · $${spendM}M spend/week`;
+                }
+
+            } catch (error) {
+                console.log('AEAI data not yet available');
+            }
+        }
+
+        loadAEAIData();
     </script>
 </body>
 </html>
