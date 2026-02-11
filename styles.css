@@ -46,25 +46,6 @@
     box-sizing: border-box;
 }
 
-/* Skip Link for Accessibility */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--accent);
-    color: var(--bg);
-    padding: 0.875rem 1.5rem;
-    text-decoration: none;
-    z-index: 100;
-    font-weight: 600;
-}
-
-.skip-link:focus {
-    top: 0;
-    outline: 2px solid var(--fg);
-    outline-offset: 2px;
-}
-
 /* Focus Visible for Modern Browsers */
 *:focus-visible {
     outline: 2px solid var(--accent);
