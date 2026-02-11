@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tardigrade Disclosure | Occupant</title>
+    <meta name="description" content="Transparency about data collection and AI use at Occupant.">
+
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .disclosure-box {
+            background: var(--accent-glow);
+            border-left: 3px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .disclosure-box p {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+        .disclosure-box p:first-child {
+            margin-top: 0;
+        }
+        .disclosure-box p:last-child {
+            margin-bottom: 0;
+        }
+        .disclosure-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+        }
+        .disclosure-table th,
+        .disclosure-table td {
+            text-align: left;
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .disclosure-table th {
+            color: var(--fg-dim);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 700px;">
+        <nav>
+            <a href="/">Index</a>
+            <a href="/cpi-data.html">CPI Data</a>
+            <a href="/aeai.html">AEAI</a>
+            <a href="/sabermetrics.html">Market Intel</a>
+            <a href="/calculator.html">Calculator</a>
+            <a href="/gov.html">Gov Benchmarks</a>
+            <a href="/about.html">About</a>
+            <div class="nav-right">
+                <button id="theme-toggle" class="theme-toggle">Light</button>
+            </div>
+        </nav>
+
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">></span>
+            <span class="breadcrumb-current">Tardigrade Disclosure</span>
+        </div>
+
+        <header>
+            <h1>Tardigrade Disclosure</h1>
+            <p class="subtitle">Transparency about data collection and AI use.</p>
+        </header>
+
+        <main>
+            <section>
+                <div class="disclosure-box">
+                    <p><strong>No data collection occurs on this site.</strong></p>
+                    <p>
+                        Occupant does not use cookies, analytics, tracking pixels, or any form of
+                        visitor data collection. No personal information is requested, stored, or processed.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>What This Site Does</h2>
+                <table class="disclosure-table">
+                    <tbody>
+                        <tr>
+                            <th>Function</th>
+                            <td>Publishes aggregated AI pricing and market activity benchmarks</td>
+                        </tr>
+                        <tr>
+                            <th>Data Sources</th>
+                            <td>Public API data from OpenRouter, LiteLLM, pricepertoken.com, and Chatbot Arena</td>
+                        </tr>
+                        <tr>
+                            <th>AI Usage</th>
+                            <td>None. All index calculations are deterministic algorithms.</td>
+                        </tr>
+                        <tr>
+                            <th>User Data</th>
+                            <td>None collected, stored, or processed</td>
+                        </tr>
+                        <tr>
+                            <th>Cookies</th>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <th>Analytics</th>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <th>Third-Party Scripts</th>
+                            <td>None</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>Your Browser Storage</h2>
+                <p>
+                    This site uses only <strong>localStorage</strong> to remember your theme preference
+                    (light or dark mode). This is stored locally in your browser and never transmitted
+                    to any server.
+                </p>
+            </section>
+
+            <section>
+                <h2>Server Logs</h2>
+                <p>
+                    Standard web server access logs may record IP addresses, timestamps, and requested URLs
+                    for operational security purposes. These logs are not analyzed, shared, or used for
+                    tracking. They are retained for 7 days.
+                </p>
+            </section>
+
+            <section>
+                <h2>Contact</h2>
+                <p>
+                    If you notice any data collection behavior that contradicts this disclosure, please
+                    <a href="mailto:hello@occupant.ee">report it immediately</a>.
+                </p>
+            </section>
+
+            <section>
+                <h2>About Tardigrade</h2>
+                <p>
+                    This disclosure follows the <strong>Tardigrade</strong> framework for transparent
+                    AI and data practices, developed by State Capacity. Learn more at
+                    <a href="https://statecapacity.ai/guides/enablement-statements/widget/" target="_blank" rel="noopener">
+                        statecapacity.ai/guides/enablement-statements
+                    </a>
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-links">
+                <a href="/about.html">About</a>
+                <a href="mailto:hello@occupant.ee">Contact</a>
+                <a href="/license.html">License</a>
+                <a href="/tardigrade.html">Tardigrade Disclosure</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/theme.js"></script>
+</body>
+</html>
