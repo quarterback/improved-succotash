@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f8f9fc" media="(prefers-color-scheme: light)">
+    <title>AEAI | AI Economic Activity Index | Occupant</title>
+    <meta name="description" content="AI Economic Activity Index (AEAI) - A synthetic unit measuring global AI economic activity, denominated in AIUs.">
+
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Occupant">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="apple-touch-icon" href="/logo.svg">
+
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav role="navigation" aria-label="Main navigation">
+            <a href="/">Index</a>
+            <a href="/cpi-data.html">CPI Data</a>
+            <a href="/aeai.html" class="active" aria-current="page">AEAI</a>
+            <a href="/sabermetrics.html">Market Intel</a>
+            <a href="/calculator.html">Calculator</a>
+            <a href="/gov.html">Gov Benchmarks</a>
+            <a href="/about.html">About</a>
+            <div class="nav-right">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme">Light</button>
+            </div>
+        </nav>
+
+        <header>
+            <div class="logo" aria-label="Occupant">Occupant</div>
+        </header>
+
+        <main id="main-content" role="main">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1 class="hero-headline">AI Economic Activity Index</h1>
+                <p class="hero-description">A synthetic unit (AIU) measuring global AI economic activity through token volumes, inferred spend, and energy consumption. Modeled on the IMF's Special Drawing Rights.</p>
+            </section>
+
+            <!-- Live AIU Index -->
+            <div class="live-index" id="live-aeai" role="region" aria-label="Live AEAI Index">
+                <div>
+                    <div class="live-index-label">AIU INDEX — LIVE</div>
+                    <div class="live-index-value" id="aiu-value">100.0</div>
+                    <div class="live-index-change" id="aiu-change">Baseline: Feb 2025 = 100</div>
+                </div>
+                <div class="live-index-meta" style="font-size: 0.875rem; color: var(--fg-muted); margin-top: 0.5rem;">
+                    <div>Weekly tokens: <span id="tokens-weekly">—</span></div>
+                    <div>Weekly spend: <span id="spend-weekly">—</span></div>
+                    <div>Weekly energy: <span id="energy-weekly">—</span></div>
+                </div>
+            </div>
+
+            <!-- Component Breakdown -->
+            <section aria-labelledby="components-heading" style="margin: 3rem 0;">
+                <h2 id="components-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Basket Components</h2>
+                <p style="color: var(--fg-muted); margin-bottom: 2rem;">The AIU is a weighted composite of three activity indicators, each normalized to February 2025 = 100.</p>
+
+                <div class="subindices" style="grid-template-columns: repeat(3, 1fr);" role="list" aria-label="AEAI component indices">
+                    <div class="subindex">
+                        <div class="subindex-ticker">Token Volume</div>
+                        <div class="subindex-value" id="token-index">100.0</div>
+                        <div class="subindex-name">60% weight</div>
+                        <div class="subindex-change" id="token-contribution">→ 60.0 pts</div>
+                    </div>
+                    <div class="subindex">
+                        <div class="subindex-ticker">Inferred Spend</div>
+                        <div class="subindex-value" id="spend-index">100.0</div>
+                        <div class="subindex-name">30% weight</div>
+                        <div class="subindex-change" id="spend-contribution">→ 30.0 pts</div>
+                    </div>
+                    <div class="subindex">
+                        <div class="subindex-ticker">Energy Proxy</div>
+                        <div class="subindex-value" id="energy-index">100.0</div>
+                        <div class="subindex-name">10% weight</div>
+                        <div class="subindex-change" id="energy-contribution">→ 10.0 pts</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Methodology -->
+            <section aria-labelledby="methodology-heading" style="margin: 3rem 0;">
+                <h2 id="methodology-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Methodology</h2>
+
+                <div style="background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">Basket Composition</h3>
+                    <table style="width: 100%; font-size: 0.875rem; color: var(--fg-muted);">
+                        <tr>
+                            <td style="padding: 0.5rem 0;"><strong>Token Volumes (60%)</strong></td>
+                            <td style="padding: 0.5rem 0;">Cross-provider token throughput from OpenRouter rankings</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.5rem 0;"><strong>Inferred Spend (30%)</strong></td>
+                            <td style="padding: 0.5rem 0;">Calculated as token volumes × blended pricing (70% input, 30% output)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.5rem 0;"><strong>Energy Proxy (10%)</strong></td>
+                            <td style="padding: 0.5rem 0;">Estimated from token volumes and tier-based efficiency factors</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">Index Calculation</h3>
+                    <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0.5rem 0;">Each component is normalized to its February 2025 baseline value (= 100), then weighted:</p>
+                    <code style="display: block; background: var(--bg); padding: 1rem; border-radius: 4px; margin-top: 1rem; font-family: monospace; font-size: 0.875rem;">
+                        AIU = 0.6 × token_index + 0.3 × spend_index + 0.1 × energy_index
+                    </code>
+                </div>
+
+                <div style="background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem;">
+                    <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">Data Sources</h3>
+                    <ul style="font-size: 0.875rem; color: var(--fg-muted); margin: 0.5rem 0; padding-left: 1.5rem;">
+                        <li>Token volumes: OpenRouter rankings (weekly aggregates)</li>
+                        <li>Pricing: OpenRouter API, LiteLLM, llm-prices.com, pricepertoken.com</li>
+                        <li>Energy: Tier-based efficiency factors (preliminary estimates)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Data Quality -->
+            <section aria-labelledby="quality-heading" style="margin: 3rem 0;">
+                <h2 id="quality-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Data Quality</h2>
+
+                <div style="background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--fg-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">Models Tracked</div>
+                            <div style="font-size: 1.5rem; font-weight: 600;" id="models-tracked">—</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--fg-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">Price Coverage</div>
+                            <div style="font-size: 1.5rem; font-weight: 600;" id="price-coverage">—</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--fg-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">Last Updated</div>
+                            <div style="font-size: 1.5rem; font-weight: 600;" id="last-updated">—</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Important Notes -->
+            <section aria-labelledby="notes-heading" style="margin: 3rem 0;">
+                <h2 id="notes-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Important Notes</h2>
+
+                <div style="background: var(--bg-subtle); border: 1px solid var(--border-warning, var(--border)); border-radius: 8px; padding: 1.5rem;">
+                    <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0 0 1rem 0;">
+                        <strong>Coverage Scope:</strong> The AEAI currently tracks activity visible through OpenRouter's public rankings. This represents a significant but incomplete view of global AI economic activity. Direct API usage, enterprise deployments, and closed-loop systems are not captured.
+                    </p>
+                    <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0 0 1rem 0;">
+                        <strong>Energy Estimation:</strong> Energy consumption estimates are derived from token volumes and tier-based efficiency factors. These are preliminary estimates pending integration of published datacenter energy data from IEA and hyperscaler sustainability reports.
+                    </p>
+                    <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0;">
+                        <strong>Baseline Period:</strong> February 2025 is set as the baseline (AIU = 100) to align with the Compute CPI baseline. This provides a common reference point for tracking both price deflation and activity growth.
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-links">
+                <a href="/about.html">About</a>
+                <a href="mailto:hello@occupant.ee">Contact</a>
+                <a href="/license.html">License</a>
+                <a href="/tardigrade.html">Tardigrade Disclosure</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        const savedTheme = localStorage.getItem('theme') ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        html.setAttribute('data-theme', savedTheme);
+        themeToggle.textContent = savedTheme === 'dark' ? 'Dark' : 'Light';
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? 'Dark' : 'Light';
+        });
+
+        // Load AEAI data
+        async function loadAEAIData() {
+            try {
+                const response = await fetch('/data/aeai/latest.json');
+                const data = await response.json();
+
+                // Update AIU index
+                document.getElementById('aiu-value').textContent = data.aiu_index.toFixed(2);
+
+                // Calculate change from baseline (100)
+                const changeFromBaseline = data.aiu_index - 100;
+                const changeText = changeFromBaseline >= 0 ?
+                    `+${changeFromBaseline.toFixed(1)}% from baseline` :
+                    `${changeFromBaseline.toFixed(1)}% from baseline`;
+                document.getElementById('aiu-change').textContent = changeText;
+
+                // Update activity levels
+                const tokensT = (data.activity.tokens_weekly / 1e12).toFixed(2);
+                document.getElementById('tokens-weekly').textContent = `${tokensT}T`;
+
+                const spendM = (data.activity.spend_usd_weekly / 1e6).toFixed(1);
+                document.getElementById('spend-weekly').textContent = `$${spendM}M`;
+
+                const energyGWh = data.activity.energy_gwh_weekly.toFixed(4);
+                document.getElementById('energy-weekly').textContent = `${energyGWh} GWh`;
+
+                // Update component indices
+                document.getElementById('token-index').textContent = data.components.token_index.toFixed(1);
+                document.getElementById('spend-index').textContent = data.components.spend_index.toFixed(1);
+                document.getElementById('energy-index').textContent = data.components.energy_index.toFixed(1);
+
+                // Update contributions
+                document.getElementById('token-contribution').textContent = `→ ${data.contribution.tokens.toFixed(1)} pts`;
+                document.getElementById('spend-contribution').textContent = `→ ${data.contribution.spend.toFixed(1)} pts`;
+                document.getElementById('energy-contribution').textContent = `→ ${data.contribution.energy.toFixed(1)} pts`;
+
+                // Update data quality
+                document.getElementById('models-tracked').textContent = data.data_quality.total_models;
+
+                const coverage = ((data.data_quality.price_matched / data.data_quality.total_models) * 100).toFixed(1);
+                document.getElementById('price-coverage').textContent = `${coverage}%`;
+
+                // Format last updated date
+                const lastUpdated = new Date(data.generated_at);
+                const dateStr = lastUpdated.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                document.getElementById('last-updated').textContent = dateStr;
+
+            } catch (error) {
+                console.error('Error loading AEAI data:', error);
+                document.getElementById('aiu-value').textContent = 'Error';
+                document.getElementById('aiu-change').textContent = 'Unable to load data';
+            }
+        }
+
+        // Load data on page load
+        loadAEAIData();
+    </script>
+</body>
+</html>

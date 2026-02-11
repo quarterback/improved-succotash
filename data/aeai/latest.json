@@ -1,0 +1,37 @@
+{
+  "date": "2026-02-11",
+  "generated_at": "2026-02-11T21:02:48.636557+00:00",
+  "aiu_index": 100.0,
+  "components": {
+    "token_index": 100.0,
+    "spend_index": 100.0,
+    "energy_index": 100.0
+  },
+  "weights": {
+    "tokens": 0.6,
+    "spend": 0.3,
+    "energy": 0.1
+  },
+  "contribution": {
+    "tokens": 60.0,
+    "spend": 30.0,
+    "energy": 10.0
+  },
+  "activity": {
+    "tokens_weekly": 13909678380565,
+    "spend_usd_weekly": 46629717.81,
+    "energy_gwh_weekly": 0.000591
+  },
+  "data_quality": {
+    "total_models": 64,
+    "price_matched": 26,
+    "price_estimated": 38,
+    "freshness": "2026-02-04T14:45:29.614141+00:00"
+  },
+  "methodology": {
+    "basket": "60% token volumes, 30% inferred spend, 10% energy proxy",
+    "baseline": "February 2025 = 100",
+    "spend_calculation": "tokens \u00d7 blended_price (70% input, 30% output)",
+    "energy_estimation": "Token volumes \u00d7 tier-based efficiency factors"
+  }
+}
