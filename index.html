@@ -124,9 +124,85 @@
                     </div>
                 </div>
             </section>
+        </main>
 
-            <!-- Build Cost Index -->
-            <section class="persona-cpis">
+        <footer>
+            <div class="footer-links">
+                <a href="/about.html">About</a>
+                <a href="mailto:hello@occupant.ee">Contact</a>
+            </div>
+
+            <p style="margin-top: 1rem; font-size: 0.625rem; color: var(--fg-dim);">2025-2026 Occupant Index</p>
+        </footer>
+    </div>
+
+    <script src="/theme.js"></script>
+    <script>
+        async function loadCPIData() {
+            try {
+                const response = await fetch('/data/compute-cpi.json');
+                const data = await response.json();
+
+                // Main CPI
+                const cpiValue = data.compute_cpi.value;
+                document.getElementById('cpi-value').textContent = cpiValue.toFixed(1);
+
+                // Hero insight - lead with the outcome
+                const yoyChange = data.compute_cpi.yoy_change;
+                const heroEl = document.getElementById('hero-insight');
+                if (yoyChange !== null) {
+                    if (yoyChange < 0) {
+                        heroEl.innerHTML = `AI compute costs are <span class="highlight">DOWN ${Math.abs(yoyChange).toFixed(0)}%</span> year-over-year.`;
+                    } else if (yoyChange > 0) {
+                        heroEl.innerHTML = `AI compute costs are <span class="highlight">UP ${yoyChange.toFixed(0)}%</span> year-over-year.`;
+                    } else {
+                        heroEl.innerHTML = `AI compute costs are <span class="highlight">FLAT</span> year-over-year.`;
+                    }
+                }
+
+                // Subindices (cost per 1M tokens) - reordered for clarity
+                if (data.subindices.budget) {
+                    document.getElementById('bulk-value').textContent = '$' + data.subindices.budget.value.toFixed(2);
+                }
+                if (data.subindices.frontier) {
+                    document.getElementById('front-value').textContent = '$' + data.subindices.frontier.value.toFixed(2);
+                }
+                if (data.subindices.judgment) {
+                    document.getElementById('judge-value').textContent = '$' + data.subindices.judgment.value.toFixed(2);
+                }
+                if (data.subindices.longctx) {
+                    document.getElementById('lctx-value').textContent = '$' + data.subindices.longctx.value.toFixed(2);
+                }
+
+                // Market insight - dynamic based on data
+                const insightEl = document.getElementById('market-insight-text');
+                const budget = data.subindices.budget?.value;
+                const frontier = data.subindices.frontier?.value;
+                const reasoning = data.subindices.judgment?.value;
+
+                if (budget && frontier && reasoning) {
+                    const spread = (frontier / budget).toFixed(0);
+                    let insight = `Basic tasks now cost $${budget.toFixed(2)} per million tokens. `;
+                    insight += `Frontier models run ${spread}x higher at $${frontier.toFixed(2)}. `;
+
+                    if (reasoning < frontier) {
+                        insight += `Reasoning models are surprisingly competitive at $${reasoning.toFixed(2)}.`;
+                    } else {
+                        insight += `Complex reasoning commands a premium at $${reasoning.toFixed(2)}.`;
+                    }
+
+                    insightEl.textContent = insight;
+                }
+
+            } catch (error) {
+                console.log('CPI data not yet available');
+            }
+        }
+
+        loadCPIData();
+    </script>
+</body>
+</html>
                 <div class="section-header">
                     <div class="section-title">Build Cost Index</div>
                     <div class="section-subtitle">What does YOUR workload cost?</div>
