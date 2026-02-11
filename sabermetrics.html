@@ -66,6 +66,7 @@
     <div class="container">
         <nav>
             <a href="/">Index</a>
+            <a href="/cpi-data.html">CPI Data</a>
             <a href="/sabermetrics.html" class="active">Market Intel</a>
             <a href="/calculator.html">Calculator</a>
             <a href="/gov.html">Gov Benchmarks</a>
@@ -185,7 +186,6 @@
 
         <footer>
             <div>Data from OpenRouter, Arena Leaderboard</div>
-            <div class="last-updated">Last updated: <span id="last-updated">-</span></div>
             <div style="margin-top: 1rem;">
                 <a href="/glossary.html">What do these metrics mean?</a>
             </div>
@@ -314,13 +314,6 @@
                     valueTable.appendChild(row);
                 }
 
-                // Last updated
-                if (data.generated_at) {
-                    const date = new Date(data.generated_at);
-                    const formatted = date.toISOString().split('T')[0] + ' ' +
-                                     date.toISOString().split('T')[1].split('.')[0] + ' UTC';
-                    document.getElementById('last-updated').textContent = formatted;
-                }
 
             } catch (error) {
                 console.log('Market data not available:', error);

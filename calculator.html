@@ -363,6 +363,7 @@
     <div class="container">
         <nav>
             <a href="/">Index</a>
+            <a href="/cpi-data.html">CPI Data</a>
             <a href="/sabermetrics.html">Market Intel</a>
             <a href="/calculator.html" class="active">Calculator</a>
             <a href="/gov.html">Gov Benchmarks</a>
@@ -549,9 +550,6 @@
                 <a href="/about.html">About</a>
                 <a href="mailto:hello@occupant.ee">Contact</a>
             </div>
-            <div class="last-updated">
-                Last updated: <span id="last-updated">-</span>
-            </div>
             <p style="margin-top: 1rem; font-size: 0.625rem; color: var(--fg-dim);">2025-2026 Occupant Index</p>
         </footer>
     </div>
@@ -732,9 +730,6 @@
                     if (data.subindices.judgment) tierPrices.reasoning.price = data.subindices.judgment.value;
                 }
 
-                if (data.meta && data.meta.generated_at) {
-                    document.getElementById('last-updated').textContent = new Date(data.meta.generated_at).toISOString().split('T')[0];
-                }
             } catch (e) {
                 console.log('Using default prices');
             }

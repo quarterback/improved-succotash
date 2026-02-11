@@ -240,6 +240,7 @@
     <div class="container">
         <nav>
             <a href="/">Index</a>
+            <a href="/cpi-data.html">CPI Data</a>
             <a href="/sabermetrics.html">Market Intel</a>
             <a href="/calculator.html">Calculator</a>
             <a href="/gov.html" class="active">Gov Benchmarks</a>
@@ -482,10 +483,9 @@
                 <a href="mailto:hello@occupant.ee?subject=Gov%20AI%20Benchmarks%20Inquiry" class="download-btn">Contact Us</a>
             </section>
 
-            <!-- Last Updated -->
+            <!-- Data Sources -->
             <section style="margin-top: 3rem; text-align: center;">
                 <p style="font-size: 0.75rem; color: var(--fg-dim);">
-                    Benchmark rates updated: <span id="last-updated">-</span><br>
                     Based on aggregated market data from OpenRouter, LiteLLM, and pricepertoken.com
                 </p>
             </section>
@@ -527,10 +527,6 @@
                 }
 
                 // Last updated
-                if (data.meta && data.meta.generated_at) {
-                    const updated = new Date(data.meta.generated_at);
-                    document.getElementById('last-updated').textContent = updated.toISOString().split('T')[0];
-                }
 
             } catch (error) {
                 console.log('CPI data not yet available');
