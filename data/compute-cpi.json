@@ -1,17 +1,273 @@
 {
   "meta": {
-    "generated_at": "2026-02-11T06:31:49.773452+00:00",
-    "baseline_date": "2026-02-04",
-    "data_source": "fallback",
-    "methodology_version": "1.0"
+    "generated_at": "2026-02-04T05:21:48.491033+00:00",
+    "baseline_date": "2025-02-01",
+    "launch_date": "2025-02-01",
+    "data_sources": [
+      "openrouter",
+      "litellm"
+    ],
+    "methodology_version": "2.0",
+    "models_count": 2023
   },
   "compute_cpi": {
     "ticker": "$CPI",
-    "value": 100.0,
+    "name": "Compute CPI",
+    "value": 87.2,
     "mom_change": null,
-    "yoy_change": null
+    "yoy_change": null,
+    "trend": "stable",
+    "basket_cost": 35.9199,
+    "basket_cost_unit": "$ per 1K standardized workloads"
   },
-  "subindices": {},
-  "spreads": {},
-  "note": "Live data unavailable. Set OPENROUTER_API_KEY for real prices."
+  "index_series": {
+    "launch": {
+      "ticker": "$CPI-L",
+      "name": "Since Launch",
+      "base_date": "2025-02-01",
+      "value": 87.2
+    },
+    "yoy": {
+      "ticker": "$CPI-Y",
+      "name": "Year-over-Year",
+      "base_date": "2025-02-04",
+      "value": 87.2
+    },
+    "qtd": {
+      "ticker": "$CPI-Q",
+      "name": "Quarter-to-Date",
+      "base_date": "2026-01-01",
+      "value": 119.2
+    }
+  },
+  "methodology_variants": {
+    "general": {
+      "ticker": "$CPI-GEN",
+      "name": "General Purpose",
+      "description": "Balanced workload mix for typical usage",
+      "value": 82.1,
+      "basket_cost": 0.03592
+    },
+    "frontier_heavy": {
+      "ticker": "$CPI-FRO",
+      "name": "Frontier Heavy",
+      "description": "Emphasis on highest-capability models",
+      "value": 87.1,
+      "basket_cost": 0.054728
+    },
+    "budget_heavy": {
+      "ticker": "$CPI-BUD",
+      "name": "Budget Optimized",
+      "description": "Cost-conscious workload mix",
+      "value": 78.1,
+      "basket_cost": 0.022669
+    },
+    "reasoning_focus": {
+      "ticker": "$CPI-REA",
+      "name": "Reasoning Focus",
+      "description": "Heavy emphasis on complex reasoning tasks",
+      "value": 81.4,
+      "basket_cost": 0.058596
+    },
+    "enterprise": {
+      "ticker": "$CPI-ENT",
+      "name": "Enterprise Mix",
+      "description": "Typical enterprise automation workloads",
+      "value": 80.9,
+      "basket_cost": 0.025848
+    }
+  },
+  "trend_analysis": {
+    "direction": "deflating",
+    "velocity": -2.29,
+    "velocity_unit": "points per month",
+    "acceleration": 4.2,
+    "forecast_30d": 84.9,
+    "confidence": "low"
+  },
+  "yield_curve": {
+    "curve": {
+      "1m": {
+        "days": 30,
+        "deflation_pct": 19.18,
+        "annualized_pct": 233.32,
+        "source_date": "2026-01-01"
+      },
+      "3m": {
+        "days": 90,
+        "deflation_pct": 16.62,
+        "annualized_pct": 67.42,
+        "source_date": "2025-11-01"
+      },
+      "6m": {
+        "days": 180,
+        "deflation_pct": 10.97,
+        "annualized_pct": 22.24,
+        "source_date": "2025-08-01"
+      },
+      "1y": {
+        "days": 365,
+        "deflation_pct": -12.78,
+        "annualized_pct": -12.78,
+        "source_date": "2025-02-01"
+      }
+    },
+    "interpretation": "Significant inflation - rapid increase in AI compute costs",
+    "generated_at": "2026-02-04T05:21:48.488295+00:00"
+  },
+  "subindices": {
+    "judgment": {
+      "ticker": "$JUDGE",
+      "name": "Reasoning Tier",
+      "value": 7.92,
+      "value_unit": "$/1M tokens",
+      "models_count": 5
+    },
+    "longctx": {
+      "ticker": "$LCTX",
+      "name": "Long Context Tier",
+      "value": 2.78,
+      "value_unit": "$/1M tokens",
+      "models_count": 5
+    },
+    "budget": {
+      "ticker": "$BULK",
+      "name": "Budget Tier",
+      "value": 0.61,
+      "value_unit": "$/1M tokens",
+      "models_count": 7
+    },
+    "frontier": {
+      "ticker": "$FRONT",
+      "name": "Frontier Tier",
+      "value": 10.04,
+      "value_unit": "$/1M tokens",
+      "models_count": 5
+    }
+  },
+  "spreads": {
+    "cognition_premium": {
+      "ticker": "$COG-P",
+      "name": "Cognition Premium",
+      "value": 9.43,
+      "unit": "$/1M tokens",
+      "description": "Premium for frontier capability over budget tier"
+    },
+    "judgment_premium": {
+      "ticker": "$JDG-P",
+      "name": "Judgment Premium",
+      "value": -2.12,
+      "unit": "$/1M tokens",
+      "description": "Premium for reasoning capability over frontier"
+    },
+    "context_premium": {
+      "ticker": "$CTX-P",
+      "name": "Context Premium",
+      "value": -7.26,
+      "unit": "$/1M tokens",
+      "description": "Premium for long context capability"
+    }
+  },
+  "exchange_rates": {
+    "base": {
+      "ticker": "$UTIL",
+      "model": "google/gemini-2.0-flash-001",
+      "name": "Utility Token (Gemini Flash)",
+      "blended_cost_per_token": 1.75e-07
+    },
+    "rates": {
+      "frontier": {
+        "ticker": "$FRONT",
+        "rate": 64,
+        "blended_cost": 1.11625e-05,
+        "display": "1 $FRONT = 64 $UTIL"
+      },
+      "reasoning": {
+        "ticker": "$REASON",
+        "rate": 43,
+        "blended_cost": 7.45e-06,
+        "display": "1 $REASON = 43 $UTIL"
+      },
+      "longctx": {
+        "ticker": "$LCTX",
+        "rate": 30,
+        "blended_cost": 5.197500000000001e-06,
+        "display": "1 $LCTX = 30 $UTIL"
+      },
+      "budget": {
+        "ticker": "$BULK",
+        "rate": 4,
+        "blended_cost": 6.744642857142857e-07,
+        "display": "1 $BULK = 4 $UTIL"
+      }
+    },
+    "generated_at": "2026-02-04T05:21:48.477659+00:00"
+  },
+  "persona_cpis": {
+    "startup": {
+      "ticker": "$START",
+      "name": "Startup Builder",
+      "description": "Building an AI-first product",
+      "cpi": 77.4,
+      "mom_change": 1.71,
+      "basket_cost": 0.039758,
+      "basket_cost_unit": "$ per standardized workload",
+      "insight": "23% cheaper to build",
+      "note": null
+    },
+    "agentic": {
+      "ticker": "$AGENT",
+      "name": "Agentic Team",
+      "description": "Running autonomous AI agents",
+      "cpi": 75.2,
+      "mom_change": -18.08,
+      "basket_cost": 0.055549,
+      "basket_cost_unit": "$ per standardized workload",
+      "insight": "25% cheaper to run agents",
+      "note": null
+    },
+    "throughput": {
+      "ticker": "$THRU",
+      "name": "Throughput",
+      "description": "High-volume processing at scale",
+      "cpi": 72.7,
+      "mom_change": 16.51,
+      "basket_cost": 0.023715,
+      "basket_cost_unit": "$ per standardized workload",
+      "insight": "27% cheaper at scale",
+      "note": null
+    }
+  },
+  "basket_detail": {
+    "chat_drafting": {
+      "cost": 10.38,
+      "weight": 0.2,
+      "cost_unit": "$ per 1K workloads"
+    },
+    "summarization": {
+      "cost": 29.58,
+      "weight": 0.25,
+      "cost_unit": "$ per 1K workloads"
+    },
+    "classification": {
+      "cost": 0.2571,
+      "weight": 0.2,
+      "cost_unit": "$ per 1K workloads"
+    },
+    "coding": {
+      "cost": 44.65,
+      "weight": 0.15,
+      "cost_unit": "$ per 1K workloads"
+    },
+    "judgment": {
+      "cost": 55.42,
+      "weight": 0.1,
+      "cost_unit": "$ per 1K workloads"
+    },
+    "long_context": {
+      "cost": 141.58,
+      "weight": 0.1,
+      "cost_unit": "$ per 1K workloads"
+    }
+  }
 }
