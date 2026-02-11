@@ -46,6 +46,12 @@
     box-sizing: border-box;
 }
 
+/* Focus Visible for Modern Browsers */
+*:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
 body {
     font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Consolas', monospace;
     background: var(--bg);
@@ -77,10 +83,20 @@ nav a {
     text-decoration: none;
     font-size: 0.875rem;
     transition: color 0.2s ease;
+    padding: 0.5rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    margin: -0.5rem;
 }
 
 nav a:hover, nav a.active {
     color: var(--accent);
+}
+
+nav a:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
 }
 
 .nav-right {
@@ -95,17 +111,52 @@ nav a:hover, nav a.active {
     background: var(--bg-card);
     border: 1px solid var(--border);
     color: var(--fg-dim);
-    padding: 0.4rem 0.8rem;
+    padding: 0.6rem 1rem;
     border-radius: 4px;
     cursor: pointer;
     font-family: inherit;
     font-size: 0.75rem;
     transition: all 0.2s ease;
+    min-height: 44px;
+    min-width: 44px;
 }
 
 .theme-toggle:hover {
     color: var(--accent);
     border-color: var(--accent);
+}
+
+.theme-toggle:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+    font-size: 0.75rem;
+    color: var(--fg-dim);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.breadcrumb a {
+    color: var(--fg-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--accent);
+}
+
+.breadcrumb-separator {
+    margin: 0 0.5rem;
+    color: var(--fg-dim);
+}
+
+.breadcrumb-current {
+    color: var(--fg);
 }
 
 /* Header */
@@ -122,6 +173,195 @@ header {
     text-transform: uppercase;
     color: var(--fg-dim);
     margin-bottom: 0.5rem;
+}
+
+/* Homepage Hero (syncretic design) */
+.hero {
+    margin-bottom: 4rem;
+}
+
+.hero-headline {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    color: var(--fg);
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: var(--fg-muted);
+    line-height: 1.6;
+    max-width: 60ch;
+    margin-bottom: 2rem;
+}
+
+/* Live Index Display */
+.live-index {
+    background: var(--fg);
+    color: var(--bg);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.live-index-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+}
+
+.live-index-value {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.live-index-change {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.live-index-cta {
+    background: var(--bg);
+    color: var(--fg);
+    padding: 0.875rem 1.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    border: none;
+    transition: opacity 0.2s ease;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.live-index-cta:hover {
+    opacity: 0.85;
+    text-decoration: none;
+}
+
+.live-index-cta:focus {
+    outline: 2px solid var(--bg);
+    outline-offset: 2px;
+}
+
+/* Service Cards (What We Do section) */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 2rem;
+}
+
+.service-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--fg);
+}
+
+.service-card p {
+    font-size: 0.9rem;
+    color: var(--fg-muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.service-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.service-card li {
+    font-size: 0.875rem;
+    color: var(--fg-dim);
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.service-card li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+.service-link {
+    font-size: 0.875rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.service-link:hover {
+    text-decoration: underline;
+}
+
+/* Contact/CTA Section */
+.contact-section {
+    background: var(--accent-glow);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--fg);
+    text-transform: none;
+    letter-spacing: -0.01em;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.contact-section p {
+    font-size: 0.95rem;
+    color: var(--fg-muted);
+    max-width: 50ch;
+    margin: 0 auto 1.5rem;
+}
+
+.contact-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
+    background: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: opacity 0.2s ease;
+    min-height: 44px;
+}
+
+.contact-cta:hover {
+    opacity: 0.85;
+    text-decoration: none;
+}
+
+.contact-cta:focus {
+    outline: 2px solid var(--fg);
+    outline-offset: 2px;
 }
 
 /* Index Page Specific Styles */
@@ -224,16 +464,23 @@ header {
     flex-wrap: wrap;
 }
 .cta-btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
     background: var(--accent);
     color: var(--bg);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.875rem;
+    min-height: 44px;
 }
 .cta-btn:hover {
     opacity: 0.9;
+}
+.cta-btn:focus {
+    outline: 2px solid var(--fg);
+    outline-offset: 2px;
 }
 .cta-btn.secondary {
     background: transparent;
@@ -242,6 +489,10 @@ header {
 }
 .cta-btn.secondary:hover {
     border-color: var(--accent);
+}
+.cta-btn.secondary:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
 }
 
 .tagline {
@@ -353,10 +604,20 @@ h2 {
     margin-bottom: 2rem;
 }
 
+@media (min-width: 768px) {
+    .subindices {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 .subindex {
     background: var(--bg-card);
     border: 1px solid var(--border);
     padding: 1.25rem;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .subindex-ticker {
@@ -381,6 +642,12 @@ h2 {
     font-size: 0.625rem;
     color: var(--fg-muted);
     margin-top: 0.25rem;
+}
+
+.subindex-change {
+    font-size: 0.625rem;
+    margin-top: 0.25rem;
+    font-weight: 600;
 }
 
 /* Basket Detail */
@@ -1115,6 +1382,44 @@ li {
         font-size: 1.25rem;
     }
 
+    /* Syncretic Hero */
+    .hero-headline {
+        font-size: 1.75rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .live-index {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.25rem 1.5rem;
+    }
+
+    .live-index-value {
+        font-size: 2rem;
+    }
+
+    .live-index-cta {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Services Grid */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .contact-section {
+        padding: 1.5rem;
+    }
+
     /* CPI Hero */
     .cpi-main {
         padding: 1.5rem;
@@ -1238,6 +1543,23 @@ li {
 
     .tagline {
         font-size: 1rem;
+    }
+
+    /* Hero even smaller */
+    .hero-headline {
+        font-size: 1.5rem;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .live-index {
+        padding: 1rem 1.25rem;
+    }
+
+    .live-index-value {
+        font-size: 1.75rem;
     }
 
     /* CPI even smaller */
