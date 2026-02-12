@@ -10,7 +10,7 @@ Basket composition:
 - Inferred spend (30% weight): Token volumes × current pricing
 - Energy proxy (10% weight): Estimated from token volumes and model efficiency
 
-Base period: February 2025 = 100
+Base period: January 2025 = 100
 """
 
 import json
@@ -248,7 +248,7 @@ def calculate_energy_proxy(rankings: Dict, tiers_data: Dict) -> Dict[str, Any]:
 
 
 def load_aeai_baseline() -> Optional[Dict[str, Any]]:
-    """Load the immutable AEAI baseline (February 2025 = 100)."""
+    """Load the immutable AEAI baseline (January 2025 = 100)."""
     baseline_path = AEAI_DIR / "baseline.json"
 
     if not baseline_path.exists():
@@ -262,7 +262,7 @@ def set_aeai_baseline(tokens: float, spend: float, energy: float) -> Dict[str, A
     """
     Set the immutable baseline for AEAI calculation.
 
-    This should only be called once with February 2025 data.
+    This should only be called once with January 2025 data.
     """
     baseline_path = AEAI_DIR / "baseline.json"
 
@@ -271,7 +271,7 @@ def set_aeai_baseline(tokens: float, spend: float, energy: float) -> Dict[str, A
         return load_aeai_baseline()
 
     baseline = {
-        "baseline_date": "2025-02-01",
+        "baseline_date": "2025-01-01",
         "baseline_set_at": datetime.now(timezone.utc).isoformat(),
         "components": {
             "tokens_weekly": tokens,
@@ -279,7 +279,7 @@ def set_aeai_baseline(tokens: float, spend: float, energy: float) -> Dict[str, A
             "energy_gwh_weekly": energy
         },
         "aiu_index": 100.0,
-        "note": "This baseline is immutable and represents February 2025 AI economic activity levels."
+        "note": "This baseline is immutable and represents January 2025 AI economic activity levels."
     }
 
     with open(baseline_path, "w") as f:
@@ -298,7 +298,7 @@ def calculate_aeai(
     """
     Calculate the AI Economic Activity Index (AIU).
 
-    Each component is normalized to its baseline value (Feb 2025 = 100),
+    Each component is normalized to its baseline value (Jan 2025 = 100),
     then weighted: 60% tokens, 30% spend, 10% energy.
     """
     baseline_components = baseline["components"]
@@ -436,7 +436,7 @@ def main():
     baseline = load_aeai_baseline()
 
     if baseline is None:
-        print("[5/6] No baseline found. Setting current data as baseline (Feb 2025 = 100)")
+        print("[5/6] No baseline found. Setting current data as baseline (Jan 2025 = 100)")
         baseline = set_aeai_baseline(total_tokens, total_spend, total_energy)
     else:
         print(f"[5/6] Using baseline from {baseline['baseline_date']}")
@@ -470,7 +470,7 @@ def main():
         },
         "methodology": {
             "basket": "60% token volumes, 30% inferred spend, 10% energy proxy",
-            "baseline": "February 2025 = 100",
+            "baseline": "January 2025 = 100",
             "spend_calculation": "tokens × blended_price (70% input, 30% output)",
             "energy_estimation": "Token volumes × tier-based efficiency factors"
         }
@@ -484,7 +484,7 @@ def main():
     print("\n" + "=" * 70)
     print("  AEAI SUMMARY")
     print("=" * 70)
-    print(f"\nAIU Index: {aiu_index:.2f} (Baseline Feb 2025 = 100)")
+    print(f"\nAIU Index: {aiu_index:.2f} (Baseline Jan 2025 = 100)")
     print(f"\nComponent Indices:")
     print(f"  Token Volume:  {aeai_result['components']['token_index']:6.2f} (60% weight → {aeai_result['contribution']['tokens']:5.2f})")
     print(f"  Spend:         {aeai_result['components']['spend_index']:6.2f} (30% weight → {aeai_result['contribution']['spend']:5.2f})")

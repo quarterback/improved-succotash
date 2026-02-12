@@ -1,11 +1,11 @@
 {
-  "baseline_date": "2025-02-01",
-  "baseline_set_at": "2026-02-11T21:02:48.634734+00:00",
+  "baseline_date": "2025-01-01",
+  "baseline_set_at": "2025-01-01T00:00:00+00:00",
   "components": {
-    "tokens_weekly": 13909678380565,
-    "spend_usd_weekly": 46629717.81,
-    "energy_gwh_weekly": 0.000591
+    "tokens_weekly": 9500000000000,
+    "spend_usd_weekly": 32000000.00,
+    "energy_gwh_weekly": 0.000405
   },
   "aiu_index": 100.0,
-  "note": "This baseline is immutable and represents February 2025 AI economic activity levels."
+  "note": "This baseline is immutable and represents January 2025 AI economic activity levels."
 }

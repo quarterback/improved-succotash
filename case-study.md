@@ -24,7 +24,7 @@ Tracks **price deflation** across AI model tiers. Like CPI for consumer goods, b
 - **$JUDGE**: Reasoning-intensive workloads - o1/o3/R1 class models
 - **$LCTX**: Long-context workloads - 128K+ context models
 
-Updated daily from 2,300+ models. Volume-weighted baskets. February 2025 = 100 baseline.
+Updated daily from 2,300+ models. Volume-weighted baskets. January 2025 = 100 baseline.
 
 **Use case:** "Should we lock in rates now or wait 90 days? What's the deflation trajectory?"
 
@@ -61,7 +61,7 @@ Price discrepancies exceeding 10% trigger manual review before publication.
 ### Methodology
 **Compute CPI**: Volume-weighted baskets by tier. Models weighted by actual usage (OpenRouter volume data), not arbitrary "popularity" scores.
 
-**AEAI**: Composite index using principal component analysis on three data streams. Normalized to 100 at February 2025 baseline.
+**AEAI**: Composite index using principal component analysis on three data streams. Normalized to 100 at January 2025 baseline.
 
 **Build Cost Indices** ($START, $AGENT, $THRU): Fixed workload mixes applied to current tier prices. Track costs relevant to specific use patterns.
 

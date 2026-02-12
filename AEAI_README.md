@@ -5,7 +5,7 @@
 The **AI Economic Activity Index (AEAI)** measures global AI economic activity through a synthetic unit called the **AIU** (AI Unit), modeled on the IMF's Special Drawing Rights (SDR). Unlike the Compute CPI which tracks price deflation, the AEAI tracks actual economic activity volume in the AI sector.
 
 **Key Characteristics:**
-- **Base Period**: February 2025 = 100
+- **Base Period**: January 2025 = 100
 - **Update Frequency**: Daily (automated via GitHub Actions)
 - **Basket Composition**: 60% token volumes, 30% inferred spend, 10% energy proxy
 
@@ -23,7 +23,7 @@ The AIU is a weighted composite of three activity indicators:
 
 ### Calculation Formula
 
-Each component is normalized to its February 2025 baseline value (= 100), then weighted:
+Each component is normalized to its January 2025 baseline value (= 100), then weighted:
 
 ```
 AIU = 0.6 × token_index + 0.3 × spend_index + 0.1 × energy_index
@@ -153,7 +153,7 @@ data/aeai/
   },
   "methodology": {
     "basket": "60% token volumes, 30% inferred spend, 10% energy proxy",
-    "baseline": "February 2025 = 100",
+    "baseline": "January 2025 = 100",
     "spend_calculation": "tokens × blended_price (70% input, 30% output)",
     "energy_estimation": "Token volumes × tier-based efficiency factors"
   }
@@ -260,7 +260,7 @@ The AEAI calculator runs automatically via GitHub Actions:
 The AIU is a **volume index**, not a price index:
 - **Rising AIU**: Increasing AI economic activity (more tokens, higher spend, more energy)
 - **Falling AIU**: Decreasing AI economic activity
-- **AIU = 100**: Activity level matches February 2025 baseline
+- **AIU = 100**: Activity level matches January 2025 baseline
 
 ### Relationship to Compute CPI
 
@@ -368,7 +368,7 @@ Full source code and calculation logic available in:
 ## FAQ
 
 **Q: Why is the AIU index at 100.0?**
-A: The current data is being used as the February 2025 baseline. Once historical data is available, the index will fluctuate based on activity changes.
+A: The current data is being used as the January 2025 baseline. Once historical data is available, the index will fluctuate based on activity changes.
 
 **Q: Why is energy consumption so low (0.0006 GWh/week)?**
 A: This represents only OpenRouter traffic, which is a small fraction of global AI inference. The energy factors are also conservative estimates. Real global AI energy consumption is orders of magnitude higher.
