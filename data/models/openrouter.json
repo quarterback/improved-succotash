@@ -1,16 +1,51 @@
 {
-  "fetched_at": "2026-02-04T15:09:06.983036+00:00",
+  "fetched_at": "2026-02-14T14:17:51.159846+00:00",
   "models": {
+    "minimax/minimax-m2.5": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 204800,
+      "source": "openrouter",
+      "name": "MiniMax: MiniMax M2.5"
+    },
+    "z-ai/glm-5": {
+      "input_cost_per_token": 8e-07,
+      "output_cost_per_token": 2.56e-06,
+      "context_length": 202752,
+      "source": "openrouter",
+      "name": "Z.ai: GLM 5"
+    },
+    "qwen/qwen3-max-thinking": {
+      "input_cost_per_token": 1.2e-06,
+      "output_cost_per_token": 6e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 Max Thinking"
+    },
+    "anthropic/claude-opus-4.6": {
+      "input_cost_per_token": 5e-06,
+      "output_cost_per_token": 2.5e-05,
+      "context_length": 1000000,
+      "source": "openrouter",
+      "name": "Anthropic: Claude Opus 4.6"
+    },
     "qwen/qwen3-coder-next": {
-      "input_cost_per_token": 2e-07,
-      "output_cost_per_token": 1.5e-06,
+      "input_cost_per_token": 7e-08,
+      "output_cost_per_token": 3e-07,
       "context_length": 262144,
       "source": "openrouter",
       "name": "Qwen: Qwen3 Coder Next"
     },
+    "stepfun/step-3.5-flash": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 3e-07,
+      "context_length": 256000,
+      "source": "openrouter",
+      "name": "StepFun: Step 3.5 Flash"
+    },
     "moonshotai/kimi-k2.5": {
       "input_cost_per_token": 4.5e-07,
-      "output_cost_per_token": 2.5e-06,
+      "output_cost_per_token": 2.25e-06,
       "context_length": 262144,
       "source": "openrouter",
       "name": "MoonshotAI: Kimi K2.5"
@@ -44,11 +79,11 @@
       "name": "OpenAI: GPT Audio Mini"
     },
     "z-ai/glm-4.7-flash": {
-      "input_cost_per_token": 7e-08,
+      "input_cost_per_token": 6e-08,
       "output_cost_per_token": 4e-07,
-      "context_length": 200000,
+      "context_length": 202752,
       "source": "openrouter",
-      "name": "Z.AI: GLM 4.7 Flash"
+      "name": "Z.ai: GLM 4.7 Flash"
     },
     "openai/gpt-5.2-codex": {
       "input_cost_per_token": 1.75e-06,
@@ -56,6 +91,13 @@
       "context_length": 400000,
       "source": "openrouter",
       "name": "OpenAI: GPT-5.2-Codex"
+    },
+    "allenai/molmo-2-8b": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 2e-07,
+      "context_length": 36864,
+      "source": "openrouter",
+      "name": "AllenAI: Molmo2 8B"
     },
     "allenai/olmo-3.1-32b-instruct": {
       "input_cost_per_token": 2e-07,
@@ -80,7 +122,7 @@
     },
     "minimax/minimax-m2.1": {
       "input_cost_per_token": 2.7e-07,
-      "output_cost_per_token": 1.1e-06,
+      "output_cost_per_token": 9.5e-07,
       "context_length": 196608,
       "source": "openrouter",
       "name": "MiniMax: MiniMax M2.1"
@@ -90,7 +132,7 @@
       "output_cost_per_token": 1.5e-06,
       "context_length": 202752,
       "source": "openrouter",
-      "name": "Z.AI: GLM 4.7"
+      "name": "Z.ai: GLM 4.7"
     },
     "google/gemini-3-flash-preview": {
       "input_cost_per_token": 5e-07,
@@ -167,7 +209,7 @@
       "output_cost_per_token": 9e-07,
       "context_length": 131072,
       "source": "openrouter",
-      "name": "Z.AI: GLM 4.6V"
+      "name": "Z.ai: GLM 4.6V"
     },
     "nex-agi/deepseek-v3.1-nex-n1": {
       "input_cost_per_token": 2.7e-07,
@@ -401,9 +443,9 @@
       "name": "MiniMax: MiniMax M2"
     },
     "qwen/qwen3-vl-32b-instruct": {
-      "input_cost_per_token": 5e-07,
-      "output_cost_per_token": 1.5e-06,
-      "context_length": 262144,
+      "input_cost_per_token": 1.04e-07,
+      "output_cost_per_token": 4.16e-07,
+      "context_length": 131072,
       "source": "openrouter",
       "name": "Qwen: Qwen3 VL 32B Instruct"
     },
@@ -428,13 +470,6 @@
       "source": "openrouter",
       "name": "IBM: Granite 4.0 Micro"
     },
-    "deepcogito/cogito-v2-preview-llama-405b": {
-      "input_cost_per_token": 3.5e-06,
-      "output_cost_per_token": 3.5e-06,
-      "context_length": 32768,
-      "source": "openrouter",
-      "name": "Deep Cogito: Cogito V2 Preview Llama 405B"
-    },
     "openai/gpt-5-image-mini": {
       "input_cost_per_token": 2.5e-06,
       "output_cost_per_token": 2e-06,
@@ -450,9 +485,9 @@
       "name": "Anthropic: Claude Haiku 4.5"
     },
     "qwen/qwen3-vl-8b-thinking": {
-      "input_cost_per_token": 1.8e-07,
-      "output_cost_per_token": 2.1e-06,
-      "context_length": 256000,
+      "input_cost_per_token": 1.17e-07,
+      "output_cost_per_token": 1.365e-06,
+      "context_length": 131072,
       "source": "openrouter",
       "name": "Qwen: Qwen3 VL 8B Thinking"
     },
@@ -505,17 +540,10 @@
       "source": "openrouter",
       "name": "Google: Gemini 2.5 Flash Image (Nano Banana)"
     },
-    "qwen/qwen3-vl-30b-a3b-thinking": {
-      "input_cost_per_token": 2e-07,
-      "output_cost_per_token": 1e-06,
-      "context_length": 131072,
-      "source": "openrouter",
-      "name": "Qwen: Qwen3 VL 30B A3B Thinking"
-    },
     "qwen/qwen3-vl-30b-a3b-instruct": {
-      "input_cost_per_token": 1.5e-07,
-      "output_cost_per_token": 6e-07,
-      "context_length": 262144,
+      "input_cost_per_token": 1.3e-07,
+      "output_cost_per_token": 5.2e-07,
+      "context_length": 131072,
       "source": "openrouter",
       "name": "Qwen: Qwen3 VL 30B A3B Instruct"
     },
@@ -531,14 +559,14 @@
       "output_cost_per_token": 1.5e-06,
       "context_length": 202752,
       "source": "openrouter",
-      "name": "Z.AI: GLM 4.6"
+      "name": "Z.ai: GLM 4.6"
     },
     "z-ai/glm-4.6:exacto": {
       "input_cost_per_token": 4.4e-07,
       "output_cost_per_token": 1.76e-06,
       "context_length": 204800,
       "source": "openrouter",
-      "name": "Z.AI: GLM 4.6 (exacto)"
+      "name": "Z.ai: GLM 4.6 (exacto)"
     },
     "anthropic/claude-sonnet-4.5": {
       "input_cost_per_token": 3e-06,
@@ -582,16 +610,9 @@
       "source": "openrouter",
       "name": "Google: Gemini 2.5 Flash Lite Preview 09-2025"
     },
-    "qwen/qwen3-vl-235b-a22b-thinking": {
-      "input_cost_per_token": 4.5e-07,
-      "output_cost_per_token": 3.5e-06,
-      "context_length": 262144,
-      "source": "openrouter",
-      "name": "Qwen: Qwen3 VL 235B A22B Thinking"
-    },
     "qwen/qwen3-vl-235b-a22b-instruct": {
       "input_cost_per_token": 2e-07,
-      "output_cost_per_token": 1.2e-06,
+      "output_cost_per_token": 8.8e-07,
       "context_length": 262144,
       "source": "openrouter",
       "name": "Qwen: Qwen3 VL 235B A22B Instruct"
@@ -599,14 +620,14 @@
     "qwen/qwen3-max": {
       "input_cost_per_token": 1.2e-06,
       "output_cost_per_token": 6e-06,
-      "context_length": 256000,
+      "context_length": 262144,
       "source": "openrouter",
       "name": "Qwen: Qwen3 Max"
     },
     "qwen/qwen3-coder-plus": {
       "input_cost_per_token": 1e-06,
       "output_cost_per_token": 5e-06,
-      "context_length": 128000,
+      "context_length": 1000000,
       "source": "openrouter",
       "name": "Qwen: Qwen3 Coder Plus"
     },
@@ -640,7 +661,7 @@
     },
     "alibaba/tongyi-deepresearch-30b-a3b": {
       "input_cost_per_token": 9e-08,
-      "output_cost_per_token": 4e-07,
+      "output_cost_per_token": 4.5e-07,
       "context_length": 131072,
       "source": "openrouter",
       "name": "Tongyi DeepResearch 30B A3B"
@@ -648,13 +669,13 @@
     "qwen/qwen3-coder-flash": {
       "input_cost_per_token": 3e-07,
       "output_cost_per_token": 1.5e-06,
-      "context_length": 128000,
+      "context_length": 1000000,
       "source": "openrouter",
       "name": "Qwen: Qwen3 Coder Flash"
     },
     "opengvlab/internvl3-78b": {
-      "input_cost_per_token": 1e-07,
-      "output_cost_per_token": 3.9e-07,
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 6e-07,
       "context_length": 32768,
       "source": "openrouter",
       "name": "OpenGVLab: InternVL3 78B"
@@ -689,7 +710,7 @@
     },
     "qwen/qwen-plus-2025-07-28:thinking": {
       "input_cost_per_token": 4e-07,
-      "output_cost_per_token": 4e-06,
+      "output_cost_per_token": 1.2e-06,
       "context_length": 1000000,
       "source": "openrouter",
       "name": "Qwen: Qwen Plus 0728 (thinking)"
@@ -714,27 +735,6 @@
       "context_length": 262144,
       "source": "openrouter",
       "name": "MoonshotAI: Kimi K2 0905 (exacto)"
-    },
-    "deepcogito/cogito-v2-preview-llama-70b": {
-      "input_cost_per_token": 8.8e-07,
-      "output_cost_per_token": 8.8e-07,
-      "context_length": 32768,
-      "source": "openrouter",
-      "name": "Deep Cogito: Cogito V2 Preview Llama 70B"
-    },
-    "deepcogito/cogito-v2-preview-llama-109b-moe": {
-      "input_cost_per_token": 1.8e-07,
-      "output_cost_per_token": 5.9e-07,
-      "context_length": 32767,
-      "source": "openrouter",
-      "name": "Cogito V2 Preview Llama 109B"
-    },
-    "stepfun-ai/step3": {
-      "input_cost_per_token": 5.7e-07,
-      "output_cost_per_token": 1.42e-06,
-      "context_length": 65536,
-      "source": "openrouter",
-      "name": "StepFun: Step3"
     },
     "qwen/qwen3-30b-a3b-thinking-2507": {
       "input_cost_per_token": 5.1e-08,
@@ -804,14 +804,7 @@
       "output_cost_per_token": 1.8e-06,
       "context_length": 65536,
       "source": "openrouter",
-      "name": "Z.AI: GLM 4.5V"
-    },
-    "ai21/jamba-mini-1.7": {
-      "input_cost_per_token": 2e-07,
-      "output_cost_per_token": 4e-07,
-      "context_length": 256000,
-      "source": "openrouter",
-      "name": "AI21: Jamba Mini 1.7"
+      "name": "Z.ai: GLM 4.5V"
     },
     "ai21/jamba-large-1.7": {
       "input_cost_per_token": 2e-06,
@@ -863,8 +856,8 @@
       "name": "OpenAI: gpt-oss-120b (exacto)"
     },
     "openai/gpt-oss-20b": {
-      "input_cost_per_token": 2e-08,
-      "output_cost_per_token": 1e-07,
+      "input_cost_per_token": 3e-08,
+      "output_cost_per_token": 1.4e-07,
       "context_length": 131072,
       "source": "openrouter",
       "name": "OpenAI: gpt-oss-20b"
@@ -902,32 +895,25 @@
       "output_cost_per_token": 1.55e-06,
       "context_length": 131072,
       "source": "openrouter",
-      "name": "Z.AI: GLM 4.5"
+      "name": "Z.ai: GLM 4.5"
     },
     "z-ai/glm-4.5-air": {
-      "input_cost_per_token": 5e-08,
-      "output_cost_per_token": 2.2e-07,
+      "input_cost_per_token": 1.3e-07,
+      "output_cost_per_token": 8.5e-07,
       "context_length": 131072,
       "source": "openrouter",
-      "name": "Z.AI: GLM 4.5 Air"
-    },
-    "qwen/qwen3-235b-a22b-thinking-2507": {
-      "input_cost_per_token": 1.1e-07,
-      "output_cost_per_token": 6e-07,
-      "context_length": 262144,
-      "source": "openrouter",
-      "name": "Qwen: Qwen3 235B A22B Thinking 2507"
+      "name": "Z.ai: GLM 4.5 Air"
     },
     "z-ai/glm-4-32b": {
       "input_cost_per_token": 1e-07,
       "output_cost_per_token": 1e-07,
       "context_length": 128000,
       "source": "openrouter",
-      "name": "Z.AI: GLM 4 32B "
+      "name": "Z.ai: GLM 4 32B "
     },
     "qwen/qwen3-coder": {
       "input_cost_per_token": 2.2e-07,
-      "output_cost_per_token": 9.5e-07,
+      "output_cost_per_token": 1e-06,
       "context_length": 262144,
       "source": "openrouter",
       "name": "Qwen: Qwen3 Coder 480B A35B"
@@ -955,7 +941,7 @@
     },
     "qwen/qwen3-235b-a22b-2507": {
       "input_cost_per_token": 7.1e-08,
-      "output_cost_per_token": 4.63e-07,
+      "output_cost_per_token": 1e-07,
       "context_length": 262144,
       "source": "openrouter",
       "name": "Qwen: Qwen3 235B A22B Instruct 2507"
@@ -1072,13 +1058,6 @@
       "source": "openrouter",
       "name": "Google: Gemini 2.5 Pro"
     },
-    "moonshotai/kimi-dev-72b": {
-      "input_cost_per_token": 2.9e-07,
-      "output_cost_per_token": 1.15e-06,
-      "context_length": 131072,
-      "source": "openrouter",
-      "name": "MoonshotAI: Kimi Dev 72B"
-    },
     "openai/o3-pro": {
       "input_cost_per_token": 2e-05,
       "output_cost_per_token": 8e-05,
@@ -1191,6 +1170,13 @@
       "source": "openrouter",
       "name": "Inception: Mercury Coder"
     },
+    "qwen/qwen3-4b": {
+      "input_cost_per_token": 7.15e-08,
+      "output_cost_per_token": 2.73e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3 4B"
+    },
     "meta-llama/llama-guard-4-12b": {
       "input_cost_per_token": 1.8e-07,
       "output_cost_per_token": 1.8e-07,
@@ -1227,8 +1213,8 @@
       "name": "Qwen: Qwen3 32B"
     },
     "qwen/qwen3-235b-a22b": {
-      "input_cost_per_token": 2e-07,
-      "output_cost_per_token": 6e-07,
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 1.2e-06,
       "context_length": 40960,
       "source": "openrouter",
       "name": "Qwen: Qwen3 235B A22B"
@@ -1411,7 +1397,7 @@
     "google/gemma-3-27b-it": {
       "input_cost_per_token": 4e-08,
       "output_cost_per_token": 1.5e-07,
-      "context_length": 96000,
+      "context_length": 128000,
       "source": "openrouter",
       "name": "Google: Gemma 3 27B"
     },
@@ -1502,7 +1488,7 @@
     "qwen/qwen-vl-plus": {
       "input_cost_per_token": 2.1e-07,
       "output_cost_per_token": 6.3e-07,
-      "context_length": 7500,
+      "context_length": 131072,
       "source": "openrouter",
       "name": "Qwen: Qwen VL Plus"
     },
@@ -1537,7 +1523,7 @@
     "qwen/qwen-turbo": {
       "input_cost_per_token": 5e-08,
       "output_cost_per_token": 2e-07,
-      "context_length": 1000000,
+      "context_length": 131072,
       "source": "openrouter",
       "name": "Qwen: Qwen-Turbo"
     },
@@ -1551,7 +1537,7 @@
     "qwen/qwen-plus": {
       "input_cost_per_token": 4e-07,
       "output_cost_per_token": 1.2e-06,
-      "context_length": 131072,
+      "context_length": 1000000,
       "source": "openrouter",
       "name": "Qwen: Qwen-Plus"
     },
@@ -1570,8 +1556,8 @@
       "name": "OpenAI: o3 Mini"
     },
     "mistralai/mistral-small-24b-instruct-2501": {
-      "input_cost_per_token": 3e-08,
-      "output_cost_per_token": 1.1e-07,
+      "input_cost_per_token": 5e-08,
+      "output_cost_per_token": 8e-08,
       "context_length": 32768,
       "source": "openrouter",
       "name": "Mistral: Mistral Small 3"
@@ -1751,20 +1737,6 @@
       "source": "openrouter",
       "name": "Anthropic: Claude 3.5 Sonnet"
     },
-    "mistralai/ministral-8b": {
-      "input_cost_per_token": 1e-07,
-      "output_cost_per_token": 1e-07,
-      "context_length": 131072,
-      "source": "openrouter",
-      "name": "Mistral: Ministral 8B"
-    },
-    "mistralai/ministral-3b": {
-      "input_cost_per_token": 4e-08,
-      "output_cost_per_token": 4e-08,
-      "context_length": 131072,
-      "source": "openrouter",
-      "name": "Mistral: Ministral 3B"
-    },
     "qwen/qwen-2.5-7b-instruct": {
       "input_cost_per_token": 4e-08,
       "output_cost_per_token": 1e-07,
@@ -1834,13 +1806,6 @@
       "context_length": 32768,
       "source": "openrouter",
       "name": "NeverSleep: Lumimaid v0.2 8B"
-    },
-    "mistralai/pixtral-12b": {
-      "input_cost_per_token": 1e-07,
-      "output_cost_per_token": 1e-07,
-      "context_length": 32768,
-      "source": "openrouter",
-      "name": "Mistral: Pixtral 12B"
     },
     "cohere/command-r-08-2024": {
       "input_cost_per_token": 1.5e-07,
@@ -1920,9 +1885,9 @@
       "name": "Meta: Llama 3.1 8B Instruct"
     },
     "meta-llama/llama-3.1-405b-instruct": {
-      "input_cost_per_token": 3.5e-06,
-      "output_cost_per_token": 3.5e-06,
-      "context_length": 10000,
+      "input_cost_per_token": 4e-06,
+      "output_cost_per_token": 4e-06,
+      "context_length": 131000,
       "source": "openrouter",
       "name": "Meta: Llama 3.1 405B Instruct"
     },
@@ -2046,9 +2011,9 @@
       "name": "Mistral: Mixtral 8x22B Instruct"
     },
     "microsoft/wizardlm-2-8x22b": {
-      "input_cost_per_token": 4.8e-07,
-      "output_cost_per_token": 4.8e-07,
-      "context_length": 65536,
+      "input_cost_per_token": 6.2e-07,
+      "output_cost_per_token": 6.2e-07,
+      "context_length": 65535,
       "source": "openrouter",
       "name": "WizardLM-2 8x22B"
     },
@@ -2086,13 +2051,6 @@
       "context_length": 128000,
       "source": "openrouter",
       "name": "OpenAI: GPT-4 Turbo Preview"
-    },
-    "mistralai/mistral-tiny": {
-      "input_cost_per_token": 2.5e-07,
-      "output_cost_per_token": 2.5e-07,
-      "context_length": 32768,
-      "source": "openrouter",
-      "name": "Mistral Tiny"
     },
     "mistralai/mistral-7b-instruct-v0.2": {
       "input_cost_per_token": 2e-07,

@@ -168,5 +168,31 @@
       "agentic": 0.05554949999999999,
       "throughput": 0.023715428571428575
     }
+  },
+  {
+    "date": "2026-02-14",
+    "cpi": 87.2,
+    "basket_cost": 0.035919928571428575,
+    "subindices": {
+      "judgment": 7.92,
+      "longctx": 2.78,
+      "budget": 0.61,
+      "frontier": 10.04
+    },
+    "spreads": {
+      "cognition_premium": 9.43,
+      "judgment_premium": -2.12,
+      "context_premium": -7.26
+    },
+    "personas": {
+      "startup": 77.4,
+      "agentic": 75.2,
+      "throughput": 72.7
+    },
+    "persona_costs": {
+      "startup": 0.039758428571428577,
+      "agentic": 0.05554949999999999,
+      "throughput": 0.023715428571428575
+    }
   }
 ]
