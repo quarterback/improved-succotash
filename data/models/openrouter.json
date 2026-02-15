@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-14T14:17:51.159846+00:00",
+  "fetched_at": "2026-02-15T06:20:13.164253+00:00",
   "models": {
     "minimax/minimax-m2.5": {
       "input_cost_per_token": 3e-07,
@@ -45,7 +45,7 @@
     },
     "moonshotai/kimi-k2.5": {
       "input_cost_per_token": 4.5e-07,
-      "output_cost_per_token": 2.25e-06,
+      "output_cost_per_token": 4.4e-07,
       "context_length": 262144,
       "source": "openrouter",
       "name": "MoonshotAI: Kimi K2.5"

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-02-14T14:17:50.892071+00:00",
+    "generated_at": "2026-02-15T06:20:12.897451+00:00",
     "baseline_date": "2025-02-01",
     "launch_date": "2025-02-01",
     "data_sources": [
@@ -30,7 +30,7 @@
     "yoy": {
       "ticker": "$CPI-Y",
       "name": "Year-over-Year",
-      "base_date": "2025-02-14",
+      "base_date": "2025-02-15",
       "value": 87.2
     },
     "qtd": {
@@ -43,12 +43,6 @@
       "ticker": "$CPI-M",
       "name": "Month-to-Date",
       "base_date": "2026-02-01",
-      "value": 100.0
-    },
-    "wow": {
-      "ticker": "$CPI-W",
-      "name": "Week-over-Week",
-      "base_date": "2026-02-07",
       "value": 100.0
     }
   },
@@ -91,11 +85,11 @@
   },
   "trend_analysis": {
     "direction": "inflating",
-    "velocity": 2.04,
+    "velocity": 2.58,
     "velocity_unit": "points per month",
-    "acceleration": 14.51,
-    "forecast_30d": 89.2,
-    "confidence": "low"
+    "acceleration": 1.24,
+    "forecast_30d": 89.8,
+    "confidence": "medium"
   },
   "yield_curve": {
     "curve": {
@@ -119,7 +113,7 @@
       }
     },
     "interpretation": "Stable - AI compute costs roughly unchanged",
-    "generated_at": "2026-02-14T14:17:50.891500+00:00"
+    "generated_at": "2026-02-15T06:20:12.896817+00:00"
   },
   "subindices": {
     "judgment": {
@@ -207,7 +201,7 @@
         "display": "1 $BULK = 4 $UTIL"
       }
     },
-    "generated_at": "2026-02-14T14:17:50.885147+00:00"
+    "generated_at": "2026-02-15T06:20:12.883222+00:00"
   },
   "persona_cpis": {
     "startup": {
