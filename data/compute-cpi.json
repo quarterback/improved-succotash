@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-02-15T06:20:12.897451+00:00",
+    "generated_at": "2026-02-16T06:27:26.961076+00:00",
     "baseline_date": "2025-02-01",
     "launch_date": "2025-02-01",
     "data_sources": [
@@ -30,7 +30,7 @@
     "yoy": {
       "ticker": "$CPI-Y",
       "name": "Year-over-Year",
-      "base_date": "2025-02-15",
+      "base_date": "2025-02-16",
       "value": 87.2
     },
     "qtd": {
@@ -85,10 +85,10 @@
   },
   "trend_analysis": {
     "direction": "inflating",
-    "velocity": 2.58,
+    "velocity": 2.89,
     "velocity_unit": "points per month",
-    "acceleration": 1.24,
-    "forecast_30d": 89.8,
+    "acceleration": 0.79,
+    "forecast_30d": 90.1,
     "confidence": "medium"
   },
   "yield_curve": {
@@ -99,12 +99,6 @@
         "annualized_pct": 0.0,
         "source_date": "2026-02-04"
       },
-      "6m": {
-        "days": 180,
-        "deflation_pct": 10.97,
-        "annualized_pct": 22.24,
-        "source_date": "2025-08-01"
-      },
       "1y": {
         "days": 365,
         "deflation_pct": -12.78,
@@ -112,8 +106,8 @@
         "source_date": "2025-02-01"
       }
     },
-    "interpretation": "Stable - AI compute costs roughly unchanged",
-    "generated_at": "2026-02-15T06:20:12.896817+00:00"
+    "interpretation": "Moderate deflation - steady decrease in AI compute costs",
+    "generated_at": "2026-02-16T06:27:26.960376+00:00"
   },
   "subindices": {
     "judgment": {
@@ -201,7 +195,7 @@
         "display": "1 $BULK = 4 $UTIL"
       }
     },
-    "generated_at": "2026-02-15T06:20:12.883222+00:00"
+    "generated_at": "2026-02-16T06:27:26.945703+00:00"
   },
   "persona_cpis": {
     "startup": {
