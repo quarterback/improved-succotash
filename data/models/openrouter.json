@@ -1,15 +1,29 @@
 {
-  "fetched_at": "2026-02-16T06:27:27.211699+00:00",
+  "fetched_at": "2026-02-17T06:23:31.947393+00:00",
   "models": {
+    "qwen/qwen3.5-plus-02-15": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 2.4e-06,
+      "context_length": 1000000,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3.5 Plus 2026-02-15"
+    },
+    "qwen/qwen3.5-397b-a17b": {
+      "input_cost_per_token": 6e-07,
+      "output_cost_per_token": 3.6e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3.5 397B A17B"
+    },
     "minimax/minimax-m2.5": {
-      "input_cost_per_token": 2e-07,
-      "output_cost_per_token": 1e-06,
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 1.2e-06,
       "context_length": 196608,
       "source": "openrouter",
       "name": "MiniMax: MiniMax M2.5"
     },
     "z-ai/glm-5": {
-      "input_cost_per_token": 7.5e-07,
+      "input_cost_per_token": 3e-07,
       "output_cost_per_token": 2.55e-06,
       "context_length": 204800,
       "source": "openrouter",
@@ -44,8 +58,8 @@
       "name": "StepFun: Step 3.5 Flash"
     },
     "moonshotai/kimi-k2.5": {
-      "input_cost_per_token": 4.5e-07,
-      "output_cost_per_token": 2.2e-06,
+      "input_cost_per_token": 2.3e-07,
+      "output_cost_per_token": 3e-06,
       "context_length": 262144,
       "source": "openrouter",
       "name": "MoonshotAI: Kimi K2.5"
@@ -282,7 +296,7 @@
       "name": "DeepSeek: DeepSeek V3.2 Speciale"
     },
     "deepseek/deepseek-v3.2": {
-      "input_cost_per_token": 2.5e-07,
+      "input_cost_per_token": 2.6e-07,
       "output_cost_per_token": 3.8e-07,
       "context_length": 163840,
       "source": "openrouter",
