@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-17T06:23:32.011795+00:00",
+  "fetched_at": "2026-02-18T06:26:09.819352+00:00",
   "models": {
     "ai21.j2-mid-v1": {
       "input_cost_per_token": 1.25e-05,
@@ -631,6 +631,76 @@
       "batch_output_cost": 0,
       "source": "litellm"
     },
+    "anthropic.claude-sonnet-4-6": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 200000,
+      "max_output_tokens": 64000,
+      "provider": "bedrock_converse",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 3e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "global.anthropic.claude-sonnet-4-6": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 200000,
+      "max_output_tokens": 64000,
+      "provider": "bedrock_converse",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 3e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "us.anthropic.claude-sonnet-4-6": {
+      "input_cost_per_token": 3.3e-06,
+      "output_cost_per_token": 1.65e-05,
+      "context_length": 200000,
+      "max_output_tokens": 64000,
+      "provider": "bedrock_converse",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 3.3e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "eu.anthropic.claude-sonnet-4-6": {
+      "input_cost_per_token": 3.3e-06,
+      "output_cost_per_token": 1.65e-05,
+      "context_length": 200000,
+      "max_output_tokens": 64000,
+      "provider": "bedrock_converse",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 3.3e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "apac.anthropic.claude-sonnet-4-6": {
+      "input_cost_per_token": 3.3e-06,
+      "output_cost_per_token": 1.65e-05,
+      "context_length": 200000,
+      "max_output_tokens": 64000,
+      "provider": "bedrock_converse",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 3.3e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
     "anthropic.claude-sonnet-4-20250514-v1:0": {
       "input_cost_per_token": 3e-06,
       "output_cost_per_token": 1.5e-05,
@@ -1066,6 +1136,20 @@
       "source": "litellm"
     },
     "azure_ai/claude-sonnet-4-5": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 200000,
+      "max_output_tokens": 64000,
+      "provider": "azure_ai",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 3e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "azure_ai/claude-sonnet-4-6": {
       "input_cost_per_token": 3e-06,
       "output_cost_per_token": 1.5e-05,
       "context_length": 200000,
@@ -5280,6 +5364,20 @@
       "source": "litellm"
     },
     "claude-sonnet-4-5-20250929": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 200000,
+      "max_output_tokens": 64000,
+      "provider": "anthropic",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 3e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "claude-sonnet-4-6": {
       "input_cost_per_token": 3e-06,
       "output_cost_per_token": 1.5e-05,
       "context_length": 200000,
@@ -19391,6 +19489,20 @@
       "batch_output_cost": 0,
       "source": "litellm"
     },
+    "vertex_ai/claude-opus-4-6@default": {
+      "input_cost_per_token": 5e-06,
+      "output_cost_per_token": 2.5e-05,
+      "context_length": 1000000,
+      "max_output_tokens": 128000,
+      "provider": "vertex_ai-anthropic_models",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 5e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
     "vertex_ai/claude-sonnet-4-5": {
       "input_cost_per_token": 3e-06,
       "output_cost_per_token": 1.5e-05,
@@ -19403,6 +19515,20 @@
       "cache_read_cost": 3e-07,
       "batch_input_cost": 1.5e-06,
       "batch_output_cost": 7.5e-06,
+      "source": "litellm"
+    },
+    "vertex_ai/claude-sonnet-4-6": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 200000,
+      "max_output_tokens": 64000,
+      "provider": "vertex_ai-anthropic_models",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 3e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
       "source": "litellm"
     },
     "vertex_ai/claude-sonnet-4-5@20250929": {
@@ -25659,6 +25785,20 @@
       "supports_function_calling": true,
       "supports_reasoning": true,
       "cache_read_cost": 3e-08,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "vertex_ai/claude-sonnet-4-6@default": {
+      "input_cost_per_token": 3e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 200000,
+      "max_output_tokens": 64000,
+      "provider": "vertex_ai-anthropic_models",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 3e-07,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
       "source": "litellm"

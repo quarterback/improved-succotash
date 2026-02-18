@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-02-17T06:23:31.707984+00:00",
+    "generated_at": "2026-02-18T06:26:09.518142+00:00",
     "baseline_date": "2025-02-01",
     "launch_date": "2025-02-01",
     "data_sources": [
@@ -8,7 +8,7 @@
       "litellm"
     ],
     "methodology_version": "2.0",
-    "models_count": 2086
+    "models_count": 2094
   },
   "compute_cpi": {
     "ticker": "$CPI",
@@ -30,7 +30,7 @@
     "yoy": {
       "ticker": "$CPI-Y",
       "name": "Year-over-Year",
-      "base_date": "2025-02-17",
+      "base_date": "2025-02-18",
       "value": 87.2
     },
     "qtd": {
@@ -43,6 +43,12 @@
       "ticker": "$CPI-M",
       "name": "Month-to-Date",
       "base_date": "2026-02-01",
+      "value": 100.0
+    },
+    "wow": {
+      "ticker": "$CPI-W",
+      "name": "Week-over-Week",
+      "base_date": "2026-02-11",
       "value": 100.0
     }
   },
@@ -84,11 +90,11 @@
     }
   },
   "trend_analysis": {
-    "direction": "inflating",
-    "velocity": 3.09,
+    "direction": "stable",
+    "velocity": 0.0,
     "velocity_unit": "points per month",
-    "acceleration": -12.35,
-    "forecast_30d": 90.3,
+    "acceleration": 0.0,
+    "forecast_30d": 87.2,
     "confidence": "medium"
   },
   "yield_curve": {
@@ -107,7 +113,7 @@
       }
     },
     "interpretation": "Moderate deflation - steady decrease in AI compute costs",
-    "generated_at": "2026-02-17T06:23:31.707247+00:00"
+    "generated_at": "2026-02-18T06:26:09.517356+00:00"
   },
   "subindices": {
     "judgment": {
@@ -195,7 +201,7 @@
         "display": "1 $BULK = 4 $UTIL"
       }
     },
-    "generated_at": "2026-02-17T06:23:31.700668+00:00"
+    "generated_at": "2026-02-18T06:26:09.501009+00:00"
   },
   "persona_cpis": {
     "startup": {
