@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-18T06:26:09.819352+00:00",
+  "fetched_at": "2026-02-19T06:25:18.046561+00:00",
   "models": {
     "ai21.j2-mid-v1": {
       "input_cost_per_token": 1.25e-05,
@@ -5387,6 +5387,20 @@
       "supports_function_calling": true,
       "supports_reasoning": true,
       "cache_read_cost": 3e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "us/claude-sonnet-4-6": {
+      "input_cost_per_token": 3.3e-06,
+      "output_cost_per_token": 1.65e-05,
+      "context_length": 200000,
+      "max_output_tokens": 64000,
+      "provider": "anthropic",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 3.3e-07,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
       "source": "litellm"
@@ -12937,9 +12951,51 @@
       "batch_output_cost": 0,
       "source": "litellm"
     },
+    "mistral/devstral-small-latest": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 3e-07,
+      "context_length": 256000,
+      "max_output_tokens": 256000,
+      "provider": "mistral",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": false,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
     "mistral/labs-devstral-small-2512": {
       "input_cost_per_token": 1e-07,
       "output_cost_per_token": 3e-07,
+      "context_length": 256000,
+      "max_output_tokens": 256000,
+      "provider": "mistral",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": false,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "mistral/devstral-latest": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 2e-06,
+      "context_length": 256000,
+      "max_output_tokens": 256000,
+      "provider": "mistral",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": false,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "mistral/devstral-medium-latest": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 2e-06,
       "context_length": 256000,
       "max_output_tokens": 256000,
       "provider": "mistral",

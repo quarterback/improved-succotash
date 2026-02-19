@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-02-18T06:26:09.518142+00:00",
+    "generated_at": "2026-02-19T06:25:17.708936+00:00",
     "baseline_date": "2025-02-01",
     "launch_date": "2025-02-01",
     "data_sources": [
@@ -8,7 +8,7 @@
       "litellm"
     ],
     "methodology_version": "2.0",
-    "models_count": 2094
+    "models_count": 2096
   },
   "compute_cpi": {
     "ticker": "$CPI",
@@ -17,7 +17,7 @@
     "mom_change": null,
     "yoy_change": null,
     "trend": "stable",
-    "basket_cost": 35.9199,
+    "basket_cost": 35.9198,
     "basket_cost_unit": "$ per 1K standardized workloads"
   },
   "index_series": {
@@ -30,7 +30,7 @@
     "yoy": {
       "ticker": "$CPI-Y",
       "name": "Year-over-Year",
-      "base_date": "2025-02-18",
+      "base_date": "2025-02-19",
       "value": 87.2
     },
     "qtd": {
@@ -48,7 +48,7 @@
     "wow": {
       "ticker": "$CPI-W",
       "name": "Week-over-Week",
-      "base_date": "2026-02-11",
+      "base_date": "2026-02-12",
       "value": 100.0
     }
   },
@@ -72,7 +72,7 @@
       "name": "Budget Optimized",
       "description": "Cost-conscious workload mix",
       "value": 78.1,
-      "basket_cost": 0.022669
+      "basket_cost": 0.022668
     },
     "reasoning_focus": {
       "ticker": "$CPI-REA",
@@ -101,8 +101,8 @@
     "curve": {
       "1w": {
         "days": 7,
-        "deflation_pct": 0.0,
-        "annualized_pct": 0.0,
+        "deflation_pct": -0.0,
+        "annualized_pct": -0.02,
         "source_date": "2026-02-14"
       },
       "1y": {
@@ -113,7 +113,7 @@
       }
     },
     "interpretation": "Moderate deflation - steady decrease in AI compute costs",
-    "generated_at": "2026-02-18T06:26:09.517356+00:00"
+    "generated_at": "2026-02-19T06:25:17.708077+00:00"
   },
   "subindices": {
     "judgment": {
@@ -133,7 +133,7 @@
     "budget": {
       "ticker": "$BULK",
       "name": "Budget Tier",
-      "value": 0.61,
+      "value": 0.6,
       "value_unit": "$/1M tokens",
       "models_count": 7
     },
@@ -149,7 +149,7 @@
     "cognition_premium": {
       "ticker": "$COG-P",
       "name": "Cognition Premium",
-      "value": 9.43,
+      "value": 9.44,
       "unit": "$/1M tokens",
       "description": "Premium for frontier capability over budget tier"
     },
@@ -197,11 +197,11 @@
       "budget": {
         "ticker": "$BULK",
         "rate": 4,
-        "blended_cost": 6.744642857142857e-07,
+        "blended_cost": 6.655357142857143e-07,
         "display": "1 $BULK = 4 $UTIL"
       }
     },
-    "generated_at": "2026-02-18T06:26:09.501009+00:00"
+    "generated_at": "2026-02-19T06:25:17.701285+00:00"
   },
   "persona_cpis": {
     "startup": {
@@ -250,7 +250,7 @@
       "cost_unit": "$ per 1K workloads"
     },
     "classification": {
-      "cost": 0.2571,
+      "cost": 0.2564,
       "weight": 0.2,
       "cost_unit": "$ per 1K workloads"
     },
