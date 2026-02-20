@@ -1,6 +1,13 @@
 {
-  "fetched_at": "2026-02-19T06:25:17.968505+00:00",
+  "fetched_at": "2026-02-20T06:21:39.445063+00:00",
   "models": {
+    "google/gemini-3.1-pro-preview": {
+      "input_cost_per_token": 2e-06,
+      "output_cost_per_token": 1.2e-05,
+      "context_length": 1048576,
+      "source": "openrouter",
+      "name": "Google: Gemini 3.1 Pro Preview"
+    },
     "anthropic/claude-sonnet-4.6": {
       "input_cost_per_token": 3e-06,
       "output_cost_per_token": 1.5e-05,
