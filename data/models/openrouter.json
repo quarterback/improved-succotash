@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-20T06:21:39.445063+00:00",
+  "fetched_at": "2026-02-21T06:15:07.455726+00:00",
   "models": {
     "google/gemini-3.1-pro-preview": {
       "input_cost_per_token": 2e-06,
