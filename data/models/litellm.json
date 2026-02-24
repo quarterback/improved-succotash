@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-23T06:28:02.315302+00:00",
+  "fetched_at": "2026-02-24T06:24:43.447127+00:00",
   "models": {
     "ai21.j2-mid-v1": {
       "input_cost_per_token": 1.25e-05,
@@ -5391,20 +5391,6 @@
       "batch_output_cost": 0,
       "source": "litellm"
     },
-    "us/claude-sonnet-4-6": {
-      "input_cost_per_token": 3.3e-06,
-      "output_cost_per_token": 1.65e-05,
-      "context_length": 200000,
-      "max_output_tokens": 64000,
-      "provider": "anthropic",
-      "supports_vision": true,
-      "supports_function_calling": true,
-      "supports_reasoning": true,
-      "cache_read_cost": 3.3e-07,
-      "batch_input_cost": 0,
-      "batch_output_cost": 0,
-      "source": "litellm"
-    },
     "claude-sonnet-4-5-20250929-v1:0": {
       "input_cost_per_token": 3e-06,
       "output_cost_per_token": 1.5e-05,
@@ -5503,48 +5489,6 @@
       "batch_output_cost": 0,
       "source": "litellm"
     },
-    "fast/claude-opus-4-6": {
-      "input_cost_per_token": 3e-05,
-      "output_cost_per_token": 0.00015,
-      "context_length": 1000000,
-      "max_output_tokens": 128000,
-      "provider": "anthropic",
-      "supports_vision": true,
-      "supports_function_calling": true,
-      "supports_reasoning": true,
-      "cache_read_cost": 5e-07,
-      "batch_input_cost": 0,
-      "batch_output_cost": 0,
-      "source": "litellm"
-    },
-    "us/claude-opus-4-6": {
-      "input_cost_per_token": 5.5e-06,
-      "output_cost_per_token": 2.75e-05,
-      "context_length": 200000,
-      "max_output_tokens": 128000,
-      "provider": "anthropic",
-      "supports_vision": true,
-      "supports_function_calling": true,
-      "supports_reasoning": true,
-      "cache_read_cost": 5.5e-07,
-      "batch_input_cost": 0,
-      "batch_output_cost": 0,
-      "source": "litellm"
-    },
-    "fast/us/claude-opus-4-6": {
-      "input_cost_per_token": 3e-05,
-      "output_cost_per_token": 0.00015,
-      "context_length": 200000,
-      "max_output_tokens": 128000,
-      "provider": "anthropic",
-      "supports_vision": true,
-      "supports_function_calling": true,
-      "supports_reasoning": true,
-      "cache_read_cost": 5.5e-07,
-      "batch_input_cost": 0,
-      "batch_output_cost": 0,
-      "source": "litellm"
-    },
     "claude-opus-4-6-20260205": {
       "input_cost_per_token": 5e-06,
       "output_cost_per_token": 2.5e-05,
@@ -5555,34 +5499,6 @@
       "supports_function_calling": true,
       "supports_reasoning": true,
       "cache_read_cost": 5e-07,
-      "batch_input_cost": 0,
-      "batch_output_cost": 0,
-      "source": "litellm"
-    },
-    "fast/claude-opus-4-6-20260205": {
-      "input_cost_per_token": 3e-05,
-      "output_cost_per_token": 0.00015,
-      "context_length": 1000000,
-      "max_output_tokens": 128000,
-      "provider": "anthropic",
-      "supports_vision": true,
-      "supports_function_calling": true,
-      "supports_reasoning": true,
-      "cache_read_cost": 5e-07,
-      "batch_input_cost": 0,
-      "batch_output_cost": 0,
-      "source": "litellm"
-    },
-    "us/claude-opus-4-6-20260205": {
-      "input_cost_per_token": 5.5e-06,
-      "output_cost_per_token": 2.75e-05,
-      "context_length": 200000,
-      "max_output_tokens": 128000,
-      "provider": "anthropic",
-      "supports_vision": true,
-      "supports_function_calling": true,
-      "supports_reasoning": true,
-      "cache_read_cost": 5.5e-07,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
       "source": "litellm"
@@ -11743,6 +11659,20 @@
       "supports_function_calling": true,
       "supports_reasoning": true,
       "cache_read_cost": 3.75e-08,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "groq/openai/gpt-oss-safeguard-20b": {
+      "input_cost_per_token": 7.5e-08,
+      "output_cost_per_token": 3e-07,
+      "context_length": 131072,
+      "max_output_tokens": 65536,
+      "provider": "groq",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 3.7e-08,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
       "source": "litellm"

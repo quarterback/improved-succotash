@@ -167,6 +167,20 @@
         "spend_usd_weekly": 65847943.66,
         "energy_gwh_weekly": 0.0008
       }
+    },
+    {
+      "date": "2026-02-24",
+      "aiu_index": 208.68,
+      "components": {
+        "token_index": 212.33,
+        "spend_index": 205.26,
+        "energy_index": 197.04
+      },
+      "activity": {
+        "tokens_weekly": 20170884315711,
+        "spend_usd_weekly": 65683453.15,
+        "energy_gwh_weekly": 0.000798
+      }
     }
   ]
 }

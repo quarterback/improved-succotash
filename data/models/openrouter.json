@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-23T06:28:02.205585+00:00",
+  "fetched_at": "2026-02-24T06:24:43.364650+00:00",
   "models": {
     "google/gemini-3.1-pro-preview": {
       "input_cost_per_token": 2e-06,
@@ -23,8 +23,8 @@
       "name": "Qwen: Qwen3.5 Plus 2026-02-15"
     },
     "qwen/qwen3.5-397b-a17b": {
-      "input_cost_per_token": 1.5e-07,
-      "output_cost_per_token": 1e-06,
+      "input_cost_per_token": 5.5e-07,
+      "output_cost_per_token": 3.5e-06,
       "context_length": 262144,
       "source": "openrouter",
       "name": "Qwen: Qwen3.5 397B A17B"
@@ -1521,9 +1521,9 @@
       "name": "Qwen: Qwen-Turbo"
     },
     "qwen/qwen2.5-vl-72b-instruct": {
-      "input_cost_per_token": 2.5e-07,
-      "output_cost_per_token": 7.5e-07,
-      "context_length": 32000,
+      "input_cost_per_token": 8e-07,
+      "output_cost_per_token": 8e-07,
+      "context_length": 32768,
       "source": "openrouter",
       "name": "Qwen: Qwen2.5 VL 72B Instruct"
     },
