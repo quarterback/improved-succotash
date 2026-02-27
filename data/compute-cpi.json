@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-02-26T06:24:00.937798+00:00",
+    "generated_at": "2026-02-27T06:20:22.219167+00:00",
     "baseline_date": "2025-02-01",
     "launch_date": "2025-02-01",
     "data_sources": [
@@ -8,7 +8,7 @@
       "litellm"
     ],
     "methodology_version": "2.0",
-    "models_count": 2111
+    "models_count": 2112
   },
   "compute_cpi": {
     "ticker": "$CPI",
@@ -30,7 +30,7 @@
     "yoy": {
       "ticker": "$CPI-Y",
       "name": "Year-over-Year",
-      "base_date": "2025-02-26",
+      "base_date": "2025-02-27",
       "value": 87.2
     },
     "qtd": {
@@ -48,7 +48,7 @@
     "wow": {
       "ticker": "$CPI-W",
       "name": "Week-over-Week",
-      "base_date": "2026-02-19",
+      "base_date": "2026-02-20",
       "value": 100.0
     }
   },
@@ -103,7 +103,13 @@
         "days": 7,
         "deflation_pct": 0.0,
         "annualized_pct": 0.0,
-        "source_date": "2026-02-19"
+        "source_date": "2026-02-20"
+      },
+      "1m": {
+        "days": 30,
+        "deflation_pct": -0.0,
+        "annualized_pct": -0.01,
+        "source_date": "2026-02-04"
       },
       "1y": {
         "days": 365,
@@ -113,7 +119,7 @@
       }
     },
     "interpretation": "Moderate deflation - steady decrease in AI compute costs",
-    "generated_at": "2026-02-26T06:24:00.936690+00:00"
+    "generated_at": "2026-02-27T06:20:22.217993+00:00"
   },
   "subindices": {
     "judgment": {
@@ -201,7 +207,7 @@
         "display": "1 $BULK = 4 $UTIL"
       }
     },
-    "generated_at": "2026-02-26T06:24:00.923100+00:00"
+    "generated_at": "2026-02-27T06:20:22.198078+00:00"
   },
   "persona_cpis": {
     "startup": {
@@ -209,7 +215,7 @@
       "name": "Startup Builder",
       "description": "Building an AI-first product",
       "cpi": 77.4,
-      "mom_change": null,
+      "mom_change": 0.0,
       "basket_cost": 0.039758,
       "basket_cost_unit": "$ per standardized workload",
       "insight": "23% cheaper to build",
@@ -220,7 +226,7 @@
       "name": "Agentic Team",
       "description": "Running autonomous AI agents",
       "cpi": 75.2,
-      "mom_change": null,
+      "mom_change": 0.0,
       "basket_cost": 0.055549,
       "basket_cost_unit": "$ per standardized workload",
       "insight": "25% cheaper to run agents",
@@ -231,7 +237,7 @@
       "name": "Throughput",
       "description": "High-volume processing at scale",
       "cpi": 72.7,
-      "mom_change": null,
+      "mom_change": 0.0,
       "basket_cost": 0.023715,
       "basket_cost_unit": "$ per standardized workload",
       "insight": "27% cheaper at scale",

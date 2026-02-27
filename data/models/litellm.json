@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-26T06:24:01.305355+00:00",
+  "fetched_at": "2026-02-27T06:20:22.531136+00:00",
   "models": {
     "ai21.j2-mid-v1": {
       "input_cost_per_token": 1.25e-05,
@@ -3516,8 +3516,8 @@
       "source": "litellm"
     },
     "azure_ai/mistral-small-2503": {
-      "input_cost_per_token": 1e-06,
-      "output_cost_per_token": 3e-06,
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 3e-07,
       "context_length": 128000,
       "max_output_tokens": 128000,
       "provider": "azure_ai",
