@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-27T06:20:22.531136+00:00",
+  "fetched_at": "2026-02-28T06:10:15.982107+00:00",
   "models": {
     "ai21.j2-mid-v1": {
       "input_cost_per_token": 1.25e-05,
@@ -10879,6 +10879,20 @@
       "batch_output_cost": 0,
       "source": "litellm"
     },
+    "gpt-audio-1.5": {
+      "input_cost_per_token": 2.5e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 128000,
+      "max_output_tokens": 16384,
+      "provider": "openai",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": false,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
     "gpt-audio-2025-08-28": {
       "input_cost_per_token": 2.5e-06,
       "output_cost_per_token": 1e-05,
@@ -11328,6 +11342,20 @@
       "source": "litellm"
     },
     "gpt-realtime": {
+      "input_cost_per_token": 4e-06,
+      "output_cost_per_token": 1.6e-05,
+      "context_length": 32000,
+      "max_output_tokens": 4096,
+      "provider": "openai",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": false,
+      "cache_read_cost": 4e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "gpt-realtime-1.5": {
       "input_cost_per_token": 4e-06,
       "output_cost_per_token": 1.6e-05,
       "context_length": 32000,
@@ -14580,6 +14608,20 @@
       "output_cost_per_token": 2.5e-05,
       "context_length": 200000,
       "max_output_tokens": 32000,
+      "provider": "openrouter",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 5e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "openrouter/anthropic/claude-opus-4.6": {
+      "input_cost_per_token": 5e-06,
+      "output_cost_per_token": 2.5e-05,
+      "context_length": 1000000,
+      "max_output_tokens": 128000,
       "provider": "openrouter",
       "supports_vision": true,
       "supports_function_calling": true,
