@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-28T06:10:15.903816+00:00",
+  "fetched_at": "2026-03-01T06:17:15.926416+00:00",
   "models": {
     "bytedance-seed/seed-2.0-mini": {
       "input_cost_per_token": 1e-07,

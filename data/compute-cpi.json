@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-02-28T06:10:15.615484+00:00",
+    "generated_at": "2026-03-01T06:17:15.606950+00:00",
     "baseline_date": "2025-02-01",
     "launch_date": "2025-02-01",
     "data_sources": [
@@ -30,7 +30,7 @@
     "yoy": {
       "ticker": "$CPI-Y",
       "name": "Year-over-Year",
-      "base_date": "2025-02-28",
+      "base_date": "2025-03-01",
       "value": 87.2
     },
     "qtd": {
@@ -42,13 +42,13 @@
     "mtd": {
       "ticker": "$CPI-M",
       "name": "Month-to-Date",
-      "base_date": "2026-02-01",
+      "base_date": "2026-03-01",
       "value": 100.0
     },
     "wow": {
       "ticker": "$CPI-W",
       "name": "Week-over-Week",
-      "base_date": "2026-02-21",
+      "base_date": "2026-02-22",
       "value": 100.0
     }
   },
@@ -103,7 +103,7 @@
         "days": 7,
         "deflation_pct": 0.0,
         "annualized_pct": 0.0,
-        "source_date": "2026-02-21"
+        "source_date": "2026-02-22"
       },
       "1m": {
         "days": 30,
@@ -119,7 +119,7 @@
       }
     },
     "interpretation": "Moderate deflation - steady decrease in AI compute costs",
-    "generated_at": "2026-02-28T06:10:15.614495+00:00"
+    "generated_at": "2026-03-01T06:17:15.604630+00:00"
   },
   "subindices": {
     "judgment": {
@@ -207,7 +207,7 @@
         "display": "1 $BULK = 4 $UTIL"
       }
     },
-    "generated_at": "2026-02-28T06:10:15.599694+00:00"
+    "generated_at": "2026-03-01T06:17:15.584292+00:00"
   },
   "persona_cpis": {
     "startup": {
