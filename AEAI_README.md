@@ -19,7 +19,7 @@ The AIU is a weighted composite of three activity indicators:
 |-----------|--------|-------------|-------------|
 | **Token Volumes** | 60% | Total weekly tokens processed across models | OpenRouter rankings |
 | **Inferred Spend** | 30% | Calculated as tokens × blended pricing | Volumes × pricing data |
-| **Energy Proxy** | 10% | Estimated from token volumes and model tiers | Tier-based efficiency factors |
+| **Energy Proxy** | 10% | Blended: 70% token-derived proxy + 30% grid investment growth | Tier factors + BloombergNEF |
 
 ### Calculation Formula
 
@@ -79,9 +79,18 @@ spend_index = (spend / baseline_spend) × 100
 
 #### 3. Energy Proxy (10% weight)
 
-**Data Source**: Estimated from token volumes and model efficiency tiers
+The energy component is a **blended index** that combines two independent signals:
 
-**Energy Factors** (Joules per billion tokens):
+| Sub-component | Blend weight | Source | Frequency |
+|---|---|---|---|
+| Token-derived proxy | 70% | OpenRouter tokens × tier efficiency factors | Weekly |
+| Grid investment growth | 30% | BloombergNEF global grid investment data | Annual |
+
+**Why blend?** A pure token-derived energy index adds no independent signal — it moves in lockstep with the token component. Incorporating grid investment growth (a real-world, supply-side infrastructure indicator) gives the energy component genuine independent explanatory power.
+
+**Token-Derived Component (70%)**
+
+Energy factors (Joules per billion tokens), based on published GPU efficiency metrics and datacenter PUE:
 | Tier | Energy Factor | Examples |
 |------|---------------|----------|
 | Budget | 50,000 J/B | Flash, Haiku, Mini |
@@ -89,21 +98,33 @@ spend_index = (spend / baseline_spend) × 100
 | Frontier | 300,000 J/B | Opus, GPT-5 |
 | Reasoning | 500,000 J/B | o1, o3-mini, DeepSeek-R1 |
 
-**Calculation**:
 ```python
 for model in rankings:
     tier = classify_model_tier(model)
-    energy_factor = ENERGY_FACTORS[tier]
     tokens_billions = model.tokens_weekly / 1e9
-    energy += tokens_billions × energy_factor
+    energy += tokens_billions × ENERGY_FACTORS[tier]
 
-energy_index = (energy / baseline_energy) × 100
+token_energy_index = (energy / baseline_energy) × 100
 ```
 
-**Important Note**: These are preliminary estimates based on published GPU efficiency metrics and datacenter PUE. Future versions will integrate:
-- IEA annual datacenter energy baseline
-- Hyperscaler sustainability reports (Google, Microsoft, Amazon)
-- AI-attributed energy disclosures where available
+**Grid Investment Component (30%)**
+
+Data source: BloombergNEF *Grid Investment Outlook* (annual).
+- 2023: $344B | 2024: $403B (+17%) | 2025: $470B (+16%, baseline = 100)
+- BloombergNEF explicitly cites data centers as a major driver of accelerating grid demand
+- Updated annually; interpolated linearly for weekly snapshots within a year
+- Falls back to most recent available year when current-year data has not yet been published
+
+```python
+grid_investment_index = (current_year_investment / baseline_investment_2025) × 100
+```
+
+**Blended Calculation**:
+```python
+energy_index = 0.7 × token_energy_index + 0.3 × grid_investment_index
+```
+
+The blended `energy_index` is then applied at its 10% weight in the main AIU formula.
 
 ## Data Files
 
@@ -211,12 +232,12 @@ The AEAI calculator runs automatically via GitHub Actions:
    - Doesn't account for volume discounts or enterprise pricing
 
 3. **Energy Estimation**
-   - Preliminary factors based on published benchmarks
+   - Token-derived sub-component uses preliminary factors based on published benchmarks
    - Doesn't account for:
      - Actual datacenter PUE variations
      - Model-specific training vs inference efficiency
      - Hardware generation (A100 vs H100 vs custom ASICs)
-   - Awaiting integration of real energy data from IEA and hyperscalers
+   - Grid investment sub-component is annual data interpolated weekly; reflects global grid capex, not AI-attributed energy exclusively
 
 4. **Temporal Lag**
    - Rankings data updated daily but reflects prior week's activity
@@ -233,9 +254,10 @@ The AEAI calculator runs automatically via GitHub Actions:
    - Regional activity growth rates
 
 2. **Enhanced Energy Data**
-   - Integrate IEA datacenter energy baseline
+   - Add IEA datacenter energy baseline as an additional sub-component
    - Parse hyperscaler sustainability reports (Google, Microsoft, Amazon)
    - Model-specific energy efficiency factors from published benchmarks
+   - Estimate AI-attributed fraction of grid investment (vs. general electrification)
 
 3. **Additional Data Sources**
    - State of AI report quarterly disclosures

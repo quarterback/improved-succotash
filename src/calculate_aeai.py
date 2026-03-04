@@ -68,6 +68,17 @@ def load_prices() -> Dict[str, Any]:
         return json.load(f)
 
 
+def load_grid_investment() -> Dict[str, Any]:
+    """Load grid investment data for energy index blending."""
+    grid_path = AEAI_DIR / "grid_investment.json"
+
+    if not grid_path.exists():
+        return {}
+
+    with open(grid_path) as f:
+        return json.load(f)
+
+
 def load_model_tiers() -> Dict[str, Any]:
     """Load model tier classifications for energy estimation."""
     tiers_path = DATA_DIR / "models" / "tiers.json"
@@ -247,6 +258,99 @@ def calculate_energy_proxy(rankings: Dict, tiers_data: Dict) -> Dict[str, Any]:
     }
 
 
+def calculate_grid_investment_index(
+    grid_data: Dict[str, Any],
+    reference_date: Optional[datetime] = None
+) -> Dict[str, Any]:
+    """
+    Calculate grid investment index relative to 2025 baseline (= 100).
+
+    Uses BloombergNEF annual grid investment data. For partial years, interpolates
+    linearly between adjacent annual data points. Falls back to most recent
+    available year when current-year data has not yet been published.
+    """
+    if not grid_data or "series" not in grid_data:
+        return {
+            "grid_investment_index": 100.0,
+            "source_year": 2025,
+            "note": "No grid data; using baseline value"
+        }
+
+    if reference_date is None:
+        reference_date = datetime.now(timezone.utc)
+
+    baseline_year = grid_data.get("baseline_year", 2025)
+    baseline_value = grid_data.get("baseline_value_billions_usd")
+    series = {entry["year"]: entry["investment_billions_usd"] for entry in grid_data["series"]}
+
+    if baseline_value is None:
+        baseline_value = series.get(baseline_year)
+
+    if not baseline_value:
+        return {"grid_investment_index": 100.0, "source_year": baseline_year,
+                "note": "Baseline value missing"}
+
+    current_year = reference_date.year
+    available_years = sorted(series.keys())
+
+    if not available_years:
+        return {"grid_investment_index": 100.0, "source_year": baseline_year,
+                "note": "No series data"}
+
+    # Current year in data — use directly
+    if current_year in series:
+        index = (series[current_year] / baseline_value) * 100
+        return {
+            "grid_investment_index": round(index, 2),
+            "source_year": current_year,
+            "investment_billions_usd": series[current_year]
+        }
+
+    last_year = available_years[-1]
+    first_year = available_years[0]
+
+    # After last data point — use most recent available year
+    if current_year > last_year:
+        index = (series[last_year] / baseline_value) * 100
+        return {
+            "grid_investment_index": round(index, 2),
+            "source_year": last_year,
+            "investment_billions_usd": series[last_year],
+            "note": f"Using {last_year} data (most recent available; update annually)"
+        }
+
+    # Before first data point
+    if current_year < first_year:
+        index = (series[first_year] / baseline_value) * 100
+        return {
+            "grid_investment_index": round(index, 2),
+            "source_year": first_year,
+            "note": f"Using {first_year} data (earliest available)"
+        }
+
+    # Interpolate linearly between adjacent years
+    for i in range(len(available_years) - 1):
+        yr = available_years[i]
+        next_yr = available_years[i + 1]
+        if yr <= current_year <= next_yr:
+            year_start = datetime(current_year, 1, 1, tzinfo=timezone.utc)
+            year_end = datetime(current_year + 1, 1, 1, tzinfo=timezone.utc)
+            fraction = (reference_date - year_start).total_seconds() / \
+                       (year_end - year_start).total_seconds()
+            interp_value = series[yr] + fraction * (series[next_yr] - series[yr])
+            index = (interp_value / baseline_value) * 100
+            return {
+                "grid_investment_index": round(index, 2),
+                "source_year": current_year,
+                "investment_billions_usd": round(interp_value, 1),
+                "note": f"Interpolated between {yr} and {next_yr}"
+            }
+
+    # Fallback
+    index = (series[last_year] / baseline_value) * 100
+    return {"grid_investment_index": round(index, 2), "source_year": last_year}
+
+
 def load_aeai_baseline() -> Optional[Dict[str, Any]]:
     """Load the immutable AEAI baseline (January 2025 = 100)."""
     baseline_path = AEAI_DIR / "baseline.json"
@@ -293,20 +397,34 @@ def calculate_aeai(
     current_tokens: float,
     current_spend: float,
     current_energy: float,
-    baseline: Dict[str, Any]
+    baseline: Dict[str, Any],
+    grid_investment_index: Optional[float] = None
 ) -> Dict[str, Any]:
     """
     Calculate the AI Economic Activity Index (AIU).
 
     Each component is normalized to its baseline value (Jan 2025 = 100),
     then weighted: 60% tokens, 30% spend, 10% energy.
+
+    The energy component is a blended index when grid investment data is available:
+      energy_index = 0.7 × token_energy_index + 0.3 × grid_investment_index
+    This gives the energy component an independent external signal (grid capex)
+    rather than being purely derived from token volumes.
     """
     baseline_components = baseline["components"]
 
     # Calculate component indices (baseline = 100)
     token_index = (current_tokens / baseline_components["tokens_weekly"]) * 100
     spend_index = (current_spend / baseline_components["spend_usd_weekly"]) * 100
-    energy_index = (current_energy / baseline_components["energy_gwh_weekly"]) * 100
+    token_energy_index = (current_energy / baseline_components["energy_gwh_weekly"]) * 100
+
+    # Blend energy index: 70% token-derived + 30% grid investment (if available)
+    if grid_investment_index is not None:
+        energy_index = 0.7 * token_energy_index + 0.3 * grid_investment_index
+        energy_methodology = "70% token-derived proxy + 30% grid investment growth (BloombergNEF)"
+    else:
+        energy_index = token_energy_index
+        energy_methodology = "Token-derived proxy only (no grid investment data)"
 
     # Apply weights: 60/30/10
     aiu_index = (
@@ -331,6 +449,12 @@ def calculate_aeai(
             "tokens": round(0.6 * token_index, 2),
             "spend": round(0.3 * spend_index, 2),
             "energy": round(0.1 * energy_index, 2)
+        },
+        "energy_detail": {
+            "token_energy_index": round(token_energy_index, 2),
+            "grid_investment_index": round(grid_investment_index, 2) if grid_investment_index is not None else None,
+            "blended_energy_index": round(energy_index, 2),
+            "methodology": energy_methodology
         }
     }
 
@@ -409,6 +533,7 @@ def main():
     rankings = load_rankings()
     prices = load_prices()
     tiers_data = load_model_tiers()
+    grid_data = load_grid_investment()
 
     model_count = len(rankings.get("models", {}))
     print(f"[1/6] Loaded {model_count} models with volume data")
@@ -431,6 +556,12 @@ def main():
     total_energy = energy_data["total_energy_gwh"]
     print(f"[4/6] Estimated weekly energy: {total_energy:.4f} GWh")
 
+    # Calculate grid investment index (independent energy signal)
+    grid_result = calculate_grid_investment_index(grid_data)
+    grid_inv_index = grid_result["grid_investment_index"]
+    grid_note = grid_result.get("note", "")
+    print(f"[4/6] Grid investment index: {grid_inv_index:.2f} (source year: {grid_result['source_year']}){' — ' + grid_note if grid_note else ''}")
+
     # Load or set baseline
     print("\n[5/6] Checking baseline...")
     baseline = load_aeai_baseline()
@@ -443,7 +574,8 @@ def main():
 
     # Calculate AEAI
     print("\n[6/6] Calculating AIU index...")
-    aeai_result = calculate_aeai(total_tokens, total_spend, total_energy, baseline)
+    aeai_result = calculate_aeai(total_tokens, total_spend, total_energy, baseline,
+                                 grid_investment_index=grid_inv_index)
     aiu_index = aeai_result["aiu_index"]
     print(f"[6/6] AIU Index: {aiu_index:.2f}")
 
@@ -457,6 +589,8 @@ def main():
         "components": aeai_result["components"],
         "weights": aeai_result["weights"],
         "contribution": aeai_result["contribution"],
+        "energy_detail": aeai_result["energy_detail"],
+        "grid_investment": grid_result,
         "activity": {
             "tokens_weekly": total_tokens,
             "spend_usd_weekly": total_spend,
@@ -472,7 +606,7 @@ def main():
             "basket": "60% token volumes, 30% inferred spend, 10% energy proxy",
             "baseline": "January 2025 = 100",
             "spend_calculation": "tokens × blended_price (70% input, 30% output)",
-            "energy_estimation": "Token volumes × tier-based efficiency factors"
+            "energy_estimation": "Blended: 70% token-derived proxy + 30% grid investment growth (BloombergNEF)"
         }
     }
 
@@ -485,10 +619,14 @@ def main():
     print("  AEAI SUMMARY")
     print("=" * 70)
     print(f"\nAIU Index: {aiu_index:.2f} (Baseline Jan 2025 = 100)")
+    ed = aeai_result["energy_detail"]
     print(f"\nComponent Indices:")
     print(f"  Token Volume:  {aeai_result['components']['token_index']:6.2f} (60% weight → {aeai_result['contribution']['tokens']:5.2f})")
     print(f"  Spend:         {aeai_result['components']['spend_index']:6.2f} (30% weight → {aeai_result['contribution']['spend']:5.2f})")
     print(f"  Energy:        {aeai_result['components']['energy_index']:6.2f} (10% weight → {aeai_result['contribution']['energy']:5.2f})")
+    print(f"    ↳ token-derived:   {ed['token_energy_index']:6.2f} (70% of energy)")
+    if ed['grid_investment_index'] is not None:
+        print(f"    ↳ grid investment: {ed['grid_investment_index']:6.2f} (30% of energy, BloombergNEF)")
 
     print(f"\nActivity Levels:")
     print(f"  Tokens/week:   {total_tokens/1e12:6.2f}T")

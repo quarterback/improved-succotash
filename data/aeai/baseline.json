@@ -4,8 +4,9 @@
   "components": {
     "tokens_weekly": 9500000000000,
     "spend_usd_weekly": 32000000.00,
-    "energy_gwh_weekly": 0.000405
+    "energy_gwh_weekly": 0.000405,
+    "grid_investment_index": 100.0
   },
   "aiu_index": 100.0,
-  "note": "This baseline is immutable and represents January 2025 AI economic activity levels."
+  "note": "This baseline is immutable and represents January 2025 AI economic activity levels. grid_investment_index baseline = 100.0 corresponds to $470B global grid investment in 2025 (BloombergNEF)."
 }

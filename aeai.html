@@ -85,6 +85,7 @@
                         <div class="subindex-value" id="energy-index">100.0</div>
                         <div class="subindex-name">10% weight</div>
                         <div class="subindex-change" id="energy-contribution">→ 10.0 pts</div>
+                        <div class="subindex-change" id="energy-sub-detail" style="font-size: 0.7rem; opacity: 0.7; margin-top: 0.25rem;"></div>
                     </div>
                 </div>
             </section>
@@ -106,7 +107,7 @@
                         </tr>
                         <tr>
                             <td style="padding: 0.5rem 0;"><strong>Energy Proxy (10%)</strong></td>
-                            <td style="padding: 0.5rem 0;">Estimated from token volumes and tier-based efficiency factors</td>
+                            <td style="padding: 0.5rem 0;">Blended: 70% token-derived proxy (tier efficiency factors) + 30% grid investment growth (BloombergNEF)</td>
                         </tr>
                     </table>
                 </div>
@@ -124,7 +125,7 @@
                     <ul style="font-size: 0.875rem; color: var(--fg-muted); margin: 0.5rem 0; padding-left: 1.5rem;">
                         <li>Token volumes: OpenRouter rankings (weekly aggregates)</li>
                         <li>Pricing: OpenRouter API, LiteLLM, llm-prices.com, pricepertoken.com</li>
-                        <li>Energy: Tier-based efficiency factors (preliminary estimates)</li>
+                        <li>Energy: 70% tier-based efficiency factors + 30% BloombergNEF global grid investment data</li>
                     </ul>
                 </div>
             </section>
@@ -160,7 +161,7 @@
                         <strong>Coverage Scope:</strong> The AEAI currently tracks activity visible through OpenRouter's public rankings. This represents a significant but incomplete view of global AI economic activity. Direct API usage, enterprise deployments, and closed-loop systems are not captured.
                     </p>
                     <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0 0 1rem 0;">
-                        <strong>Energy Estimation:</strong> Energy consumption estimates are derived from token volumes and tier-based efficiency factors. These are preliminary estimates pending integration of published datacenter energy data from IEA and hyperscaler sustainability reports.
+                        <strong>Energy Estimation:</strong> The energy index blends two signals: a token-derived proxy (70%, from tier efficiency factors) and a grid investment growth index (30%, from BloombergNEF annual global grid investment data, with data centers cited as a key demand driver). BloombergNEF reported $470B in 2025 grid investment (+16% YoY), serving as the baseline. Grid investment data is updated annually and interpolated weekly.
                     </p>
                     <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0;">
                         <strong>Baseline Period:</strong> January 2025 is set as the baseline (AIU = 100) to align with the Compute CPI baseline. This provides a common reference point for tracking both price deflation and activity growth.
@@ -233,6 +234,14 @@
                 document.getElementById('token-contribution').textContent = `→ ${data.contribution.tokens.toFixed(1)} pts`;
                 document.getElementById('spend-contribution').textContent = `→ ${data.contribution.spend.toFixed(1)} pts`;
                 document.getElementById('energy-contribution').textContent = `→ ${data.contribution.energy.toFixed(1)} pts`;
+
+                // Show energy sub-components if available
+                if (data.energy_detail && data.energy_detail.grid_investment_index !== null) {
+                    const tokenEI = data.energy_detail.token_energy_index.toFixed(1);
+                    const gridEI = data.energy_detail.grid_investment_index.toFixed(1);
+                    document.getElementById('energy-sub-detail').textContent =
+                        `token ${tokenEI} · grid ${gridEI}`;
+                }
 
                 // Update data quality
                 document.getElementById('models-tracked').textContent = data.data_quality.total_models;
