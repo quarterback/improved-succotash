@@ -1,0 +1,26 @@
+{
+  "source": "BloombergNEF Grid Investment Outlook",
+  "description": "Global power grid investment figures. Data centers are a key demand driver cited in BNEF reporting. Used as a 30% weight in the AEAI blended energy index.",
+  "baseline_year": 2025,
+  "baseline_value_billions_usd": 470,
+  "series": [
+    {
+      "year": 2023,
+      "investment_billions_usd": 344,
+      "notes": "Pre-baseline"
+    },
+    {
+      "year": 2024,
+      "investment_billions_usd": 403,
+      "notes": "+17% YoY growth"
+    },
+    {
+      "year": 2025,
+      "investment_billions_usd": 470,
+      "notes": "Baseline year. BloombergNEF reported $470B+, +16% YoY. Second consecutive year of double-digit growth, with data centers explicitly cited as a major demand driver."
+    }
+  ],
+  "datacenter_demand_driver": true,
+  "update_frequency": "Annual (update each year when BNEF publishes new figures)",
+  "last_updated": "2025-12-01"
+}
