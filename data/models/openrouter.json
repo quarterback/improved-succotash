@@ -1,6 +1,20 @@
 {
-  "fetched_at": "2026-03-03T06:19:07.686265+00:00",
+  "fetched_at": "2026-03-04T06:17:04.621051+00:00",
   "models": {
+    "openai/gpt-5.3-chat": {
+      "input_cost_per_token": 1.75e-06,
+      "output_cost_per_token": 1.4e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-5.3 Chat"
+    },
+    "google/gemini-3.1-flash-lite-preview": {
+      "input_cost_per_token": 2.5e-07,
+      "output_cost_per_token": 1.5e-06,
+      "context_length": 1048576,
+      "source": "openrouter",
+      "name": "Google: Gemini 3.1 Flash Lite Preview"
+    },
     "bytedance-seed/seed-2.0-mini": {
       "input_cost_per_token": 1e-07,
       "output_cost_per_token": 4e-07,
@@ -9,29 +23,29 @@
       "name": "ByteDance Seed: Seed-2.0-Mini"
     },
     "google/gemini-3.1-flash-image-preview": {
-      "input_cost_per_token": 2.5e-07,
-      "output_cost_per_token": 1.5e-06,
+      "input_cost_per_token": 5e-07,
+      "output_cost_per_token": 3e-06,
       "context_length": 65536,
       "source": "openrouter",
       "name": "Google: Nano Banana 2 (Gemini 3.1 Flash Image Preview)"
     },
     "qwen/qwen3.5-35b-a3b": {
-      "input_cost_per_token": 2.5e-07,
-      "output_cost_per_token": 1e-06,
+      "input_cost_per_token": 1.625e-07,
+      "output_cost_per_token": 1.3e-06,
       "context_length": 262144,
       "source": "openrouter",
       "name": "Qwen: Qwen3.5-35B-A3B"
     },
     "qwen/qwen3.5-27b": {
-      "input_cost_per_token": 3e-07,
-      "output_cost_per_token": 2.4e-06,
+      "input_cost_per_token": 1.95e-07,
+      "output_cost_per_token": 1.56e-06,
       "context_length": 262144,
       "source": "openrouter",
       "name": "Qwen: Qwen3.5-27B"
     },
     "qwen/qwen3.5-122b-a10b": {
-      "input_cost_per_token": 4e-07,
-      "output_cost_per_token": 3.2e-06,
+      "input_cost_per_token": 2.6e-07,
+      "output_cost_per_token": 2.08e-06,
       "context_length": 262144,
       "source": "openrouter",
       "name": "Qwen: Qwen3.5-122B-A10B"
@@ -86,15 +100,15 @@
       "name": "Anthropic: Claude Sonnet 4.6"
     },
     "qwen/qwen3.5-plus-02-15": {
-      "input_cost_per_token": 4e-07,
-      "output_cost_per_token": 2.4e-06,
+      "input_cost_per_token": 2.6e-07,
+      "output_cost_per_token": 1.56e-06,
       "context_length": 1000000,
       "source": "openrouter",
       "name": "Qwen: Qwen3.5 Plus 2026-02-15"
     },
     "qwen/qwen3.5-397b-a17b": {
-      "input_cost_per_token": 5.5e-07,
-      "output_cost_per_token": 3.5e-06,
+      "input_cost_per_token": 3.9e-07,
+      "output_cost_per_token": 2.34e-06,
       "context_length": 262144,
       "source": "openrouter",
       "name": "Qwen: Qwen3.5 397B A17B"
@@ -114,8 +128,8 @@
       "name": "Z.ai: GLM 5"
     },
     "qwen/qwen3-max-thinking": {
-      "input_cost_per_token": 1.2e-06,
-      "output_cost_per_token": 6e-06,
+      "input_cost_per_token": 7.8e-07,
+      "output_cost_per_token": 3.9e-06,
       "context_length": 262144,
       "source": "openrouter",
       "name": "Qwen: Qwen3 Max Thinking"
@@ -371,6 +385,13 @@
       "context_length": 262144,
       "source": "openrouter",
       "name": "Mistral: Mistral Large 3 2512"
+    },
+    "arcee-ai/trinity-mini": {
+      "input_cost_per_token": 4.5e-08,
+      "output_cost_per_token": 1.5e-07,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "Arcee AI: Trinity Mini"
     },
     "deepseek/deepseek-v3.2-speciale": {
       "input_cost_per_token": 4e-07,
@@ -709,8 +730,8 @@
       "name": "Qwen: Qwen3 Max"
     },
     "qwen/qwen3-coder-plus": {
-      "input_cost_per_token": 1e-06,
-      "output_cost_per_token": 5e-06,
+      "input_cost_per_token": 6.5e-07,
+      "output_cost_per_token": 3.25e-06,
       "context_length": 1000000,
       "source": "openrouter",
       "name": "Qwen: Qwen3 Coder Plus"
@@ -751,8 +772,8 @@
       "name": "Tongyi DeepResearch 30B A3B"
     },
     "qwen/qwen3-coder-flash": {
-      "input_cost_per_token": 3e-07,
-      "output_cost_per_token": 1.5e-06,
+      "input_cost_per_token": 1.95e-07,
+      "output_cost_per_token": 9.75e-07,
       "context_length": 1000000,
       "source": "openrouter",
       "name": "Qwen: Qwen3 Coder Flash"
@@ -779,15 +800,15 @@
       "name": "Meituan: LongCat Flash Chat"
     },
     "qwen/qwen-plus-2025-07-28:thinking": {
-      "input_cost_per_token": 4e-07,
-      "output_cost_per_token": 1.2e-06,
+      "input_cost_per_token": 2.6e-07,
+      "output_cost_per_token": 7.8e-07,
       "context_length": 1000000,
       "source": "openrouter",
       "name": "Qwen: Qwen Plus 0728 (thinking)"
     },
     "qwen/qwen-plus-2025-07-28": {
-      "input_cost_per_token": 4e-07,
-      "output_cost_per_token": 1.2e-06,
+      "input_cost_per_token": 2.6e-07,
+      "output_cost_per_token": 7.8e-07,
       "context_length": 1000000,
       "source": "openrouter",
       "name": "Qwen: Qwen Plus 0728"
@@ -1102,7 +1123,7 @@
     },
     "inception/mercury": {
       "input_cost_per_token": 2.5e-07,
-      "output_cost_per_token": 1e-06,
+      "output_cost_per_token": 7.5e-07,
       "context_length": 128000,
       "source": "openrouter",
       "name": "Inception: Mercury"
@@ -1235,7 +1256,7 @@
     },
     "inception/mercury-coder": {
       "input_cost_per_token": 2.5e-07,
-      "output_cost_per_token": 1e-06,
+      "output_cost_per_token": 7.5e-07,
       "context_length": 128000,
       "source": "openrouter",
       "name": "Inception: Mercury Coder"
@@ -1535,8 +1556,8 @@
       "name": "Google: Gemini 2.0 Flash"
     },
     "qwen/qwen-vl-plus": {
-      "input_cost_per_token": 2.1e-07,
-      "output_cost_per_token": 6.3e-07,
+      "input_cost_per_token": 1.365e-07,
+      "output_cost_per_token": 4.095e-07,
       "context_length": 131072,
       "source": "openrouter",
       "name": "Qwen: Qwen VL Plus"
@@ -1570,8 +1591,8 @@
       "name": "Qwen: Qwen VL Max"
     },
     "qwen/qwen-turbo": {
-      "input_cost_per_token": 5e-08,
-      "output_cost_per_token": 2e-07,
+      "input_cost_per_token": 3.25e-08,
+      "output_cost_per_token": 1.3e-07,
       "context_length": 131072,
       "source": "openrouter",
       "name": "Qwen: Qwen-Turbo"
@@ -1591,8 +1612,8 @@
       "name": "Qwen: Qwen-Plus"
     },
     "qwen/qwen-max": {
-      "input_cost_per_token": 1.6e-06,
-      "output_cost_per_token": 6.4e-06,
+      "input_cost_per_token": 1.04e-06,
+      "output_cost_per_token": 4.16e-06,
       "context_length": 32768,
       "source": "openrouter",
       "name": "Qwen: Qwen-Max "
@@ -1988,20 +2009,6 @@
       "context_length": 8192,
       "source": "openrouter",
       "name": "NousResearch: Hermes 2 Pro - Llama-3 8B"
-    },
-    "mistralai/mistral-7b-instruct": {
-      "input_cost_per_token": 2e-07,
-      "output_cost_per_token": 2e-07,
-      "context_length": 32768,
-      "source": "openrouter",
-      "name": "Mistral: Mistral 7B Instruct"
-    },
-    "mistralai/mistral-7b-instruct-v0.3": {
-      "input_cost_per_token": 2e-07,
-      "output_cost_per_token": 2e-07,
-      "context_length": 32768,
-      "source": "openrouter",
-      "name": "Mistral: Mistral 7B Instruct v0.3"
     },
     "meta-llama/llama-guard-2-8b": {
       "input_cost_per_token": 2e-07,
