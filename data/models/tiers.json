@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-12T06:20:30.205081+00:00",
+  "generated_at": "2026-03-13T06:19:43.517666+00:00",
   "tiers": {
     "budget": [
       "openai/gpt-4o-mini",
@@ -27,7 +27,6 @@
     "reasoning": [
       "openai/o1",
       "openai/o3-mini",
-      "openai/o1-mini",
       "deepseek/deepseek-r1",
       "anthropic/claude-3.7-sonnet:thinking"
     ],
