@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-03-13T06:19:43.493333+00:00",
+  "fetched_at": "2026-03-14T06:17:47.622037+00:00",
   "models": {
     "ai21.j2-mid-v1": {
       "input_cost_per_token": 1.25e-05,
@@ -12651,7 +12651,7 @@
       "provider": "moonshot",
       "supports_vision": true,
       "supports_function_calling": true,
-      "supports_reasoning": false,
+      "supports_reasoning": true,
       "cache_read_cost": 1e-07,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
@@ -12735,7 +12735,7 @@
       "provider": "moonshot",
       "supports_vision": false,
       "supports_function_calling": true,
-      "supports_reasoning": false,
+      "supports_reasoning": true,
       "cache_read_cost": 1.5e-07,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
@@ -12749,7 +12749,7 @@
       "provider": "moonshot",
       "supports_vision": false,
       "supports_function_calling": true,
-      "supports_reasoning": false,
+      "supports_reasoning": true,
       "cache_read_cost": 1.5e-07,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
