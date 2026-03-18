@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-03-17T06:26:07.422595+00:00",
+    "generated_at": "2026-03-18T06:26:31.740879+00:00",
     "baseline_date": "2025-02-01",
     "launch_date": "2025-02-01",
     "data_sources": [
@@ -8,7 +8,7 @@
       "litellm"
     ],
     "methodology_version": "2.0",
-    "models_count": 2085
+    "models_count": 2088
   },
   "compute_cpi": {
     "ticker": "$CPI",
@@ -42,7 +42,7 @@
     "wow": {
       "ticker": "$CPI-W",
       "name": "Week-over-Week",
-      "base_date": "2026-03-10",
+      "base_date": "2026-03-11",
       "value": 102.9
     }
   },
@@ -84,11 +84,11 @@
     }
   },
   "trend_analysis": {
-    "direction": "inflating",
-    "velocity": 18.75,
+    "direction": "stable",
+    "velocity": 0.0,
     "velocity_unit": "points per month",
-    "acceleration": -75.0,
-    "forecast_30d": 108.5,
+    "acceleration": 0.0,
+    "forecast_30d": 89.7,
     "confidence": "high"
   },
   "yield_curve": {
@@ -97,17 +97,17 @@
         "days": 7,
         "deflation_pct": 2.86,
         "annualized_pct": 149.23,
-        "source_date": "2026-03-10"
+        "source_date": "2026-03-11"
       },
       "1m": {
         "days": 30,
         "deflation_pct": 2.86,
         "annualized_pct": 34.81,
-        "source_date": "2026-02-15"
+        "source_date": "2026-02-16"
       }
     },
     "interpretation": "Significant inflation - rapid increase in AI compute costs",
-    "generated_at": "2026-03-17T06:26:07.421077+00:00"
+    "generated_at": "2026-03-18T06:26:31.739302+00:00"
   },
   "subindices": {
     "judgment": {
@@ -195,7 +195,7 @@
         "display": "1 $BULK = 4 $UTIL"
       }
     },
-    "generated_at": "2026-03-17T06:26:07.406389+00:00"
+    "generated_at": "2026-03-18T06:26:31.722039+00:00"
   },
   "persona_cpis": {
     "startup": {
