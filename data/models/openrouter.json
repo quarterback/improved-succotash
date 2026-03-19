@@ -1,6 +1,27 @@
 {
-  "fetched_at": "2026-03-18T06:26:32.008922+00:00",
+  "fetched_at": "2026-03-19T06:24:01.357892+00:00",
   "models": {
+    "xiaomi/mimo-v2-omni": {
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 2e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Xiaomi: MiMo-V2-Omni"
+    },
+    "xiaomi/mimo-v2-pro": {
+      "input_cost_per_token": 1e-06,
+      "output_cost_per_token": 3e-06,
+      "context_length": 1048576,
+      "source": "openrouter",
+      "name": "Xiaomi: MiMo-V2-Pro"
+    },
+    "minimax/minimax-m2.7": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 204800,
+      "source": "openrouter",
+      "name": "MiniMax: MiniMax M2.7"
+    },
     "openai/gpt-5.4-nano": {
       "input_cost_per_token": 2e-07,
       "output_cost_per_token": 1.25e-06,
@@ -42,6 +63,13 @@
       "context_length": 2000000,
       "source": "openrouter",
       "name": "xAI: Grok 4.20 Beta"
+    },
+    "nvidia/nemotron-3-super-120b-a12b": {
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 5e-07,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "NVIDIA: Nemotron 3 Super"
     },
     "bytedance-seed/seed-2.0-lite": {
       "input_cost_per_token": 2.5e-07,
@@ -324,8 +352,8 @@
       "name": "MiniMax: MiniMax M2.1"
     },
     "z-ai/glm-4.7": {
-      "input_cost_per_token": 3.8e-07,
-      "output_cost_per_token": 1.98e-06,
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 1.75e-06,
       "context_length": 202752,
       "source": "openrouter",
       "name": "Z.ai: GLM 4.7"
@@ -478,8 +506,8 @@
       "name": "DeepSeek: DeepSeek V3.2 Speciale"
     },
     "deepseek/deepseek-v3.2": {
-      "input_cost_per_token": 2.55e-07,
-      "output_cost_per_token": 4e-07,
+      "input_cost_per_token": 2.6e-07,
+      "output_cost_per_token": 3.8e-07,
       "context_length": 163840,
       "source": "openrouter",
       "name": "DeepSeek: DeepSeek V3.2"
@@ -865,7 +893,7 @@
     "qwen/qwen3-next-80b-a3b-instruct": {
       "input_cost_per_token": 9e-08,
       "output_cost_per_token": 1.1e-06,
-      "context_length": 131072,
+      "context_length": 262144,
       "source": "openrouter",
       "name": "Qwen: Qwen3 Next 80B A3B Instruct"
     },
@@ -905,9 +933,9 @@
       "name": "MoonshotAI: Kimi K2 0905"
     },
     "qwen/qwen3-30b-a3b-thinking-2507": {
-      "input_cost_per_token": 5.1e-08,
-      "output_cost_per_token": 3.4e-07,
-      "context_length": 32768,
+      "input_cost_per_token": 8e-08,
+      "output_cost_per_token": 4e-07,
+      "context_length": 131072,
       "source": "openrouter",
       "name": "Qwen: Qwen3 30B A3B Thinking 2507"
     },
@@ -1066,9 +1094,9 @@
       "name": "Z.ai: GLM 4.5 Air"
     },
     "qwen/qwen3-235b-a22b-thinking-2507": {
-      "input_cost_per_token": 1.1e-07,
-      "output_cost_per_token": 6e-07,
-      "context_length": 262144,
+      "input_cost_per_token": 1.495e-07,
+      "output_cost_per_token": 1.495e-06,
+      "context_length": 131072,
       "source": "openrouter",
       "name": "Qwen: Qwen3 235B A22B Thinking 2507"
     },
@@ -1192,9 +1220,9 @@
       "name": "Inception: Mercury"
     },
     "mistralai/mistral-small-3.2-24b-instruct": {
-      "input_cost_per_token": 6e-08,
-      "output_cost_per_token": 1.8e-07,
-      "context_length": 131072,
+      "input_cost_per_token": 7.5e-08,
+      "output_cost_per_token": 2e-07,
+      "context_length": 128000,
       "source": "openrouter",
       "name": "Mistral: Mistral Small 3.2 24B"
     },
@@ -1528,9 +1556,9 @@
       "name": "OpenAI: GPT-4o Search Preview"
     },
     "google/gemma-3-27b-it": {
-      "input_cost_per_token": 3e-08,
-      "output_cost_per_token": 1.1e-07,
-      "context_length": 128000,
+      "input_cost_per_token": 8e-08,
+      "output_cost_per_token": 1.6e-07,
+      "context_length": 131072,
       "source": "openrouter",
       "name": "Google: Gemma 3 27B"
     },
@@ -1564,8 +1592,8 @@
     },
     "qwen/qwq-32b": {
       "input_cost_per_token": 1.5e-07,
-      "output_cost_per_token": 4e-07,
-      "context_length": 32768,
+      "output_cost_per_token": 5.8e-07,
+      "context_length": 131072,
       "source": "openrouter",
       "name": "Qwen: QwQ 32B"
     },
