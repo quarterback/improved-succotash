@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-03-20T06:21:02.425807+00:00",
+  "fetched_at": "2026-03-21T06:15:10.208832+00:00",
   "models": {
     "xiaomi/mimo-v2-omni": {
       "input_cost_per_token": 4e-07,
@@ -220,7 +220,7 @@
     },
     "minimax/minimax-m2.5": {
       "input_cost_per_token": 2e-07,
-      "output_cost_per_token": 1.2e-06,
+      "output_cost_per_token": 1.17e-06,
       "context_length": 196608,
       "source": "openrouter",
       "name": "MiniMax: MiniMax M2.5"
@@ -1507,9 +1507,9 @@
       "name": "OpenAI: o1-pro"
     },
     "mistralai/mistral-small-3.1-24b-instruct": {
-      "input_cost_per_token": 3.5e-07,
-      "output_cost_per_token": 5.6e-07,
-      "context_length": 128000,
+      "input_cost_per_token": 3e-08,
+      "output_cost_per_token": 1.1e-07,
+      "context_length": 131072,
       "source": "openrouter",
       "name": "Mistral: Mistral Small 3.1 24B"
     },
