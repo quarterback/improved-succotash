@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-03-21T06:15:10.208832+00:00",
+  "fetched_at": "2026-03-22T06:19:45.734410+00:00",
   "models": {
     "xiaomi/mimo-v2-omni": {
       "input_cost_per_token": 4e-07,
@@ -1046,7 +1046,7 @@
     },
     "openai/gpt-oss-20b": {
       "input_cost_per_token": 3e-08,
-      "output_cost_per_token": 1.4e-07,
+      "output_cost_per_token": 1.1e-07,
       "context_length": 131072,
       "source": "openrouter",
       "name": "OpenAI: gpt-oss-20b"
@@ -1470,6 +1470,13 @@
       "context_length": 131072,
       "source": "openrouter",
       "name": "xAI: Grok 3 Beta"
+    },
+    "nvidia/llama-3.1-nemotron-ultra-253b-v1": {
+      "input_cost_per_token": 6e-07,
+      "output_cost_per_token": 1.8e-06,
+      "context_length": 131072,
+      "source": "openrouter",
+      "name": "NVIDIA: Llama 3.1 Nemotron Ultra 253B v1"
     },
     "meta-llama/llama-4-maverick": {
       "input_cost_per_token": 1.5e-07,
@@ -1953,6 +1960,13 @@
       "context_length": 32768,
       "source": "openrouter",
       "name": "Qwen2.5 72B Instruct"
+    },
+    "mistralai/pixtral-12b": {
+      "input_cost_per_token": 1.0000000000000001e-07,
+      "output_cost_per_token": 1.0000000000000001e-07,
+      "context_length": 32768,
+      "source": "openrouter",
+      "name": "Mistral: Pixtral 12B"
     },
     "cohere/command-r-08-2024": {
       "input_cost_per_token": 1.5e-07,
