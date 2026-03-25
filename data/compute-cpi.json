@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-03-24T06:26:17.082755+00:00",
+    "generated_at": "2026-03-25T06:25:51.410442+00:00",
     "baseline_date": "2025-02-01",
     "launch_date": "2025-02-01",
     "data_sources": [
@@ -8,7 +8,7 @@
       "litellm"
     ],
     "methodology_version": "2.0",
-    "models_count": 2096
+    "models_count": 2093
   },
   "compute_cpi": {
     "ticker": "$CPI",
@@ -42,7 +42,7 @@
     "wow": {
       "ticker": "$CPI-W",
       "name": "Week-over-Week",
-      "base_date": "2026-03-17",
+      "base_date": "2026-03-18",
       "value": 100.0
     }
   },
@@ -97,13 +97,13 @@
         "days": 7,
         "deflation_pct": 0.0,
         "annualized_pct": 0.0,
-        "source_date": "2026-03-17"
+        "source_date": "2026-03-18"
       },
       "1m": {
         "days": 30,
         "deflation_pct": 2.86,
         "annualized_pct": 34.82,
-        "source_date": "2026-02-22"
+        "source_date": "2026-02-23"
       },
       "3m": {
         "days": 90,
@@ -113,7 +113,7 @@
       }
     },
     "interpretation": "Significant inflation - rapid increase in AI compute costs",
-    "generated_at": "2026-03-24T06:26:17.080742+00:00"
+    "generated_at": "2026-03-25T06:25:51.408381+00:00"
   },
   "subindices": {
     "judgment": {
@@ -201,7 +201,7 @@
         "display": "1 $BULK = 4 $UTIL"
       }
     },
-    "generated_at": "2026-03-24T06:26:17.062751+00:00"
+    "generated_at": "2026-03-25T06:25:51.389150+00:00"
   },
   "persona_cpis": {
     "startup": {
