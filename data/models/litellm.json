@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-03-27T06:29:04.813046+00:00",
+  "fetched_at": "2026-03-28T06:23:30.276469+00:00",
   "models": {
     "ai21.j2-mid-v1": {
       "input_cost_per_token": 1.25e-05,
@@ -634,7 +634,7 @@
     "anthropic.claude-sonnet-4-6": {
       "input_cost_per_token": 3e-06,
       "output_cost_per_token": 1.5e-05,
-      "context_length": 200000,
+      "context_length": 1000000,
       "max_output_tokens": 64000,
       "provider": "bedrock_converse",
       "supports_vision": true,
@@ -648,7 +648,7 @@
     "global.anthropic.claude-sonnet-4-6": {
       "input_cost_per_token": 3e-06,
       "output_cost_per_token": 1.5e-05,
-      "context_length": 200000,
+      "context_length": 1000000,
       "max_output_tokens": 64000,
       "provider": "bedrock_converse",
       "supports_vision": true,
@@ -662,7 +662,7 @@
     "us.anthropic.claude-sonnet-4-6": {
       "input_cost_per_token": 3.3e-06,
       "output_cost_per_token": 1.65e-05,
-      "context_length": 200000,
+      "context_length": 1000000,
       "max_output_tokens": 64000,
       "provider": "bedrock_converse",
       "supports_vision": true,
@@ -676,7 +676,7 @@
     "eu.anthropic.claude-sonnet-4-6": {
       "input_cost_per_token": 3.3e-06,
       "output_cost_per_token": 1.65e-05,
-      "context_length": 200000,
+      "context_length": 1000000,
       "max_output_tokens": 64000,
       "provider": "bedrock_converse",
       "supports_vision": true,
@@ -690,7 +690,7 @@
     "au.anthropic.claude-sonnet-4-6": {
       "input_cost_per_token": 3.3e-06,
       "output_cost_per_token": 1.65e-05,
-      "context_length": 200000,
+      "context_length": 1000000,
       "max_output_tokens": 64000,
       "provider": "bedrock_converse",
       "supports_vision": true,
@@ -1152,7 +1152,7 @@
     "azure_ai/claude-sonnet-4-6": {
       "input_cost_per_token": 3e-06,
       "output_cost_per_token": 1.5e-05,
-      "context_length": 200000,
+      "context_length": 1000000,
       "max_output_tokens": 64000,
       "provider": "azure_ai",
       "supports_vision": true,
@@ -5310,7 +5310,7 @@
     "claude-sonnet-4-6": {
       "input_cost_per_token": 3e-06,
       "output_cost_per_token": 1.5e-05,
-      "context_length": 200000,
+      "context_length": 1000000,
       "max_output_tokens": 64000,
       "provider": "anthropic",
       "supports_vision": true,
@@ -19226,7 +19226,7 @@
     "vertex_ai/claude-sonnet-4-6": {
       "input_cost_per_token": 3e-06,
       "output_cost_per_token": 1.5e-05,
-      "context_length": 200000,
+      "context_length": 1000000,
       "max_output_tokens": 64000,
       "provider": "vertex_ai-anthropic_models",
       "supports_vision": true,
@@ -25481,6 +25481,20 @@
       "batch_output_cost": 0,
       "source": "litellm"
     },
+    "gemini-3.1-flash-live-preview": {
+      "input_cost_per_token": 7.5e-07,
+      "output_cost_per_token": 4.5e-06,
+      "context_length": 131072,
+      "max_output_tokens": 65536,
+      "provider": "gemini",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": false,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
     "gemini/gemini-2.5-flash-native-audio-latest": {
       "input_cost_per_token": 3e-07,
       "output_cost_per_token": 2.5e-06,
@@ -25517,6 +25531,20 @@
       "provider": "gemini",
       "supports_vision": false,
       "supports_function_calling": false,
+      "supports_reasoning": false,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "gemini/gemini-3.1-flash-live-preview": {
+      "input_cost_per_token": 7.5e-07,
+      "output_cost_per_token": 4.5e-06,
+      "context_length": 131072,
+      "max_output_tokens": 65536,
+      "provider": "gemini",
+      "supports_vision": true,
+      "supports_function_calling": true,
       "supports_reasoning": false,
       "cache_read_cost": 0,
       "batch_input_cost": 0,
@@ -25596,7 +25624,7 @@
     "vertex_ai/claude-sonnet-4-6@default": {
       "input_cost_per_token": 3e-06,
       "output_cost_per_token": 1.5e-05,
-      "context_length": 200000,
+      "context_length": 1000000,
       "max_output_tokens": 64000,
       "provider": "vertex_ai-anthropic_models",
       "supports_vision": true,
