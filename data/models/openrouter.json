@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-03-28T06:23:30.221823+00:00",
+  "fetched_at": "2026-03-29T06:27:32.420953+00:00",
   "models": {
     "kwaipilot/kat-coder-pro-v2": {
       "input_cost_per_token": 3e-07,
@@ -233,8 +233,8 @@
       "name": "Qwen: Qwen3.5 397B A17B"
     },
     "minimax/minimax-m2.5": {
-      "input_cost_per_token": 2e-07,
-      "output_cost_per_token": 1.17e-06,
+      "input_cost_per_token": 1.9e-07,
+      "output_cost_per_token": 1.15e-06,
       "context_length": 196608,
       "source": "openrouter",
       "name": "MiniMax: MiniMax M2.5"
@@ -275,8 +275,8 @@
       "name": "StepFun: Step 3.5 Flash"
     },
     "moonshotai/kimi-k2.5": {
-      "input_cost_per_token": 4.45e-07,
-      "output_cost_per_token": 2.22e-06,
+      "input_cost_per_token": 4.2e-07,
+      "output_cost_per_token": 2.2e-06,
       "context_length": 262144,
       "source": "openrouter",
       "name": "MoonshotAI: Kimi K2.5"
