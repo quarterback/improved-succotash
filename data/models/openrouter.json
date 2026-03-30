@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-03-29T06:27:32.420953+00:00",
+  "fetched_at": "2026-03-30T06:40:51.805580+00:00",
   "models": {
     "kwaipilot/kat-coder-pro-v2": {
       "input_cost_per_token": 3e-07,
@@ -1870,19 +1870,19 @@
       "source": "openrouter",
       "name": "Anthropic: Claude 3.5 Haiku"
     },
-    "anthropic/claude-3.5-sonnet": {
-      "input_cost_per_token": 6e-06,
-      "output_cost_per_token": 3e-05,
-      "context_length": 200000,
-      "source": "openrouter",
-      "name": "Anthropic: Claude 3.5 Sonnet"
-    },
     "anthracite-org/magnum-v4-72b": {
       "input_cost_per_token": 3e-06,
       "output_cost_per_token": 5e-06,
       "context_length": 16384,
       "source": "openrouter",
       "name": "Magnum v4 72B"
+    },
+    "anthropic/claude-3.5-sonnet": {
+      "input_cost_per_token": 6e-06,
+      "output_cost_per_token": 3e-05,
+      "context_length": 200000,
+      "source": "openrouter",
+      "name": "Anthropic: Claude 3.5 Sonnet"
     },
     "qwen/qwen-2.5-7b-instruct": {
       "input_cost_per_token": 4e-08,
@@ -2017,19 +2017,19 @@
       "source": "openrouter",
       "name": "Mistral: Mistral Nemo"
     },
-    "openai/gpt-4o-mini-2024-07-18": {
-      "input_cost_per_token": 1.5e-07,
-      "output_cost_per_token": 6e-07,
-      "context_length": 128000,
-      "source": "openrouter",
-      "name": "OpenAI: GPT-4o-mini (2024-07-18)"
-    },
     "openai/gpt-4o-mini": {
       "input_cost_per_token": 1.5e-07,
       "output_cost_per_token": 6e-07,
       "context_length": 128000,
       "source": "openrouter",
       "name": "OpenAI: GPT-4o-mini"
+    },
+    "openai/gpt-4o-mini-2024-07-18": {
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 6e-07,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4o-mini (2024-07-18)"
     },
     "google/gemma-2-27b-it": {
       "input_cost_per_token": 6.5e-07,
@@ -2059,13 +2059,6 @@
       "source": "openrouter",
       "name": "NousResearch: Hermes 2 Pro - Llama-3 8B"
     },
-    "openai/gpt-4o-2024-05-13": {
-      "input_cost_per_token": 5e-06,
-      "output_cost_per_token": 1.5e-05,
-      "context_length": 128000,
-      "source": "openrouter",
-      "name": "OpenAI: GPT-4o (2024-05-13)"
-    },
     "openai/gpt-4o": {
       "input_cost_per_token": 2.5e-06,
       "output_cost_per_token": 1e-05,
@@ -2079,6 +2072,13 @@
       "context_length": 128000,
       "source": "openrouter",
       "name": "OpenAI: GPT-4o (extended)"
+    },
+    "openai/gpt-4o-2024-05-13": {
+      "input_cost_per_token": 5e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4o (2024-05-13)"
     },
     "meta-llama/llama-3-8b-instruct": {
       "input_cost_per_token": 3e-08,
@@ -2206,19 +2206,19 @@
       "source": "openrouter",
       "name": "MythoMax 13B"
     },
-    "openai/gpt-4-0314": {
-      "input_cost_per_token": 3e-05,
-      "output_cost_per_token": 6e-05,
-      "context_length": 8191,
-      "source": "openrouter",
-      "name": "OpenAI: GPT-4 (older v0314)"
-    },
     "openai/gpt-4": {
       "input_cost_per_token": 3e-05,
       "output_cost_per_token": 6e-05,
       "context_length": 8191,
       "source": "openrouter",
       "name": "OpenAI: GPT-4"
+    },
+    "openai/gpt-4-0314": {
+      "input_cost_per_token": 3e-05,
+      "output_cost_per_token": 6e-05,
+      "context_length": 8191,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4 (older v0314)"
     },
     "openai/gpt-3.5-turbo": {
       "input_cost_per_token": 5e-07,
