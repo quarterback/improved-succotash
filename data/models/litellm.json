@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-02T06:29:40.521843+00:00",
+  "fetched_at": "2026-04-03T06:29:30.414321+00:00",
   "models": {
     "ai21.j2-mid-v1": {
       "input_cost_per_token": 1.25e-05,
@@ -3683,6 +3683,20 @@
       "batch_output_cost": 0,
       "source": "litellm"
     },
+    "bedrock/ap-northeast-1/minimax.minimax-m2.5": {
+      "input_cost_per_token": 3.6e-07,
+      "output_cost_per_token": 1.44e-06,
+      "context_length": 1000000,
+      "max_output_tokens": 8192,
+      "provider": "bedrock",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
     "bedrock/ap-northeast-1/moonshotai.kimi-k2-thinking": {
       "input_cost_per_token": 7.3e-07,
       "output_cost_per_token": 3.03e-06,
@@ -3809,6 +3823,20 @@
       "batch_output_cost": 0,
       "source": "litellm"
     },
+    "bedrock/ap-south-1/minimax.minimax-m2.5": {
+      "input_cost_per_token": 3.6e-07,
+      "output_cost_per_token": 1.44e-06,
+      "context_length": 1000000,
+      "max_output_tokens": 8192,
+      "provider": "bedrock",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
     "bedrock/ap-south-1/moonshotai.kimi-k2-thinking": {
       "input_cost_per_token": 7.1e-07,
       "output_cost_per_token": 2.94e-06,
@@ -3851,6 +3879,20 @@
       "batch_output_cost": 0,
       "source": "litellm"
     },
+    "bedrock/ap-southeast-2/minimax.minimax-m2.5": {
+      "input_cost_per_token": 3.09e-07,
+      "output_cost_per_token": 1.236e-06,
+      "context_length": 1000000,
+      "max_output_tokens": 8192,
+      "provider": "bedrock",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
     "bedrock/ap-southeast-3/deepseek.v3.2": {
       "input_cost_per_token": 7.4e-07,
       "output_cost_per_token": 2.22e-06,
@@ -3874,6 +3916,20 @@
       "supports_vision": false,
       "supports_function_calling": true,
       "supports_reasoning": false,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "bedrock/ap-southeast-3/minimax.minimax-m2.5": {
+      "input_cost_per_token": 3.6e-07,
+      "output_cost_per_token": 1.44e-06,
+      "context_length": 1000000,
+      "max_output_tokens": 8192,
+      "provider": "bedrock",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
       "cache_read_cost": 0,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
@@ -3963,6 +4019,20 @@
       "batch_output_cost": 0,
       "source": "litellm"
     },
+    "bedrock/eu-north-1/minimax.minimax-m2.5": {
+      "input_cost_per_token": 3.6e-07,
+      "output_cost_per_token": 1.44e-06,
+      "context_length": 1000000,
+      "max_output_tokens": 8192,
+      "provider": "bedrock",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
     "bedrock/eu-north-1/moonshotai.kimi-k2.5": {
       "input_cost_per_token": 7.2e-07,
       "output_cost_per_token": 3.6e-06,
@@ -4033,6 +4103,20 @@
       "batch_output_cost": 0,
       "source": "litellm"
     },
+    "bedrock/eu-central-1/minimax.minimax-m2.5": {
+      "input_cost_per_token": 3.6e-07,
+      "output_cost_per_token": 1.44e-06,
+      "context_length": 1000000,
+      "max_output_tokens": 8192,
+      "provider": "bedrock",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
     "bedrock/eu-central-1/qwen.qwen3-coder-next": {
       "input_cost_per_token": 6e-07,
       "output_cost_per_token": 1.44e-06,
@@ -4089,6 +4173,20 @@
       "batch_output_cost": 0,
       "source": "litellm"
     },
+    "bedrock/eu-west-1/minimax.minimax-m2.5": {
+      "input_cost_per_token": 3.6e-07,
+      "output_cost_per_token": 1.44e-06,
+      "context_length": 1000000,
+      "max_output_tokens": 8192,
+      "provider": "bedrock",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
     "bedrock/eu-west-1/qwen.qwen3-coder-next": {
       "input_cost_per_token": 6e-07,
       "output_cost_per_token": 1.44e-06,
@@ -4140,6 +4238,20 @@
       "supports_vision": false,
       "supports_function_calling": true,
       "supports_reasoning": false,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "bedrock/eu-west-2/minimax.minimax-m2.5": {
+      "input_cost_per_token": 4.7e-07,
+      "output_cost_per_token": 1.86e-06,
+      "context_length": 1000000,
+      "max_output_tokens": 8192,
+      "provider": "bedrock",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
       "cache_read_cost": 0,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
@@ -4210,6 +4322,20 @@
       "supports_vision": false,
       "supports_function_calling": true,
       "supports_reasoning": false,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "bedrock/eu-south-1/minimax.minimax-m2.5": {
+      "input_cost_per_token": 3.6e-07,
+      "output_cost_per_token": 1.44e-06,
+      "context_length": 1000000,
+      "max_output_tokens": 8192,
+      "provider": "bedrock",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
       "cache_read_cost": 0,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
@@ -4294,6 +4420,20 @@
       "supports_vision": false,
       "supports_function_calling": true,
       "supports_reasoning": false,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "bedrock/sa-east-1/minimax.minimax-m2.5": {
+      "input_cost_per_token": 3.6e-07,
+      "output_cost_per_token": 1.44e-06,
+      "context_length": 1000000,
+      "max_output_tokens": 8192,
+      "provider": "bedrock",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
       "cache_read_cost": 0,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
@@ -4481,6 +4621,20 @@
       "batch_output_cost": 0,
       "source": "litellm"
     },
+    "bedrock/us-east-1/minimax.minimax-m2.5": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 1000000,
+      "max_output_tokens": 8192,
+      "provider": "bedrock",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
     "bedrock/us-east-1/moonshotai.kimi-k2-thinking": {
       "input_cost_per_token": 6e-07,
       "output_cost_per_token": 2.5e-06,
@@ -4546,6 +4700,20 @@
       "supports_vision": false,
       "supports_function_calling": true,
       "supports_reasoning": false,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "bedrock/us-east-2/minimax.minimax-m2.5": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 1000000,
+      "max_output_tokens": 8192,
+      "provider": "bedrock",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
       "cache_read_cost": 0,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
@@ -4678,15 +4846,15 @@
       "source": "litellm"
     },
     "bedrock/us-gov-east-1/claude-sonnet-4-5-20250929-v1:0": {
-      "input_cost_per_token": 3.3e-06,
-      "output_cost_per_token": 1.65e-05,
+      "input_cost_per_token": 3.6e-06,
+      "output_cost_per_token": 1.8e-05,
       "context_length": 200000,
       "max_output_tokens": 4096,
       "provider": "bedrock",
       "supports_vision": true,
       "supports_function_calling": true,
       "supports_reasoning": true,
-      "cache_read_cost": 3.3e-07,
+      "cache_read_cost": 3.6e-07,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
       "source": "litellm"
@@ -4818,15 +4986,15 @@
       "source": "litellm"
     },
     "bedrock/us-gov-west-1/claude-sonnet-4-5-20250929-v1:0": {
-      "input_cost_per_token": 3.3e-06,
-      "output_cost_per_token": 1.65e-05,
+      "input_cost_per_token": 3.6e-06,
+      "output_cost_per_token": 1.8e-05,
       "context_length": 200000,
       "max_output_tokens": 4096,
       "provider": "bedrock",
       "supports_vision": true,
       "supports_function_calling": true,
       "supports_reasoning": true,
-      "cache_read_cost": 3.3e-07,
+      "cache_read_cost": 3.6e-07,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
       "source": "litellm"
@@ -4994,6 +5162,20 @@
       "supports_vision": false,
       "supports_function_calling": true,
       "supports_reasoning": false,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "bedrock/us-west-2/minimax.minimax-m2.5": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 1000000,
+      "max_output_tokens": 8192,
+      "provider": "bedrock",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
       "cache_read_cost": 0,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
@@ -11747,6 +11929,20 @@
       "batch_output_cost": 0,
       "source": "litellm"
     },
+    "minimax.minimax-m2.5": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 1000000,
+      "max_output_tokens": 8192,
+      "provider": "bedrock_converse",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
     "minimax/MiniMax-M2.1": {
       "input_cost_per_token": 3e-07,
       "output_cost_per_token": 1.2e-06,
@@ -13604,6 +13800,20 @@
       "supports_vision": false,
       "supports_function_calling": true,
       "supports_reasoning": false,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "nvidia.nemotron-super-3-120b": {
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 6.5e-07,
+      "context_length": 256000,
+      "max_output_tokens": 32768,
+      "provider": "bedrock_converse",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
       "cache_read_cost": 0,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
@@ -21001,6 +21211,20 @@
       "batch_output_cost": 0,
       "source": "litellm"
     },
+    "zai.glm-5": {
+      "input_cost_per_token": 1e-06,
+      "output_cost_per_token": 3.2e-06,
+      "context_length": 200000,
+      "max_output_tokens": 128000,
+      "provider": "bedrock_converse",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
     "zai/glm-5": {
       "input_cost_per_token": 1e-06,
       "output_cost_per_token": 3.2e-06,
@@ -25687,6 +25911,34 @@
       "supports_function_calling": true,
       "supports_reasoning": true,
       "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "bedrock/us-gov-east-1/anthropic.claude-haiku-4-5-20251001-v1:0": {
+      "input_cost_per_token": 1.2e-06,
+      "output_cost_per_token": 6e-06,
+      "context_length": 200000,
+      "max_output_tokens": 64000,
+      "provider": "bedrock",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 1.2e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "bedrock/us-gov-west-1/anthropic.claude-haiku-4-5-20251001-v1:0": {
+      "input_cost_per_token": 1.2e-06,
+      "output_cost_per_token": 6e-06,
+      "context_length": 200000,
+      "max_output_tokens": 64000,
+      "provider": "bedrock",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 1.2e-07,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
       "source": "litellm"
