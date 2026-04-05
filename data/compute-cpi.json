@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-04-04T06:24:38.894355+00:00",
+    "generated_at": "2026-04-05T06:29:28.419992+00:00",
     "baseline_date": "2025-02-01",
     "launch_date": "2025-02-01",
     "data_sources": [
@@ -8,16 +8,16 @@
       "litellm"
     ],
     "methodology_version": "2.0",
-    "models_count": 2117
+    "models_count": 2133
   },
   "compute_cpi": {
     "ticker": "$CPI",
     "name": "Compute CPI",
-    "value": 89.7,
-    "mom_change": 2.87,
+    "value": 69.1,
+    "mom_change": -20.76,
     "yoy_change": null,
-    "trend": "up",
-    "basket_cost": 36.9478,
+    "trend": "down",
+    "basket_cost": 28.4419,
     "basket_cost_unit": "$ per 1K standardized workloads"
   },
   "index_series": {
@@ -25,31 +25,31 @@
       "ticker": "$CPI-L",
       "name": "Since Launch",
       "base_date": "2025-02-01",
-      "value": 89.7
+      "value": 69.1
     },
     "yoy": {
       "ticker": "$CPI-Y",
       "name": "Year-over-Year",
-      "base_date": "2025-04-04",
-      "value": 105.3
+      "base_date": "2025-04-05",
+      "value": 81.1
     },
     "qtd": {
       "ticker": "$CPI-Q",
       "name": "Quarter-to-Date",
       "base_date": "2026-04-01",
-      "value": 100.0
+      "value": 77.0
     },
     "mtd": {
       "ticker": "$CPI-M",
       "name": "Month-to-Date",
       "base_date": "2026-04-01",
-      "value": 100.0
+      "value": 77.0
     },
     "wow": {
       "ticker": "$CPI-W",
       "name": "Week-over-Week",
-      "base_date": "2026-03-28",
-      "value": 100.0
+      "base_date": "2026-03-29",
+      "value": 77.0
     }
   },
   "methodology_variants": {
@@ -57,36 +57,36 @@
       "ticker": "$CPI-GEN",
       "name": "General Purpose",
       "description": "Balanced workload mix for typical usage",
-      "value": 84.5,
-      "basket_cost": 0.036948
+      "value": 65.0,
+      "basket_cost": 0.028442
     },
     "frontier_heavy": {
       "ticker": "$CPI-FRO",
       "name": "Frontier Heavy",
       "description": "Emphasis on highest-capability models",
-      "value": 91.2,
-      "basket_cost": 0.057298
+      "value": 77.0,
+      "basket_cost": 0.048388
     },
     "budget_heavy": {
       "ticker": "$CPI-BUD",
       "name": "Budget Optimized",
       "description": "Cost-conscious workload mix",
-      "value": 79.9,
-      "basket_cost": 0.023182
+      "value": 57.5,
+      "basket_cost": 0.0167
     },
     "reasoning_focus": {
       "ticker": "$CPI-REA",
       "name": "Reasoning Focus",
       "description": "Heavy emphasis on complex reasoning tasks",
-      "value": 87.9,
-      "basket_cost": 0.063222
+      "value": 75.9,
+      "basket_cost": 0.054645
     },
     "enterprise": {
       "ticker": "$CPI-ENT",
       "name": "Enterprise Mix",
       "description": "Typical enterprise automation workloads",
-      "value": 82.5,
-      "basket_cost": 0.026362
+      "value": 61.0,
+      "basket_cost": 0.019478
     }
   },
   "trend_analysis": {
@@ -94,38 +94,38 @@
     "velocity": 0.0,
     "velocity_unit": "points per month",
     "acceleration": 0.0,
-    "forecast_30d": 89.7,
+    "forecast_30d": 69.1,
     "confidence": "high"
   },
   "yield_curve": {
     "curve": {
       "1w": {
         "days": 7,
-        "deflation_pct": 0.0,
-        "annualized_pct": 0.0,
-        "source_date": "2026-03-28"
+        "deflation_pct": -23.02,
+        "annualized_pct": -1200.4,
+        "source_date": "2026-03-29"
       },
       "1m": {
         "days": 30,
-        "deflation_pct": 2.86,
-        "annualized_pct": 34.82,
-        "source_date": "2026-03-05"
+        "deflation_pct": -20.82,
+        "annualized_pct": -253.29,
+        "source_date": "2026-03-06"
       },
       "3m": {
         "days": 90,
-        "deflation_pct": 22.59,
-        "annualized_pct": 91.6,
+        "deflation_pct": -5.63,
+        "annualized_pct": -22.85,
         "source_date": "2026-01-01"
       },
       "1y": {
         "days": 365,
-        "deflation_pct": 5.32,
-        "annualized_pct": 5.32,
+        "deflation_pct": -18.92,
+        "annualized_pct": -18.92,
         "source_date": "2025-05-01"
       }
     },
-    "interpretation": "Significant inflation - rapid increase in AI compute costs",
-    "generated_at": "2026-04-04T06:24:38.891865+00:00"
+    "interpretation": "Rapid deflation - AI compute costs falling significantly",
+    "generated_at": "2026-04-05T06:29:28.417596+00:00"
   },
   "subindices": {
     "judgment": {
@@ -138,9 +138,9 @@
     "longctx": {
       "ticker": "$LCTX",
       "name": "Long Context Tier",
-      "value": 2.78,
+      "value": 1.85,
       "value_unit": "$/1M tokens",
-      "models_count": 5
+      "models_count": 4
     },
     "budget": {
       "ticker": "$BULK",
@@ -152,30 +152,30 @@
     "frontier": {
       "ticker": "$FRONT",
       "name": "Frontier Tier",
-      "value": 10.04,
+      "value": 9.85,
       "value_unit": "$/1M tokens",
-      "models_count": 5
+      "models_count": 4
     }
   },
   "spreads": {
     "cognition_premium": {
       "ticker": "$COG-P",
       "name": "Cognition Premium",
-      "value": 9.44,
+      "value": 9.25,
       "unit": "$/1M tokens",
       "description": "Premium for frontier capability over budget tier"
     },
     "judgment_premium": {
       "ticker": "$JDG-P",
       "name": "Judgment Premium",
-      "value": -0.65,
+      "value": -0.46,
       "unit": "$/1M tokens",
       "description": "Premium for reasoning capability over frontier"
     },
     "context_premium": {
       "ticker": "$CTX-P",
       "name": "Context Premium",
-      "value": -7.26,
+      "value": -8.0,
       "unit": "$/1M tokens",
       "description": "Premium for long context capability"
     }
@@ -190,9 +190,9 @@
     "rates": {
       "frontier": {
         "ticker": "$FRONT",
-        "rate": 64,
-        "blended_cost": 1.11625e-05,
-        "display": "1 $FRONT = 64 $UTIL"
+        "rate": 63,
+        "blended_cost": 1.0953125e-05,
+        "display": "1 $FRONT = 63 $UTIL"
       },
       "reasoning": {
         "ticker": "$REASON",
@@ -202,9 +202,9 @@
       },
       "longctx": {
         "ticker": "$LCTX",
-        "rate": 30,
-        "blended_cost": 5.197500000000001e-06,
-        "display": "1 $LCTX = 30 $UTIL"
+        "rate": 20,
+        "blended_cost": 3.4968750000000003e-06,
+        "display": "1 $LCTX = 20 $UTIL"
       },
       "budget": {
         "ticker": "$BULK",
@@ -213,51 +213,51 @@
         "display": "1 $BULK = 4 $UTIL"
       }
     },
-    "generated_at": "2026-04-04T06:24:38.870888+00:00"
+    "generated_at": "2026-04-05T06:29:28.399535+00:00"
   },
   "persona_cpis": {
     "startup": {
       "ticker": "$START",
       "name": "Startup Builder",
       "description": "Building an AI-first product",
-      "cpi": 77.4,
-      "mom_change": 0.0,
-      "basket_cost": 0.039758,
+      "cpi": 65.3,
+      "mom_change": -15.63,
+      "basket_cost": 0.03356,
       "basket_cost_unit": "$ per standardized workload",
-      "insight": "23% cheaper to build",
+      "insight": "35% cheaper to build",
       "note": null
     },
     "agentic": {
       "ticker": "$AGENT",
       "name": "Agentic Team",
       "description": "Running autonomous AI agents",
-      "cpi": 88.0,
-      "mom_change": 17.02,
-      "basket_cost": 0.064996,
+      "cpi": 87.0,
+      "mom_change": 15.69,
+      "basket_cost": 0.064289,
       "basket_cost_unit": "$ per standardized workload",
-      "insight": "12% cheaper to run agents",
+      "insight": "13% cheaper to run agents",
       "note": null
     },
     "throughput": {
       "ticker": "$THRU",
       "name": "Throughput",
       "description": "High-volume processing at scale",
-      "cpi": 72.7,
-      "mom_change": 0.0,
-      "basket_cost": 0.023715,
+      "cpi": 44.9,
+      "mom_change": -38.24,
+      "basket_cost": 0.014631,
       "basket_cost_unit": "$ per standardized workload",
-      "insight": "27% cheaper at scale",
+      "insight": "55% cheaper at scale",
       "note": null
     }
   },
   "basket_detail": {
     "chat_drafting": {
-      "cost": 10.38,
+      "cost": 6.225,
       "weight": 0.2,
       "cost_unit": "$ per 1K workloads"
     },
     "summarization": {
-      "cost": 29.58,
+      "cost": 18.225,
       "weight": 0.25,
       "cost_unit": "$ per 1K workloads"
     },
@@ -267,7 +267,7 @@
       "cost_unit": "$ per 1K workloads"
     },
     "coding": {
-      "cost": 44.65,
+      "cost": 43.8125,
       "weight": 0.15,
       "cost_unit": "$ per 1K workloads"
     },
@@ -277,7 +277,7 @@
       "cost_unit": "$ per 1K workloads"
     },
     "long_context": {
-      "cost": 141.58,
+      "cost": 94.475,
       "weight": 0.1,
       "cost_unit": "$ per 1K workloads"
     }
