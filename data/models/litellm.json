@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-06T06:41:17.383831+00:00",
+  "fetched_at": "2026-04-08T06:35:44.151784+00:00",
   "models": {
     "ai21.j2-mid-v1": {
       "input_cost_per_token": 1.25e-05,
@@ -4849,12 +4849,26 @@
       "input_cost_per_token": 3.6e-06,
       "output_cost_per_token": 1.8e-05,
       "context_length": 200000,
-      "max_output_tokens": 4096,
+      "max_output_tokens": 8192,
       "provider": "bedrock",
       "supports_vision": true,
       "supports_function_calling": true,
       "supports_reasoning": true,
       "cache_read_cost": 3.6e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "bedrock/us-gov-east-1/anthropic.claude-sonnet-4-5-20250929-v1:0": {
+      "input_cost_per_token": 3.3e-06,
+      "output_cost_per_token": 1.65e-05,
+      "context_length": 200000,
+      "max_output_tokens": 8192,
+      "provider": "bedrock",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 3.3e-07,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
       "source": "litellm"
@@ -4989,12 +5003,26 @@
       "input_cost_per_token": 3.6e-06,
       "output_cost_per_token": 1.8e-05,
       "context_length": 200000,
-      "max_output_tokens": 4096,
+      "max_output_tokens": 8192,
       "provider": "bedrock",
       "supports_vision": true,
       "supports_function_calling": true,
       "supports_reasoning": true,
       "cache_read_cost": 3.6e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "bedrock/us-gov-west-1/anthropic.claude-sonnet-4-5-20250929-v1:0": {
+      "input_cost_per_token": 3.3e-06,
+      "output_cost_per_token": 1.65e-05,
+      "context_length": 200000,
+      "max_output_tokens": 8192,
+      "provider": "bedrock",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 3.3e-07,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
       "source": "litellm"
@@ -17712,6 +17740,20 @@
       "source": "litellm"
     },
     "us.anthropic.claude-sonnet-4-5-20250929-v1:0": {
+      "input_cost_per_token": 3.3e-06,
+      "output_cost_per_token": 1.65e-05,
+      "context_length": 200000,
+      "max_output_tokens": 64000,
+      "provider": "bedrock_converse",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 3.3e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "us-gov.anthropic.claude-sonnet-4-5-20250929-v1:0": {
       "input_cost_per_token": 3.3e-06,
       "output_cost_per_token": 1.65e-05,
       "context_length": 200000,

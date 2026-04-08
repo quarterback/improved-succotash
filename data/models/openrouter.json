@@ -1,6 +1,20 @@
 {
-  "fetched_at": "2026-04-06T06:41:17.317759+00:00",
+  "fetched_at": "2026-04-08T06:35:44.026887+00:00",
   "models": {
+    "anthropic/claude-opus-4.6-fast": {
+      "input_cost_per_token": 3e-05,
+      "output_cost_per_token": 0.00015,
+      "context_length": 1000000,
+      "source": "openrouter",
+      "name": "Anthropic: Claude Opus 4.6 (Fast)"
+    },
+    "z-ai/glm-5.1": {
+      "input_cost_per_token": 1.26e-06,
+      "output_cost_per_token": 3.96e-06,
+      "context_length": 202752,
+      "source": "openrouter",
+      "name": "Z.ai: GLM 5.1"
+    },
     "google/gemma-4-26b-a4b-it": {
       "input_cost_per_token": 1.3e-07,
       "output_cost_per_token": 4e-07,
@@ -14,6 +28,13 @@
       "context_length": 262144,
       "source": "openrouter",
       "name": "Google: Gemma 4 31B"
+    },
+    "qwen/qwen3.6-plus": {
+      "input_cost_per_token": 3.25e-07,
+      "output_cost_per_token": 1.95e-06,
+      "context_length": 1000000,
+      "source": "openrouter",
+      "name": "Qwen: Qwen3.6 Plus"
     },
     "z-ai/glm-5v-turbo": {
       "input_cost_per_token": 1.2e-06,
@@ -611,9 +632,9 @@
       "name": "OpenAI: GPT-5.1-Codex-Mini"
     },
     "moonshotai/kimi-k2-thinking": {
-      "input_cost_per_token": 4.7e-07,
-      "output_cost_per_token": 2e-06,
-      "context_length": 131072,
+      "input_cost_per_token": 6e-07,
+      "output_cost_per_token": 2.5e-06,
+      "context_length": 262144,
       "source": "openrouter",
       "name": "MoonshotAI: Kimi K2 Thinking"
     },
@@ -914,7 +935,7 @@
     "moonshotai/kimi-k2-0905": {
       "input_cost_per_token": 4e-07,
       "output_cost_per_token": 2e-06,
-      "context_length": 131072,
+      "context_length": 262144,
       "source": "openrouter",
       "name": "MoonshotAI: Kimi K2 0905"
     },
