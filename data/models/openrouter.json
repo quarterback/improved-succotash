@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-09T06:35:54.202972+00:00",
+  "fetched_at": "2026-04-10T06:40:01.468722+00:00",
   "models": {
     "anthropic/claude-opus-4.6-fast": {
       "input_cost_per_token": 3e-05,
@@ -9,8 +9,8 @@
       "name": "Anthropic: Claude Opus 4.6 (Fast)"
     },
     "z-ai/glm-5.1": {
-      "input_cost_per_token": 1.395e-06,
-      "output_cost_per_token": 4.4e-06,
+      "input_cost_per_token": 1.26e-06,
+      "output_cost_per_token": 3.96e-06,
       "context_length": 202752,
       "source": "openrouter",
       "name": "Z.ai: GLM 5.1"
@@ -1919,19 +1919,19 @@
       "source": "openrouter",
       "name": "NVIDIA: Llama 3.1 Nemotron 70B Instruct"
     },
-    "inflection/inflection-3-productivity": {
-      "input_cost_per_token": 2.5e-06,
-      "output_cost_per_token": 1e-05,
-      "context_length": 8000,
-      "source": "openrouter",
-      "name": "Inflection: Inflection 3 Productivity"
-    },
     "inflection/inflection-3-pi": {
       "input_cost_per_token": 2.5e-06,
       "output_cost_per_token": 1e-05,
       "context_length": 8000,
       "source": "openrouter",
       "name": "Inflection: Inflection 3 Pi"
+    },
+    "inflection/inflection-3-productivity": {
+      "input_cost_per_token": 2.5e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 8000,
+      "source": "openrouter",
+      "name": "Inflection: Inflection 3 Productivity"
     },
     "thedrummer/rocinante-12b": {
       "input_cost_per_token": 1.7e-07,
@@ -1968,19 +1968,19 @@
       "source": "openrouter",
       "name": "Qwen2.5 72B Instruct"
     },
-    "cohere/command-r-plus-08-2024": {
-      "input_cost_per_token": 2.5e-06,
-      "output_cost_per_token": 1e-05,
-      "context_length": 128000,
-      "source": "openrouter",
-      "name": "Cohere: Command R+ (08-2024)"
-    },
     "cohere/command-r-08-2024": {
       "input_cost_per_token": 1.5e-07,
       "output_cost_per_token": 6e-07,
       "context_length": 128000,
       "source": "openrouter",
       "name": "Cohere: Command R (08-2024)"
+    },
+    "cohere/command-r-plus-08-2024": {
+      "input_cost_per_token": 2.5e-06,
+      "output_cost_per_token": 1e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "Cohere: Command R+ (08-2024)"
     },
     "sao10k/l3.1-euryale-70b": {
       "input_cost_per_token": 8.5e-07,
@@ -2080,13 +2080,6 @@
       "source": "openrouter",
       "name": "NousResearch: Hermes 2 Pro - Llama-3 8B"
     },
-    "openai/gpt-4o-2024-05-13": {
-      "input_cost_per_token": 5e-06,
-      "output_cost_per_token": 1.5e-05,
-      "context_length": 128000,
-      "source": "openrouter",
-      "name": "OpenAI: GPT-4o (2024-05-13)"
-    },
     "openai/gpt-4o": {
       "input_cost_per_token": 2.5e-06,
       "output_cost_per_token": 1e-05,
@@ -2100,6 +2093,13 @@
       "context_length": 128000,
       "source": "openrouter",
       "name": "OpenAI: GPT-4o (extended)"
+    },
+    "openai/gpt-4o-2024-05-13": {
+      "input_cost_per_token": 5e-06,
+      "output_cost_per_token": 1.5e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4o (2024-05-13)"
     },
     "meta-llama/llama-3-8b-instruct": {
       "input_cost_per_token": 3e-08,
@@ -2150,19 +2150,19 @@
       "source": "openrouter",
       "name": "Mistral Large"
     },
-    "openai/gpt-4-turbo-preview": {
-      "input_cost_per_token": 1e-05,
-      "output_cost_per_token": 3e-05,
-      "context_length": 128000,
-      "source": "openrouter",
-      "name": "OpenAI: GPT-4 Turbo Preview"
-    },
     "openai/gpt-3.5-turbo-0613": {
       "input_cost_per_token": 1e-06,
       "output_cost_per_token": 2e-06,
       "context_length": 4095,
       "source": "openrouter",
       "name": "OpenAI: GPT-3.5 Turbo (older v0613)"
+    },
+    "openai/gpt-4-turbo-preview": {
+      "input_cost_per_token": 1e-05,
+      "output_cost_per_token": 3e-05,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4 Turbo Preview"
     },
     "mistralai/mixtral-8x7b-instruct": {
       "input_cost_per_token": 5.4e-07,
@@ -2185,19 +2185,19 @@
       "source": "openrouter",
       "name": "OpenAI: GPT-4 Turbo (older v1106)"
     },
-    "openai/gpt-3.5-turbo-instruct": {
-      "input_cost_per_token": 1.5e-06,
-      "output_cost_per_token": 2e-06,
-      "context_length": 4095,
-      "source": "openrouter",
-      "name": "OpenAI: GPT-3.5 Turbo Instruct"
-    },
     "mistralai/mistral-7b-instruct-v0.1": {
       "input_cost_per_token": 1.1e-07,
       "output_cost_per_token": 1.9e-07,
       "context_length": 2824,
       "source": "openrouter",
       "name": "Mistral: Mistral 7B Instruct v0.1"
+    },
+    "openai/gpt-3.5-turbo-instruct": {
+      "input_cost_per_token": 1.5e-06,
+      "output_cost_per_token": 2e-06,
+      "context_length": 4095,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-3.5 Turbo Instruct"
     },
     "openai/gpt-3.5-turbo-16k": {
       "input_cost_per_token": 3e-06,
@@ -2234,19 +2234,19 @@
       "source": "openrouter",
       "name": "OpenAI: GPT-4 (older v0314)"
     },
-    "openai/gpt-4": {
-      "input_cost_per_token": 3e-05,
-      "output_cost_per_token": 6e-05,
-      "context_length": 8191,
-      "source": "openrouter",
-      "name": "OpenAI: GPT-4"
-    },
     "openai/gpt-3.5-turbo": {
       "input_cost_per_token": 5e-07,
       "output_cost_per_token": 1.5e-06,
       "context_length": 16385,
       "source": "openrouter",
       "name": "OpenAI: GPT-3.5 Turbo"
+    },
+    "openai/gpt-4": {
+      "input_cost_per_token": 3e-05,
+      "output_cost_per_token": 6e-05,
+      "context_length": 8191,
+      "source": "openrouter",
+      "name": "OpenAI: GPT-4"
     }
   }
 }
