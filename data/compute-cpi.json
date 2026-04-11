@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-04-10T06:40:01.168280+00:00",
+    "generated_at": "2026-04-11T06:25:26.614183+00:00",
     "baseline_date": "2025-02-01",
     "launch_date": "2025-02-01",
     "data_sources": [
@@ -30,7 +30,7 @@
     "yoy": {
       "ticker": "$CPI-Y",
       "name": "Year-over-Year",
-      "base_date": "2025-04-10",
+      "base_date": "2025-04-11",
       "value": 81.1
     },
     "qtd": {
@@ -48,7 +48,7 @@
     "wow": {
       "ticker": "$CPI-W",
       "name": "Week-over-Week",
-      "base_date": "2026-04-03",
+      "base_date": "2026-04-04",
       "value": 77.0
     }
   },
@@ -90,11 +90,11 @@
     }
   },
   "trend_analysis": {
-    "direction": "deflating",
-    "velocity": -154.5,
+    "direction": "stable",
+    "velocity": 0.0,
     "velocity_unit": "points per month",
-    "acceleration": 618.0,
-    "forecast_30d": -85.4,
+    "acceleration": 0.0,
+    "forecast_30d": 69.1,
     "confidence": "high"
   },
   "yield_curve": {
@@ -103,19 +103,13 @@
         "days": 7,
         "deflation_pct": -23.02,
         "annualized_pct": -1200.4,
-        "source_date": "2026-04-03"
+        "source_date": "2026-04-04"
       },
       "1m": {
         "days": 30,
         "deflation_pct": -20.82,
         "annualized_pct": -253.29,
-        "source_date": "2026-03-11"
-      },
-      "3m": {
-        "days": 90,
-        "deflation_pct": -5.63,
-        "annualized_pct": -22.85,
-        "source_date": "2026-01-01"
+        "source_date": "2026-03-12"
       },
       "1y": {
         "days": 365,
@@ -125,7 +119,7 @@
       }
     },
     "interpretation": "Rapid deflation - AI compute costs falling significantly",
-    "generated_at": "2026-04-10T06:40:01.165655+00:00"
+    "generated_at": "2026-04-11T06:25:26.611751+00:00"
   },
   "subindices": {
     "judgment": {
@@ -213,7 +207,7 @@
         "display": "1 $BULK = 4 $UTIL"
       }
     },
-    "generated_at": "2026-04-10T06:40:01.136953+00:00"
+    "generated_at": "2026-04-11T06:25:26.594860+00:00"
   },
   "persona_cpis": {
     "startup": {
