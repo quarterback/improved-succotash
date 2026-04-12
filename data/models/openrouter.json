@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-11T06:25:26.984483+00:00",
+  "fetched_at": "2026-04-12T06:35:46.952365+00:00",
   "models": {
     "anthropic/claude-opus-4.6-fast": {
       "input_cost_per_token": 3e-05,
@@ -1521,9 +1521,9 @@
       "name": "OpenAI: o1-pro"
     },
     "mistralai/mistral-small-3.1-24b-instruct": {
-      "input_cost_per_token": 3e-08,
-      "output_cost_per_token": 1.1e-07,
-      "context_length": 131072,
+      "input_cost_per_token": 3.5e-07,
+      "output_cost_per_token": 5.6e-07,
+      "context_length": 128000,
       "source": "openrouter",
       "name": "Mistral: Mistral Small 3.1 24B"
     },
