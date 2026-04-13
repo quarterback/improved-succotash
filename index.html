@@ -140,16 +140,35 @@
         // Load CPI data
         async function loadCPIData() {
             try {
-                const response = await fetch('/data/cpi/latest.json');
+                const response = await fetch('/data/compute-cpi.json');
                 const data = await response.json();
 
-                // Update main CPI value
-                document.getElementById('cpi-value').textContent = data.cpi.toFixed(1);
+                const current = data.compute_cpi?.value;
+                if (typeof current !== 'number') return;
 
-                // Calculate year-over-year change
-                const yoyChange = ((data.cpi / data.cpi_yoy - 1) * 100).toFixed(1);
-                const changeText = yoyChange >= 0 ? `+${yoyChange}% YoY` : `${yoyChange}% YoY`;
-                document.getElementById('cpi-change').textContent = changeText;
+                document.getElementById('cpi-value').textContent = current.toFixed(1);
+
+                // Prefer the precomputed YoY change; fall back to deriving it
+                // from the year-ago index value in index_series.yoy.
+                let yoyChange = data.compute_cpi?.yoy_change;
+                if (typeof yoyChange !== 'number') {
+                    const yoyBase = data.index_series?.yoy?.value;
+                    if (typeof yoyBase === 'number' && yoyBase !== 0) {
+                        yoyChange = ((current - yoyBase) / yoyBase) * 100;
+                    }
+                }
+
+                if (typeof yoyChange === 'number') {
+                    const sign = yoyChange >= 0 ? '+' : '';
+                    document.getElementById('cpi-change').textContent = `${sign}${yoyChange.toFixed(1)}% YoY`;
+                } else {
+                    // No YoY baseline yet (index <1yr old) — show MoM instead.
+                    const mom = data.compute_cpi?.mom_change;
+                    if (typeof mom === 'number') {
+                        const sign = mom >= 0 ? '+' : '';
+                        document.getElementById('cpi-change').textContent = `${sign}${mom.toFixed(1)}% MoM`;
+                    }
+                }
 
             } catch (error) {
                 console.log('CPI data not yet available');
