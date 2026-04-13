@@ -1,0 +1,104 @@
+{
+  "version": "1.1",
+  "description": "Workload-to-SOC mapping for LDI pilot workloads. Five pilot workloads selected for legible SOC mappings, observable procurement records, and plausible AI substitution paths.",
+  "last_updated": "2026-04-13",
+  "sources": {
+    "soc": "Standard Occupational Classification (2018), BLS",
+    "onet": "O*NET 28.3 — Task-level time estimates by occupation",
+    "fpds": "Federal Procurement Data System — Product/Service Codes (PSC). Official taxonomy at sam.gov/content/product-service-codes",
+    "bls_oews": "BLS Occupational Employment and Wage Statistics (OEWS)",
+    "ecec": "BLS Employer Costs for Employee Compensation (ECEC)",
+    "psc_note": "PSC codes are broad categories used to signal spending trends in adjacent federal task areas. They are not workload-specific identifiers. A PSC category can contain many unrelated contracts."
+  },
+  "workloads": {
+    "snap_eligibility": {
+      "id": "snap_eligibility",
+      "name": "SNAP Eligibility Processing",
+      "description": "Determine eligibility for Supplemental Nutrition Assistance Program benefits. Involves reviewing income documentation, household composition, and categorical eligibility rules.",
+      "soc_code": "13-1041",
+      "soc_title": "Eligibility Interviewers, Government Programs",
+      "minutes_per_unit": 45,
+      "minutes_per_unit_source": "O*NET task data for SOC 13-1041; cross-referenced with USDA FNS case processing studies",
+      "fpds_psc_codes": ["Q999", "R499", "R408"],
+      "fpds_psc_descriptions": [
+        "Q999 - MEDICAL- OTHER (benefits administration includes medical/nutrition reviews)",
+        "R499 - SUPPORT- PROFESSIONAL: OTHER (general professional services for benefits programs)",
+        "R408 - SUPPORT- PROFESSIONAL: PROGRAM MANAGEMENT/SUPPORT (program administration)"
+      ],
+      "fpds_psc_selection_rationale": "Q999 captures medical and nutrition program spending most proximate to SNAP administration. R499 and R408 capture broader professional support services used by USDA FNS and state agencies. Note: these PSC categories encompass far more than SNAP specifically.",
+      "ai_task_mapping": "classification",
+      "rationale": "High volume, rule-based eligibility determination. Strong AI substitution candidate due to structured inputs and deterministic rule sets. USDA processed 41M SNAP participants in FY2024."
+    },
+    "unemployment_claims": {
+      "id": "unemployment_claims",
+      "name": "Unemployment Claims Adjudication",
+      "description": "Review and adjudicate unemployment insurance claims. Involves verifying eligibility, reviewing separation circumstances, and applying state UI statutes.",
+      "soc_code": "13-1031",
+      "soc_title": "Claims Adjusters, Examiners, and Investigators",
+      "minutes_per_unit": 35,
+      "minutes_per_unit_source": "O*NET task data for SOC 13-1031; DOL UI workload analysis reports",
+      "fpds_psc_codes": ["R408", "R499", "D302"],
+      "fpds_psc_descriptions": [
+        "R408 - SUPPORT- PROFESSIONAL: PROGRAM MANAGEMENT/SUPPORT (program administration)",
+        "R499 - SUPPORT- PROFESSIONAL: OTHER (general professional services)",
+        "D302 - IT AND TELECOM- SYSTEMS DEVELOPMENT (claims processing system development and maintenance)"
+      ],
+      "fpds_psc_selection_rationale": "D302 captures IT systems contracts for unemployment insurance processing platforms. R408 and R499 capture broader professional support services used by DOL and state workforce agencies.",
+      "ai_task_mapping": "classification",
+      "rationale": "DOL processes 20-30M initial UI claims annually. Adjudication is document-intensive but structurally predictable. COVID surge exposed processing bottlenecks addressable by AI."
+    },
+    "call_center_triage": {
+      "id": "call_center_triage",
+      "name": "Call Center Triage",
+      "description": "First-tier intake and routing for federal agency call centers. Involves identifying caller need, verifying identity, resolving routine inquiries, and routing complex cases.",
+      "soc_code": "43-4051",
+      "soc_title": "Customer Service Representatives",
+      "minutes_per_unit": 8,
+      "minutes_per_unit_source": "O*NET task data for SOC 43-4051; SSA, IRS, and VA call center benchmarks (average handle time 7-9 minutes)",
+      "fpds_psc_codes": ["R408", "D302", "D399"],
+      "fpds_psc_descriptions": [
+        "R408 - SUPPORT- PROFESSIONAL: PROGRAM MANAGEMENT/SUPPORT (contact center program management)",
+        "D302 - IT AND TELECOM- SYSTEMS DEVELOPMENT (IVR, AI chatbot, and telephony system development)",
+        "D399 - IT AND TELECOM- OTHER IT AND TELECOMMUNICATIONS (telephony infrastructure and AI integration)"
+      ],
+      "fpds_psc_selection_rationale": "D302 and D399 capture IT system contracts for AI-powered IVR, chatbots, and telephony platforms. R408 captures call center program management and support services. Previously included U099 (Education/Training Other) which was an imprecise proxy.",
+      "ai_task_mapping": "chat_drafting",
+      "rationale": "Federal agencies collectively handle 100M+ calls annually (SSA, IRS, VA). Routine triage and FAQ resolution is highly automatable. GSA has piloted AI contact center tools since 2023."
+    },
+    "document_summarization": {
+      "id": "document_summarization",
+      "name": "Document Summarization in Casework",
+      "description": "Summarize and extract key facts from case files, legal documents, medical records, and correspondence in benefit adjudication and legal proceedings.",
+      "soc_code": "23-2093",
+      "soc_title": "Title Examiners, Abstractors, and Searchers",
+      "minutes_per_unit": 25,
+      "minutes_per_unit_source": "O*NET task data for SOC 23-2093; VA claims processing benchmarks; SSA case development standards",
+      "fpds_psc_codes": ["R499", "D399"],
+      "fpds_psc_descriptions": [
+        "R499 - SUPPORT- PROFESSIONAL: OTHER (legal, administrative, and casework support services)",
+        "D399 - IT AND TELECOM- OTHER IT AND TELECOMMUNICATIONS (document management and AI summarization systems)"
+      ],
+      "fpds_psc_selection_rationale": "R499 captures professional services contracts for legal and casework support, the closest available PSC proxy for document-intensive work at VA, SSA, and DOJ. D399 captures IT contracts for document management and AI processing systems. D302 (IT Systems Development) is excluded here to avoid full overlap with the it_help_desk workload's PSC set. Previously included F999 (Other Environmental Services) which was an incorrect mapping and has been removed.",
+      "ai_task_mapping": "summarization",
+      "rationale": "VA disability claims average 200+ pages. SSA disability hearings require extensive medical record review. Document AI has shown 60-80% time reduction in pilots. High displacement potential."
+    },
+    "it_help_desk": {
+      "id": "it_help_desk",
+      "name": "Federal IT Help Desk",
+      "description": "Tier-1 IT support for federal civilian workforce. Password resets, access provisioning, hardware troubleshooting, and software issue triage.",
+      "soc_code": "15-1232",
+      "soc_title": "Computer User Support Specialists",
+      "minutes_per_unit": 12,
+      "minutes_per_unit_source": "O*NET task data for SOC 15-1232; federal IT help desk SLA benchmarks (ITSM industry average 10-15 min TTR for Tier-1)",
+      "fpds_psc_codes": ["D302", "D399", "R499"],
+      "fpds_psc_descriptions": [
+        "D302 - IT AND TELECOM- SYSTEMS DEVELOPMENT (ITSM platform and AI help desk system development)",
+        "D399 - IT AND TELECOM- OTHER IT AND TELECOMMUNICATIONS (IT infrastructure and support contracts)",
+        "R499 - SUPPORT- PROFESSIONAL: OTHER (IT professional services and managed services)"
+      ],
+      "fpds_psc_selection_rationale": "D302 and D399 are the most direct proxies for federal IT support contracts. R499 captures managed services and professional IT support contracts. These categories are government-wide and broader than Tier-1 help desk specifically.",
+      "ai_task_mapping": "classification",
+      "rationale": "Federal civilian workforce of ~2.1M generates high IT support volume. Tier-1 resolution (password resets, FAQs) represents ~40% of tickets. AI-driven ITSM tools widely deployed in private sector."
+    }
+  }
+}

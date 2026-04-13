@@ -1,0 +1,43 @@
+{
+  "entries": [
+    {
+      "date": "2026-04-13",
+      "substitution_rate_pct": 2.21,
+      "cost_displacement_usd": 2203859276.25,
+      "avg_cost_ratio": 49515.0,
+      "workload_count": 5,
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 3.99,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.018225,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "frozen"
+        }
+      }
+    }
+  ]
+}

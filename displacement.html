@@ -49,27 +49,85 @@
             <!-- Hero -->
             <section class="hero">
                 <h1 class="hero-headline">Labor Displacement Index</h1>
-                <p class="hero-description">A workload-level index measuring the cost differential between human and AI execution across government and enterprise functions. Derived from BLS compensation data, federal procurement records, and OPM staffing signals — forced into a single unit of analysis: cost per workload.</p>
+                <p class="hero-description">A workload-level index tracking two distinct signals: the cost differential between human and AI execution, and the procurement-level evidence of actual substitution. These are not the same number.</p>
             </section>
 
-            <!-- Status Banner -->
-            <div style="background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 1rem 1.5rem; margin-bottom: 3rem; font-size: 0.875rem; color: var(--fg-muted);">
-                <strong style="color: var(--fg);">Methodology build in progress.</strong> Data pipelines are being wired to BLS OEWS, FPDS, and OPM. Structural estimates below are drawn from published wage and procurement data. Live index values will publish once baseline workload costs are confirmed.
+            <!-- Two Signal Cards -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem;" id="ldi-cards">
+
+                <!-- Signal 1: Cost Displacement (structural) -->
+                <div class="live-index" role="region" aria-label="Cost differential" style="margin: 0; flex-direction: column; align-items: flex-start; gap: 0.75rem;">
+                    <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6;">Cost Differential · Structural</div>
+                    <div>
+                        <div style="font-size: 0.75rem; opacity: 0.7; margin-bottom: 0.25rem;">Avg human cost per unit</div>
+                        <div style="font-size: 2.25rem; font-weight: 600; line-height: 1;" id="cost-ratio">—</div>
+                        <div style="font-size: 0.875rem; opacity: 0.8; margin-top: 0.35rem;" id="cost-ratio-sub">vs AI avg per unit</div>
+                    </div>
+                    <div style="font-size: 0.75rem; opacity: 0.65; line-height: 1.8; border-top: 1px solid rgba(0,0,0,0.15); padding-top: 0.75rem; width: 100%;">
+                        <div>AI avg: <strong id="ai-avg">—</strong>/unit</div>
+                        <div>Range: <strong id="cost-range">$3.92 — $29.38</strong> human · <strong>$0.0003 — $0.018</strong> AI</div>
+                        <div>Potential displacement: <strong id="disp-total">—</strong>/yr (at 100% sub)</div>
+                    </div>
+                    <div style="font-size: 0.65rem; opacity: 0.5; line-height: 1.5; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 0.5rem; width: 100%;">Technical potential if 100% of volume routed to AI. Not realized savings.</div>
+                </div>
+
+                <!-- Signal 2: Substitution Rate (observable) -->
+                <div class="live-index" role="region" aria-label="Substitution rate" style="margin: 0; flex-direction: column; align-items: flex-start; gap: 0.75rem;">
+                    <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6;">Substitution Rate · Observable</div>
+                    <div>
+                        <div style="font-size: 0.75rem; opacity: 0.7; margin-bottom: 0.25rem;">FPDS procurement signal</div>
+                        <div style="font-size: 2.25rem; font-weight: 600; line-height: 1;" id="sub-rate">—</div>
+                        <div style="font-size: 0.875rem; opacity: 0.8; margin-top: 0.35rem;" id="sub-rate-sub">FY2023 → FY2024</div>
+                    </div>
+                    <div style="font-size: 0.75rem; opacity: 0.65; line-height: 1.8; border-top: 1px solid rgba(0,0,0,0.15); padding-top: 0.75rem; width: 100%;">
+                        <div>Source: <strong>FPDS contractor spend + AI procurement</strong></div>
+                        <div>Coverage: <strong id="sub-coverage">5 workload categories</strong></div>
+                        <div>Absorption: <strong id="absorption-summary">—</strong></div>
+                    </div>
+                    <div style="font-size: 0.65rem; opacity: 0.5; line-height: 1.5; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 0.5rem; width: 100%;">What procurement data shows is actually shifting. Not nationally representative.</div>
+                </div>
+
             </div>
 
-            <!-- Live LDI Card -->
-            <div class="live-index" role="region" aria-label="Labor Displacement Index">
-                <div>
-                    <div class="live-index-label">LABOR DISPLACEMENT INDEX — STRUCTURAL</div>
-                    <div class="live-index-value">—</div>
-                    <div class="live-index-change" style="font-size: 0.875rem; opacity: 0.7;">Baseline: 5 pilot workloads · publishing Q3 2025</div>
-                </div>
-                <div style="font-size: 0.875rem; opacity: 0.7; line-height: 2;">
-                    <div>Human cost per unit: <strong id="human-cost">—</strong></div>
-                    <div>AI cost per unit: <strong id="ai-cost">—</strong></div>
-                    <div>Net displacement: <strong id="net-displacement">—</strong></div>
-                </div>
+            <!-- What These Two Numbers Mean -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 1.25rem 1.5rem; margin-bottom: 3rem; font-size: 0.875rem; color: var(--fg-muted); line-height: 1.7;">
+                <strong style="color: var(--fg);">Why two signals, not one.</strong> Cost displacement tells you <em>why</em> substitution will happen — the price gap is 1,000–3,000x. Substitution rate tells you <em>how much has happened so far</em> — roughly <span id="callout-sub-rate">—</span> of task categories show procurement-level evidence of shifting. These should never be the same number and they shouldn't be averaged into one. The gap between them is the story.
             </div>
+
+            <!-- Per-Workload Data Table -->
+            <section aria-labelledby="workload-table-heading" style="margin: 3rem 0;">
+                <h2 id="workload-table-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Pilot Workloads</h2>
+                <p style="color: var(--fg-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Five federal workloads with legible SOC mappings, observable procurement records, and plausible AI substitution paths. Each row shows both signals — cost differential and estimated substitution — separately.</p>
+
+                <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; overflow-x: auto;">
+                    <table id="workload-table" style="width: 100%; font-size: 0.8rem; border-collapse: collapse; min-width: 880px;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--border); background: var(--bg);">
+                                <th style="text-align: left; padding: 0.75rem 1rem; color: var(--fg-muted); font-weight: 600; width: 25%;">Workload</th>
+                                <th colspan="4" style="text-align: center; padding: 0.5rem 1rem; color: var(--fg-muted); font-weight: 600; border-bottom: 1px solid var(--border); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em;">Cost Differential (structural)</th>
+                                <th colspan="2" style="text-align: center; padding: 0.5rem 1rem; color: var(--fg-muted); font-weight: 600; border-bottom: 1px solid var(--border); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em;">Substitution Signal (observed)</th>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border); background: var(--bg);">
+                                <th style="padding: 0.5rem 1rem;"></th>
+                                <th style="text-align: right; padding: 0.5rem 0.75rem; color: var(--fg-muted); font-weight: 500; font-size: 0.75rem;">Human $/unit</th>
+                                <th style="text-align: right; padding: 0.5rem 0.75rem; color: var(--fg-muted); font-weight: 500; font-size: 0.75rem;">AI $/unit</th>
+                                <th style="text-align: right; padding: 0.5rem 0.75rem; color: var(--fg-muted); font-weight: 500; font-size: 0.75rem;">Cost displacement ($)</th>
+                                <th style="text-align: right; padding: 0.5rem 0.75rem; color: var(--fg-muted); font-weight: 500; font-size: 0.75rem;">Cost ratio</th>
+                                <th style="text-align: right; padding: 0.5rem 0.75rem; color: var(--fg-muted); font-weight: 500; font-size: 0.75rem;">Sub rate</th>
+                                <th style="text-align: left; padding: 0.5rem 0.75rem; color: var(--fg-muted); font-weight: 500; font-size: 0.75rem;">Absorption</th>
+                            </tr>
+                        </thead>
+                        <tbody id="workload-table-body">
+                            <tr>
+                                <td colspan="7" style="padding: 2rem; text-align: center; color: var(--fg-muted);">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="font-size: 0.7rem; color: var(--fg-muted); margin-top: 0.75rem; line-height: 1.6;">
+                    Human $/unit: BLS OEWS wages + ECEC multiplier (1.385×) × overhead (1.05×) ÷ 60 × O*NET min/unit. &nbsp;|&nbsp; AI $/unit: Compute CPI basket (classification, chat, or summarization tier). &nbsp;|&nbsp; Cost displacement ($): (human − AI) cost/unit × annual volume, if 100% routed to AI. Technical potential, not realized savings. &nbsp;|&nbsp; Sub rate: contractor spend YoY decline (60% weight) from live USAspending.gov API, FY2023→FY2024. AI component zeroed pending keyword contract search. &nbsp;|&nbsp; Absorption: inferred from JOLTS + FPDS signals.
+                </p>
+            </section>
 
             <!-- Three Measurement Pillars -->
             <section aria-labelledby="pillars-heading" style="margin: 3rem 0;">
@@ -80,7 +138,7 @@
                     <div class="subindex">
                         <div class="subindex-ticker">$HUM</div>
                         <div class="subindex-value" style="font-size: 1.5rem;">Human Cost</div>
-                        <div class="subindex-name">BLS · ECEC · NCS</div>
+                        <div class="subindex-name">BLS · ECEC · O*NET</div>
                         <div class="subindex-change">$/unit by occupation</div>
                         <div style="font-size: 0.7rem; color: var(--fg-muted); margin-top: 0.75rem; line-height: 1.6;">
                             Wages × benefits × overhead. Converted from hourly compensation to per-workload-unit cost via time-on-task estimates. Fully loaded — not just wages.
@@ -109,31 +167,40 @@
 
             <!-- Core Formula -->
             <section aria-labelledby="formula-heading" style="margin: 3rem 0;">
-                <h2 id="formula-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Core Formula</h2>
+                <h2 id="formula-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Core Formulas</h2>
 
                 <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; margin-bottom: 1.5rem;">
-                    <h3 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; color: var(--fg-muted);">Cost Displacement</h3>
-                    <code style="display: block; background: var(--bg); padding: 1.25rem; border-radius: 4px; font-family: monospace; font-size: 0.9rem; line-height: 1.8; border: 1px solid var(--border);">
-Displacement = (human_cost_per_unit × volume) − (ai_cost_per_unit × volume)
+                    <h3 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; color: var(--fg-muted);">Signal 1 — Cost Displacement (structural potential)</h3>
+                    <code style="display: block; background: var(--bg); padding: 1.25rem; border-radius: 4px; font-family: monospace; font-size: 0.85rem; line-height: 1.9; border: 1px solid var(--border);">
+cost_ratio      = human_cost_per_unit / ai_cost_per_unit
+
+human_cost/unit = (annual_wage / 2080) × ECEC_multiplier × overhead / 60 × min_per_unit
+ai_cost/unit    = CPI_basket_cost[task_type] / 1000   (live from Compute CPI)
+
+displacement    = (human_cost_per_unit − ai_cost_per_unit) × annual_volume
                     </code>
                     <p style="font-size: 0.8rem; color: var(--fg-muted); margin-top: 1rem; line-height: 1.6;">
-                        AI cost per unit is already tracked by the Compute CPI. Human cost per unit is derived from BLS OEWS wages + ECEC benefits overhead, divided by time-per-task estimates from O*NET task-level data. Volume is observed from QCEW employment counts and FPDS contract activity.
+                        This is the technical potential. It answers: if AI handled 100% of this workload, what would the cost difference be? It does not tell you how much has actually shifted.
                     </p>
                 </div>
 
                 <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; margin-bottom: 1.5rem;">
-                    <h3 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; color: var(--fg-muted);">Substitution Rate (Proxy)</h3>
-                    <code style="display: block; background: var(--bg); padding: 1.25rem; border-radius: 4px; font-family: monospace; font-size: 0.9rem; line-height: 1.8; border: 1px solid var(--border);">
-sub_rate ≈ (Δ contractor_spend[task] / baseline_spend)
-         + (Δ AI_procurement[task] / baseline_spend)
+                    <h3 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; color: var(--fg-muted);">Signal 2 — Substitution Rate (observable proxy)</h3>
+                    <code style="display: block; background: var(--bg); padding: 1.25rem; border-radius: 4px; font-family: monospace; font-size: 0.85rem; line-height: 1.9; border: 1px solid var(--border);">
+sub_rate = contractor_decline_rate × 0.6 + 0 (AI component pending)
+
+contractor_decline_rate = max(0, −yoy_change_pct / 100)
+yoy_change_pct          = (current_spend − prior_spend) / prior_spend × 100
+
+Source: USAspending.gov spending_by_category/psc/ — live API, FY2023→FY2024
                     </code>
                     <p style="font-size: 0.8rem; color: var(--fg-muted); margin-top: 1rem; line-height: 1.6;">
-                        Not measured nationally. Derived per workload category from FPDS contract-level data: % reduction in contractor spend for a task type, offset against % increase in AI-related procurement for the same function. Intent shows in dollars before outcomes show in headcount.
+                        The contractor spend decline (60% weight) is from real USAspending.gov API data, aggregated at the PSC category level. The AI procurement component (40% weight) requires keyword-level contract title/description search to isolate AI-specific awards — this component is set to 0 pending that implementation. Important caveat: PSC categories are government-wide and far broader than the specific workloads (R499 "Professional Support: Other" is $32B/yr across all of government). As a result, the substitution rate is a very rough proxy and should be interpreted directionally, not as a precise share of tasks shifted to AI.
                     </p>
                 </div>
 
                 <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem;">
-                    <h3 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; color: var(--fg-muted);">Absorption Classification</h3>
+                    <h3 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; color: var(--fg-muted);">Signal 3 — Absorption Classification</h3>
                     <table style="width: 100%; font-size: 0.875rem; border-collapse: collapse;">
                         <thead>
                             <tr style="border-bottom: 1px solid var(--border);">
@@ -147,155 +214,80 @@ sub_rate ≈ (Δ contractor_spend[task] / baseline_spend)
                                 <td style="padding: 0.6rem 0;">OPM separations, JOLTS layoffs, role abolished in budget docs</td>
                             </tr>
                             <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 0.6rem 0;"><strong style="color: var(--fg);">Reallocated internally</strong></td>
-                                <td style="padding: 0.6rem 0;">OPM reclassifications, union contract amendments, position conversions</td>
+                                <td style="padding: 0.6rem 0;"><strong style="color: var(--fg);">Reallocated</strong></td>
+                                <td style="padding: 0.6rem 0;">OPM reclassifications, position conversions, caseload shift to complex work</td>
                             </tr>
                             <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 0.6rem 0;"><strong style="color: var(--fg);">Upgraded (higher-skill)</strong></td>
+                                <td style="padding: 0.6rem 0;"><strong style="color: var(--fg);">Upgraded</strong></td>
                                 <td style="padding: 0.6rem 0;">RFP language shifts, SOC reclassification to higher GS band</td>
                             </tr>
-                            <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 0.6rem 0;"><strong style="color: var(--fg);">Converted to contractor reduction</strong></td>
-                                <td style="padding: 0.6rem 0;">FPDS contract non-renewal, spend decline in task category</td>
-                            </tr>
                             <tr>
-                                <td style="padding: 0.6rem 0;"><strong style="color: var(--fg);">Frozen (no backfill)</strong></td>
-                                <td style="padding: 0.6rem 0;">Vacancy rate increase, position unfilled &gt;6 months, budget justification omission</td>
+                                <td style="padding: 0.6rem 0;"><strong style="color: var(--fg);">Frozen</strong></td>
+                                <td style="padding: 0.6rem 0;">Vacancy rate increase, position unfilled &gt;6 months, no backfill in budget</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </section>
 
-            <!-- Data Sources -->
-            <section aria-labelledby="sources-heading" style="margin: 3rem 0;">
-                <h2 id="sources-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Data Sources</h2>
-                <p style="color: var(--fg-muted); font-size: 0.875rem; margin-bottom: 2rem;">Four pipelines. All public. None designed to answer this question — which is why the workload translation layer is the actual work.</p>
+            <!-- Methodology Section -->
+            <section aria-labelledby="methodology-heading" style="margin: 3rem 0;">
+                <h2 id="methodology-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Methodology</h2>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 1.5rem;">
-
-                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem;">
-                        <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.5rem;">Pipeline 1 · Human Cost</div>
-                        <div style="font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem;">BLS Labor Data</div>
-                        <ul style="font-size: 0.8rem; color: var(--fg-muted); padding-left: 1.25rem; line-height: 2; margin: 0;">
-                            <li><strong style="color: var(--fg);">OEWS</strong> — wages + employment for ~800 occupations, by industry and geography</li>
-                            <li><strong style="color: var(--fg);">ECEC</strong> — benefits + overhead on top of wages (fully loaded compensation)</li>
-                            <li><strong style="color: var(--fg);">NCS</strong> — full compensation structures for cross-validation</li>
-                        </ul>
-                        <div style="font-size: 0.75rem; color: var(--fg-muted); margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border);">
-                            Output: $/hour by SOC code → converted to cost per workload unit via O*NET time-on-task estimates
-                        </div>
-                    </div>
-
-                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem;">
-                        <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.5rem;">Pipeline 2 · Procurement Signal</div>
-                        <div style="font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem;">Federal Spend Data</div>
-                        <ul style="font-size: 0.8rem; color: var(--fg-muted); padding-left: 1.25rem; line-height: 2; margin: 0;">
-                            <li><strong style="color: var(--fg);">FPDS</strong> — contract-level data: who bought what, from whom, for how much</li>
-                            <li><strong style="color: var(--fg);">USAspending</strong> — front-end to FPDS; agency budget line items</li>
-                            <li><strong style="color: var(--fg);">Fedmine / GovSpend</strong> — aggregators combining ~19 federal datasets</li>
-                        </ul>
-                        <div style="font-size: 0.75rem; color: var(--fg-muted); margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border);">
-                            Output: contractor labor spend by task category; pre/post AI procurement signals; vendor shift detection
-                        </div>
-                    </div>
-
-                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem;">
-                        <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.5rem;">Pipeline 3 · Headcount & Absorption</div>
-                        <div style="font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem;">OPM + BLS Staffing</div>
-                        <ul style="font-size: 0.8rem; color: var(--fg-muted); padding-left: 1.25rem; line-height: 2; margin: 0;">
-                            <li><strong style="color: var(--fg);">OPM</strong> — federal employee salary and staffing data</li>
-                            <li><strong style="color: var(--fg);">QCEW</strong> — quarterly employment by industry (BLS)</li>
-                            <li><strong style="color: var(--fg);">JOLTS</strong> — hiring, quits, and layoffs by sector</li>
-                            <li><strong style="color: var(--fg);">NLx / job postings</strong> — role language shifts in RFPs and listings</li>
-                        </ul>
-                        <div style="font-size: 0.75rem; color: var(--fg-muted); margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border);">
-                            Output: hiring freeze vs. growth; contractor → internal shifts; role reclassification signals
-                        </div>
-                    </div>
-
-                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem;">
-                        <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.5rem;">Pipeline 4 · Workload Translation</div>
-                        <div style="font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem;">SOC / O*NET Mapping</div>
-                        <ul style="font-size: 0.8rem; color: var(--fg-muted); padding-left: 1.25rem; line-height: 2; margin: 0;">
-                            <li><strong style="color: var(--fg);">SOC system</strong> — standard occupation classification (anchor for all labor data)</li>
-                            <li><strong style="color: var(--fg);">O*NET / ORS</strong> — task-level breakdowns by occupation</li>
-                        </ul>
-                        <div style="font-size: 0.75rem; color: var(--fg-muted); margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border);">
-                            The glue layer. Translates workload → task → occupation → cost. Without this, the index collapses. This is where "classification" becomes a SOC code and a time estimate.
-                        </div>
-                    </div>
-
+                <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; color: var(--fg-muted);">Human Cost Computation</h3>
+                    <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0 0 0.75rem 0; line-height: 1.7;">
+                        <strong style="color: var(--fg);">Step 1 — Annual wage (BLS OEWS).</strong> SOC-level mean annual wages from BLS Occupational Employment and Wage Statistics (May 2023). Five pilot SOCs range from $42,040 (Customer Service Reps) to $72,040 (Claims Adjusters).
+                    </p>
+                    <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0 0 0.75rem 0; line-height: 1.7;">
+                        <strong style="color: var(--fg);">Step 2 — Fully loaded compensation (BLS ECEC).</strong> BLS ECEC Q4 2024 shows wages are ~69.5% of total government compensation. Fully loaded hourly = (annual_wage / 2080) × 1.385 × 1.05 overhead. This is conservative — private-sector benchmarks run higher.
+                    </p>
+                    <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0; line-height: 1.7;">
+                        <strong style="color: var(--fg);">Step 3 — Cost per unit (O*NET).</strong> Minutes per workload unit from O*NET task-level data, cross-referenced with published program benchmarks. Cost per unit = (fully loaded hourly / 60) × minutes_per_unit.
+                    </p>
                 </div>
-            </section>
 
-            <!-- Pilot Workloads -->
-            <section aria-labelledby="pilots-heading" style="margin: 3rem 0;">
-                <h2 id="pilots-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Pilot Workloads</h2>
-                <p style="color: var(--fg-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">We do not start nationally. We start where the data is legible. These five workloads have clear SOC mappings, observable procurement records, and plausible AI substitution paths.</p>
-
-                <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; overflow: hidden;">
-                    <table style="width: 100%; font-size: 0.875rem; border-collapse: collapse;">
-                        <thead>
-                            <tr style="border-bottom: 1px solid var(--border); background: var(--bg);">
-                                <th style="text-align: left; padding: 0.75rem 1rem; color: var(--fg-muted); font-weight: 600;">Workload</th>
-                                <th style="text-align: left; padding: 0.75rem 1rem; color: var(--fg-muted); font-weight: 600;">SOC Anchor</th>
-                                <th style="text-align: left; padding: 0.75rem 1rem; color: var(--fg-muted); font-weight: 600;">Human Cost Baseline</th>
-                                <th style="text-align: left; padding: 0.75rem 1rem; color: var(--fg-muted); font-weight: 600;">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 0.75rem 1rem; font-weight: 600;">SNAP eligibility processing</td>
-                                <td style="padding: 0.75rem 1rem; color: var(--fg-muted);">13-1041 Eligibility Interviewers</td>
-                                <td style="padding: 0.75rem 1rem; color: var(--fg-muted);" id="snap-cost">—</td>
-                                <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.75rem; color: var(--accent);">Mapping</span></td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 0.75rem 1rem; font-weight: 600;">Unemployment claims adjudication</td>
-                                <td style="padding: 0.75rem 1rem; color: var(--fg-muted);">13-1041 Claims Adjusters</td>
-                                <td style="padding: 0.75rem 1rem; color: var(--fg-muted);" id="ui-cost">—</td>
-                                <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.75rem; color: var(--accent);">Mapping</span></td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 0.75rem 1rem; font-weight: 600;">Call center triage</td>
-                                <td style="padding: 0.75rem 1rem; color: var(--fg-muted);">43-4051 Customer Service Reps</td>
-                                <td style="padding: 0.75rem 1rem; color: var(--fg-muted);" id="cc-cost">—</td>
-                                <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.75rem; color: var(--accent);">Mapping</span></td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--border);">
-                                <td style="padding: 0.75rem 1rem; font-weight: 600;">Document summarization (casework)</td>
-                                <td style="padding: 0.75rem 1rem; color: var(--fg-muted);">23-2093 Title Examiners / Paralegals</td>
-                                <td style="padding: 0.75rem 1rem; color: var(--fg-muted);" id="doc-cost">—</td>
-                                <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.75rem; color: var(--accent);">Mapping</span></td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 0.75rem 1rem; font-weight: 600;">Contract data extraction</td>
-                                <td style="padding: 0.75rem 1rem; color: var(--fg-muted);">13-1023 Procurement Clerks</td>
-                                <td style="padding: 0.75rem 1rem; color: var(--fg-muted);" id="contract-cost">—</td>
-                                <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.75rem; color: var(--accent);">Mapping</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; color: var(--fg-muted);">Why These Five Workloads</h3>
+                    <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0 0 0.75rem 0; line-height: 1.7;">
+                        Selection criteria: clear SOC anchor, legible FPDS procurement category, plausible current-generation AI substitution path, and observable annual volume from public data. These are not the largest federal workloads — they are the most <em>legible</em>.
+                    </p>
+                    <ul style="font-size: 0.875rem; color: var(--fg-muted); padding-left: 1.25rem; line-height: 2; margin: 0;">
+                        <li><strong style="color: var(--fg);">SNAP eligibility</strong> — Rule-based decision. 41M participants/yr. SOC 13-1041. High classification AI fit.</li>
+                        <li><strong style="color: var(--fg);">UI claims adjudication</strong> — Statutory rule application. 21M claims/yr. SOC 13-1031. COVID surge exposed bottlenecks.</li>
+                        <li><strong style="color: var(--fg);">Call center triage</strong> — First-tier routing and FAQ. 100M+ federal calls/yr. SOC 43-4051. GSA AI pilots since 2023.</li>
+                        <li><strong style="color: var(--fg);">Document summarization</strong> — VA claims average 200+ pages. 750K hearings/yr. SOC 23-2093. 60-80% time reduction in pilots.</li>
+                        <li><strong style="color: var(--fg);">IT help desk (Tier-1)</strong> — 40% of tickets are password resets. 18M tickets/yr. SOC 15-1232. AI ITSM widely deployed.</li>
+                    </ul>
                 </div>
-            </section>
 
-            <!-- Methodology Notes -->
-            <section aria-labelledby="notes-heading" style="margin: 3rem 0;">
-                <h2 id="notes-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Methodology Notes</h2>
+                <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; color: var(--fg-muted);">Known Limitations</h3>
+                    <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0 0 0.75rem 0; line-height: 1.7;">
+                        <strong style="color: var(--fg);">Cost displacement is structural, not realized.</strong> The cost differential shows what AI <em>could</em> displace at current pricing — not what has been displaced. It is a structural argument for substitution pressure, not a measurement of actual substitution.
+                    </p>
+                    <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0 0 0.75rem 0; line-height: 1.7;">
+                        <strong style="color: var(--fg);">FPDS substitution rate is a rough proxy, not a census.</strong> PSC categories are government-wide and far broader than the specific workloads. R499 "Professional Support: Other" covers $32B/yr in spending across all federal agencies — it cannot be cleanly attributed to the 5 pilot workloads. The contractor spend decline signal is real (sourced from the live USAspending.gov API), but the inference from category-level decline to workload-specific substitution is indirect. The AI procurement component is also incomplete — isolating AI-specific awards requires keyword search on contract titles and descriptions, which is not yet implemented.
+                    </p>
+                    <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0 0 0.75rem 0; line-height: 1.7;">
+                        <strong style="color: var(--fg);">AI cost excludes integration and oversight.</strong> The AI cost per unit is inference cost only (from Compute CPI). Total cost of ownership including fine-tuning, human review, and error-correction is higher. The structural cost gap is real; the realized gap is narrower.
+                    </p>
+                    <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0; line-height: 1.7;">
+                        <strong style="color: var(--fg);">What we don't have.</strong> We do not have organizational-level data on how much volume is actually routing to AI vs. humans. That data does not exist in any public source. The gap between the cost differential (structural) and the substitution rate (observable) is the measurement problem this index is built to surface — not to paper over.
+                    </p>
+                </div>
+
                 <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem;">
-                    <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0 0 1rem 0;">
-                        <strong style="color: var(--fg);">Use fully loaded compensation.</strong> BLS wages alone understate true human cost by 30–40%. The Employer Costs for Employee Compensation (ECEC) adds benefits, payroll taxes, and overhead. Using wages only means systematically understating displacement.
-                    </p>
-                    <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0 0 1rem 0;">
-                        <strong style="color: var(--fg);">Procurement is the lead indicator.</strong> Federal contract data shows intent before outcomes appear in headcount. A vendor shift from a staffing firm to an AI tool wrapper shows in FPDS quarters before anyone's job title changes. This is the strongest signal available.
-                    </p>
-                    <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0 0 1rem 0;">
-                        <strong style="color: var(--fg);">Only specific workloads tied to dollars.</strong> This index does not generalize "AI usage." It tracks measurable cost differentials for defined task categories. If a workload cannot be anchored to a SOC code, an FPDS contract category, and a time-per-unit estimate, it is not tracked.
-                    </p>
-                    <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0;">
-                        <strong style="color: var(--fg);">Scope is intentionally narrow.</strong> Initial coverage: 5–10 federal agencies where procurement and staffing data are most legible. National extrapolation follows once workload costs are validated at the agency level.
-                    </p>
+                    <h3 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; color: var(--fg-muted);">Data Source Citations</h3>
+                    <ul style="font-size: 0.8rem; color: var(--fg-muted); padding-left: 1.25rem; line-height: 2.2; margin: 0;">
+                        <li>BLS Occupational Employment and Wage Statistics (OEWS), May 2023 — <a href="https://www.bls.gov/oes/" style="color: var(--accent);">bls.gov/oes</a></li>
+                        <li>BLS Employer Costs for Employee Compensation (ECEC), Q4 2024 — <a href="https://www.bls.gov/ect/" style="color: var(--accent);">bls.gov/ect</a></li>
+                        <li>O*NET Online Task Database, v28.3 — <a href="https://www.onetonline.org/" style="color: var(--accent);">onetonline.org</a></li>
+                        <li>USAspending.gov / FPDS Contract Data, FY2023-FY2024 — <a href="https://www.usaspending.gov/" style="color: var(--accent);">usaspending.gov</a></li>
+                        <li>USDA FNS SNAP Participation Data, FY2024 — <a href="https://www.fns.usda.gov/pd/supplemental-nutrition-assistance-program-snap" style="color: var(--accent);">fns.usda.gov</a></li>
+                        <li>DOL ETA Unemployment Insurance Weekly Claims — <a href="https://www.dol.gov/ui/data.pdf" style="color: var(--accent);">dol.gov/ui</a></li>
+                        <li>Occupant Compute CPI (AI cost per unit) — <a href="/cpi-data.html" style="color: var(--accent);">occupant.ee/cpi-data.html</a></li>
+                    </ul>
                 </div>
             </section>
 
@@ -303,7 +295,7 @@ sub_rate ≈ (Δ contractor_spend[task] / baseline_spend)
             <section style="margin: 3rem 0; padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px;">
                 <h2 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem;">Relationship to Compute CPI</h2>
                 <p style="font-size: 0.875rem; color: var(--fg-muted); line-height: 1.7; margin-bottom: 1rem;">
-                    The Compute CPI tracks AI cost deflation — what it costs to run AI workloads across model tiers. The LDI uses that data as the AI-side input to the displacement formula. As AI costs fall (CPI declines), displacement widens, all else equal.
+                    The Compute CPI tracks AI cost deflation. The LDI uses that as the AI-side input to the displacement formula. As AI costs fall (CPI declines), the structural cost gap widens automatically. The CPI is currently <strong id="cpi-ref">—</strong> vs. the 100 baseline — meaning AI inference has fallen significantly since launch. That is why the cost ratios here are 1,000x+. That number will keep moving as the CPI moves.
                 </p>
                 <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
                     <a href="/cpi-data.html" style="font-size: 0.875rem; color: var(--accent); text-decoration: none;">View Compute CPI →</a>
@@ -326,15 +318,111 @@ sub_rate ≈ (Δ contractor_spend[task] / baseline_spend)
 
     <script src="/theme.js"></script>
     <script>
-        async function loadCPIData() {
+        function fmt(n, d) {
+            if (n === null || n === undefined) return '—';
+            return n.toFixed(d !== undefined ? d : 2);
+        }
+        function fmtDollars(n) {
+            if (n === null || n === undefined) return '—';
+            if (Math.abs(n) >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
+            if (Math.abs(n) >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M';
+            return '$' + n.toFixed(2);
+        }
+        function absorptionBadge(cls) {
+            const colors = { eliminated: 'var(--danger)', reallocated: 'var(--warning)', frozen: 'var(--accent)', upgraded: 'var(--success)' };
+            const c = colors[cls] || 'var(--fg-muted)';
+            const lbl = cls ? cls.charAt(0).toUpperCase() + cls.slice(1) : '—';
+            return `<span style="font-size: 0.7rem; color: ${c}; font-weight: 600;">${lbl}</span>`;
+        }
+
+        async function loadLDIData() {
             try {
-                const response = await fetch('/data/cpi/latest.json');
-                const data = await response.json();
-                const aiCost = (data.cpi / 100).toFixed(4);
-                document.getElementById('ai-cost').textContent = `CPI ${data.cpi.toFixed(1)}`;
+                const r = await fetch('/data/ldi/latest.json');
+                if (!r.ok) throw new Error('Not found');
+                const d = await r.json();
+
+                const summary = d.summary || {};
+                const cd = d.cost_displacement || {};
+
+                // Cost differential card — show absolute $ amounts, not ratios
+                const humanAvg = summary.avg_human_cost_per_unit;
+                const aiAvg = summary.avg_ai_cost_per_unit;
+                document.getElementById('cost-ratio').textContent =
+                    humanAvg ? '$' + humanAvg.toFixed(2) : '—';
+                document.getElementById('cost-ratio-sub').textContent =
+                    aiAvg ? 'vs $' + aiAvg.toFixed(4) + ' AI · avg across 5 workloads' : 'avg across 5 pilot workloads';
+                document.getElementById('ai-avg').textContent =
+                    aiAvg ? '$' + aiAvg.toFixed(4) : '—';
+                document.getElementById('disp-total').textContent =
+                    fmtDollars(cd.annual_usd);
+
+                // Substitution rate card
+                const subRate = d.substitution_rate;
+                const subRateStr = subRate !== null && subRate !== undefined ? fmt(subRate, 1) + '%' : '—';
+                document.getElementById('sub-rate').textContent = subRateStr;
+                document.getElementById('sub-rate-sub').textContent =
+                    `FPDS procurement signal · ${d.date || ''}`;
+                const calloutEl = document.getElementById('callout-sub-rate');
+                if (calloutEl) calloutEl.textContent = subRateStr;
+
+                // Absorption summary
+                const workloads = d.workloads || {};
+                const absorptions = Object.values(workloads).map(w => w.absorption?.classification).filter(Boolean);
+                const absCount = {};
+                absorptions.forEach(a => { absCount[a] = (absCount[a] || 0) + 1; });
+                const absSummary = Object.entries(absCount).map(([k, v]) => `${v} ${k}`).join(', ');
+                document.getElementById('absorption-summary').textContent = absSummary || '—';
+
+                // Workload table
+                const tbody = document.getElementById('workload-table-body');
+                if (!Object.keys(workloads).length) {
+                    tbody.innerHTML = '<tr><td colspan="7" style="padding:2rem;text-align:center;color:var(--fg-muted);">No data</td></tr>';
+                    return;
+                }
+
+                let rows = '';
+                for (const [id, w] of Object.entries(workloads)) {
+                    const hc = w.human_cost?.cost_per_unit;
+                    const ac = w.ai_cost?.cost_per_unit;
+                    const sub = w.substitution_rate || {};
+                    const abs = w.absorption || {};
+                    const disp = w.displacement || {};
+                    const costRatio = (hc && ac && ac > 0) ? Math.round(hc / ac) : null;
+                    const dispTotal = disp.total_annual_displacement;
+
+                    rows += `<tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem 1rem;">
+                            <div style="font-weight: 600; color: var(--fg); margin-bottom: 0.1rem;">${w.name || id}</div>
+                            <div style="font-size: 0.65rem; color: var(--fg-muted);">SOC ${w.soc_code || ''} · ${(w.soc_title || '').split(',')[0]}</div>
+                        </td>
+                        <td style="padding: 0.75rem 0.75rem; text-align: right; font-family: monospace;">$${hc ? hc.toFixed(2) : '—'}</td>
+                        <td style="padding: 0.75rem 0.75rem; text-align: right; font-family: monospace; color: var(--accent);">$${ac ? ac.toFixed(4) : '—'}</td>
+                        <td style="padding: 0.75rem 0.75rem; text-align: right; font-family: monospace;">${dispTotal ? fmtDollars(dispTotal) : '—'}</td>
+                        <td style="padding: 0.75rem 0.75rem; text-align: right; font-weight: 600;">${costRatio ? costRatio.toLocaleString() + 'x' : '—'}</td>
+                        <td style="padding: 0.75rem 0.75rem; text-align: right; font-family: monospace;">${fmt(sub.rate_pct, 1)}%</td>
+                        <td style="padding: 0.75rem 0.75rem;">${absorptionBadge(abs.classification)}</td>
+                    </tr>`;
+                }
+                tbody.innerHTML = rows;
+
+            } catch (e) {
+                console.log('LDI data error:', e);
+                document.getElementById('cost-ratio').textContent = '—';
+                document.getElementById('sub-rate').textContent = '—';
+            }
+        }
+
+        async function loadCPIRef() {
+            try {
+                const r = await fetch('/data/compute-cpi.json');
+                const d = await r.json();
+                const val = d.compute_cpi?.value;
+                if (val) document.getElementById('cpi-ref').textContent = val.toFixed(1);
             } catch (e) {}
         }
-        loadCPIData();
+
+        loadLDIData();
+        loadCPIRef();
     </script>
 </body>
 </html>

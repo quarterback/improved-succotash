@@ -1,0 +1,263 @@
+{
+  "date": "2026-04-13",
+  "generated_at": "2026-04-13T16:33:07.889884+00:00",
+  "substitution_rate": 2.21,
+  "substitution_rate_interpretation": "Approximately 2.2% of task volume in these workload categories shows procurement-level evidence of AI substitution (contractor spend decline + AI procurement growth, FY2023 vs FY2024).",
+  "cost_displacement": {
+    "annual_usd": 2203859276.25,
+    "label": "Structural cost displacement (potential)",
+    "interpretation": "If AI handled 100% of these workloads, the cost differential at current pricing would be this amount per year. This is technical potential, not realized savings.",
+    "avg_cost_ratio": 49515.0,
+    "total_human_cost_annual": 2204515925.0,
+    "total_ai_cost_annual": 656648.75
+  },
+  "summary": {
+    "substitution_rate_pct": 2.21,
+    "cost_displacement_usd": 2203859276.25,
+    "avg_cost_ratio": 49515.0,
+    "pilot_workload_count": 5,
+    "total_volume_units": 180750000,
+    "avg_human_cost_per_unit": 16.7954,
+    "avg_ai_cost_per_unit": 0.005044
+  },
+  "workloads": {
+    "snap_eligibility": {
+      "id": "snap_eligibility",
+      "name": "SNAP Eligibility Processing",
+      "soc_code": "13-1041",
+      "soc_title": "Eligibility Interviewers, Government Programs",
+      "human_cost": {
+        "cost_per_unit": 25.133,
+        "cost_per_unit_unit": "USD per workload unit",
+        "fully_loaded_hourly": 33.5107,
+        "annual_wage": 47930,
+        "minutes_per_unit": 45,
+        "source": "BLS OEWS May 2023 (static fallback)"
+      },
+      "ai_cost": {
+        "cost_per_unit": 0.000256,
+        "cost_per_unit_unit": "USD per workload unit",
+        "task_type": "classification",
+        "source": "Compute CPI basket live data (CPI=69.1)"
+      },
+      "displacement": {
+        "displacement_per_unit": 25.132744,
+        "annual_volume": 41000000,
+        "total_annual_displacement": 1030442504.0,
+        "displacement_ratio": 1.0,
+        "displacement_pct": 100.0
+      },
+      "substitution_rate": {
+        "rate": 0.0,
+        "rate_pct": 0.0,
+        "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
+        "current_fy_spend": 47960957191.3,
+        "yoy_change_pct": 8.49,
+        "ai_procurement_yoy": null
+      },
+      "absorption": {
+        "classification": "reallocated",
+        "reasoning": "SNAP caseload growing while workforce is flat. Workers being redirected to complex cases and fraud detection as routine processing automates. JOLTS government sector: low separations, moderate reallocation signal.",
+        "color": "warning"
+      },
+      "volume": {
+        "annual_units": 41000000,
+        "source": "USDA FNS FY2024: 41M SNAP participants, ~1 eligibility review/participant/year"
+      }
+    },
+    "unemployment_claims": {
+      "id": "unemployment_claims",
+      "name": "Unemployment Claims Adjudication",
+      "soc_code": "13-1031",
+      "soc_title": "Claims Adjusters, Examiners, and Investigators",
+      "human_cost": {
+        "cost_per_unit": 29.381,
+        "cost_per_unit_unit": "USD per workload unit",
+        "fully_loaded_hourly": 50.3674,
+        "annual_wage": 72040,
+        "minutes_per_unit": 35,
+        "source": "BLS OEWS May 2023 (static fallback)"
+      },
+      "ai_cost": {
+        "cost_per_unit": 0.000256,
+        "cost_per_unit_unit": "USD per workload unit",
+        "task_type": "classification",
+        "source": "Compute CPI basket live data (CPI=69.1)"
+      },
+      "displacement": {
+        "displacement_per_unit": 29.380744,
+        "annual_volume": 21000000,
+        "total_annual_displacement": 616995624.0,
+        "displacement_ratio": 1.0,
+        "displacement_pct": 100.0
+      },
+      "substitution_rate": {
+        "rate": 0.0,
+        "rate_pct": 0.0,
+        "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
+        "current_fy_spend": 47135721552.09,
+        "yoy_change_pct": 9.84,
+        "ai_procurement_yoy": null
+      },
+      "absorption": {
+        "classification": "frozen",
+        "reasoning": "DOL UI staffing flat since 2022 post-pandemic normalization. No new hires for claims processing roles despite rising caseloads. Vacancy rate >6 months in multiple state UI agencies. Frozen classification.",
+        "color": "accent"
+      },
+      "volume": {
+        "annual_units": 21000000,
+        "source": "DOL ETA FY2024: ~21M initial UI claims filed"
+      }
+    },
+    "call_center_triage": {
+      "id": "call_center_triage",
+      "name": "Call Center Triage",
+      "soc_code": "43-4051",
+      "soc_title": "Customer Service Representatives",
+      "human_cost": {
+        "cost_per_unit": 3.919,
+        "cost_per_unit_unit": "USD per workload unit",
+        "fully_loaded_hourly": 29.3926,
+        "annual_wage": 42040,
+        "minutes_per_unit": 8,
+        "source": "BLS OEWS May 2023 (static fallback)"
+      },
+      "ai_cost": {
+        "cost_per_unit": 0.006225,
+        "cost_per_unit_unit": "USD per workload unit",
+        "task_type": "chat_drafting",
+        "source": "Compute CPI basket live data (CPI=69.1)"
+      },
+      "displacement": {
+        "displacement_per_unit": 3.912775,
+        "annual_volume": 100000000,
+        "total_annual_displacement": 391277500.0,
+        "displacement_ratio": 0.9984,
+        "displacement_pct": 99.84
+      },
+      "substitution_rate": {
+        "rate": 0.0399,
+        "rate_pct": 3.99,
+        "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
+        "current_fy_spend": 17913068641.4,
+        "yoy_change_pct": -6.66,
+        "ai_procurement_yoy": null
+      },
+      "absorption": {
+        "classification": "reallocated",
+        "reasoning": "IRS and SSA piloting AI-assisted call routing. Frontline agents being redirected to complex case escalations. Headcount flat while call volume rises \u2014 efficiency gain absorbed, not reflected in separations yet.",
+        "color": "warning"
+      },
+      "volume": {
+        "annual_units": 100000000,
+        "source": "SSA + IRS + VA combined call volume estimate FY2024"
+      }
+    },
+    "document_summarization": {
+      "id": "document_summarization",
+      "name": "Document Summarization in Casework",
+      "soc_code": "23-2093",
+      "soc_title": "Title Examiners, Abstractors, and Searchers",
+      "human_cost": {
+        "cost_per_unit": 17.0799,
+        "cost_per_unit_unit": "USD per workload unit",
+        "fully_loaded_hourly": 40.9917,
+        "annual_wage": 58630,
+        "minutes_per_unit": 25,
+        "source": "BLS OEWS May 2023 (static fallback)"
+      },
+      "ai_cost": {
+        "cost_per_unit": 0.018225,
+        "cost_per_unit_unit": "USD per workload unit",
+        "task_type": "summarization",
+        "source": "Compute CPI basket live data (CPI=69.1)"
+      },
+      "displacement": {
+        "displacement_per_unit": 17.061675,
+        "annual_volume": 750000,
+        "total_annual_displacement": 12796256.25,
+        "displacement_ratio": 0.9989,
+        "displacement_pct": 99.89
+      },
+      "substitution_rate": {
+        "rate": 0.0,
+        "rate_pct": 0.0,
+        "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
+        "current_fy_spend": 35812447551.11,
+        "yoy_change_pct": 2.31,
+        "ai_procurement_yoy": null
+      },
+      "absorption": {
+        "classification": "reallocated",
+        "reasoning": "VA deploying AI-assisted claims development tools. Legal staff redirected from mechanical summarization to judgment-intensive review. Reclassification signal: GS-7 to GS-9 band for remaining roles.",
+        "color": "warning"
+      },
+      "volume": {
+        "annual_units": 750000,
+        "source": "VA disability claims 250K/yr + SSA hearings 500K/yr"
+      }
+    },
+    "it_help_desk": {
+      "id": "it_help_desk",
+      "name": "Federal IT Help Desk",
+      "soc_code": "15-1232",
+      "soc_title": "Computer User Support Specialists",
+      "human_cost": {
+        "cost_per_unit": 8.464,
+        "cost_per_unit_unit": "USD per workload unit",
+        "fully_loaded_hourly": 42.3201,
+        "annual_wage": 60530,
+        "minutes_per_unit": 12,
+        "source": "BLS OEWS May 2023 (static fallback)"
+      },
+      "ai_cost": {
+        "cost_per_unit": 0.000256,
+        "cost_per_unit_unit": "USD per workload unit",
+        "task_type": "classification",
+        "source": "Compute CPI basket live data (CPI=69.1)"
+      },
+      "displacement": {
+        "displacement_per_unit": 8.463744,
+        "annual_volume": 18000000,
+        "total_annual_displacement": 152347392.0,
+        "displacement_ratio": 1.0,
+        "displacement_pct": 100.0
+      },
+      "substitution_rate": {
+        "rate": 0.0,
+        "rate_pct": 0.0,
+        "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
+        "current_fy_spend": 36405001866.6,
+        "yoy_change_pct": 1.45,
+        "ai_procurement_yoy": null
+      },
+      "absorption": {
+        "classification": "frozen",
+        "reasoning": "Federal IT help desk positions frozen in multiple agencies since FY2023. AI-assisted ticketing tools deployed (ServiceNow AI, AWS Connect). No backfill of vacated Tier-1 positions. Budget justification omits replacement headcount.",
+        "color": "accent"
+      },
+      "volume": {
+        "annual_units": 18000000,
+        "source": "Federal civilian workforce 2.1M \u00d7 ~8.5 tickets/employee/year (ITSM benchmark)"
+      }
+    }
+  },
+  "meta": {
+    "sources": [
+      "BLS OEWS",
+      "BLS ECEC",
+      "USAspending.gov FPDS",
+      "Compute CPI basket"
+    ],
+    "pilot_workload_ids": [
+      "snap_eligibility",
+      "unemployment_claims",
+      "call_center_triage",
+      "document_summarization",
+      "it_help_desk"
+    ],
+    "cpi_value": 69.1,
+    "methodology_version": "1.1",
+    "note": "substitution_rate is the observable signal (FPDS procurement proxy). cost_displacement is structural/technical potential at 100% substitution \u2014 not realized savings. These are distinct measurements."
+  }
+}

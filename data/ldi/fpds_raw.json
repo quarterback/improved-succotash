@@ -1,0 +1,3797 @@
+{
+  "fetched_at": "2026-04-13T16:33:07.878360+00:00",
+  "source": "USAspending.gov FPDS \u2014 spending_by_category/psc endpoint",
+  "api_endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_category/psc/",
+  "fiscal_years": {
+    "current": 2024,
+    "prior": 2023
+  },
+  "notes": "Raw API response payloads below. Each api_responses entry contains the full request payload and HTTP response body as returned by USAspending.gov. The psc_totals dict shows total obligated spending per PSC code for FY2024 and FY2023. These are government-wide totals for each PSC category, not workload-specific.",
+  "fy2024": {
+    "psc_totals": {
+      "R499": {
+        "amount": 32517550230.9,
+        "name": "SUPPORT- PROFESSIONAL: OTHER",
+        "found_on_page": 1
+      },
+      "R408": {
+        "amount": 14025617005.7,
+        "name": "SUPPORT- PROFESSIONAL: PROGRAM MANAGEMENT/SUPPORT",
+        "found_on_page": 1
+      },
+      "F999": {
+        "amount": 4021312879.52,
+        "name": "OTHER ENVIRONMENTAL SERVICES",
+        "found_on_page": 1
+      },
+      "D399": {
+        "amount": 3294897320.21,
+        "name": "IT AND TELECOM- OTHER IT AND TELECOMMUNICATIONS",
+        "found_on_page": 1
+      },
+      "Q999": {
+        "amount": 1417789954.7,
+        "name": "MEDICAL- OTHER",
+        "found_on_page": 1
+      },
+      "U099": {
+        "amount": 1396225202.41,
+        "name": "EDUCATION/TRAINING- OTHER",
+        "found_on_page": 2
+      },
+      "D302": {
+        "amount": 592554315.49,
+        "name": "IT AND TELECOM- SYSTEMS DEVELOPMENT",
+        "found_on_page": 3
+      }
+    },
+    "api_responses": [
+      {
+        "request": {
+          "url": "https://api.usaspending.gov/api/v2/search/spending_by_category/psc/",
+          "method": "POST",
+          "payload": {
+            "filters": {
+              "time_period": [
+                {
+                  "start_date": "2023-10-01",
+                  "end_date": "2024-09-30"
+                }
+              ]
+            },
+            "limit": 100,
+            "page": 1
+          },
+          "fiscal_year": 2024
+        },
+        "response": {
+          "status_code": 200,
+          "fetched_at": "2026-04-13T16:33:06.229649+00:00",
+          "body": {
+            "category": "psc",
+            "spending_level": "transactions",
+            "limit": 100,
+            "page_metadata": {
+              "page": 1,
+              "next": 2,
+              "previous": null,
+              "hasNext": true,
+              "hasPrevious": false
+            },
+            "results": [
+              {
+                "id": null,
+                "code": "Q201",
+                "name": "MEDICAL- MANAGED HEALTHCARE",
+                "amount": 35852425963.16,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R425",
+                "name": "SUPPORT- PROFESSIONAL: ENGINEERING/TECHNICAL",
+                "amount": 32736236279.06,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R499",
+                "name": "SUPPORT- PROFESSIONAL: OTHER",
+                "amount": 32517550230.9,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6505",
+                "name": "DRUGS AND BIOLOGICALS",
+                "amount": 23891809795.51,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1905",
+                "name": "COMBAT SHIPS AND LANDING VESSELS",
+                "amount": 23017247285.63,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1510",
+                "name": "AIRCRAFT, FIXED WING",
+                "amount": 22914165989.52,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DA01",
+                "name": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SUPPORT SERVICES (LABOR)",
+                "amount": 20800425424.34,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M1JZ",
+                "name": "OPERATION OF MISCELLANEOUS BUILDINGS",
+                "amount": 17034324594.76,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R408",
+                "name": "SUPPORT- PROFESSIONAL: PROGRAM MANAGEMENT/SUPPORT",
+                "amount": 14025617005.7,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1410",
+                "name": "GUIDED MISSILES",
+                "amount": 13483224186.59,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M181",
+                "name": "OPER OF GOVT R&D GOCO FACILITIES",
+                "amount": 11632516549.23,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "9130",
+                "name": "LIQUID PROPELLANTS AND FUELS, PETROLEUM BASE",
+                "amount": 9596064862.86,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "G007",
+                "name": "SOCIAL- GOVERNMENT HEALTH INSURANCE PROGRAMS",
+                "amount": 9273293495.39,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC13",
+                "name": "NATIONAL DEFENSE R&D SERVICES; DEPARTMENT OF DEFENSE - MILITARY; EXPERIMENTAL DEVELOPMENT",
+                "amount": 8772454749.04,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R706",
+                "name": "SUPPORT- MANAGEMENT: LOGISTICS SUPPORT",
+                "amount": 7722302023.47,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J015",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- AIRCRAFT AND AIRFRAME STRUCTURAL COMPONENTS",
+                "amount": 7005476335.92,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC32",
+                "name": "NATIONAL DEFENSE R&D SERVICES; DEFENSE-RELATED ACTIVITIES; APPLIED RESEARCH",
+                "amount": 6825784745.4,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "4220",
+                "name": "MARINE LIFESAVING AND DIVING EQUIPMENT",
+                "amount": 6621870731.01,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7A21",
+                "name": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)",
+                "amount": 6537795524.65,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1520",
+                "name": "AIRCRAFT, ROTARY WING",
+                "amount": 6415009995.23,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DA10",
+                "name": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SOFTWARE AS A SERVICE",
+                "amount": 6257231955.27,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1JZ",
+                "name": "CONSTRUCTION OF MISCELLANEOUS BUILDINGS",
+                "amount": 5913531414.15,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1680",
+                "name": "MISCELLANEOUS AIRCRAFT ACCESSORIES AND COMPONENTS",
+                "amount": 5885829669.13,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC24",
+                "name": "NATIONAL DEFENSE R&D SERVICES; ATOMIC ENERGY DEFENSE ACTIVITIES; R&D ADMINISTRATIVE EXPENSES",
+                "amount": 5488394284.98,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "2840",
+                "name": "GAS TURBINES AND JET ENGINES, AIRCRAFT, PRIME MOVING; AND COMPONENTS",
+                "amount": 5316472894.15,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Q403",
+                "name": "MEDICAL- EVALUATION/SCREENING",
+                "amount": 5195417063.89,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "V126",
+                "name": "TRANSPORTATION/TRAVEL/RELOCATION- TRANSPORTATION: SPACE TRANSPORTATION/LAUNCH",
+                "amount": 5065553263.55,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "S206",
+                "name": "HOUSEKEEPING- GUARD",
+                "amount": 4843708645.54,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6515",
+                "name": "MEDICAL AND SURGICAL INSTRUMENTS, EQUIPMENT, AND SUPPLIES",
+                "amount": 4300984990.62,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1560",
+                "name": "AIRFRAME STRUCTURAL COMPONENTS",
+                "amount": 4024370145.94,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "F999",
+                "name": "OTHER ENVIRONMENTAL SERVICES",
+                "amount": 4021312879.52,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DF01",
+                "name": "IT AND TELECOM - IT MANAGEMENT SUPPORT SERVICES (LABOR)",
+                "amount": 3991077128.4,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R699",
+                "name": "SUPPORT- ADMINISTRATIVE: OTHER",
+                "amount": 3951958938.51,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1425",
+                "name": "GUIDED MISSILE SYSTEMS, COMPLETE",
+                "amount": 3868519014.99,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "2350",
+                "name": "COMBAT, ASSAULT, AND TACTICAL VEHICLES, TRACKED",
+                "amount": 3741454532.91,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5865",
+                "name": "ELECTRONIC COUNTERMEASURES, COUNTER-COUNTERMEASURES AND QUICK REACTION CAPABILITY EQUIPMENT",
+                "amount": 3685850361.1,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J016",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- AIRCRAFT COMPONENTS AND ACCESSORIES",
+                "amount": 3671491230.37,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC12",
+                "name": "NATIONAL DEFENSE R&D SERVICES; DEPARTMENT OF DEFENSE - MILITARY; APPLIED RESEARCH",
+                "amount": 3608090596.25,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1420",
+                "name": "GUIDED MISSILE COMPONENTS",
+                "amount": 3590044337.97,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R799",
+                "name": "SUPPORT- MANAGEMENT: OTHER",
+                "amount": 3517205392.6,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "C219",
+                "name": "ARCHITECT AND ENGINEERING- GENERAL: OTHER",
+                "amount": 3474891862.33,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5840",
+                "name": "RADAR EQUIPMENT, EXCEPT AIRBORNE",
+                "amount": 3344852946.31,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AZ11",
+                "name": "R&D- OTHER RESEARCH AND DEVELOPMENT (BASIC RESEARCH)",
+                "amount": 3294952749.33,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "D399",
+                "name": "IT AND TELECOM- OTHER IT AND TELECOMMUNICATIONS",
+                "amount": 3294897320.21,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AN42",
+                "name": "HEALTH R&D SERVICES; HEALTH CARE - OTHER; APPLIED RESEARCH",
+                "amount": 3292107952.79,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M1HA",
+                "name": "OPERATION OF GOVERNMENT-OWNED CONTRACTOR-OPERATED (GOCO) R&D FACILITIES",
+                "amount": 3271135123.14,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z2JZ",
+                "name": "REPAIR OR ALTERATION OF MISCELLANEOUS BUILDINGS",
+                "amount": 3200334467.7,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "F108",
+                "name": "ENVIRONMENTAL SYSTEMS PROTECTION- ENVIRONMENTAL REMEDIATION",
+                "amount": 3105987641.21,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "S216",
+                "name": "HOUSEKEEPING- FACILITIES OPERATIONS SUPPORT",
+                "amount": 3000236988.35,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "8905",
+                "name": "MEAT, POULTRY, AND FISH",
+                "amount": 2841586221.22,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1AZ",
+                "name": "CONSTRUCTION OF OTHER ADMINISTRATIVE FACILITIES AND SERVICE BUILDINGS",
+                "amount": 2615703079.46,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DG01",
+                "name": "IT AND TELECOM - NETWORK SUPPORT SERVICES (LABOR)",
+                "amount": 2568302666.51,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC33",
+                "name": "NATIONAL DEFENSE R&D SERVICES; DEFENSE-RELATED ACTIVITIES; EXPERIMENTAL DEVELOPMENT",
+                "amount": 2519009073.38,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R710",
+                "name": "SUPPORT- MANAGEMENT: FINANCIAL",
+                "amount": 2460306832.16,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1AA",
+                "name": "CONSTRUCTION OF OFFICE BUILDINGS",
+                "amount": 2409020375.82,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AR11",
+                "name": "SPACE R&D SERVICES; SPACE FLIGHT, RESEARCH AND SUPPORTING ACTIVITIES; BASIC RESEARCH",
+                "amount": 2389384265.37,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "8915",
+                "name": "FRUITS AND VEGETABLES",
+                "amount": 2338831904.01,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7E20",
+                "name": "IT and Telecom - End User: Help Desk;Tier 1-2,Workspace,Print,Output,Productivity Tools (HW/Perp SW)",
+                "amount": 2337466899.99,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J028",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- ENGINES, TURBINES, AND COMPONENTS",
+                "amount": 2316570866.14,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "V121",
+                "name": "TRANSPORTATION/TRAVEL/RELOCATION- TRANSPORTATION: AIR CHARTER",
+                "amount": 2308464461.21,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "9660",
+                "name": "PRECIOUS METALS PRIMARY FORMS",
+                "amount": 2292284632.75,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z2AA",
+                "name": "REPAIR OR ALTERATION OF OFFICE BUILDINGS",
+                "amount": 2260220049.1,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC15",
+                "name": "NATIONAL DEFENSE R&D SVCS; DEPARTMENT OF DEFENSE - MILITARY; R&D FACILITIES & MAJ EQUIP",
+                "amount": 2235139137.39,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1550",
+                "name": "UNMANNED AIRCRAFT",
+                "amount": 2205620929.72,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1325",
+                "name": "BOMBS",
+                "amount": 2205025597.34,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DD01",
+                "name": "IT AND TELECOM - SERVICE DELIVERY SUPPORT SERVICES: ITSM, OPERATIONS CENTER, PROJECT/PM (LABOR)",
+                "amount": 2167746409.35,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5810",
+                "name": "COMMUNICATIONS SECURITY EQUIPMENT AND COMPONENTS",
+                "amount": 2161140246.64,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "9140",
+                "name": "FUEL OILS",
+                "amount": 2135684480.34,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "2310",
+                "name": "PASSENGER MOTOR VEHICLES",
+                "amount": 2130762932.97,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M159",
+                "name": "OPER OF GOVT OTHER INDUSTRIAL BLDG",
+                "amount": 2101741216.53,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1320",
+                "name": "AMMUNITION, OVER 125MM",
+                "amount": 2083183457.48,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "4470",
+                "name": "NUCLEAR REACTORS",
+                "amount": 2060991266.21,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J998",
+                "name": "NON-NUCLEAR SHIP REPAIR (EAST)",
+                "amount": 2057730940.75,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J999",
+                "name": "NON-NUCLEAR SHIP REPAIR (WEST)",
+                "amount": 2055001855.08,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J014",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- GUIDED MISSILES",
+                "amount": 1981602642.29,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "S201",
+                "name": "HOUSEKEEPING- CUSTODIAL JANITORIAL",
+                "amount": 1954331379.94,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AR12",
+                "name": "SPACE R&D SERVICES; SPACE FLIGHT, RESEARCH AND SUPPORTING ACTIVITIES; APPLIED RESEARCH",
+                "amount": 1934184214.79,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DJ01",
+                "name": "IT AND TELECOM - SECURITY AND COMPLIANCE SUPPORT SERVICES (LABOR)",
+                "amount": 1874941945.89,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5342",
+                "name": "HARDWARE, WEAPON SYSTEM",
+                "amount": 1863044926.09,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1440",
+                "name": "LAUNCHERS, GUIDED MISSILE",
+                "amount": 1853822437.64,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DG11",
+                "name": "IT and Telecom - Network: Satellite Communications and Telecom Access Services",
+                "amount": 1835279392.97,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AN12",
+                "name": "HEALTH R&D SERVICES; HEALTH CARE SERVICES; APPLIED RESEARCH",
+                "amount": 1814765168.29,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "V124",
+                "name": "TRANSPORTATION/TRAVEL/RELOCATION- TRANSPORTATION: MARINE CHARTER",
+                "amount": 1799981744.15,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC23",
+                "name": "NATIONAL DEFENSE R&D SERVICES; ATOMIC ENERGY DEFENSE ACTIVITIES; EXPERIMENTAL DEVELOPMENT",
+                "amount": 1779381715.07,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DE01",
+                "name": "IT and Telecom - End User: Help Desk; Tier 1-2, Workspace, Print, Output, Productivity Tools (Labor)",
+                "amount": 1761928512.17,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1DA",
+                "name": "CONSTRUCTION OF HOSPITALS AND INFIRMARIES",
+                "amount": 1731165098.64,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "F003",
+                "name": "NATURAL RESOURCES/CONSERVATION- FOREST-RANGE FIRE SUPPRESSION/PRESUPPRESSION",
+                "amount": 1729274401.31,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "D318",
+                "name": "IT AND TELECOM- INTEGRATED HARDWARE/SOFTWARE/SERVICES SOLUTIONS, PREDOMINANTLY SERVICES",
+                "amount": 1706137422.72,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "2355",
+                "name": "COMBAT, ASSAULT, AND TACTICAL VEHICLES, WHEELED",
+                "amount": 1672597014.86,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R701",
+                "name": "SUPPORT- MANAGEMENT: ADVERTISING",
+                "amount": 1635315887.32,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AR22",
+                "name": "R&D- SPACE: SCIENCE/APPLICATIONS (APPLIED RESEARCH/EXPLORATORY DEVELOPMENT)",
+                "amount": 1585467637.86,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1KA",
+                "name": "CONSTRUCTION OF DAMS",
+                "amount": 1486169798.06,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "U006",
+                "name": "EDUCATION/TRAINING- VOCATIONAL/TECHNICAL",
+                "amount": 1483782876.41,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1305",
+                "name": "AMMUNITION, THROUGH 30MM",
+                "amount": 1480686411.1,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7B22",
+                "name": "IT AND TELECOM - COMPUTE: SERVERS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)",
+                "amount": 1479131892.81,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "2320",
+                "name": "TRUCKS AND TRUCK TRACTORS, WHEELED",
+                "amount": 1449835208.15,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "C211",
+                "name": "ARCHITECT AND ENGINEERING- GENERAL: LANDSCAPING, INTERIOR LAYOUT, AND DESIGNING",
+                "amount": 1448900878.97,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Q999",
+                "name": "MEDICAL- OTHER",
+                "amount": 1417789954.7,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AJ12",
+                "name": "GENERAL SCIENCE AND TECHNOLOGY R&D SERVICES; GENERAL SCIENCE AND TECHNOLOGY; APPLIED RESEARCH",
+                "amount": 1406038868.25,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "S112",
+                "name": "UTILITIES- ELECTRIC",
+                "amount": 1400074246.08,
+                "total_outlays": null
+              }
+            ],
+            "messages": [
+              "For searches, time period start and end dates are currently limited to an earliest date of 2007-10-01.  For data going back to 2000-10-01, use either the Custom Award Download feature on the website or one of our download or bulk_download API endpoints as listed on https://api.usaspending.gov/docs/endpoints. ",
+              "'subawards' will be deprecated in the future. Set \u2018spending_level\u2019 to \u2018subawards\u2019 instead. See documentation for more information. "
+            ]
+          }
+        }
+      },
+      {
+        "request": {
+          "url": "https://api.usaspending.gov/api/v2/search/spending_by_category/psc/",
+          "method": "POST",
+          "payload": {
+            "filters": {
+              "time_period": [
+                {
+                  "start_date": "2023-10-01",
+                  "end_date": "2024-09-30"
+                }
+              ]
+            },
+            "limit": 100,
+            "page": 2
+          },
+          "fiscal_year": 2024
+        },
+        "response": {
+          "status_code": 200,
+          "fetched_at": "2026-04-13T16:33:06.701893+00:00",
+          "body": {
+            "category": "psc",
+            "spending_level": "transactions",
+            "limit": 100,
+            "page_metadata": {
+              "page": 2,
+              "next": 3,
+              "previous": 1,
+              "hasNext": true,
+              "hasPrevious": true
+            },
+            "results": [
+              {
+                "id": null,
+                "code": "U099",
+                "name": "EDUCATION/TRAINING- OTHER",
+                "amount": 1396225202.41,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC14",
+                "name": "NATIONAL DEFENSE R&D SERVICES; DEPARTMENT OF DEFENSE - MILITARY; R&D ADMINISTRATIVE EXPENSES",
+                "amount": 1386276606.83,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J069",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- TRAINING AIDS AND DEVICES",
+                "amount": 1379731583.95,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC22",
+                "name": "NATIONAL DEFENSE R&D SERVICES; ATOMIC ENERGY DEFENSE ACTIVITIES; APPLIED RESEARCH",
+                "amount": 1374455255.04,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1395",
+                "name": "MISCELLANEOUS AMMUNITION",
+                "amount": 1344978604.64,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R426",
+                "name": "SUPPORT- PROFESSIONAL: COMMUNICATIONS",
+                "amount": 1337240446.1,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6640",
+                "name": "LABORATORY EQUIPMENT AND SUPPLIES",
+                "amount": 1333685592.04,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AR15",
+                "name": "SPACE R&D SVCS; SPACE FLIGHT, RESEARCH & SUPPORTING ACTIVITIES; R&D FACILITIES & MAJ EQUIP",
+                "amount": 1325046648.72,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1ED",
+                "name": "CONSTRUCTION OF SHIP CONSTRUCTION AND REPAIR FACILITIES",
+                "amount": 1310407046.35,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7A20",
+                "name": "IT AND TELECOM - APPLICATION DEVELOPMENT SOFTWARE (PERPETUAL LICENSE SOFTWARE)",
+                "amount": 1286241630.32,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC61",
+                "name": "R&D- DEFENSE SYSTEM: ELECTRONICS/COMMUNICATION EQUIPMENT (BASIC RESEARCH)",
+                "amount": 1280826395.76,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z1AA",
+                "name": "MAINTENANCE OF OFFICE BUILDINGS",
+                "amount": 1260194958.99,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R707",
+                "name": "SUPPORT- MANAGEMENT: CONTRACT/PROCUREMENT/ACQUISITION SUPPORT",
+                "amount": 1241645678.02,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1LB",
+                "name": "CONSTRUCTION OF HIGHWAYS, ROADS, STREETS, BRIDGES, AND RAILWAYS",
+                "amount": 1228514567.38,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC11",
+                "name": "NATIONAL DEFENSE R&D SERVICES; DEPARTMENT OF DEFENSE - MILITARY; BASIC RESEARCH",
+                "amount": 1197629701.99,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "V221",
+                "name": "TRANSPORTATION/TRAVEL/RELOCATION- TRAVEL/LODGING/RECRUITMENT: PASSENGER AIR CHARTER",
+                "amount": 1184317350.48,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1915",
+                "name": "CARGO AND TANKER VESSELS",
+                "amount": 1164030992.39,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J059",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- ELECTRICAL AND ELECTRONIC EQUIPMENT COMPONENTS",
+                "amount": 1114967380.78,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DF10",
+                "name": "IT AND TELECOM - IT MANAGEMENT AS A SERVICE",
+                "amount": 1111923759.2,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "N059",
+                "name": "INSTALLATION OF EQUIPMENT- ELECTRICAL AND ELECTRONIC EQUIPMENT COMPONENTS",
+                "amount": 1101543082.34,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R430",
+                "name": "SUPPORT- PROFESSIONAL: PHYSICAL SECURITY AND BADGING",
+                "amount": 1091829013.58,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "V111",
+                "name": "TRANSPORTATION/TRAVEL/RELOCATION- TRANSPORTATION: AIR FREIGHT",
+                "amount": 1089119442.96,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R410",
+                "name": "SUPPORT- PROFESSIONAL: PROGRAM EVALUATION/REVIEW/DEVELOPMENT",
+                "amount": 1087124668.56,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "V115",
+                "name": "TRANSPORTATION/TRAVEL/RELOCATION- TRANSPORTATION: VESSEL FREIGHT",
+                "amount": 1071441919.6,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1BZ",
+                "name": "CONSTRUCTION OF OTHER AIRFIELD STRUCTURES",
+                "amount": 1066230969.1,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "S208",
+                "name": "HOUSEKEEPING- LANDSCAPING/GROUNDSKEEPING",
+                "amount": 1057474730.97,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1260",
+                "name": "FIRE CONTROL DESIGNATING AND INDICATING EQUIPMENT",
+                "amount": 1055292634.5,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7G22",
+                "name": "IT AND TELECOM - NETWORK: SATELLITE AND RF COMMUNICATIONS PRODUCTS (HW, PERPETUAL LICENSE SOFTWARE)",
+                "amount": 1048736465.48,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1FC",
+                "name": "CONSTRUCTION OF TROOP HOUSING FACILITIES",
+                "amount": 1048135669.54,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1230",
+                "name": "FIRE CONTROL SYSTEMS, COMPLETE",
+                "amount": 1047442744.48,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6910",
+                "name": "TRAINING AIDS",
+                "amount": 1046205569.77,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "U009",
+                "name": "EDUCATION/TRAINING- GENERAL",
+                "amount": 1040950769.51,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5855",
+                "name": "NIGHT VISION EQUIPMENT, EMITTED AND REFLECTED RADIATION",
+                "amount": 1040860114.68,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R704",
+                "name": "SUPPORT- MANAGEMENT: AUDITING",
+                "amount": 1033493609.35,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5825",
+                "name": "RADIO NAVIGATION EQUIPMENT, EXCEPT AIRBORNE",
+                "amount": 1033276006.2,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "8415",
+                "name": "CLOTHING, SPECIAL PURPOSE",
+                "amount": 1002007233.51,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6525",
+                "name": "IMAGING EQUIPMENT AND SUPPLIES: MEDICAL, DENTAL, VETERINARY",
+                "amount": 995699887.8,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AJ11",
+                "name": "GENERAL SCIENCE AND TECHNOLOGY R&D SERVICES; GENERAL SCIENCE AND TECHNOLOGY; BASIC RESEARCH",
+                "amount": 992975458.74,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M1AZ",
+                "name": "OPERATION OF OTHER ADMINISTRATIVE FACILITIES AND SERVICE BUILDINGS",
+                "amount": 992774698.52,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "K016",
+                "name": "MODIFICATION OF EQUIPMENT- AIRCRAFT COMPONENTS AND ACCESSORIES",
+                "amount": 992704854.31,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "D304",
+                "name": "IT AND TELECOM- TELECOMMUNICATIONS AND TRANSMISSION",
+                "amount": 986278777.17,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z1DA",
+                "name": "MAINTENANCE OF HOSPITALS AND INFIRMARIES",
+                "amount": 981995493.87,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "3805",
+                "name": "EARTH MOVING AND EXCAVATING EQUIPMENT",
+                "amount": 941044002.62,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1PZ",
+                "name": "CONSTRUCTION OF OTHER NON-BUILDING FACILITIES",
+                "amount": 938728608.14,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "W054",
+                "name": "LEASE OR RENTAL OF EQUIPMENT- PREFABRICATED STRUCTURES AND SCAFFOLDING",
+                "amount": 937860966.57,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z2AZ",
+                "name": "REPAIR OR ALTERATION OF OTHER ADMINISTRATIVE FACILITIES AND SERVICE BUILDINGS",
+                "amount": 930945917.94,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1EZ",
+                "name": "CONSTRUCTION OF OTHER INDUSTRIAL BUILDINGS",
+                "amount": 930776266.34,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "U008",
+                "name": "EDUCATION/TRAINING- TRAINING/CURRICULUM DEVELOPMENT",
+                "amount": 918175055.27,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R418",
+                "name": "SUPPORT- PROFESSIONAL: LEGAL",
+                "amount": 910033885.22,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7B20",
+                "name": "IT AND TELECOM - HIGH PERFORMANCE COMPUTE (HARDWARE AND PERPETUAL LICENSE SOFTWARE)",
+                "amount": 903512919.76,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DC01",
+                "name": "IT AND TELECOM - DATA CENTER SUPPORT SERVICES (LABOR)",
+                "amount": 901927528.78,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J065",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- MEDICAL, DENTAL, AND VETERINARY EQUIPMENT AND SUPPLIES",
+                "amount": 897743841.88,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z2DA",
+                "name": "REPAIR OR ALTERATION OF HOSPITALS AND INFIRMARIES",
+                "amount": 897523503.57,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1KF",
+                "name": "CONSTRUCTION OF DREDGING FACILITIES",
+                "amount": 888334055.31,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "V119",
+                "name": "TRANSPORTATION/TRAVEL/RELOCATION- TRANSPORTATION: OTHER",
+                "amount": 885665670.71,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1KB",
+                "name": "CONSTRUCTION OF CANALS",
+                "amount": 882415555.33,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y181",
+                "name": "CONSTRUCT/R&D - GOCO FACILITIES",
+                "amount": 874599598.57,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5821",
+                "name": "RADIO AND TELEVISION COMMUNICATION EQUIPMENT, AIRBORNE",
+                "amount": 870221213.97,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "8945",
+                "name": "FOOD, OILS AND FATS",
+                "amount": 865802777.85,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DG10",
+                "name": "IT AND TELECOM - NETWORK AS A SERVICE",
+                "amount": 865223424.29,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1BD",
+                "name": "CONSTRUCTION OF AIRPORT RUNWAYS AND TAXIWAYS",
+                "amount": 860160823.15,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "G099",
+                "name": "SOCIAL- OTHER",
+                "amount": 858535689.81,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z1JZ",
+                "name": "MAINTENANCE OF MISCELLANEOUS BUILDINGS",
+                "amount": 847302306.17,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "D301",
+                "name": "IT AND TELECOM- FACILITY OPERATION AND MAINTENANCE",
+                "amount": 840947161.21,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Q402",
+                "name": "NURSING HOME, LONG-TERM & ADULT DAY CARE SERVICES",
+                "amount": 839840350.83,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z1KF",
+                "name": "MAINTENANCE OF DREDGING FACILITIES",
+                "amount": 836120444.38,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DE10",
+                "name": "IT and Telecom - End User as a Service: Help Desk;Tier 1-2,Workspace,Print,Output,Productivity Tools",
+                "amount": 831546633.46,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC25",
+                "name": "NATIONAL DEFENSE R&D SVCS; ATOMIC ENERGY DEFENSE ACTIVITIES; R&D FACILITIES & MAJ EQUIP",
+                "amount": 827633724.39,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "B541",
+                "name": "SPECIAL STUDIES/ANALYSIS- DEFENSE",
+                "amount": 825987081.81,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1376",
+                "name": "BULK EXPLOSIVES",
+                "amount": 822256256.34,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "C1AA",
+                "name": "ARCHITECT AND ENGINEERING- CONSTRUCTION: OFFICE BUILDINGS",
+                "amount": 810173766.9,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J010",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- WEAPONS",
+                "amount": 806545496.66,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5841",
+                "name": "RADAR EQUIPMENT, AIRBORNE",
+                "amount": 802539519.37,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DB10",
+                "name": "IT AND TELECOM - COMPUTE AS A SERVICE: MAINFRAME/SERVERS",
+                "amount": 795447509.32,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "2590",
+                "name": "MISCELLANEOUS VEHICULAR COMPONENTS",
+                "amount": 787312653.63,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M300",
+                "name": "OPER OF GOVT RESTORATION",
+                "amount": 772758353.5,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "D316",
+                "name": "IT AND TELECOM- TELECOMMUNICATIONS NETWORK MANAGEMENT",
+                "amount": 771790578.48,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "L014",
+                "name": "TECHNICAL REPRESENTATIVE- GUIDED MISSILES",
+                "amount": 768210201.69,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5340",
+                "name": "HARDWARE, COMMERCIAL",
+                "amount": 767819922.08,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AZ12",
+                "name": "R&D- OTHER RESEARCH AND DEVELOPMENT (APPLIED RESEARCH/EXPLORATORY DEVELOPMENT)",
+                "amount": 759973247.42,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J063",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- ALARM, SIGNAL, AND SECURITY DETECTION SYSTEMS",
+                "amount": 757260118.86,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z2LB",
+                "name": "REPAIR OR ALTERATION OF HIGHWAYS/ROADS/STREETS/BRIDGES/RAILWAYS",
+                "amount": 756008198.72,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1095",
+                "name": "MISCELLANEOUS WEAPONS",
+                "amount": 752151274.45,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M1FD",
+                "name": "OPERATION OF DINING FACILITIES",
+                "amount": 749283284.82,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1555",
+                "name": "SPACE VEHICLES",
+                "amount": 733325028.34,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "K058",
+                "name": "MODIFICATION OF EQUIPMENT- COMMUNICATION, DETECTION, AND COHERENT RADIATION EQUIPMENT",
+                "amount": 732036316.87,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R429",
+                "name": "SUPPORT- PROFESSIONAL: EMERGENCY RESPONSE/DISASTER PLANNING/PREPAREDNESS SUPPORT",
+                "amount": 729659689.4,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5680",
+                "name": "MISCELLANEOUS CONSTRUCTION MATERIALS",
+                "amount": 726615329.15,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5999",
+                "name": "MISCELLANEOUS ELECTRICAL AND ELECTRONIC COMPONENTS",
+                "amount": 725533321.14,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7G21",
+                "name": "IT AND TELECOM - NETWORK: DIGITAL NETWORK PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)",
+                "amount": 712630547.04,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1615",
+                "name": "HELICOPTER ROTOR BLADES, DRIVE MECHANISMS AND COMPONENTS",
+                "amount": 702007120.58,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5895",
+                "name": "MISCELLANEOUS COMMUNICATION EQUIPMENT",
+                "amount": 698020588.89,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AR24",
+                "name": "R&D- SPACE: SCIENCE/APPLICATIONS (ENGINEERING DEVELOPMENT)",
+                "amount": 696337389.83,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "8910",
+                "name": "DAIRY FOODS AND EGGS",
+                "amount": 693134698.71,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1EB",
+                "name": "CONSTRUCTION OF MAINTENANCE BUILDINGS",
+                "amount": 692898028.44,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "K017",
+                "name": "MODIFICATION OF EQUIPMENT- AIRCRAFT LAUNCHING, LANDING, AND GROUND HANDLING EQUIPMENT",
+                "amount": 675081716.64,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7110",
+                "name": "OFFICE FURNITURE",
+                "amount": 669713508.66,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M1PZ",
+                "name": "OPERATION OF OTHER NON-BUILDING FACILITIES",
+                "amount": 668884765.52,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1NE",
+                "name": "CONSTRUCTION OF WATER SUPPLY FACILITIES",
+                "amount": 658862790.6,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DH01",
+                "name": "IT AND TELECOM - PLATFORM SUPPORT SERVICES: DATABASE, MAINFRAME, MIDDLEWARE (LABOR)",
+                "amount": 657305719.18,
+                "total_outlays": null
+              }
+            ],
+            "messages": [
+              "For searches, time period start and end dates are currently limited to an earliest date of 2007-10-01.  For data going back to 2000-10-01, use either the Custom Award Download feature on the website or one of our download or bulk_download API endpoints as listed on https://api.usaspending.gov/docs/endpoints. ",
+              "'subawards' will be deprecated in the future. Set \u2018spending_level\u2019 to \u2018subawards\u2019 instead. See documentation for more information. "
+            ]
+          }
+        }
+      },
+      {
+        "request": {
+          "url": "https://api.usaspending.gov/api/v2/search/spending_by_category/psc/",
+          "method": "POST",
+          "payload": {
+            "filters": {
+              "time_period": [
+                {
+                  "start_date": "2023-10-01",
+                  "end_date": "2024-09-30"
+                }
+              ]
+            },
+            "limit": 100,
+            "page": 3
+          },
+          "fiscal_year": 2024
+        },
+        "response": {
+          "status_code": 200,
+          "fetched_at": "2026-04-13T16:33:07.173137+00:00",
+          "body": {
+            "category": "psc",
+            "spending_level": "transactions",
+            "limit": 100,
+            "page_metadata": {
+              "page": 3,
+              "next": 4,
+              "previous": 2,
+              "hasNext": true,
+              "hasPrevious": true
+            },
+            "results": [
+              {
+                "id": null,
+                "code": "S114",
+                "name": "UTILITIES- WATER",
+                "amount": 652774204.04,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AR32",
+                "name": "R&D- SPACE: FLIGHT (APPLIED RESEARCH/EXPLORATORY DEVELOPMENT)",
+                "amount": 638937464.32,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Q101",
+                "name": "MEDICAL- DEPENDENT MEDICARE",
+                "amount": 637155976.12,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1427",
+                "name": "GUIDED MISSILE SUBSYSTEMS",
+                "amount": 635651056.49,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1310",
+                "name": "AMMUNITION, OVER 30MM UP TO 75MM",
+                "amount": 628742379.86,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1315",
+                "name": "AMMUNITION, 75MM THROUGH 125MM",
+                "amount": 619135234.41,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC31",
+                "name": "NATIONAL DEFENSE R&D SERVICES; DEFENSE-RELATED ACTIVITIES; BASIC RESEARCH",
+                "amount": 616024473.72,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5120",
+                "name": "HAND TOOLS, NONEDGED, NONPOWERED",
+                "amount": 611185903.14,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z2NA",
+                "name": "REPAIR OR ALTERATION OF FUEL SUPPLY FACILITIES",
+                "amount": 610365397.33,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J019",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- SHIPS, SMALL CRAFT, PONTOONS, AND FLOATING DOCKS",
+                "amount": 593814581.25,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "D302",
+                "name": "IT AND TELECOM- SYSTEMS DEVELOPMENT",
+                "amount": 592554315.49,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5998",
+                "name": "ELECTRICAL AND ELECTRONIC ASSEMBLIES, BOARDS, CARDS, AND ASSOCIATED HARDWARE",
+                "amount": 589652021.47,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "P500",
+                "name": "SALVAGE- DEMOLITION OF STRUCTURES/FACILITIES (OTHER THAN BUILDINGS)",
+                "amount": 581759796.41,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z1AZ",
+                "name": "MAINTENANCE OF OTHER ADMINISTRATIVE FACILITIES AND SERVICE BUILDINGS",
+                "amount": 580552673.13,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7C20",
+                "name": "IT AND TELECOM - DATA CENTER PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)",
+                "amount": 575783795.14,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R615",
+                "name": "SUPPORT- ADMINISTRATIVE: BACKGROUND INVESTIGATION",
+                "amount": 574657360.53,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1FA",
+                "name": "CONSTRUCTION OF FAMILY HOUSING FACILITIES",
+                "amount": 573391020.55,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "8970",
+                "name": "COMPOSITE FOOD PACKAGES",
+                "amount": 572238393.18,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R405",
+                "name": "SUPPORT- PROFESSIONAL: OPERATIONS RESEARCH/QUANTITATIVE ANALYSIS",
+                "amount": 566777913.16,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6350",
+                "name": "MISCELLANEOUS ALARM, SIGNAL, AND SECURITY DETECTION SYSTEMS",
+                "amount": 565974658.04,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AN13",
+                "name": "HEALTH R&D SERVICES; HEALTH CARE SERVICES; EXPERIMENTAL DEVELOPMENT",
+                "amount": 564031838.8,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1355",
+                "name": "TORPEDOS AND COMPONENTS, INERT",
+                "amount": 558932177.86,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "S203",
+                "name": "HOUSEKEEPING- FOOD",
+                "amount": 556323276.75,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7B21",
+                "name": "IT AND TELECOM - COMPUTE: MAINFRAME (HARDWARE AND PERPETUAL LICENSE SOFTWARE)",
+                "amount": 556138599.16,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DC10",
+                "name": "IT AND TELECOM - DATA CENTER AS A SERVICE",
+                "amount": 554698666.46,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1005",
+                "name": "GUNS, THROUGH 30MM",
+                "amount": 554411781.07,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AJ13",
+                "name": "GENERAL SCIENCE & TECHNOLOGY R&D SVCS; GENERAL SCIENCE & TECHNOLOGY; EXPERIMENTAL DEVELOPMENT",
+                "amount": 550778076.56,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AR13",
+                "name": "SPACE R&D SERVICES; SPACE FLIGHT, RESEARCH AND SUPPORTING ACTIVITIES; EXPERIMENTAL DEVELOPMENT",
+                "amount": 546454938.52,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z1PD",
+                "name": "MAINTENANCE OF WASTE TREATMENT AND STORAGE FACILITIES",
+                "amount": 544025499.08,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7J20",
+                "name": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)",
+                "amount": 542615835.94,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1650",
+                "name": "AIRCRAFT HYDRAULIC, VACUUM, AND DE-ICING SYSTEM COMPONENTS",
+                "amount": 542264932.03,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "8920",
+                "name": "BAKERY AND CEREAL PRODUCTS",
+                "amount": 541104870.4,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "G004",
+                "name": "SOCIAL- SOCIAL REHABILITATION",
+                "amount": 539778184.07,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5820",
+                "name": "RADIO AND TELEVISION COMMUNICATION EQUIPMENT, EXCEPT AIRBORNE",
+                "amount": 536418105.85,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J025",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- VEHICULAR EQUIPMENT COMPONENTS",
+                "amount": 529486045.21,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "8470",
+                "name": "ARMOR, PERSONAL",
+                "amount": 529447649.17,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6930",
+                "name": "OPERATION TRAINING DEVICES",
+                "amount": 527484195.79,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z2KA",
+                "name": "REPAIR OR ALTERATION OF DAMS",
+                "amount": 527052331.11,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R431",
+                "name": "SUPPORT- PROFESSIONAL: HUMAN RESOURCES",
+                "amount": 519319683.45,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R702",
+                "name": "SUPPORT- MANAGEMENT: DATA COLLECTION",
+                "amount": 514843546.03,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AD93",
+                "name": "R&D- DEFENSE OTHER: OTHER (ADVANCED DEVELOPMENT)",
+                "amount": 513163271.07,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Q503",
+                "name": "MEDICAL- DENTISTRY",
+                "amount": 511132932.47,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7030",
+                "name": "INFORMATION TECHNOLOGY SOFTWARE",
+                "amount": 510525268.84,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AN11",
+                "name": "HEALTH R&D SERVICES; HEALTH CARE SERVICES; BASIC RESEARCH",
+                "amount": 502425663.51,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7G20",
+                "name": "IT AND TELECOM - NETWORK: ANALOG VOICE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)",
+                "amount": 500541025.2,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R703",
+                "name": "SUPPORT- MANAGEMENT: ACCOUNTING",
+                "amount": 496702123.77,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "D305",
+                "name": "IT AND TELECOM \u2013 TELEPROCESSING, TIMESHARE, CLOUD COMPUTING, AND HIGH PERFORMANCE COMPUTING",
+                "amount": 495350376.58,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1NZ",
+                "name": "CONSTRUCTION OF OTHER UTILITIES",
+                "amount": 492931733.38,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "B599",
+                "name": "SPECIAL STUDIES/ANALYSIS- OTHER",
+                "amount": 491955547.87,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Q301",
+                "name": "REFERENCE LABORATORY TESTING",
+                "amount": 488421412.1,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z2QA",
+                "name": "REPAIR OR ALTERATION OF RESTORATION OF REAL PROPERTY (PUBLIC OR PRIVATE)",
+                "amount": 486515235.23,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6625",
+                "name": "ELECTRICAL AND ELECTRONIC PROPERTIES MEASURING AND TESTING INSTRUMENTS",
+                "amount": 485420467.42,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Q401",
+                "name": "MEDICAL- NURSING",
+                "amount": 481427738.3,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "4920",
+                "name": "AIRCRAFT MAINTENANCE AND REPAIR SHOP SPECIALIZED EQUIPMENT",
+                "amount": 481179881.07,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DH10",
+                "name": "IT AND TELECOM - PLATFORM AS A SERVICE: DATABASE, MAINFRAME, MIDDLEWARE",
+                "amount": 480378214.99,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DJ10",
+                "name": "IT AND TELECOM - SECURITY AND COMPLIANCE AS A SERVICE",
+                "amount": 479267770.57,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5845",
+                "name": "UNDERWATER SOUND EQUIPMENT",
+                "amount": 470445681.72,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J058",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- COMMUNICATION, DETECTION, AND COHERENT RADIATION EQUIPMENT",
+                "amount": 470020391.56,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z2PZ",
+                "name": "REPAIR OR ALTERATION OF OTHER NON-BUILDING FACILITIES",
+                "amount": 467489371.93,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1610",
+                "name": "AIRCRAFT PROPELLERS AND COMPONENTS",
+                "amount": 466113163.21,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "L099",
+                "name": "TECHNICAL REPRESENTATIVE- MISCELLANEOUS",
+                "amount": 463755285.22,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7F20",
+                "name": "IT AND TELECOM - IT MANAGEMENT TOOLS/PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)",
+                "amount": 454601244.69,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "D307",
+                "name": "IT AND TELECOM- IT STRATEGY AND ARCHITECTURE",
+                "amount": 450983595.5,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "V211",
+                "name": "TRANSPORTATION/TRAVEL/RELOCATION- TRAVEL/LODGING/RECRUITMENT: AIR PASSENGER",
+                "amount": 449334012.9,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5985",
+                "name": "ANTENNAS, WAVEGUIDES, AND RELATED EQUIPMENT",
+                "amount": 447673924.06,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1925",
+                "name": "SPECIAL SERVICE VESSELS",
+                "amount": 434377864.67,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "4210",
+                "name": "FIRE FIGHTING EQUIPMENT",
+                "amount": 432849019.64,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "H115",
+                "name": "QUALITY CONTROL- AIRCRAFT AND AIRFRAME STRUCTURAL COMPONENTS",
+                "amount": 431084852.93,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "D321",
+                "name": "IT AND TELECOM- HELP DESK",
+                "amount": 429427890.71,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M1EA",
+                "name": "OPERATION OF AMMUNITION FACILITIES",
+                "amount": 427193805.92,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "2835",
+                "name": "GAS TURBINES AND JET ENGINES; NON-AIRCRAFT PRIME MOVER, AIRCRAFT NON-PRIME MOVER, AND COMPONENTS",
+                "amount": 421091534.19,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "4820",
+                "name": "VALVES, NONPOWERED",
+                "amount": 419841592.58,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R423",
+                "name": "SUPPORT- PROFESSIONAL: INTELLIGENCE",
+                "amount": 416737154.57,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AD24",
+                "name": "R&D- DEFENSE OTHER: SERVICES (ENGINEERING DEVELOPMENT)",
+                "amount": 415443994.78,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z1NA",
+                "name": "MAINTENANCE OF FUEL SUPPLY FACILITIES",
+                "amount": 413045668.54,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC44",
+                "name": "R&D- DEFENSE SYSTEM: TANK/AUTOMOTIVE (ENGINEERING DEVELOPMENT)",
+                "amount": 406271209.74,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7K20",
+                "name": "IT AND TELECOM - STORAGE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)",
+                "amount": 406021089.09,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R497",
+                "name": "SUPPORT- PROFESSIONAL: PERSONAL SERVICES CONTRACTS",
+                "amount": 405588869.1,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "3610",
+                "name": "PRINTING, DUPLICATING, AND BOOKBINDING EQUIPMENT",
+                "amount": 404347823.45,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1240",
+                "name": "OPTICAL SIGHTING AND RANGING EQUIPMENT",
+                "amount": 403952521.8,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M1NA",
+                "name": "OPERATION OF FUEL SUPPLY FACILITIES",
+                "amount": 402820171.36,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1CA",
+                "name": "CONSTRUCTION OF SCHOOLS",
+                "amount": 402515327.64,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AR33",
+                "name": "R&D- SPACE: FLIGHT (ADVANCED DEVELOPMENT)",
+                "amount": 402285249.46,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DB01",
+                "name": "IT AND TELECOM - HIGH PERFORMANCE COMPUTING (HPC) SUPPORT SERVICES (LABOR)",
+                "amount": 401560013.99,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1QA",
+                "name": "CONSTRUCTION OF RESTORATION OF REAL PROPERTY (PUBLIC OR PRIVATE)",
+                "amount": 399198927.74,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1620",
+                "name": "AIRCRAFT LANDING GEAR COMPONENTS",
+                "amount": 388986321.17,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AZ16",
+                "name": "R&D- OTHER RESEARCH AND DEVELOPMENT (MANAGEMENT/SUPPORT)",
+                "amount": 380336982.92,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AR62",
+                "name": "R&D- SPACE: STATION (APPLIED RESEARCH/EXPLORATORY DEVELOPMENT)",
+                "amount": 379447075.67,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6150",
+                "name": "MISCELLANEOUS ELECTRIC POWER AND DISTRIBUTION EQUIPMENT",
+                "amount": 378972842.76,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z2FC",
+                "name": "REPAIR OR ALTERATION OF TROOP HOUSING FACILITIES",
+                "amount": 377671889.96,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6532",
+                "name": "HOSPITAL AND SURGICAL CLOTHING AND RELATED SPECIAL PURPOSE ITEMS",
+                "amount": 377405222.67,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1390",
+                "name": "FUZES AND PRIMERS",
+                "amount": 376086147.21,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "L019",
+                "name": "TECHNICAL REPRESENTATIVE- SHIPS, SMALL CRAFT, PONTOONS, AND FLOATING DOCKS",
+                "amount": 375141545.82,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6850",
+                "name": "MISCELLANEOUS CHEMICAL SPECIALTIES",
+                "amount": 374355985.45,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AB94",
+                "name": "R&D- COMMUNITY SERVICE/DEVELOPMENT: OTHER (ENGINEERING DEVELOPMENT)",
+                "amount": 373404276.5,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7H20",
+                "name": "IT AND TELECOM - PLATFORM PRODUCTS: DATABASE, MAINFRAME, MIDDLEWARE (HW, PERPETUAL LICENSE SOFTWARE)",
+                "amount": 371691934.95,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "F099",
+                "name": "NATURAL RESOURCES/CONSERVATION- OTHER",
+                "amount": 370754263.26,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "C1DA",
+                "name": "ARCHITECT AND ENGINEERING- CONSTRUCTION: HOSPITALS AND INFIRMARIES",
+                "amount": 369609781.8,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "8465",
+                "name": "INDIVIDUAL EQUIPMENT",
+                "amount": 369281672.27,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6605",
+                "name": "NAVIGATIONAL INSTRUMENTS",
+                "amount": 368108946.26,
+                "total_outlays": null
+              }
+            ],
+            "messages": [
+              "For searches, time period start and end dates are currently limited to an earliest date of 2007-10-01.  For data going back to 2000-10-01, use either the Custom Award Download feature on the website or one of our download or bulk_download API endpoints as listed on https://api.usaspending.gov/docs/endpoints. ",
+              "'subawards' will be deprecated in the future. Set \u2018spending_level\u2019 to \u2018subawards\u2019 instead. See documentation for more information. "
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "fy2023": {
+    "psc_totals": {
+      "R499": {
+        "amount": 29361708565.49,
+        "name": "SUPPORT- PROFESSIONAL: OTHER",
+        "found_on_page": 1
+      },
+      "R408": {
+        "amount": 12668490323.67,
+        "name": "SUPPORT- PROFESSIONAL: PROGRAM MANAGEMENT/SUPPORT",
+        "found_on_page": 1
+      },
+      "D399": {
+        "amount": 5640894305.38,
+        "name": "IT AND TELECOM- OTHER IT AND TELECOMMUNICATIONS",
+        "found_on_page": 1
+      },
+      "F999": {
+        "amount": 3764369153.09,
+        "name": "OTHER ENVIRONMENTAL SERVICES",
+        "found_on_page": 1
+      },
+      "Q999": {
+        "amount": 2178416644.41,
+        "name": "MEDICAL- OTHER",
+        "found_on_page": 1
+      },
+      "U099": {
+        "amount": 1449949845.44,
+        "name": "EDUCATION/TRAINING- OTHER",
+        "found_on_page": 2
+      },
+      "D302": {
+        "amount": 881270828.28,
+        "name": "IT AND TELECOM- SYSTEMS DEVELOPMENT",
+        "found_on_page": 2
+      }
+    },
+    "api_responses": [
+      {
+        "request": {
+          "url": "https://api.usaspending.gov/api/v2/search/spending_by_category/psc/",
+          "method": "POST",
+          "payload": {
+            "filters": {
+              "time_period": [
+                {
+                  "start_date": "2022-10-01",
+                  "end_date": "2023-09-30"
+                }
+              ]
+            },
+            "limit": 100,
+            "page": 1
+          },
+          "fiscal_year": 2023
+        },
+        "response": {
+          "status_code": 200,
+          "fetched_at": "2026-04-13T16:33:07.398264+00:00",
+          "body": {
+            "category": "psc",
+            "spending_level": "transactions",
+            "limit": 100,
+            "page_metadata": {
+              "page": 1,
+              "next": 2,
+              "previous": null,
+              "hasNext": true,
+              "hasPrevious": false
+            },
+            "results": [
+              {
+                "id": null,
+                "code": "1510",
+                "name": "AIRCRAFT, FIXED WING",
+                "amount": 39559259022.94,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Q201",
+                "name": "MEDICAL- MANAGED HEALTHCARE",
+                "amount": 31547065602.58,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R425",
+                "name": "SUPPORT- PROFESSIONAL: ENGINEERING/TECHNICAL",
+                "amount": 30337100181.3,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R499",
+                "name": "SUPPORT- PROFESSIONAL: OTHER",
+                "amount": 29361708565.49,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1905",
+                "name": "COMBAT SHIPS AND LANDING VESSELS",
+                "amount": 23453680886.27,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6505",
+                "name": "DRUGS AND BIOLOGICALS",
+                "amount": 22722663991.02,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M1JZ",
+                "name": "OPERATION OF MISCELLANEOUS BUILDINGS",
+                "amount": 15512193614.46,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DA01",
+                "name": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SUPPORT SERVICES (LABOR)",
+                "amount": 15409765794.46,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1410",
+                "name": "GUIDED MISSILES",
+                "amount": 14203142149.13,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R408",
+                "name": "SUPPORT- PROFESSIONAL: PROGRAM MANAGEMENT/SUPPORT",
+                "amount": 12668490323.67,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M181",
+                "name": "OPER OF GOVT R&D GOCO FACILITIES",
+                "amount": 12219163382.39,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "9130",
+                "name": "LIQUID PROPELLANTS AND FUELS, PETROLEUM BASE",
+                "amount": 10678261620.74,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "2840",
+                "name": "GAS TURBINES AND JET ENGINES, AIRCRAFT, PRIME MOVING; AND COMPONENTS",
+                "amount": 10197831329.06,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC13",
+                "name": "NATIONAL DEFENSE R&D SERVICES; DEPARTMENT OF DEFENSE - MILITARY; EXPERIMENTAL DEVELOPMENT",
+                "amount": 8901352967.61,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "G007",
+                "name": "SOCIAL- GOVERNMENT HEALTH INSURANCE PROGRAMS",
+                "amount": 8860213792.7,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R706",
+                "name": "SUPPORT- MANAGEMENT: LOGISTICS SUPPORT",
+                "amount": 7826555568.88,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J015",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- AIRCRAFT AND AIRFRAME STRUCTURAL COMPONENTS",
+                "amount": 7030628369.02,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1520",
+                "name": "AIRCRAFT, ROTARY WING",
+                "amount": 6189032282.9,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "4220",
+                "name": "MARINE LIFESAVING AND DIVING EQUIPMENT",
+                "amount": 5977446752.05,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC24",
+                "name": "NATIONAL DEFENSE R&D SERVICES; ATOMIC ENERGY DEFENSE ACTIVITIES; R&D ADMINISTRATIVE EXPENSES",
+                "amount": 5699896582.68,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "D399",
+                "name": "IT AND TELECOM- OTHER IT AND TELECOMMUNICATIONS",
+                "amount": 5640894305.38,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DA10",
+                "name": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SOFTWARE AS A SERVICE",
+                "amount": 5512270413.53,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC32",
+                "name": "NATIONAL DEFENSE R&D SERVICES; DEFENSE-RELATED ACTIVITIES; APPLIED RESEARCH",
+                "amount": 5171590566.21,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1680",
+                "name": "MISCELLANEOUS AIRCRAFT ACCESSORIES AND COMPONENTS",
+                "amount": 5076721447.11,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1JZ",
+                "name": "CONSTRUCTION OF MISCELLANEOUS BUILDINGS",
+                "amount": 5062970825.01,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7A21",
+                "name": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)",
+                "amount": 4944597161.7,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "S206",
+                "name": "HOUSEKEEPING- GUARD",
+                "amount": 4728220359.65,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6515",
+                "name": "MEDICAL AND SURGICAL INSTRUMENTS, EQUIPMENT, AND SUPPLIES",
+                "amount": 4651514810.54,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5342",
+                "name": "HARDWARE, WEAPON SYSTEM",
+                "amount": 4340354722.77,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5840",
+                "name": "RADAR EQUIPMENT, EXCEPT AIRBORNE",
+                "amount": 4002899103.68,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "2350",
+                "name": "COMBAT, ASSAULT, AND TACTICAL VEHICLES, TRACKED",
+                "amount": 3938741921.78,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z2JZ",
+                "name": "REPAIR OR ALTERATION OF MISCELLANEOUS BUILDINGS",
+                "amount": 3903021756.96,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R699",
+                "name": "SUPPORT- ADMINISTRATIVE: OTHER",
+                "amount": 3831012871.05,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "F999",
+                "name": "OTHER ENVIRONMENTAL SERVICES",
+                "amount": 3764369153.09,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "V126",
+                "name": "TRANSPORTATION/TRAVEL/RELOCATION- TRANSPORTATION: SPACE TRANSPORTATION/LAUNCH",
+                "amount": 3740692773.12,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M1HA",
+                "name": "OPERATION OF GOVERNMENT-OWNED CONTRACTOR-OPERATED (GOCO) R&D FACILITIES",
+                "amount": 3657562447.98,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R799",
+                "name": "SUPPORT- MANAGEMENT: OTHER",
+                "amount": 3536756974.41,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "9660",
+                "name": "PRECIOUS METALS PRIMARY FORMS",
+                "amount": 3451425325.69,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1425",
+                "name": "GUIDED MISSILE SYSTEMS, COMPLETE",
+                "amount": 3329374981.14,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1PZ",
+                "name": "CONSTRUCTION OF OTHER NON-BUILDING FACILITIES",
+                "amount": 3230825386.35,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1320",
+                "name": "AMMUNITION, OVER 125MM",
+                "amount": 3198732746.51,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AZ11",
+                "name": "R&D- OTHER RESEARCH AND DEVELOPMENT (BASIC RESEARCH)",
+                "amount": 3139919236.73,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "C219",
+                "name": "ARCHITECT AND ENGINEERING- GENERAL: OTHER",
+                "amount": 3124137074.46,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DF01",
+                "name": "IT AND TELECOM - IT MANAGEMENT SUPPORT SERVICES (LABOR)",
+                "amount": 3103133684.52,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "4470",
+                "name": "NUCLEAR REACTORS",
+                "amount": 3075423305.38,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "D318",
+                "name": "IT AND TELECOM- INTEGRATED HARDWARE/SOFTWARE/SERVICES SOLUTIONS, PREDOMINANTLY SERVICES",
+                "amount": 3036131884.71,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "S216",
+                "name": "HOUSEKEEPING- FACILITIES OPERATIONS SUPPORT",
+                "amount": 3023714644.01,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Q403",
+                "name": "MEDICAL- EVALUATION/SCREENING",
+                "amount": 2992262790.59,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5865",
+                "name": "ELECTRONIC COUNTERMEASURES, COUNTER-COUNTERMEASURES AND QUICK REACTION CAPABILITY EQUIPMENT",
+                "amount": 2941795124.27,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "2355",
+                "name": "COMBAT, ASSAULT, AND TACTICAL VEHICLES, WHEELED",
+                "amount": 2898230042.76,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1440",
+                "name": "LAUNCHERS, GUIDED MISSILE",
+                "amount": 2857672526.49,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC12",
+                "name": "NATIONAL DEFENSE R&D SERVICES; DEPARTMENT OF DEFENSE - MILITARY; APPLIED RESEARCH",
+                "amount": 2823089066.49,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "8905",
+                "name": "MEAT, POULTRY, AND FISH",
+                "amount": 2799191486.61,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7E20",
+                "name": "IT and Telecom - End User: Help Desk;Tier 1-2,Workspace,Print,Output,Productivity Tools (HW/Perp SW)",
+                "amount": 2724915638.47,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J016",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- AIRCRAFT COMPONENTS AND ACCESSORIES",
+                "amount": 2645798604.73,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "F108",
+                "name": "ENVIRONMENTAL SYSTEMS PROTECTION- ENVIRONMENTAL REMEDIATION",
+                "amount": 2629425119.58,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "8915",
+                "name": "FRUITS AND VEGETABLES",
+                "amount": 2603624894.58,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M159",
+                "name": "OPER OF GOVT OTHER INDUSTRIAL BLDG",
+                "amount": 2523831956.99,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z2AA",
+                "name": "REPAIR OR ALTERATION OF OFFICE BUILDINGS",
+                "amount": 2492502964.46,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1560",
+                "name": "AIRFRAME STRUCTURAL COMPONENTS",
+                "amount": 2447811287.18,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AN42",
+                "name": "HEALTH R&D SERVICES; HEALTH CARE - OTHER; APPLIED RESEARCH",
+                "amount": 2416418909.56,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R710",
+                "name": "SUPPORT- MANAGEMENT: FINANCIAL",
+                "amount": 2375971854.77,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "V121",
+                "name": "TRANSPORTATION/TRAVEL/RELOCATION- TRANSPORTATION: AIR CHARTER",
+                "amount": 2359262135.88,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AR11",
+                "name": "SPACE R&D SERVICES; SPACE FLIGHT, RESEARCH AND SUPPORTING ACTIVITIES; BASIC RESEARCH",
+                "amount": 2293904725.6,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DD01",
+                "name": "IT AND TELECOM - SERVICE DELIVERY SUPPORT SERVICES: ITSM, OPERATIONS CENTER, PROJECT/PM (LABOR)",
+                "amount": 2269935956.45,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Q999",
+                "name": "MEDICAL- OTHER",
+                "amount": 2178416644.41,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J998",
+                "name": "NON-NUCLEAR SHIP REPAIR (EAST)",
+                "amount": 2142832603.21,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J028",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- ENGINES, TURBINES, AND COMPONENTS",
+                "amount": 2135844670.19,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1AZ",
+                "name": "CONSTRUCTION OF OTHER ADMINISTRATIVE FACILITIES AND SERVICE BUILDINGS",
+                "amount": 2048483825.97,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AR12",
+                "name": "SPACE R&D SERVICES; SPACE FLIGHT, RESEARCH AND SUPPORTING ACTIVITIES; APPLIED RESEARCH",
+                "amount": 2040057257.88,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "2310",
+                "name": "PASSENGER MOTOR VEHICLES",
+                "amount": 2039247592.65,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1AA",
+                "name": "CONSTRUCTION OF OFFICE BUILDINGS",
+                "amount": 2033178577.53,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "9140",
+                "name": "FUEL OILS",
+                "amount": 2007860674.84,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6640",
+                "name": "LABORATORY EQUIPMENT AND SUPPLIES",
+                "amount": 1946825095.67,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC33",
+                "name": "NATIONAL DEFENSE R&D SERVICES; DEFENSE-RELATED ACTIVITIES; EXPERIMENTAL DEVELOPMENT",
+                "amount": 1911739820.15,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "V124",
+                "name": "TRANSPORTATION/TRAVEL/RELOCATION- TRANSPORTATION: MARINE CHARTER",
+                "amount": 1906302060.11,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "S201",
+                "name": "HOUSEKEEPING- CUSTODIAL JANITORIAL",
+                "amount": 1887822801.39,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1LB",
+                "name": "CONSTRUCTION OF HIGHWAYS, ROADS, STREETS, BRIDGES, AND RAILWAYS",
+                "amount": 1885894863.16,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1420",
+                "name": "GUIDED MISSILE COMPONENTS",
+                "amount": 1883643380.58,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AN11",
+                "name": "HEALTH R&D SERVICES; HEALTH CARE SERVICES; BASIC RESEARCH",
+                "amount": 1869733816.07,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5841",
+                "name": "RADAR EQUIPMENT, AIRBORNE",
+                "amount": 1867734156.96,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5810",
+                "name": "COMMUNICATIONS SECURITY EQUIPMENT AND COMPONENTS",
+                "amount": 1865258914.18,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J999",
+                "name": "NON-NUCLEAR SHIP REPAIR (WEST)",
+                "amount": 1863584831.75,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1550",
+                "name": "UNMANNED AIRCRAFT",
+                "amount": 1843227838.39,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DG01",
+                "name": "IT AND TELECOM - NETWORK SUPPORT SERVICES (LABOR)",
+                "amount": 1835278504.23,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DE01",
+                "name": "IT and Telecom - End User: Help Desk; Tier 1-2, Workspace, Print, Output, Productivity Tools (Labor)",
+                "amount": 1812786024.28,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R701",
+                "name": "SUPPORT- MANAGEMENT: ADVERTISING",
+                "amount": 1812310709.03,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AN12",
+                "name": "HEALTH R&D SERVICES; HEALTH CARE SERVICES; APPLIED RESEARCH",
+                "amount": 1784743349.16,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC23",
+                "name": "NATIONAL DEFENSE R&D SERVICES; ATOMIC ENERGY DEFENSE ACTIVITIES; EXPERIMENTAL DEVELOPMENT",
+                "amount": 1767732764.53,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC15",
+                "name": "NATIONAL DEFENSE R&D SVCS; DEPARTMENT OF DEFENSE - MILITARY; R&D FACILITIES & MAJ EQUIP",
+                "amount": 1753777726.73,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AR22",
+                "name": "R&D- SPACE: SCIENCE/APPLICATIONS (APPLIED RESEARCH/EXPLORATORY DEVELOPMENT)",
+                "amount": 1753635161.93,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DJ01",
+                "name": "IT AND TELECOM - SECURITY AND COMPLIANCE SUPPORT SERVICES (LABOR)",
+                "amount": 1642972828.78,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1555",
+                "name": "SPACE VEHICLES",
+                "amount": 1562986903.65,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC61",
+                "name": "R&D- DEFENSE SYSTEM: ELECTRONICS/COMMUNICATION EQUIPMENT (BASIC RESEARCH)",
+                "amount": 1536307923.4,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J069",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- TRAINING AIDS AND DEVICES",
+                "amount": 1530870007.46,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC22",
+                "name": "NATIONAL DEFENSE R&D SERVICES; ATOMIC ENERGY DEFENSE ACTIVITIES; APPLIED RESEARCH",
+                "amount": 1528706517.93,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1325",
+                "name": "BOMBS",
+                "amount": 1518978188.5,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1BZ",
+                "name": "CONSTRUCTION OF OTHER AIRFIELD STRUCTURES",
+                "amount": 1505354744.33,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R429",
+                "name": "SUPPORT- PROFESSIONAL: EMERGENCY RESPONSE/DISASTER PLANNING/PREPAREDNESS SUPPORT",
+                "amount": 1500480477.22,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J014",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- GUIDED MISSILES",
+                "amount": 1471512671.49,
+                "total_outlays": null
+              }
+            ],
+            "messages": [
+              "For searches, time period start and end dates are currently limited to an earliest date of 2007-10-01.  For data going back to 2000-10-01, use either the Custom Award Download feature on the website or one of our download or bulk_download API endpoints as listed on https://api.usaspending.gov/docs/endpoints. ",
+              "'subawards' will be deprecated in the future. Set \u2018spending_level\u2019 to \u2018subawards\u2019 instead. See documentation for more information. "
+            ]
+          }
+        }
+      },
+      {
+        "request": {
+          "url": "https://api.usaspending.gov/api/v2/search/spending_by_category/psc/",
+          "method": "POST",
+          "payload": {
+            "filters": {
+              "time_period": [
+                {
+                  "start_date": "2022-10-01",
+                  "end_date": "2023-09-30"
+                }
+              ]
+            },
+            "limit": 100,
+            "page": 2
+          },
+          "fiscal_year": 2023
+        },
+        "response": {
+          "status_code": 200,
+          "fetched_at": "2026-04-13T16:33:07.876763+00:00",
+          "body": {
+            "category": "psc",
+            "spending_level": "transactions",
+            "limit": 100,
+            "page_metadata": {
+              "page": 2,
+              "next": 3,
+              "previous": 1,
+              "hasNext": true,
+              "hasPrevious": true
+            },
+            "results": [
+              {
+                "id": null,
+                "code": "S112",
+                "name": "UTILITIES- ELECTRIC",
+                "amount": 1450197254.59,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "U099",
+                "name": "EDUCATION/TRAINING- OTHER",
+                "amount": 1449949845.44,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "2320",
+                "name": "TRUCKS AND TRUCK TRACTORS, WHEELED",
+                "amount": 1429459414.02,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "C211",
+                "name": "ARCHITECT AND ENGINEERING- GENERAL: LANDSCAPING, INTERIOR LAYOUT, AND DESIGNING",
+                "amount": 1412366564.68,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AN13",
+                "name": "HEALTH R&D SERVICES; HEALTH CARE SERVICES; EXPERIMENTAL DEVELOPMENT",
+                "amount": 1397678203.58,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R410",
+                "name": "SUPPORT- PROFESSIONAL: PROGRAM EVALUATION/REVIEW/DEVELOPMENT",
+                "amount": 1385615735.37,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "K016",
+                "name": "MODIFICATION OF EQUIPMENT- AIRCRAFT COMPONENTS AND ACCESSORIES",
+                "amount": 1375604646.17,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R707",
+                "name": "SUPPORT- MANAGEMENT: CONTRACT/PROCUREMENT/ACQUISITION SUPPORT",
+                "amount": 1360333400.69,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7B22",
+                "name": "IT AND TELECOM - COMPUTE: SERVERS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)",
+                "amount": 1353002409.81,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "U006",
+                "name": "EDUCATION/TRAINING- VOCATIONAL/TECHNICAL",
+                "amount": 1344909670.7,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "F003",
+                "name": "NATURAL RESOURCES/CONSERVATION- FOREST-RANGE FIRE SUPPRESSION/PRESUPPRESSION",
+                "amount": 1335956292.72,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AJ12",
+                "name": "GENERAL SCIENCE AND TECHNOLOGY R&D SERVICES; GENERAL SCIENCE AND TECHNOLOGY; APPLIED RESEARCH",
+                "amount": 1321631322.03,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "V221",
+                "name": "TRANSPORTATION/TRAVEL/RELOCATION- TRAVEL/LODGING/RECRUITMENT: PASSENGER AIR CHARTER",
+                "amount": 1275186220.61,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DG11",
+                "name": "IT and Telecom - Network: Satellite Communications and Telecom Access Services",
+                "amount": 1269854194.31,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1ED",
+                "name": "CONSTRUCTION OF SHIP CONSTRUCTION AND REPAIR FACILITIES",
+                "amount": 1268381938.96,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R426",
+                "name": "SUPPORT- PROFESSIONAL: COMMUNICATIONS",
+                "amount": 1267818055.6,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC14",
+                "name": "NATIONAL DEFENSE R&D SERVICES; DEPARTMENT OF DEFENSE - MILITARY; R&D ADMINISTRATIVE EXPENSES",
+                "amount": 1249399836.09,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AZ12",
+                "name": "R&D- OTHER RESEARCH AND DEVELOPMENT (APPLIED RESEARCH/EXPLORATORY DEVELOPMENT)",
+                "amount": 1247923540.56,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z1AA",
+                "name": "MAINTENANCE OF OFFICE BUILDINGS",
+                "amount": 1235282292.35,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "D304",
+                "name": "IT AND TELECOM- TELECOMMUNICATIONS AND TRANSMISSION",
+                "amount": 1232011897.18,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z1DA",
+                "name": "MAINTENANCE OF HOSPITALS AND INFIRMARIES",
+                "amount": 1231018624.09,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7A20",
+                "name": "IT AND TELECOM - APPLICATION DEVELOPMENT SOFTWARE (PERPETUAL LICENSE SOFTWARE)",
+                "amount": 1201380603.98,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7G22",
+                "name": "IT AND TELECOM - NETWORK: SATELLITE AND RF COMMUNICATIONS PRODUCTS (HW, PERPETUAL LICENSE SOFTWARE)",
+                "amount": 1186403914.44,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z1JZ",
+                "name": "MAINTENANCE OF MISCELLANEOUS BUILDINGS",
+                "amount": 1168542766.45,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M1EA",
+                "name": "OPERATION OF AMMUNITION FACILITIES",
+                "amount": 1141414573.03,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "C1AA",
+                "name": "ARCHITECT AND ENGINEERING- CONSTRUCTION: OFFICE BUILDINGS",
+                "amount": 1121650605.03,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "D301",
+                "name": "IT AND TELECOM- FACILITY OPERATION AND MAINTENANCE",
+                "amount": 1116001123.09,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1DA",
+                "name": "CONSTRUCTION OF HOSPITALS AND INFIRMARIES",
+                "amount": 1111560505.78,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7030",
+                "name": "INFORMATION TECHNOLOGY SOFTWARE",
+                "amount": 1102741113.39,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R704",
+                "name": "SUPPORT- MANAGEMENT: AUDITING",
+                "amount": 1102363041.5,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J059",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- ELECTRICAL AND ELECTRONIC EQUIPMENT COMPONENTS",
+                "amount": 1090267648.65,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J010",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- WEAPONS",
+                "amount": 1074618030.8,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6550",
+                "name": "IN VITRO DIAGNOSTIC SUBSTANCES, REAGENTS, TEST KITS AND SETS",
+                "amount": 1070799737.78,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R430",
+                "name": "SUPPORT- PROFESSIONAL: PHYSICAL SECURITY AND BADGING",
+                "amount": 1023614376.35,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1615",
+                "name": "HELICOPTER ROTOR BLADES, DRIVE MECHANISMS AND COMPONENTS",
+                "amount": 1018035956.25,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6525",
+                "name": "IMAGING EQUIPMENT AND SUPPLIES: MEDICAL, DENTAL, VETERINARY",
+                "amount": 1005135809.35,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AJ11",
+                "name": "GENERAL SCIENCE AND TECHNOLOGY R&D SERVICES; GENERAL SCIENCE AND TECHNOLOGY; BASIC RESEARCH",
+                "amount": 1002864729.86,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1395",
+                "name": "MISCELLANEOUS AMMUNITION",
+                "amount": 1002706477.91,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "8415",
+                "name": "CLOTHING, SPECIAL PURPOSE",
+                "amount": 1002099933.62,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "N059",
+                "name": "INSTALLATION OF EQUIPMENT- ELECTRICAL AND ELECTRONIC EQUIPMENT COMPONENTS",
+                "amount": 1001021537.79,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R418",
+                "name": "SUPPORT- PROFESSIONAL: LEGAL",
+                "amount": 994262613.78,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1305",
+                "name": "AMMUNITION, THROUGH 30MM",
+                "amount": 992961930.14,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M1AZ",
+                "name": "OPERATION OF OTHER ADMINISTRATIVE FACILITIES AND SERVICE BUILDINGS",
+                "amount": 988657138.77,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AR15",
+                "name": "SPACE R&D SVCS; SPACE FLIGHT, RESEARCH & SUPPORTING ACTIVITIES; R&D FACILITIES & MAJ EQUIP",
+                "amount": 983779299.05,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1915",
+                "name": "CARGO AND TANKER VESSELS",
+                "amount": 978675140.21,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "D316",
+                "name": "IT AND TELECOM- TELECOMMUNICATIONS NETWORK MANAGEMENT",
+                "amount": 977575045.57,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5825",
+                "name": "RADIO NAVIGATION EQUIPMENT, EXCEPT AIRBORNE",
+                "amount": 965946837.17,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "G099",
+                "name": "SOCIAL- OTHER",
+                "amount": 949044596.34,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z2AZ",
+                "name": "REPAIR OR ALTERATION OF OTHER ADMINISTRATIVE FACILITIES AND SERVICE BUILDINGS",
+                "amount": 946559913.61,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "U009",
+                "name": "EDUCATION/TRAINING- GENERAL",
+                "amount": 940756210.47,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AR32",
+                "name": "R&D- SPACE: FLIGHT (APPLIED RESEARCH/EXPLORATORY DEVELOPMENT)",
+                "amount": 936112389.13,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1KA",
+                "name": "CONSTRUCTION OF DAMS",
+                "amount": 933119220.99,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DF10",
+                "name": "IT AND TELECOM - IT MANAGEMENT AS A SERVICE",
+                "amount": 925552432.35,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "8945",
+                "name": "FOOD, OILS AND FATS",
+                "amount": 924937631.0,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "V119",
+                "name": "TRANSPORTATION/TRAVEL/RELOCATION- TRANSPORTATION: OTHER",
+                "amount": 919517133.5,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Q402",
+                "name": "NURSING HOME, LONG-TERM & ADULT DAY CARE SERVICES",
+                "amount": 916581902.46,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "V115",
+                "name": "TRANSPORTATION/TRAVEL/RELOCATION- TRANSPORTATION: VESSEL FREIGHT",
+                "amount": 897043797.28,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1FC",
+                "name": "CONSTRUCTION OF TROOP HOUSING FACILITIES",
+                "amount": 896099564.64,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "D302",
+                "name": "IT AND TELECOM- SYSTEMS DEVELOPMENT",
+                "amount": 881270828.28,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6910",
+                "name": "TRAINING AIDS",
+                "amount": 864556632.63,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1KF",
+                "name": "CONSTRUCTION OF DREDGING FACILITIES",
+                "amount": 844041994.73,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "U008",
+                "name": "EDUCATION/TRAINING- TRAINING/CURRICULUM DEVELOPMENT",
+                "amount": 833696776.84,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z2DA",
+                "name": "REPAIR OR ALTERATION OF HOSPITALS AND INFIRMARIES",
+                "amount": 824534631.68,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7110",
+                "name": "OFFICE FURNITURE",
+                "amount": 821335513.82,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AC11",
+                "name": "NATIONAL DEFENSE R&D SERVICES; DEPARTMENT OF DEFENSE - MILITARY; BASIC RESEARCH",
+                "amount": 804278145.15,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AR24",
+                "name": "R&D- SPACE: SCIENCE/APPLICATIONS (ENGINEERING DEVELOPMENT)",
+                "amount": 800861318.81,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5999",
+                "name": "MISCELLANEOUS ELECTRICAL AND ELECTRONIC COMPONENTS",
+                "amount": 790328293.68,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1376",
+                "name": "BULK EXPLOSIVES",
+                "amount": 783604332.23,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1095",
+                "name": "MISCELLANEOUS WEAPONS",
+                "amount": 780233335.08,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1230",
+                "name": "FIRE CONTROL SYSTEMS, COMPLETE",
+                "amount": 771008381.11,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J065",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- MEDICAL, DENTAL, AND VETERINARY EQUIPMENT AND SUPPLIES",
+                "amount": 769410048.8,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "AD93",
+                "name": "R&D- DEFENSE OTHER: OTHER (ADVANCED DEVELOPMENT)",
+                "amount": 768930818.86,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7G21",
+                "name": "IT AND TELECOM - NETWORK: DIGITAL NETWORK PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)",
+                "amount": 767124733.94,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DE10",
+                "name": "IT and Telecom - End User as a Service: Help Desk;Tier 1-2,Workspace,Print,Output,Productivity Tools",
+                "amount": 760032512.34,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5826",
+                "name": "RADIO NAVIGATION EQUIPMENT, AIRBORNE",
+                "amount": 750412263.2,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1CA",
+                "name": "CONSTRUCTION OF SCHOOLS",
+                "amount": 737502367.66,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "B541",
+                "name": "SPECIAL STUDIES/ANALYSIS- DEFENSE",
+                "amount": 737195471.94,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "8910",
+                "name": "DAIRY FOODS AND EGGS",
+                "amount": 732729420.18,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z2FC",
+                "name": "REPAIR OR ALTERATION OF TROOP HOUSING FACILITIES",
+                "amount": 730989085.62,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "9535",
+                "name": "PLATE, SHEET, STRIP, AND FOIL; NONFERROUS BASE METAL",
+                "amount": 730126695.51,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "1427",
+                "name": "GUIDED MISSILE SUBSYSTEMS",
+                "amount": 728333585.55,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5845",
+                "name": "UNDERWATER SOUND EQUIPMENT",
+                "amount": 725055057.2,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z1KF",
+                "name": "MAINTENANCE OF DREDGING FACILITIES",
+                "amount": 723043319.91,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M300",
+                "name": "OPER OF GOVT RESTORATION",
+                "amount": 714888898.95,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7B20",
+                "name": "IT AND TELECOM - HIGH PERFORMANCE COMPUTE (HARDWARE AND PERPETUAL LICENSE SOFTWARE)",
+                "amount": 701088898.03,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "D307",
+                "name": "IT AND TELECOM- IT STRATEGY AND ARCHITECTURE",
+                "amount": 700785889.7,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Q401",
+                "name": "MEDICAL- NURSING",
+                "amount": 698110306.05,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J063",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- ALARM, SIGNAL, AND SECURITY DETECTION SYSTEMS",
+                "amount": 688994630.47,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M1FD",
+                "name": "OPERATION OF DINING FACILITIES",
+                "amount": 684167620.9,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "M1PZ",
+                "name": "OPERATION OF OTHER NON-BUILDING FACILITIES",
+                "amount": 681342014.13,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "J058",
+                "name": "MAINT/REPAIR/REBUILD OF EQUIPMENT- COMMUNICATION, DETECTION, AND COHERENT RADIATION EQUIPMENT",
+                "amount": 680166891.99,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "5998",
+                "name": "ELECTRICAL AND ELECTRONIC ASSEMBLIES, BOARDS, CARDS, AND ASSOCIATED HARDWARE",
+                "amount": 666098592.21,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "K017",
+                "name": "MODIFICATION OF EQUIPMENT- AIRCRAFT LAUNCHING, LANDING, AND GROUND HANDLING EQUIPMENT",
+                "amount": 658955146.14,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "DC01",
+                "name": "IT AND TELECOM - DATA CENTER SUPPORT SERVICES (LABOR)",
+                "amount": 658126496.45,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "7B21",
+                "name": "IT AND TELECOM - COMPUTE: MAINFRAME (HARDWARE AND PERPETUAL LICENSE SOFTWARE)",
+                "amount": 647530042.07,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "6650",
+                "name": "OPTICAL INSTRUMENTS, TEST EQUIPMENT, COMPONENTS AND ACCESSORIES",
+                "amount": 646299144.1,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1EZ",
+                "name": "CONSTRUCTION OF OTHER INDUSTRIAL BUILDINGS",
+                "amount": 634347008.3,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "R431",
+                "name": "SUPPORT- PROFESSIONAL: HUMAN RESOURCES",
+                "amount": 617238678.57,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Z1PD",
+                "name": "MAINTENANCE OF WASTE TREATMENT AND STORAGE FACILITIES",
+                "amount": 615859158.05,
+                "total_outlays": null
+              },
+              {
+                "id": null,
+                "code": "Y1NZ",
+                "name": "CONSTRUCTION OF OTHER UTILITIES",
+                "amount": 602575391.49,
+                "total_outlays": null
+              }
+            ],
+            "messages": [
+              "For searches, time period start and end dates are currently limited to an earliest date of 2007-10-01.  For data going back to 2000-10-01, use either the Custom Award Download feature on the website or one of our download or bulk_download API endpoints as listed on https://api.usaspending.gov/docs/endpoints. ",
+              "'subawards' will be deprecated in the future. Set \u2018spending_level\u2019 to \u2018subawards\u2019 instead. See documentation for more information. "
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

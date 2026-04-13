@@ -1,0 +1,145 @@
+{
+  "fetched_at": "2026-04-13T16:33:05.956018+00:00",
+  "source": "BLS OEWS",
+  "api_attempt": {
+    "endpoint": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+    "series_ids_requested": {
+      "13-1041": "OEWS000000000000013104100000000W",
+      "13-1031": "OEWS000000000000013103100000000W",
+      "43-4051": "OEWS000000000000043405100000000W",
+      "23-2093": "OEWS000000000000023209300000000W",
+      "15-1232": "OEWS000000000000015123200000000W"
+    },
+    "api_log": {
+      "endpoint": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+      "request_at": "2026-04-13T16:33:05.363187+00:00",
+      "status": "REQUEST_SUCCEEDED",
+      "status_code": 200,
+      "request_payload": {
+        "seriesid": [
+          "OEWS000000000000013104100000000W",
+          "OEWS000000000000015123200000000W",
+          "OEWS000000000000023209300000000W",
+          "OEWS000000000000013103100000000W",
+          "OEWS000000000000043405100000000W"
+        ],
+        "startyear": "2023",
+        "endyear": "2024"
+      },
+      "response_body": {
+        "status": "REQUEST_SUCCEEDED",
+        "responseTime": 93,
+        "message": [],
+        "Results": {
+          "series": [
+            {
+              "seriesID": "OEWS000000000000013104100000000W",
+              "data": []
+            },
+            {
+              "seriesID": "OEWS000000000000015123200000000W",
+              "data": []
+            },
+            {
+              "seriesID": "OEWS000000000000023209300000000W",
+              "data": []
+            },
+            {
+              "seriesID": "OEWS000000000000013103100000000W",
+              "data": []
+            },
+            {
+              "seriesID": "OEWS000000000000043405100000000W",
+              "data": []
+            }
+          ]
+        }
+      },
+      "error": "API returned REQUEST_SUCCEEDED but no annual (period=A01) data found for the requested OEWS series IDs. Series ID format may need updating.",
+      "wage_records_found": 0
+    },
+    "api_reachable": true,
+    "api_data_returned": false,
+    "note": "api_reachable=True means HTTP connection succeeded. api_data_returned=True means wage values were extracted from the response. If reachable but no data, the OEWS series ID format may need updating."
+  },
+  "static_fallback": {
+    "used": true,
+    "reason": "BLS API unavailable or returned non-success",
+    "data": {
+      "13-1041": {
+        "annual_wage": 47930,
+        "year": "2023",
+        "source_url": "https://www.bls.gov/oes/tables.htm",
+        "source_doc": "BLS OEWS May 2023 \u2014 National estimates for SOC 13-1041 (Eligibility Interviewers, Government Programs)"
+      },
+      "13-1031": {
+        "annual_wage": 72040,
+        "year": "2023",
+        "source_url": "https://www.bls.gov/oes/tables.htm",
+        "source_doc": "BLS OEWS May 2023 \u2014 National estimates for SOC 13-1031 (Claims Adjusters, Examiners, and Investigators)"
+      },
+      "43-4051": {
+        "annual_wage": 42040,
+        "year": "2023",
+        "source_url": "https://www.bls.gov/oes/tables.htm",
+        "source_doc": "BLS OEWS May 2023 \u2014 National estimates for SOC 43-4051 (Customer Service Representatives)"
+      },
+      "23-2093": {
+        "annual_wage": 58630,
+        "year": "2023",
+        "source_url": "https://www.bls.gov/oes/tables.htm",
+        "source_doc": "BLS OEWS May 2023 \u2014 National estimates for SOC 23-2093 (Title Examiners, Abstractors, and Searchers)"
+      },
+      "15-1232": {
+        "annual_wage": 60530,
+        "year": "2023",
+        "source_url": "https://www.bls.gov/oes/tables.htm",
+        "source_doc": "BLS OEWS May 2023 \u2014 National estimates for SOC 15-1232 (Computer User Support Specialists)"
+      }
+    },
+    "citation": "Bureau of Labor Statistics, Occupational Employment and Wage Statistics, May 2023. https://www.bls.gov/oes/tables.htm"
+  },
+  "ecec_parameters": {
+    "multiplier": 1.385,
+    "overhead": 1.05,
+    "combined_factor": 1.4543,
+    "source": "BLS ECEC Q4 2024 (https://www.bls.gov/ect/): Government worker wages are approximately 72.2% of total compensation (implies benefit multiplier = 1/0.722 = 1.385). Additional overhead factor 1.05\u00d7 applied for training, equipment, and facilities. Combined fully loaded factor = 1.385 \u00d7 1.05 = 1.4543. Note: ECEC parameters are static constants derived from published ECEC tables, not fetched via API. ECEC API does not provide a machine-readable series for the government benefit cost share."
+  },
+  "wage_data_used": {
+    "13-1041": {
+      "annual_wage": 47930,
+      "year": "2023",
+      "source": "BLS OEWS May 2023 (static fallback)",
+      "source_url": "https://www.bls.gov/oes/tables.htm",
+      "source_doc": "BLS OEWS May 2023 \u2014 National estimates for SOC 13-1041 (Eligibility Interviewers, Government Programs)"
+    },
+    "13-1031": {
+      "annual_wage": 72040,
+      "year": "2023",
+      "source": "BLS OEWS May 2023 (static fallback)",
+      "source_url": "https://www.bls.gov/oes/tables.htm",
+      "source_doc": "BLS OEWS May 2023 \u2014 National estimates for SOC 13-1031 (Claims Adjusters, Examiners, and Investigators)"
+    },
+    "43-4051": {
+      "annual_wage": 42040,
+      "year": "2023",
+      "source": "BLS OEWS May 2023 (static fallback)",
+      "source_url": "https://www.bls.gov/oes/tables.htm",
+      "source_doc": "BLS OEWS May 2023 \u2014 National estimates for SOC 43-4051 (Customer Service Representatives)"
+    },
+    "23-2093": {
+      "annual_wage": 58630,
+      "year": "2023",
+      "source": "BLS OEWS May 2023 (static fallback)",
+      "source_url": "https://www.bls.gov/oes/tables.htm",
+      "source_doc": "BLS OEWS May 2023 \u2014 National estimates for SOC 23-2093 (Title Examiners, Abstractors, and Searchers)"
+    },
+    "15-1232": {
+      "annual_wage": 60530,
+      "year": "2023",
+      "source": "BLS OEWS May 2023 (static fallback)",
+      "source_url": "https://www.bls.gov/oes/tables.htm",
+      "source_doc": "BLS OEWS May 2023 \u2014 National estimates for SOC 15-1232 (Computer User Support Specialists)"
+    }
+  }
+}

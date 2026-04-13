@@ -6,6 +6,7 @@ Occupant is a decision infrastructure platform for AI systems. It provides real-
 ## Key Features
 - **Compute CPI**: Tracks deflation/inflation of AI work costs across model tiers
 - **AEAI (AI Economic Activity Index)**: Measures global AI economic activity via the AIU synthetic unit
+- **LDI (Labor Displacement Index)**: Two-signal index — cost differential (structural) and substitution rate (observable). 5 pilot federal workloads. Human cost from BLS OEWS + ECEC. AI cost from Compute CPI basket. Substitution rate from FPDS procurement proxy.
 - **Market Intelligence**: Rankings, pricing data, and model metadata
 - **PWA Support**: Service worker for offline capabilities
 
@@ -30,6 +31,12 @@ Occupant is a decision infrastructure platform for AI systems. It provides real-
 ├── sw.js               # PWA service worker
 ├── data/               # JSON data files
 │   ├── aeai/           # Activity Index snapshots
+│   ├── ldi/            # Labor Displacement Index data
+│   │   ├── workload_map.json   # 5 pilot workloads (SOC, FPDS, O*NET)
+│   │   ├── latest.json         # Current LDI output (sub rate, cost diff)
+│   │   ├── historical.json     # Running historical record
+│   │   ├── bls_output.json     # Human $/unit by workload
+│   │   └── fpds_output.json    # Substitution rate by workload
 │   ├── market/         # Market intelligence
 │   ├── models/         # Model tier registries
 │   ├── prices/         # Pricing data
@@ -37,6 +44,9 @@ Occupant is a decision infrastructure platform for AI systems. It provides real-
 ├── src/                # Python data pipeline scripts
 │   ├── calculate_aeai.py
 │   ├── calculate_cpi.py
+│   ├── calculate_ldi.py        # LDI main calculator
+│   ├── fetch_bls.py            # BLS OEWS + ECEC pipeline
+│   ├── fetch_fpds.py           # USAspending/FPDS pipeline
 │   ├── data_collector.py
 │   ├── model_registry.py
 │   └── scrape_rankings.py
