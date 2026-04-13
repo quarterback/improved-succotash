@@ -1,0 +1,203 @@
+Good. Now we stay concrete.
+
+You need three data pipelines. Not theory. Actual sources you can pull.
+
+⸻
+
+1. HUMAN COST (your baseline)
+
+This is the cleanest part.
+
+You map workloads → occupations → cost per unit.
+
+Primary sources:
+	•	Bureau of Labor Statistics (OEWS)
+	•	Wage + employment for ~800 occupations  ￼
+	•	Available by industry, geography, and occupation
+	•	Employer Costs for Employee Compensation (ECEC)
+	•	Adds benefits + overhead (this matters more than wages alone)  ￼
+	•	National Compensation Survey (NCS)
+	•	Gives fully loaded compensation structures  ￼
+
+What this gives you:
+	•	$/hour by occupation
+	•	employment counts
+	•	industry context
+
+What you still have to do:
+	•	convert to cost per workload unit
+
+Example:
+	•	“claims classification” → SOC: claims adjusters
+	•	wage → hourly → time per task → cost per unit
+
+This is modeling work, not data scarcity.
+
+⸻
+
+2. PROCUREMENT + SPEND (this is your leverage)
+
+This is where your index becomes real.
+
+Primary sources:
+	•	Federal Procurement Data System
+	•	Full contract-level data: who bought what, from whom, for how much  ￼
+	•	USAspending (front-end to FPDS)
+	•	Agency budget documents (line items + program spend)
+	•	State equivalents (often even cleaner than federal)
+
+Also:
+	•	Private aggregators (Fedmine / GovSpend) combine ~19 federal datasets  ￼
+
+What this gives you:
+	•	contractor labor spend by category
+	•	pre vs post AI procurement signals
+	•	vendor shift (Accenture → OpenAI wrapper, etc.)
+
+This is how you observe:
+	•	substitution in dollars before headcount
+
+⸻
+
+3. HEADCOUNT + ABSORPTION (hardest, but tractable)
+
+This is the part people think is impossible. It’s not, but it’s messy.
+
+Primary sources:
+	•	Office of Personnel Management
+	•	Federal employee salary + staffing data  ￼
+	•	BLS datasets:
+	•	QCEW → employment by industry  ￼
+	•	JOLTS → hiring, quits, layoffs
+	•	Agency staffing plans / budget justifications
+	•	Union reports (underrated, very specific about role changes)
+
+Augment with:
+	•	Job postings (NLx / scraped postings)
+	•	RFP language shifts (what roles agencies think they need now)
+
+What this gives you:
+	•	hiring freezes vs growth
+	•	contractor → internal shifts
+	•	role reclassification (this is key signal)
+
+⸻
+
+4. TASK / WORKLOAD MAPPING (this is your glue layer)
+
+You cannot skip this.
+
+You need a translation layer:
+
+workload → task → occupation → cost
+
+Sources:
+	•	SOC system (standard occupation mapping)  ￼
+	•	O*NET / ORS (task-level breakdowns)  ￼
+
+This is where you define:
+	•	what “classification” actually is
+	•	what “judgment” splits into
+	•	what “summarization” maps to in labor terms
+
+Without this, your index collapses into vibes.
+
+⸻
+
+How the formula actually gets computed
+
+Per workload category:
+
+1. Substitution rate
+
+You don’t measure this nationally.
+
+You derive it from:
+	•	workflow changes (RFPs, internal docs)
+	•	vendor replacement (services → AI tools)
+	•	time-on-task reduction (case studies, audits)
+
+Proxy version:
+	•	% reduction in contractor spend for that task
+	•	% increase in AI-related procurement for same function
+
+⸻
+
+2. Cost displacement
+
+This is the cleanest equation:
+
+Displacement = (human cost per unit × volume) − (AI cost per unit × volume)
+
+You already own the AI side.
+
+Human side comes from:
+	•	BLS wages
+	•	time-per-task estimates
+
+⸻
+
+3. Absorption rate
+
+This is not one metric. It’s a classification problem.
+
+For each observed unit:
+	•	eliminated
+	•	reallocated internally
+	•	upgraded to higher-skill work
+	•	converted to contractor reduction
+	•	frozen (no backfill)
+
+You infer this from:
+	•	headcount trends
+	•	hiring vs attrition
+	•	budget shifts
+
+⸻
+
+Where people mess this up (don’t do this)
+	1.	They try to start national
+You don’t. You start with 5–10 agencies where data is legible.
+	2.	They treat wages as cost
+Wrong. Use fully loaded compensation or you understate displacement.
+	3.	They skip procurement
+That’s the strongest signal you have. It shows intent before outcomes.
+	4.	They generalize “AI usage”
+You only track specific workloads tied to dollars.
+
+⸻
+
+What your first usable dataset actually looks like
+
+Not big. Tight.
+
+Pick:
+	•	SNAP eligibility processing
+	•	unemployment claims
+	•	call center triage
+	•	document summarization in casework
+
+Then build:
+	•	baseline labor cost per unit
+	•	current AI cost per unit
+	•	procurement change
+	•	staffing change
+
+That’s enough to publish something real.
+
+⸻
+
+Bottom line
+
+You already have the hardest piece (AI cost).
+
+Everything else exists, but it’s fragmented:
+	•	BLS → labor cost + structure
+	•	FPDS / budgets → where money moved
+	•	OPM / QCEW → what happened to people
+
+Your job is not finding data.
+
+Your job is forcing these into the same unit of analysis: workload.
+
+That’s the move.

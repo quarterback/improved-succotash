@@ -20,6 +20,7 @@ Occupant is a decision infrastructure platform for AI systems. It provides real-
 ├── index.html          # Main dashboard
 ├── aeai.html           # Activity Index dashboard
 ├── cpi-data.html       # Price Index dashboard
+├── displacement.html   # Labor Displacement Index (LDI)
 ├── calculator.html     # AI cost calculator
 ├── about.html          # About page
 ├── services.html       # Services page
