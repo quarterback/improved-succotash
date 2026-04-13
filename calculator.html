@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Savings Calculator | Occupant</title>
-    <meta name="description" content="Calculate how much you could save by optimizing your LLM model mix with Occupant Index pricing data.">
+    <title>LLM Cost Calculator | Occupant</title>
+    <meta name="description" content="A back-of-envelope estimator for LLM workload costs, using live Occupant Index pricing.">
     <link rel="stylesheet" href="/styles.css">
     <style>
         /* Calculator-specific styles */
@@ -362,14 +362,13 @@
 <body>
     <div class="container">
         <nav>
-            <a href="/">Index</a>
-            <a href="/services.html">Services</a>
+            <a href="/">Home</a>
             <a href="/cpi-data.html">CPI Data</a>
             <a href="/aeai.html">AEAI</a>
             <a href="/displacement.html">LDI</a>
             <a href="/sabermetrics.html">Market Intel</a>
             <a href="/calculator.html" class="active">Calculator</a>
-            <a href="/gov.html">Gov Benchmarks</a>
+            <a href="/glossary.html">Glossary</a>
             <a href="/about.html">About</a>
             <div class="nav-right">
                 <button id="theme-toggle" class="theme-toggle">Light</button>
@@ -378,14 +377,13 @@
 
         <div class="breadcrumb">
             <a href="/">Home</a>
-            <a href="/services.html">Services</a>
             <span class="breadcrumb-separator">></span>
             <span class="breadcrumb-current">Calculator</span>
         </div>
 
         <header>
-            <h1>Savings Calculator</h1>
-            <p class="subtitle">Calculate your savings from optimizing model mix</p>
+            <h1>LLM Cost Calculator</h1>
+            <p class="subtitle">A toy estimator. Punch in a model and a monthly spend, see how a tiered mix compares at current Index prices.</p>
         </header>
 
         <div class="calculator-container">
@@ -484,7 +482,7 @@
             </div>
 
             <button class="calculate-btn" onclick="calculate()" id="calc-btn">
-                Calculate Savings
+                Estimate
             </button>
 
             <!-- Results Section -->
@@ -546,20 +544,18 @@
                 </div>
 
                 <div class="methodology-note">
-                    <strong>Methodology:</strong> Savings calculated using current Occupant Index tier prices.
-                    Workload allocations based on typical usage patterns: Startup (40% bulk, 40% general, 20% reasoning),
+                    <strong>Methodology:</strong> Costs estimated using current Occupant Index tier prices.
+                    Workload allocations are illustrative defaults: Startup (40% bulk, 40% general, 20% reasoning),
                     Agentic (20% bulk, 30% general, 50% reasoning), Throughput (70% bulk, 25% general, 5% reasoning).
-                    Actual savings depend on your specific use case.
-                    <a href="/about.html">Learn more about our methodology</a>
+                    This is a back-of-envelope tool &mdash; real costs depend on your prompts, caching, and provider routing.
+                    <a href="/about.html">Index methodology &rarr;</a>
                 </div>
             </div>
         </div>
 
         <footer>
-                        <div class="footer-links">
-                <a href="/services.html">Services</a>
+            <div class="footer-links">
                 <a href="/about.html">About</a>
-                <a href="mailto:hello@occupant.ee">Contact</a>
                 <a href="/license.html">License</a>
                 <a href="/tardigrade.html">Tardigrade Disclosure</a>
             </div>

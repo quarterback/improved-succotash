@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Occupant</title>
-    <meta name="description" content="Decision infrastructure for AI systems. We measure costs, advise institutions, and build the judgment layer. From Compute CPI to Glowrm trust infrastructure to AI decision receipts.">
+    <meta name="description" content="Occupant is a public benchmark for AI compute prices and market activity, designed and maintained by Ron Bronson.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://occupant.ee/about">
     <meta property="og:title" content="About | Occupant">
-    <meta property="og:description" content="Decision infrastructure for AI systems. We measure costs, advise institutions, and build the judgment layer for autonomous decisions.">
+    <meta property="og:description" content="Occupant is a public benchmark for AI compute prices and market activity, designed and maintained by Ron Bronson.">
     <meta property="og:image" content="https://occupant.ee/og-image.svg">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="About | Occupant">
-    <meta name="twitter:description" content="Decision infrastructure for AI systems. We measure costs, advise institutions, and build the judgment layer for autonomous decisions.">
+    <meta name="twitter:description" content="Occupant is a public benchmark for AI compute prices and market activity, designed and maintained by Ron Bronson.">
     <meta name="twitter:image" content="https://occupant.ee/og-image.svg">
 
     <!-- Favicon -->
@@ -70,17 +70,14 @@
     <div class="container" style="max-width: 700px;">
         <nav>
             <a href="/">Home</a>
-            <a href="/services.html">Services</a>
             <a href="/cpi-data.html">CPI Data</a>
             <a href="/aeai.html">AEAI</a>
             <a href="/displacement.html">LDI</a>
             <a href="/sabermetrics.html">Market Intel</a>
             <a href="/calculator.html">Calculator</a>
+            <a href="/glossary.html">Glossary</a>
             <a href="/about.html" class="active">About</a>
             <div class="nav-right">
-                <a href="mailto:hello@occupant.ee?subject=Work%20with%20Us" style="display: inline-block; padding: 0.5rem 1rem; margin-right: 1rem; background: var(--brand); color: var(--bg); border-radius: 4px; font-weight: 600; text-decoration: none; font-size: 0.875rem;">
-                    Work with Us
-                </a>
                 <button id="theme-toggle" class="theme-toggle">Light</button>
             </div>
         </nav>
@@ -93,78 +90,68 @@
 
         <header>
             <h1>About Occupant</h1>
-            <p class="subtitle">Decision infrastructure for AI systems.</p>
+            <p class="subtitle">A public benchmark for AI compute, by <a href="https://ronbronson.com" rel="author">Ron Bronson</a>.</p>
         </header>
 
-        <main>
+        <main class="prose">
             <section>
-                <h2>Who We Are</h2>
+                <h2>What this is</h2>
                 <div class="mandate-box">
                     <p>
-                        Occupant owns the judgment layer for AI systems. We measure costs, architect decision infrastructure, and help institutions govern autonomous decisions.
+                        Occupant publishes two free, daily-updated indices for AI compute:
+                        <strong>Compute CPI</strong> (a price index across model tiers) and
+                        <strong>AEAI</strong> (an activity index for token volume, spend, and energy).
                     </p>
                 </div>
                 <p>
-                    We operate across three integrated layers: <strong>Measurement</strong> (tracking AI costs and market activity), <strong>Interpretation</strong> (advising institutions on procurement and governance), and <strong>Infrastructure</strong> (building systems that make autonomous decisions legible and governable).
+                    The motivation is simple: AI compute prices move every week, the basket of available
+                    models shifts constantly, and most public commentary on the AI market relies on
+                    point-in-time anecdotes. A standing benchmark &mdash; with a fixed methodology you can
+                    audit &mdash; makes the conversation comparable across time.
                 </p>
                 <p>
-                    We've built working trust infrastructure for social platforms (Glowrm, PBJ, Leafroll) managing cross-application reputation, resource allocation, and accountability. The architectural patterns proven in social systems—decision receipts, judgment routing, authority chains, escalation triggers—apply directly to AI governance.
+                    Designed and maintained by <a href="https://ronbronson.com" rel="author">Ron Bronson</a>.
+                    Methodology, source list, and update cadence are all on this page.
                 </p>
             </section>
 
             <section>
-                <h2>The Stack</h2>
+                <h2>The indices</h2>
 
-                <h3>Measurement</h3>
+                <h3>Compute CPI</h3>
                 <p>
-                    <strong>Compute CPI</strong> tracks price deflation across AI model tiers. <strong>AI Activity Index (AEAI)</strong> measures economic volume—token throughput, spend, and energy consumption. Updated daily from 2,300+ models. Public and free.
-                </p>
-                <p>
-                    These indices prove we understand the terrain. The measurement layer demonstrates the depth of market knowledge required to advise on procurement decisions that hold up under scrutiny.
-                </p>
-
-                <h3>Interpretation</h3>
-                <p>
-                    Advisory services for institutional AI buyers. Emergency procurement assessments for government CIOs facing contract signature deadlines. Strategic retainers for leadership teams building governance frameworks. Vendor credibility partnerships for organizations responding to RFPs demanding responsible AI proof.
-                </p>
-                <p>
-                    Insurance against future harm. We reduce the cost of expensive procurement mistakes before institutional lock-in.
+                    A volume-weighted basket of inference prices across four workload tiers (frontier,
+                    reasoning-intensive, long-context, budget). Tracks deflation in $/MTok over time.
+                    January 2025 = 100.
                 </p>
 
-                <h3>Infrastructure</h3>
+                <h3>AEAI &mdash; AI Activity Index</h3>
                 <p>
-                    Working systems governing decisions where identity travels and behavior matters:
+                    A composite of three signals: token throughput (60%), inferred spend (30%), and
+                    energy consumption (10%). Designed to read like an economic activity gauge for the
+                    AI sector rather than a stock-price proxy. February 2025 = 100.
                 </p>
-                <ul style="line-height: 1.8;">
-                    <li><strong>Glowrm</strong> — Cross-platform trust infrastructure. API at <a href="https://drydown.replit.app" style="font-family: monospace; color: var(--accent);">drydown.replit.app</a>. Portable reputation (20-80 scale) travels between applications. Good behavior on one platform carries forward. Reputation follows users across contexts.</li>
-                    <li><strong>SPA (Stratified Preference Allocation)</strong> — Methodology transforming infinite, low-cost actions into finite, high-cost decisions. Every action carries measurable opportunity cost. Tested across dating (PBJ), professional networking (Leafroll), and roommate matching (Roomies).</li>
-                    <li><strong>Judgment Routing</strong> — Decision architecture for AI systems. Stateful middleware evaluating agent proposals against uncertainty, stakes, authority, and novelty. Every decision produces a receipt. Authority chains stay explicit. Escalation paths remain legible.</li>
+            </section>
+
+            <section>
+                <h2>Related work</h2>
+                <p>
+                    Other projects under the same research umbrella:
+                </p>
+                <ul class="link-list">
+                    <li><strong>Glowrm</strong> &mdash; cross-platform reputation infrastructure (20&ndash;80 scale, portable across applications). API: <a href="https://drydown.replit.app">drydown.replit.app</a>.</li>
+                    <li><strong>Stratified Preference Allocation (SPA)</strong> &mdash; a method for turning unbounded low-cost actions into finite, priced decisions. Tested in PBJ, Leafroll, Roomies.</li>
+                    <li><strong>Judgment Routing</strong> &mdash; stateful middleware that evaluates agent proposals against uncertainty, stakes, authority, and novelty, and emits a decision receipt.</li>
                 </ul>
-                <p>
-                    Systems design determines who bears costs and how costs distribute. Making invisible costs legible enables governance and accountability across social platforms and AI systems.
-                </p>
             </section>
 
             <section>
-                <h2>Who We Work With</h2>
-                <p><strong>Government CIOs and procurement leads</strong> facing AI contract signature deadlines.</p>
-                <p><strong>Foundation and nonprofit executives</strong> deploying AI into services requiring liability frameworks and exit strategies.</p>
-                <p><strong>Vendors building for government</strong> demonstrating responsible AI practices to win contracts.</p>
-                <p><strong>Policy teams</strong> grounding regulatory frameworks in operational reality.</p>
-                <p><strong>Platform operators</strong> building systems where identity travels and behavior matters.</p>
-
-                <p style="margin-top: 1.5rem;">
-                    <strong>What we offer:</strong> Advisory retainers, workshops for leadership teams, expert testimony, and infrastructure architecture. <a href="mailto:hello@occupant.ee">Start a conversation →</a>
-                </p>
-            </section>
-
-            <section>
-                <h2>How We Operate</h2>
-                <ul style="line-height: 1.8;">
-                    <li><strong>Vendor independence</strong> — Direct compensation only. Zero referral fees.</li>
-                    <li><strong>Public APIs</strong> — Infrastructure documented and accessible</li>
-                    <li><strong>Auditable methodology</strong> — Indices use open, reviewable calculations</li>
-                    <li><strong>Open research</strong> — Free indices. Published research.</li>
+                <h2>Operating principles</h2>
+                <ul class="link-list">
+                    <li><strong>Vendor independence.</strong> No referral fees, no paid placement.</li>
+                    <li><strong>Public data.</strong> All index values published as JSON.</li>
+                    <li><strong>Auditable methodology.</strong> Calculations are open and reviewable.</li>
+                    <li><strong>Free.</strong> Indices stay free for researchers, journalists, and operators.</li>
                 </ul>
             </section>
 
@@ -278,25 +265,20 @@
                 </p>
             </section>
 
-            <section style="margin-top: 3rem; padding: 2rem; background: var(--accent-glow); border: 2px solid var(--accent); border-radius: 4px;">
-                <h2 style="margin-top: 0;">Work With Us</h2>
+            <section>
+                <h2>Author</h2>
                 <p>
-                    <strong>Facing AI contract signature deadlines?</strong> Deploying autonomous systems requiring authority chains and decision receipts? Building platforms where identity travels but reputation stays local?
-                </p>
-                <p>
-                    We work across measurement (tracking costs), interpretation (advising on procurement and governance), and infrastructure (building decision architectures making judgment legible). When institutional choices require sustained scrutiny, we talk.
-                </p>
-                <p style="margin-bottom: 0;">
-                    <a href="mailto:hello@occupant.ee" style="font-weight: 600; color: var(--accent); text-decoration: underline;">Email hello@occupant.ee →</a>
+                    Occupant is designed and maintained by <a href="https://ronbronson.com" rel="author">Ron Bronson</a>.
+                    Questions, corrections, and method critique welcome at
+                    <a href="mailto:hello@occupant.ee">hello@occupant.ee</a>.
                 </p>
             </section>
         </main>
 
         <footer>
             <div class="footer-links">
-                <a href="/services.html">Services</a>
                 <a href="/about.html">About</a>
-                <a href="mailto:hello@occupant.ee">Contact</a>
+                <a href="https://ronbronson.com" rel="author">ronbronson.com</a>
                 <a href="/license.html">License</a>
                 <a href="/tardigrade.html">Tardigrade Disclosure</a>
             </div>

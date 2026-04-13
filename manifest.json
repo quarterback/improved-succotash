@@ -1,7 +1,7 @@
 {
   "name": "Occupant Index",
   "short_name": "Occupant",
-  "description": "Public benchmarks and decision architecture for institutions navigating AI dependency. We publish what others assume.",
+  "description": "A public benchmark for AI compute prices and market activity, updated daily.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",
@@ -39,7 +39,7 @@
       "purpose": "maskable"
     }
   ],
-  "categories": ["finance", "business", "productivity"],
+  "categories": ["finance", "productivity", "utilities"],
   "screenshots": [
     {
       "src": "/screenshot-mobile.png",
@@ -70,9 +70,9 @@
       "icons": [{ "src": "/logo.svg", "sizes": "any" }]
     },
     {
-      "name": "Calculator",
+      "name": "LLM Cost Calculator",
       "short_name": "Calculator",
-      "description": "Calculate your AI cost savings",
+      "description": "Estimate LLM workload costs at current Index prices",
       "url": "/calculator.html",
       "icons": [{ "src": "/logo.svg", "sizes": "any" }]
     },
@@ -81,13 +81,6 @@
       "short_name": "Market",
       "description": "View market intelligence data",
       "url": "/sabermetrics.html",
-      "icons": [{ "src": "/logo.svg", "sizes": "any" }]
-    },
-    {
-      "name": "Gov Benchmarks",
-      "short_name": "Gov",
-      "description": "Government procurement benchmarks",
-      "url": "/gov.html",
       "icons": [{ "src": "/logo.svg", "sizes": "any" }]
     }
   ]
