@@ -205,6 +205,33 @@
                 </p>
             </section>
 
+            <!-- AI Procurement by Awarding Agency -->
+            <section aria-labelledby="agencies-heading" style="margin: 3rem 0;">
+                <h2 id="agencies-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">AI procurement by awarding agency</h2>
+                <p style="color: var(--fg-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Where the federal AI procurement actually lives. Pulled from the same USAspending.gov keyword search that feeds the substitution-rate signal, deduped per award and rolled up by Awarding Agency. Sorted by FY<span id="agency-current-fy">2024</span> obligated amount.</p>
+
+                <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; overflow-x: auto;">
+                    <table id="agencies-table" style="width: 100%; font-size: 0.8rem; border-collapse: collapse; min-width: 720px;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--border); background: var(--bg);">
+                                <th style="text-align: left; padding: 0.75rem 1rem; color: var(--fg-muted); font-weight: 600; width: 40%;">Awarding Agency</th>
+                                <th style="text-align: right; padding: 0.5rem 0.75rem; color: var(--fg-muted); font-weight: 500; font-size: 0.75rem;">FY<span class="agency-current-fy">24</span> obligated</th>
+                                <th style="text-align: right; padding: 0.5rem 0.75rem; color: var(--fg-muted); font-weight: 500; font-size: 0.75rem;">FY<span class="agency-prior-fy">23</span></th>
+                                <th style="text-align: right; padding: 0.5rem 0.75rem; color: var(--fg-muted); font-weight: 500; font-size: 0.75rem;">YoY Δ</th>
+                                <th style="text-align: right; padding: 0.5rem 0.75rem; color: var(--fg-muted); font-weight: 500; font-size: 0.75rem;">Awards</th>
+                            </tr>
+                        </thead>
+                        <tbody id="agencies-table-body">
+                            <tr><td colspan="5" style="padding: 1.5rem; text-align: center; color: var(--fg-muted);">Loading…</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="font-size: 0.7rem; color: var(--fg-muted); margin-top: 0.75rem; line-height: 1.6;">
+                    Top 10 agencies by current-FY AI award value. <span id="agency-total-count">—</span> distinct agencies appear in the AI keyword search overall.
+                    The keyword set is intentionally specific (artificial intelligence, machine learning, LLM, OpenAI, Anthropic, Palantir AIP, ServiceNow AI, &c.) to suppress false positives — but it will under-count contracts that bury AI in technical descriptions or program names.
+                </p>
+            </section>
+
             <!-- Three Measurement Pillars -->
             <section aria-labelledby="pillars-heading" style="margin: 3rem 0;">
                 <h2 id="pillars-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Measurement Pillars</h2>
@@ -577,6 +604,51 @@ Sources:
             }
         }
 
+        async function loadAgencies() {
+            try {
+                const r = await fetch('/data/ldi/latest.json');
+                if (!r.ok) throw new Error('Not found');
+                const d = await r.json();
+                const tbody = document.getElementById('agencies-table-body');
+                if (!tbody) return;
+                const a = d.ai_procurement_by_agency || {};
+                const rows = (a.top_agencies || []);
+
+                const fyCur = a.fy_current ?? 2024;
+                const fyPri = a.fy_prior ?? 2023;
+                document.querySelectorAll('.agency-current-fy').forEach(el => el.textContent = String(fyCur).slice(-2));
+                document.querySelectorAll('.agency-prior-fy').forEach(el => el.textContent = String(fyPri).slice(-2));
+                const cf = document.getElementById('agency-current-fy');
+                if (cf) cf.textContent = String(fyCur);
+                const tc = document.getElementById('agency-total-count');
+                if (tc) tc.textContent = a.total_agencies ?? '—';
+
+                if (!rows.length) {
+                    tbody.innerHTML = '<tr><td colspan="5" style="padding:1.5rem;text-align:center;color:var(--fg-muted);">No agency data</td></tr>';
+                    return;
+                }
+                let html = '';
+                for (const row of rows) {
+                    const yoy = row.yoy_change_pct;
+                    const yoyStr = (yoy === null || yoy === undefined)
+                        ? '<span style="color:var(--fg-muted);">new</span>'
+                        : (yoy > 0 ? '+' : '') + yoy.toFixed(1) + '%';
+                    const yoyColor = (yoy == null) ? 'var(--fg-muted)'
+                        : (yoy > 0 ? 'var(--warning)' : (yoy < 0 ? 'var(--accent)' : 'var(--fg-muted)'));
+                    html += `<tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem 1rem; color: var(--fg); font-weight: 500;">${row.agency || '—'}</td>
+                        <td style="padding: 0.75rem 0.75rem; text-align: right; font-family: monospace;">${fmtDollars(row.fy2024_obligated)}</td>
+                        <td style="padding: 0.75rem 0.75rem; text-align: right; font-family: monospace; color: var(--fg-muted);">${fmtDollars(row.fy2023_obligated)}</td>
+                        <td style="padding: 0.75rem 0.75rem; text-align: right; font-family: monospace; color: ${yoyColor};">${yoyStr}</td>
+                        <td style="padding: 0.75rem 0.75rem; text-align: right; font-family: monospace; color: var(--fg-muted);">${row.fy2024_award_count}</td>
+                    </tr>`;
+                }
+                tbody.innerHTML = html;
+            } catch (e) {
+                console.log('Agencies data error:', e);
+            }
+        }
+
         async function loadLDIChart() {
             // Wait for D3 to be available (loaded via defer)
             if (typeof d3 === 'undefined') {
@@ -773,6 +845,7 @@ Sources:
 
         loadLDIData();
         loadExtensions();
+        loadAgencies();
         loadLDIChart();
         loadCPIRef();
     </script>

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-13T21:38:47.937402+00:00",
+  "generated_at": "2026-04-13T21:52:15.985137+00:00",
   "source": "USAspending.gov FPDS",
   "fiscal_years": {
     "current": 2024,
@@ -33,7 +33,217 @@
     "fy2023_award_count": 622,
     "workload_attribution_fy2024": {},
     "workload_attribution_fy2023": {},
-    "method": "spending_by_award keyword search across 13 AI-related keywords. Awards deduped by award_id; per-workload attribution via description/recipient text matching against AI_KEYWORD_WORKLOAD_HINTS."
+    "by_awarding_agency": [
+      {
+        "agency": "Department of Defense",
+        "fy2024_obligated": 1175930164.78,
+        "fy2023_obligated": 1050352505.77,
+        "fy2024_award_count": 424,
+        "fy2023_award_count": 392,
+        "yoy_change_pct": 11.96
+      },
+      {
+        "agency": "Department of the Interior",
+        "fy2024_obligated": 124965469.61,
+        "fy2023_obligated": 146627057.85,
+        "fy2024_award_count": 12,
+        "fy2023_award_count": 12,
+        "yoy_change_pct": -14.77
+      },
+      {
+        "agency": "Department of Commerce",
+        "fy2024_obligated": 107762798.09,
+        "fy2023_obligated": 67916590.44,
+        "fy2024_award_count": 34,
+        "fy2023_award_count": 24,
+        "yoy_change_pct": 58.67
+      },
+      {
+        "agency": "Department of Veterans Affairs",
+        "fy2024_obligated": 66571178.09,
+        "fy2023_obligated": 82620210.71,
+        "fy2024_award_count": 10,
+        "fy2023_award_count": 15,
+        "yoy_change_pct": -19.43
+      },
+      {
+        "agency": "Department of Health and Human Services",
+        "fy2024_obligated": 54233218.12,
+        "fy2023_obligated": 125494202.39,
+        "fy2024_award_count": 40,
+        "fy2023_award_count": 49,
+        "yoy_change_pct": -56.78
+      },
+      {
+        "agency": "Department of the Treasury",
+        "fy2024_obligated": 47092302.07,
+        "fy2023_obligated": 31048434.3,
+        "fy2024_award_count": 11,
+        "fy2023_award_count": 6,
+        "yoy_change_pct": 51.67
+      },
+      {
+        "agency": "Department of Homeland Security",
+        "fy2024_obligated": 37255280.28,
+        "fy2023_obligated": 25313566.34,
+        "fy2024_award_count": 33,
+        "fy2023_award_count": 32,
+        "yoy_change_pct": 47.18
+      },
+      {
+        "agency": "Department of Energy",
+        "fy2024_obligated": 19935829.72,
+        "fy2023_obligated": 21128462.65,
+        "fy2024_award_count": 4,
+        "fy2023_award_count": 5,
+        "yoy_change_pct": -5.64
+      },
+      {
+        "agency": "National Aeronautics and Space Administration",
+        "fy2024_obligated": 18369987.34,
+        "fy2023_obligated": 16303600.45,
+        "fy2024_award_count": 27,
+        "fy2023_award_count": 29,
+        "yoy_change_pct": 12.67
+      },
+      {
+        "agency": "Department of Transportation",
+        "fy2024_obligated": 11285871.39,
+        "fy2023_obligated": 12648343.08,
+        "fy2024_award_count": 23,
+        "fy2023_award_count": 23,
+        "yoy_change_pct": -10.77
+      },
+      {
+        "agency": "Department of Education",
+        "fy2024_obligated": 5515798.96,
+        "fy2023_obligated": 5515798.96,
+        "fy2024_award_count": 1,
+        "fy2023_award_count": 1,
+        "yoy_change_pct": 0.0
+      },
+      {
+        "agency": "Institute of Museum and Library Services",
+        "fy2024_obligated": 4577625.88,
+        "fy2023_obligated": 4577625.88,
+        "fy2024_award_count": 1,
+        "fy2023_award_count": 1,
+        "yoy_change_pct": 0.0
+      },
+      {
+        "agency": "Environmental Protection Agency",
+        "fy2024_obligated": 3202825.04,
+        "fy2023_obligated": 2292433.8,
+        "fy2024_award_count": 14,
+        "fy2023_award_count": 10,
+        "yoy_change_pct": 39.71
+      },
+      {
+        "agency": "National Science Foundation",
+        "fy2024_obligated": 2712858.88,
+        "fy2023_obligated": 2094719.16,
+        "fy2024_award_count": 4,
+        "fy2023_award_count": 4,
+        "yoy_change_pct": 29.51
+      },
+      {
+        "agency": "Department of Agriculture",
+        "fy2024_obligated": 1018060.0,
+        "fy2023_obligated": 1458931.91,
+        "fy2024_award_count": 3,
+        "fy2023_award_count": 3,
+        "yoy_change_pct": -30.22
+      },
+      {
+        "agency": "Nuclear Regulatory Commission",
+        "fy2024_obligated": 1017913.06,
+        "fy2023_obligated": 787913.06,
+        "fy2024_award_count": 4,
+        "fy2023_award_count": 3,
+        "yoy_change_pct": 29.19
+      },
+      {
+        "agency": "Commodity Futures Trading Commission",
+        "fy2024_obligated": 768375.0,
+        "fy2023_obligated": 768375.0,
+        "fy2024_award_count": 1,
+        "fy2023_award_count": 1,
+        "yoy_change_pct": 0.0
+      },
+      {
+        "agency": "General Services Administration",
+        "fy2024_obligated": 685177.77,
+        "fy2023_obligated": 1452845.71,
+        "fy2024_award_count": 1,
+        "fy2023_award_count": 2,
+        "yoy_change_pct": -52.84
+      },
+      {
+        "agency": "Office of Personnel Management",
+        "fy2024_obligated": 454486.08,
+        "fy2023_obligated": 634485.08,
+        "fy2024_award_count": 1,
+        "fy2023_award_count": 2,
+        "yoy_change_pct": -28.37
+      },
+      {
+        "agency": "Department of Labor",
+        "fy2024_obligated": 99099.0,
+        "fy2023_obligated": 0.0,
+        "fy2024_award_count": 1,
+        "fy2023_award_count": 0,
+        "yoy_change_pct": null
+      },
+      {
+        "agency": "Department of Justice",
+        "fy2024_obligated": 91239.11,
+        "fy2023_obligated": 192039.11,
+        "fy2024_award_count": 1,
+        "fy2023_award_count": 2,
+        "yoy_change_pct": -52.49
+      },
+      {
+        "agency": "National Gallery of Art",
+        "fy2024_obligated": 71819.0,
+        "fy2023_obligated": 375609.0,
+        "fy2024_award_count": 1,
+        "fy2023_award_count": 1,
+        "yoy_change_pct": -80.88
+      },
+      {
+        "agency": "Department of State",
+        "fy2024_obligated": 62798.66,
+        "fy2023_obligated": 47598.33,
+        "fy2024_award_count": 2,
+        "fy2023_award_count": 1,
+        "yoy_change_pct": 31.93
+      },
+      {
+        "agency": "National Archives and Records Administration",
+        "fy2024_obligated": 61397.55,
+        "fy2023_obligated": 16944.75,
+        "fy2024_award_count": 2,
+        "fy2023_award_count": 1,
+        "yoy_change_pct": 262.34
+      },
+      {
+        "agency": "Agency for International Development",
+        "fy2024_obligated": 0.0,
+        "fy2023_obligated": 200081.0,
+        "fy2024_award_count": 0,
+        "fy2023_award_count": 1,
+        "yoy_change_pct": -100.0
+      },
+      {
+        "agency": "Government Accountability Office",
+        "fy2024_obligated": 0.0,
+        "fy2023_obligated": 97744.57,
+        "fy2024_award_count": 0,
+        "fy2023_award_count": 2,
+        "yoy_change_pct": -100.0
+      }
+    ],
+    "method": "spending_by_award keyword search across 13 AI-related keywords. Awards deduped by award_id; per-workload attribution via description/recipient text matching against AI_KEYWORD_WORKLOAD_HINTS. Per-agency rollup uses the 'Awarding Agency' field on each deduped award."
   },
   "workloads": {
     "snap_eligibility": {

@@ -1,6 +1,6 @@
 {
   "date": "2026-04-13",
-  "generated_at": "2026-04-13T21:38:47.942438+00:00",
+  "generated_at": "2026-04-13T21:52:15.990767+00:00",
   "substitution_rate": 3.86,
   "substitution_rate_interpretation": "Approximately 3.9% of task volume in these workload categories shows procurement-level evidence of AI substitution (contractor spend decline + AI procurement growth, FY2023 vs FY2024).",
   "cost_displacement": {
@@ -545,6 +545,94 @@
         "source": "VA Health Care FY2023 utilization: 130M outpatient appointments (each with \u22651 scheduling touch)"
       }
     }
+  },
+  "ai_procurement_by_agency": {
+    "fy_current": 2024,
+    "fy_prior": 2023,
+    "total_agencies": 26,
+    "top_agencies": [
+      {
+        "agency": "Department of Defense",
+        "fy2024_obligated": 1175930164.78,
+        "fy2023_obligated": 1050352505.77,
+        "fy2024_award_count": 424,
+        "fy2023_award_count": 392,
+        "yoy_change_pct": 11.96
+      },
+      {
+        "agency": "Department of the Interior",
+        "fy2024_obligated": 124965469.61,
+        "fy2023_obligated": 146627057.85,
+        "fy2024_award_count": 12,
+        "fy2023_award_count": 12,
+        "yoy_change_pct": -14.77
+      },
+      {
+        "agency": "Department of Commerce",
+        "fy2024_obligated": 107762798.09,
+        "fy2023_obligated": 67916590.44,
+        "fy2024_award_count": 34,
+        "fy2023_award_count": 24,
+        "yoy_change_pct": 58.67
+      },
+      {
+        "agency": "Department of Veterans Affairs",
+        "fy2024_obligated": 66571178.09,
+        "fy2023_obligated": 82620210.71,
+        "fy2024_award_count": 10,
+        "fy2023_award_count": 15,
+        "yoy_change_pct": -19.43
+      },
+      {
+        "agency": "Department of Health and Human Services",
+        "fy2024_obligated": 54233218.12,
+        "fy2023_obligated": 125494202.39,
+        "fy2024_award_count": 40,
+        "fy2023_award_count": 49,
+        "yoy_change_pct": -56.78
+      },
+      {
+        "agency": "Department of the Treasury",
+        "fy2024_obligated": 47092302.07,
+        "fy2023_obligated": 31048434.3,
+        "fy2024_award_count": 11,
+        "fy2023_award_count": 6,
+        "yoy_change_pct": 51.67
+      },
+      {
+        "agency": "Department of Homeland Security",
+        "fy2024_obligated": 37255280.28,
+        "fy2023_obligated": 25313566.34,
+        "fy2024_award_count": 33,
+        "fy2023_award_count": 32,
+        "yoy_change_pct": 47.18
+      },
+      {
+        "agency": "Department of Energy",
+        "fy2024_obligated": 19935829.72,
+        "fy2023_obligated": 21128462.65,
+        "fy2024_award_count": 4,
+        "fy2023_award_count": 5,
+        "yoy_change_pct": -5.64
+      },
+      {
+        "agency": "National Aeronautics and Space Administration",
+        "fy2024_obligated": 18369987.34,
+        "fy2023_obligated": 16303600.45,
+        "fy2024_award_count": 27,
+        "fy2023_award_count": 29,
+        "yoy_change_pct": 12.67
+      },
+      {
+        "agency": "Department of Transportation",
+        "fy2024_obligated": 11285871.39,
+        "fy2023_obligated": 12648343.08,
+        "fy2024_award_count": 23,
+        "fy2023_award_count": 23,
+        "yoy_change_pct": -10.77
+      }
+    ],
+    "source": "USAspending.gov spending_by_award keyword search, deduped per award_id, grouped by Awarding Agency"
   },
   "meta": {
     "sources": [

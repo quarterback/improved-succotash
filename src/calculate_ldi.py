@@ -482,6 +482,11 @@ def run_pipeline(force_refresh: bool = False):
 
     composite = calculate_composite_ldi(workload_results)
 
+    # Per-agency AI procurement rollup (top N for surface area)
+    ai_summary = fpds_data.get("ai_procurement_summary", {})
+    agency_rollup_full = ai_summary.get("by_awarding_agency", []) or []
+    top_agencies = agency_rollup_full[:10]
+
     output = {
         "date": date_str,
         "generated_at": now.isoformat(),
@@ -511,6 +516,13 @@ def run_pipeline(force_refresh: bool = False):
             ) if workload_results else 0
         },
         "workloads": workload_results,
+        "ai_procurement_by_agency": {
+            "fy_current": fpds_data.get("fiscal_years", {}).get("current"),
+            "fy_prior": fpds_data.get("fiscal_years", {}).get("prior"),
+            "total_agencies": len(agency_rollup_full),
+            "top_agencies": top_agencies,
+            "source": "USAspending.gov spending_by_award keyword search, deduped per award_id, grouped by Awarding Agency",
+        },
         "meta": {
             "sources": ["BLS OEWS", "BLS ECEC", "USAspending.gov FPDS", "OPM FedScope", "Compute CPI basket"],
             "pilot_workload_ids": list(workload_results.keys()),

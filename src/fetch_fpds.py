@@ -278,6 +278,7 @@ def fetch_ai_award_totals_for_year(fiscal_year: int, max_pages_per_query: int = 
 
                     description = (award.get("Description") or "").lower()
                     recipient = (award.get("Recipient Name") or "").lower()
+                    agency = (award.get("Awarding Agency") or "Unknown").strip()
 
                     kw_obligated += amount
                     kw_count += 1
@@ -289,6 +290,7 @@ def fetch_ai_award_totals_for_year(fiscal_year: int, max_pages_per_query: int = 
                             "matched_keywords": [keyword],
                             "description": description,
                             "recipient": recipient,
+                            "awarding_agency": agency,
                         }
                     else:
                         awards_by_id[award_id]["matched_keywords"].append(keyword)
@@ -323,9 +325,22 @@ def fetch_ai_award_totals_for_year(fiscal_year: int, max_pages_per_query: int = 
                 for wid in workload_ids:
                     workload_attribution[wid] = workload_attribution.get(wid, 0) + award["amount"]
 
+    # Per-agency rollup: which agencies are doing the AI buying.
+    by_agency = {}
+    for award in awards_by_id.values():
+        agency = award.get("awarding_agency") or "Unknown"
+        rec = by_agency.setdefault(agency, {"obligated": 0.0, "award_count": 0})
+        rec["obligated"] += award["amount"]
+        rec["award_count"] += 1
+    by_agency = {
+        a: {"obligated": round(v["obligated"], 2), "award_count": v["award_count"]}
+        for a, v in by_agency.items()
+    }
+
     print(f"[FPDS-AI] FY{fiscal_year}: ${total_obligated:,.0f} across "
           f"{len(awards_by_id)} unique AI-related awards "
-          f"({sum(b['awards'] for b in by_keyword.values())} keyword hits)")
+          f"({sum(b['awards'] for b in by_keyword.values())} keyword hits, "
+          f"{len(by_agency)} agencies)")
 
     return {
         "fiscal_year": fiscal_year,
@@ -333,6 +348,7 @@ def fetch_ai_award_totals_for_year(fiscal_year: int, max_pages_per_query: int = 
         "award_count": len(awards_by_id),
         "by_keyword": by_keyword,
         "workload_attribution": {k: round(v, 2) for k, v in workload_attribution.items()},
+        "by_awarding_agency": by_agency,
         "api_responses": api_responses,
     }
 
@@ -530,6 +546,28 @@ def run():
               f"sub_rate={sub_rate:.3f}"
               + (" [missing some PSCs]" if missing_pscs else ""))
 
+    # Per-agency YoY rollup: combine FY24 + FY23 agency tallies, compute deltas.
+    agencies_2024 = ai_2024.get("by_awarding_agency", {})
+    agencies_2023 = ai_2023.get("by_awarding_agency", {})
+    all_agencies = set(agencies_2024) | set(agencies_2023)
+    agency_rollup = []
+    for agency in all_agencies:
+        cur = agencies_2024.get(agency, {"obligated": 0.0, "award_count": 0})
+        pri = agencies_2023.get(agency, {"obligated": 0.0, "award_count": 0})
+        if pri["obligated"] > 0:
+            yoy_pct = round(((cur["obligated"] - pri["obligated"]) / pri["obligated"]) * 100, 2)
+        else:
+            yoy_pct = None  # new entrant
+        agency_rollup.append({
+            "agency": agency,
+            "fy2024_obligated": cur["obligated"],
+            "fy2023_obligated": pri["obligated"],
+            "fy2024_award_count": cur["award_count"],
+            "fy2023_award_count": pri["award_count"],
+            "yoy_change_pct": yoy_pct,
+        })
+    agency_rollup.sort(key=lambda r: r["fy2024_obligated"], reverse=True)
+
     output = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "source": "USAspending.gov FPDS",
@@ -546,11 +584,13 @@ def run():
             "fy2023_award_count": ai_2023["award_count"],
             "workload_attribution_fy2024": ai_2024["workload_attribution"],
             "workload_attribution_fy2023": ai_2023["workload_attribution"],
+            "by_awarding_agency": agency_rollup,
             "method": (
                 "spending_by_award keyword search across "
                 f"{len(AI_KEYWORD_QUERIES)} AI-related keywords. "
                 "Awards deduped by award_id; per-workload attribution via "
-                "description/recipient text matching against AI_KEYWORD_WORKLOAD_HINTS."
+                "description/recipient text matching against AI_KEYWORD_WORKLOAD_HINTS. "
+                "Per-agency rollup uses the 'Awarding Agency' field on each deduped award."
             ),
         },
         "workloads": workload_data
