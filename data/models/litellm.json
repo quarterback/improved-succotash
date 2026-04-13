@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-12T06:35:47.046162+00:00",
+  "fetched_at": "2026-04-13T06:47:58.203489+00:00",
   "models": {
     "ai21.j2-mid-v1": {
       "input_cost_per_token": 1.25e-05,
@@ -17574,12 +17574,12 @@
     "together_ai/openai/gpt-oss-120b": {
       "input_cost_per_token": 1.5e-07,
       "output_cost_per_token": 6e-07,
-      "context_length": 128000,
-      "max_output_tokens": 0,
+      "context_length": 131072,
+      "max_output_tokens": 131072,
       "provider": "together_ai",
       "supports_vision": false,
       "supports_function_calling": true,
-      "supports_reasoning": false,
+      "supports_reasoning": true,
       "cache_read_cost": 0,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
