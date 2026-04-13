@@ -132,12 +132,67 @@
                     with anchor-interpolated substitution rates — these numbers reflect the implied trajectory, not measurement-grade signal.
                     The "samples_live" count grows with daily live runs.
                 </p>
+
+                <!-- CPI-decoupled cost-ratio decomposition -->
+                <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 0.9rem 1.1rem; margin-top: 1rem;">
+                    <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted); margin-bottom: 0.5rem;">Cost-ratio decomposition <span style="text-transform: none; opacity: 0.7;" id="decomp-window">(window)</span></div>
+                    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: baseline;">
+                        <div>
+                            <span style="font-size: 1.3rem; font-weight: 600; font-family: monospace;" id="decomp-change">—</span>
+                            <span style="font-size: 0.75rem; color: var(--fg-muted); margin-left: 0.4rem;">total ratio change</span>
+                        </div>
+                        <div style="font-size: 0.85rem; color: var(--fg-muted);">
+                            of which · <span style="color: var(--fg); font-family: monospace;" id="decomp-human-share">—</span> human-cost,
+                            <span style="color: var(--fg); font-family: monospace;" id="decomp-ai-share">—</span> AI-cost
+                        </div>
+                    </div>
+                    <div style="font-size: 0.65rem; color: var(--fg-muted); margin-top: 0.6rem; line-height: 1.6;">
+                        Splits log-change of cost_ratio into the human-cost and AI-cost contributions. While the historical series holds
+                        human cost constant (backfill carries forward the latest BLS reading), AI cost moves with Compute CPI — so the
+                        AI side currently absorbs ~100%. Once daily wage data accumulates, the human side will grow.
+                    </div>
+                </div>
             </section>
 
             <!-- What These Two Numbers Mean -->
             <div style="background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 1.25rem 1.5rem; margin-bottom: 3rem; font-size: 0.875rem; color: var(--fg-muted); line-height: 1.7;">
                 <strong style="color: var(--fg);">Why two signals, not one.</strong> Cost displacement tells you <em>why</em> substitution will happen — the price gap is 1,000–3,000x. Substitution rate tells you <em>how much has happened so far</em> — roughly <span id="callout-sub-rate">—</span> of task categories show procurement-level evidence of shifting. These should never be the same number and they shouldn't be averaged into one. The gap between them is the story.
             </div>
+
+            <!-- Wage income displaced + contract-vs-FTE split -->
+            <section aria-labelledby="realized-heading" style="margin: 3rem 0;">
+                <h2 id="realized-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Realized signals</h2>
+                <p style="color: var(--fg-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Two derived numbers that take the structural cost gap and project it through the observed substitution rate. These are smaller, more conservative readings of the same underlying data — what's <em>actually</em> shifting versus what <em>could</em> shift.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.25rem 1.5rem;">
+                        <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted); margin-bottom: 0.5rem;">Wage income displaced</div>
+                        <div style="font-size: 1.75rem; font-weight: 600; line-height: 1; font-family: monospace;" id="wage-displaced">—</div>
+                        <div style="font-size: 0.75rem; color: var(--fg-muted); margin-top: 0.4rem;">/yr · across pilot workloads</div>
+                        <div style="font-size: 0.7rem; color: var(--fg-muted); margin-top: 0.75rem; line-height: 1.6; border-top: 1px solid var(--border); padding-top: 0.75rem;">
+                            Realized labor income shifted off human payrolls per the observed sub rate.
+                            Formula: <code style="font-family: monospace; font-size: 0.65rem;">(sub_rate/100) × volume × human_cost/unit</code>.
+                            Distinct from the structural cost-displacement number above.
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.25rem 1.5rem;">
+                        <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted); margin-bottom: 0.5rem;">Contract vs in-house wage split</div>
+                        <div style="display: flex; align-items: baseline; gap: 0.5rem; line-height: 1; font-family: monospace;">
+                            <span style="font-size: 1.75rem; font-weight: 600; color: var(--warning);" id="contract-share">—</span>
+                            <span style="font-size: 0.85rem; color: var(--fg-muted);">contract</span>
+                            <span style="font-size: 0.85rem; opacity: 0.5;">/</span>
+                            <span style="font-size: 1.25rem; font-weight: 600;" id="fte-share">—</span>
+                            <span style="font-size: 0.85rem; color: var(--fg-muted);">in-house</span>
+                        </div>
+                        <div style="font-size: 0.75rem; color: var(--fg-muted); margin-top: 0.4rem;">where federal spend on these workloads sits</div>
+                        <div style="font-size: 0.7rem; color: var(--fg-muted); margin-top: 0.75rem; line-height: 1.6; border-top: 1px solid var(--border); padding-top: 0.75rem;">
+                            Contractor obligations (FPDS) vs FTE × annual wage (OPM × BLS).
+                            Skewed toward contract because PSC totals are government-wide and broader than the workload itself.
+                            <strong>Directional, not precise.</strong>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- Per-Workload Data Table -->
             <section aria-labelledby="workload-table-heading" style="margin: 3rem 0;">
@@ -503,6 +558,44 @@ Sources:
                 const subCoverage = document.getElementById('sub-coverage');
                 if (subCoverage && Object.keys(d.workloads || {}).length) {
                     subCoverage.textContent = `${Object.keys(d.workloads).length} workload categories`;
+                }
+
+                // Realized signals: wage_income_displaced + contract_vs_fte_split
+                const wid = d.derived_signals?.wage_income_displaced;
+                if (wid) {
+                    const wEl = document.getElementById('wage-displaced');
+                    if (wEl) wEl.textContent = fmtDollars(wid.composite_annual_usd);
+                }
+                const cf = d.derived_signals?.contract_vs_fte_split;
+                if (cf) {
+                    const cs = cf.composite_contract_share;
+                    const fs = cf.composite_fte_share;
+                    const csEl = document.getElementById('contract-share');
+                    const fsEl = document.getElementById('fte-share');
+                    if (csEl) csEl.textContent = (cs == null) ? '—' : (cs * 100).toFixed(0) + '%';
+                    if (fsEl) fsEl.textContent = (fs == null) ? '—' : (fs * 100).toFixed(0) + '%';
+                }
+
+                // Cost-ratio decomposition
+                const decomp = d.derived_signals?.cost_ratio_decomposition;
+                if (decomp) {
+                    const ch = decomp.composite_ratio_change_pct;
+                    const hs = decomp.composite_human_share;
+                    const as = decomp.composite_ai_share;
+                    const win = document.getElementById('decomp-window');
+                    if (win && decomp.from_date && decomp.to_date) {
+                        win.textContent = `(${decomp.from_date} → ${decomp.to_date})`;
+                    }
+                    const chEl = document.getElementById('decomp-change');
+                    if (chEl) {
+                        chEl.textContent = (ch == null) ? '—' : (ch > 0 ? '+' : '') + ch.toFixed(1) + '%';
+                        chEl.style.color = (ch == null) ? 'var(--fg-muted)'
+                            : (ch > 0 ? 'var(--accent)' : 'var(--warning)');
+                    }
+                    const hsEl = document.getElementById('decomp-human-share');
+                    const asEl = document.getElementById('decomp-ai-share');
+                    if (hsEl) hsEl.textContent = (hs == null) ? '—' : (hs * 100).toFixed(0) + '%';
+                    if (asEl) asEl.textContent = (as == null) ? '—' : (as * 100).toFixed(0) + '%';
                 }
 
                 // Absorption summary

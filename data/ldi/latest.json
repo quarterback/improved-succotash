@@ -722,6 +722,215 @@
       },
       "method": "Least-squares slope of substitution_rate_pct vs date over the last 90 days. Acceleration is the difference between the slope on the recent half of the window and the prior half. Reconstructed entries dominate today; samples_live shows how many live entries fed the slope.",
       "interpretation": "Positive velocity = substitution rate is rising (more procurement-level evidence of AI displacement over time). Positive acceleration = it's rising faster than it was a window ago."
+    },
+    "wage_income_displaced": {
+      "composite_annual_usd": 121380852.07,
+      "per_workload_annual_usd": {
+        "snap_eligibility": 21639513.0,
+        "unemployment_claims": 12957021.0,
+        "call_center_triage": 23866710.0,
+        "document_summarization": 269008.42,
+        "it_help_desk": 3199392.0,
+        "foia_processing": 11770532.55,
+        "uscis_form_intake": 2814890.4,
+        "irs_notice_generation": 17715600.0,
+        "va_appointment_scheduling": 27148184.7
+      },
+      "formula": "wage_income_displaced = (sub_rate/100) \u00d7 annual_volume \u00d7 human_cost_per_unit",
+      "interpretation": "Realized labor income shifted away from human payrolls per the observed substitution rate. Distinct from cost_displacement (which is the structural gap at 100% substitution)."
+    },
+    "contract_vs_fte_split": {
+      "composite_contractor_spend_usd": 333816710414.68,
+      "composite_fte_wage_bill_usd": 13428167000.0,
+      "composite_contract_share": 0.9613,
+      "composite_fte_share": 0.0387,
+      "per_workload": {
+        "snap_eligibility": {
+          "contractor_spend_usd": 47960957191.3,
+          "fte_wage_bill_usd": 790845000,
+          "fte_count": 16500,
+          "annual_wage_per_fte": 47930,
+          "contract_share": 0.9838,
+          "fte_share": 0.0162
+        },
+        "unemployment_claims": {
+          "contractor_spend_usd": 47135721552.09,
+          "fte_wage_bill_usd": 352996000,
+          "fte_count": 4900,
+          "annual_wage_per_fte": 72040,
+          "contract_share": 0.9926,
+          "fte_share": 0.0074
+        },
+        "call_center_triage": {
+          "contractor_spend_usd": 17913068641.4,
+          "fte_wage_bill_usd": 3867680000,
+          "fte_count": 92000,
+          "annual_wage_per_fte": 42040,
+          "contract_share": 0.8224,
+          "fte_share": 0.1776
+        },
+        "document_summarization": {
+          "contractor_spend_usd": 35812447551.11,
+          "fte_wage_bill_usd": 492492000,
+          "fte_count": 8400,
+          "annual_wage_per_fte": 58630,
+          "contract_share": 0.9864,
+          "fte_share": 0.0136
+        },
+        "it_help_desk": {
+          "contractor_spend_usd": 36405001866.6,
+          "fte_wage_bill_usd": 738466000,
+          "fte_count": 12200,
+          "annual_wage_per_fte": 60530,
+          "contract_share": 0.9801,
+          "fte_share": 0.0199
+        },
+        "foia_processing": {
+          "contractor_spend_usd": 36405001866.6,
+          "fte_wage_bill_usd": 626768000,
+          "fte_count": 4300,
+          "annual_wage_per_fte": 145760,
+          "contract_share": 0.9831,
+          "fte_share": 0.0169
+        },
+        "uscis_form_intake": {
+          "contractor_spend_usd": 47135721552.09,
+          "fte_wage_bill_usd": 790845000,
+          "fte_count": 16500,
+          "annual_wage_per_fte": 47930,
+          "contract_share": 0.9835,
+          "fte_share": 0.0165
+        },
+        "irs_notice_generation": {
+          "contractor_spend_usd": 47135721552.09,
+          "fte_wage_bill_usd": 1900395000,
+          "fte_count": 31500,
+          "annual_wage_per_fte": 60330,
+          "contract_share": 0.9612,
+          "fte_share": 0.0388
+        },
+        "va_appointment_scheduling": {
+          "contractor_spend_usd": 17913068641.4,
+          "fte_wage_bill_usd": 3867680000,
+          "fte_count": 92000,
+          "annual_wage_per_fte": 42040,
+          "contract_share": 0.8224,
+          "fte_share": 0.1776
+        }
+      },
+      "formula": "contract_share = contractor_spend / (contractor_spend + fte_count \u00d7 annual_wage)",
+      "caveat": "Contractor spend is from PSC totals (government-wide, broader than the workload), so the contract side is over-attributed. Directional only."
+    },
+    "cost_ratio_decomposition": {
+      "window_days": 90,
+      "from_date": "2026-02-04",
+      "to_date": "2026-04-13",
+      "composite_ratio_change_pct": 26.19,
+      "composite_human_share": 0.0,
+      "composite_ai_share": 1.0,
+      "per_workload": {
+        "snap_eligibility": {
+          "ratio_then": 77811.1,
+          "ratio_now": 98175.8,
+          "ratio_change_pct": 26.17,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.743,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        },
+        "unemployment_claims": {
+          "ratio_then": 90962.8,
+          "ratio_now": 114769.5,
+          "ratio_change_pct": 26.17,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.743,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        },
+        "call_center_triage": {
+          "ratio_then": 498.9,
+          "ratio_now": 629.6,
+          "ratio_change_pct": 26.2,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.7612,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        },
+        "document_summarization": {
+          "ratio_then": 742.6,
+          "ratio_now": 937.2,
+          "ratio_change_pct": 26.19,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.7574,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        },
+        "it_help_desk": {
+          "ratio_then": 26204.3,
+          "ratio_now": 33062.5,
+          "ratio_change_pct": 26.17,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.743,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        },
+        "foia_processing": {
+          "ratio_then": 16247.1,
+          "ratio_now": 20503.0,
+          "ratio_change_pct": 26.19,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.7574,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        },
+        "uscis_form_intake": {
+          "ratio_then": 51874.0,
+          "ratio_now": 65450.4,
+          "ratio_change_pct": 26.17,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.743,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        },
+        "irs_notice_generation": {
+          "ratio_then": 536.9,
+          "ratio_now": 677.6,
+          "ratio_change_pct": 26.2,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.7612,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        },
+        "va_appointment_scheduling": {
+          "ratio_then": 436.5,
+          "ratio_now": 550.9,
+          "ratio_change_pct": 26.2,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.7612,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        }
+      },
+      "method": "log(ratio_now/ratio_then) = log(h_now/h_then) - log(a_now/a_then). Each side's share = its log term divided by total log change. Composite = volume-weighted log changes.",
+      "caveat": "Reconstructed history holds human cost constant, so human_share is ~0 until live wage data accumulates. AI side reflects Compute CPI movement."
     }
   }
 }
