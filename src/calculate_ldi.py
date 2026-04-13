@@ -30,6 +30,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from fetch_bls import run as run_bls
 from fetch_fpds import run as run_fpds
 from fetch_opm import run as run_opm
+from derive_signals import run as run_derive
 
 
 AI_COST_MAP = {
@@ -568,6 +569,9 @@ def run_pipeline(force_refresh: bool = False):
     with open(historical_path, "w") as f:
         json.dump(history, f, indent=2)
     print(f"[LDI] Saved historical.json ({len(history['entries'])} entries)")
+
+    print("\n--- Computing derived signals (velocity, acceleration) ---")
+    run_derive()
 
     print("\n" + "=" * 60)
     print("  LDI CALCULATION COMPLETE")

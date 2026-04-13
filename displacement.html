@@ -93,7 +93,7 @@
                     </div>
                     <div style="font-size: 0.75rem; opacity: 0.65; line-height: 1.8; border-top: 1px solid rgba(0,0,0,0.15); padding-top: 0.75rem; width: 100%;">
                         <div>Source: <strong>FPDS contractor spend + AI procurement</strong></div>
-                        <div>Coverage: <strong id="sub-coverage">5 workload categories</strong></div>
+                        <div>Coverage: <strong id="sub-coverage">9 workload categories</strong></div>
                         <div>Absorption: <strong id="absorption-summary">—</strong></div>
                     </div>
                     <div style="font-size: 0.65rem; opacity: 0.5; line-height: 1.5; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 0.5rem; width: 100%;">What procurement data shows is actually shifting. Not nationally representative.</div>
@@ -113,6 +113,25 @@
                         <span style="opacity: 0.7;">Most points reconstructed from CPI snapshots; live entries marked.</span>
                     </div>
                 </div>
+
+                <!-- Velocity & acceleration callout -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 0.9rem 1.1rem;">
+                        <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted); margin-bottom: 0.35rem;">Substitution velocity</div>
+                        <div style="font-size: 1.5rem; font-weight: 600; line-height: 1; font-family: monospace;" id="velocity-value">—</div>
+                        <div style="font-size: 0.7rem; color: var(--fg-muted); margin-top: 0.35rem;">pp/month · 90-day window · <span id="velocity-samples">—</span></div>
+                    </div>
+                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 0.9rem 1.1rem;">
+                        <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted); margin-bottom: 0.35rem;">Acceleration</div>
+                        <div style="font-size: 1.5rem; font-weight: 600; line-height: 1; font-family: monospace;" id="acceleration-value">—</div>
+                        <div style="font-size: 0.7rem; color: var(--fg-muted); margin-top: 0.35rem;">pp/month/month · recent half vs prior half</div>
+                    </div>
+                </div>
+                <p style="font-size: 0.65rem; color: var(--fg-muted); margin-top: 0.5rem; line-height: 1.6;">
+                    Computed by least-squares slope on the historical series. Most input points are reconstructed from CPI snapshots
+                    with anchor-interpolated substitution rates — these numbers reflect the implied trajectory, not measurement-grade signal.
+                    The "samples_live" count grows with daily live runs.
+                </p>
             </section>
 
             <!-- What These Two Numbers Mean -->
@@ -123,15 +142,15 @@
             <!-- Per-Workload Data Table -->
             <section aria-labelledby="workload-table-heading" style="margin: 3rem 0;">
                 <h2 id="workload-table-heading" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Pilot Workloads</h2>
-                <p style="color: var(--fg-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Five federal workloads with legible SOC mappings, observable procurement records, and plausible AI substitution paths. Each row shows both signals — cost differential and estimated substitution — separately.</p>
+                <p style="color: var(--fg-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Nine federal workloads with legible SOC mappings, observable procurement records, and plausible AI substitution paths. Each row shows both signals — cost differential and estimated substitution — separately, plus the velocity (per-month change in substitution rate) derived from the historical series.</p>
 
                 <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; overflow-x: auto;">
                     <table id="workload-table" style="width: 100%; font-size: 0.8rem; border-collapse: collapse; min-width: 880px;">
                         <thead>
                             <tr style="border-bottom: 2px solid var(--border); background: var(--bg);">
-                                <th style="text-align: left; padding: 0.75rem 1rem; color: var(--fg-muted); font-weight: 600; width: 25%;">Workload</th>
+                                <th style="text-align: left; padding: 0.75rem 1rem; color: var(--fg-muted); font-weight: 600; width: 22%;">Workload</th>
                                 <th colspan="4" style="text-align: center; padding: 0.5rem 1rem; color: var(--fg-muted); font-weight: 600; border-bottom: 1px solid var(--border); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em;">Cost Differential (structural)</th>
-                                <th colspan="2" style="text-align: center; padding: 0.5rem 1rem; color: var(--fg-muted); font-weight: 600; border-bottom: 1px solid var(--border); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em;">Substitution Signal (observed)</th>
+                                <th colspan="3" style="text-align: center; padding: 0.5rem 1rem; color: var(--fg-muted); font-weight: 600; border-bottom: 1px solid var(--border); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em;">Substitution Signal (observed)</th>
                             </tr>
                             <tr style="border-bottom: 1px solid var(--border); background: var(--bg);">
                                 <th style="padding: 0.5rem 1rem;"></th>
@@ -140,18 +159,19 @@
                                 <th style="text-align: right; padding: 0.5rem 0.75rem; color: var(--fg-muted); font-weight: 500; font-size: 0.75rem;">Cost displacement ($)</th>
                                 <th style="text-align: right; padding: 0.5rem 0.75rem; color: var(--fg-muted); font-weight: 500; font-size: 0.75rem;">Cost ratio</th>
                                 <th style="text-align: right; padding: 0.5rem 0.75rem; color: var(--fg-muted); font-weight: 500; font-size: 0.75rem;">Sub rate</th>
+                                <th style="text-align: right; padding: 0.5rem 0.75rem; color: var(--fg-muted); font-weight: 500; font-size: 0.75rem;" title="Slope of substitution_rate vs date over the last 90 days, in percentage points per month">Velocity (pp/mo)</th>
                                 <th style="text-align: left; padding: 0.5rem 0.75rem; color: var(--fg-muted); font-weight: 500; font-size: 0.75rem;">Absorption</th>
                             </tr>
                         </thead>
                         <tbody id="workload-table-body">
                             <tr>
-                                <td colspan="7" style="padding: 2rem; text-align: center; color: var(--fg-muted);">Loading...</td>
+                                <td colspan="8" style="padding: 2rem; text-align: center; color: var(--fg-muted);">Loading...</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <p style="font-size: 0.7rem; color: var(--fg-muted); margin-top: 0.75rem; line-height: 1.6;">
-                    Human $/unit: BLS OEWS wages + ECEC multiplier (1.385×) × overhead (1.05×) ÷ 60 × O*NET min/unit. &nbsp;|&nbsp; AI $/unit: Compute CPI basket (classification, chat, or summarization tier). &nbsp;|&nbsp; Cost displacement ($): (human − AI) cost/unit × annual volume, if 100% routed to AI. Technical potential, not realized savings. &nbsp;|&nbsp; Sub rate: contractor spend YoY decline (60% weight) from live USAspending.gov API, FY2023→FY2024. AI component zeroed pending keyword contract search. &nbsp;|&nbsp; Absorption: inferred from JOLTS + FPDS signals.
+                    Human $/unit: BLS OEWS wages + ECEC multiplier (1.385×) × overhead (1.05×) ÷ 60 × O*NET min/unit. &nbsp;|&nbsp; AI $/unit: Compute CPI basket (classification, chat, or summarization tier). &nbsp;|&nbsp; Cost displacement ($): (human − AI) cost/unit × annual volume, if 100% routed to AI. Technical potential, not realized savings. &nbsp;|&nbsp; Sub rate: contractor spend YoY decline (60% weight) + AI procurement keyword-search YoY growth (40% weight), both from live USAspending.gov API, FY2023→FY2024. &nbsp;|&nbsp; Velocity: 90-day least-squares slope of sub rate, in pp/month. Mostly reconstructed today; live signal grows daily. &nbsp;|&nbsp; Absorption: OPM FedScope FTE delta (quantitative) + JOLTS/FPDS signals (qualitative).
                 </p>
             </section>
 
@@ -243,12 +263,14 @@ displacement    = (human_cost_per_unit − ai_cost_per_unit) × annual_volume
                 <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; margin-bottom: 1.5rem;">
                     <h3 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; color: var(--fg-muted);">Signal 2 — Substitution Rate (observable proxy)</h3>
                     <code style="display: block; background: var(--bg); padding: 1.25rem; border-radius: 4px; font-family: monospace; font-size: 0.85rem; line-height: 1.9; border: 1px solid var(--border);">
-sub_rate = contractor_decline_rate × 0.6 + 0 (AI component pending)
+sub_rate = contractor_decline_rate × 0.6 + ai_growth_rate × 0.4
 
 contractor_decline_rate = max(0, −yoy_change_pct / 100)
-yoy_change_pct          = (current_spend − prior_spend) / prior_spend × 100
+ai_growth_rate          = max(0, AI_award_total YoY growth, capped at 1.0)
 
-Source: USAspending.gov spending_by_category/psc/ — live API, FY2023→FY2024
+Sources:
+  · USAspending.gov spending_by_category/psc/ — PSC contractor totals, FY23→FY24
+  · USAspending.gov spending_by_award/ — AI keyword search across description text
                     </code>
                     <p style="font-size: 0.8rem; color: var(--fg-muted); margin-top: 1rem; line-height: 1.6;">
                         The contractor spend decline (60% weight) is from real USAspending.gov API data, aggregated at the PSC category level. The AI procurement component (40% weight) requires keyword-level contract title/description search to isolate AI-specific awards — this component is set to 0 pending that implementation. Important caveat: PSC categories are government-wide and far broader than the specific workloads (R499 "Professional Support: Other" is $32B/yr across all of government). As a result, the substitution rate is a very rough proxy and should be interpreted directionally, not as a precise share of tasks shifted to AI.
@@ -431,6 +453,31 @@ Source: USAspending.gov spending_by_category/psc/ — live API, FY2023→FY2024
                 const calloutEl = document.getElementById('callout-sub-rate');
                 if (calloutEl) calloutEl.textContent = subRateStr;
 
+                // Velocity / acceleration callouts
+                const sv = d.derived_signals?.substitution_velocity || {};
+                const velEl = document.getElementById('velocity-value');
+                const accEl = document.getElementById('acceleration-value');
+                const samplesEl = document.getElementById('velocity-samples');
+                if (velEl) {
+                    const v = sv.composite_monthly_pp;
+                    velEl.textContent = (v == null) ? '—' : (v > 0 ? '+' : '') + v.toFixed(2);
+                    velEl.style.color = (v == null) ? 'var(--fg-muted)'
+                        : (v > 0 ? 'var(--warning)' : (v < 0 ? 'var(--accent)' : 'var(--fg)'));
+                }
+                if (accEl) {
+                    const a = sv.composite_acceleration_monthly_pp_per_month;
+                    accEl.textContent = (a == null) ? '—' : (a > 0 ? '+' : '') + a.toFixed(3);
+                    accEl.style.color = (a == null) ? 'var(--fg-muted)'
+                        : (a > 0 ? 'var(--warning)' : (a < 0 ? 'var(--accent)' : 'var(--fg)'));
+                }
+                if (samplesEl) {
+                    samplesEl.textContent = `${sv.samples ?? 0} samples (${sv.samples_live ?? 0} live)`;
+                }
+                const subCoverage = document.getElementById('sub-coverage');
+                if (subCoverage && Object.keys(d.workloads || {}).length) {
+                    subCoverage.textContent = `${Object.keys(d.workloads).length} workload categories`;
+                }
+
                 // Absorption summary
                 const workloads = d.workloads || {};
                 const absorptions = Object.values(workloads).map(w => w.absorption?.classification).filter(Boolean);
@@ -442,9 +489,11 @@ Source: USAspending.gov spending_by_category/psc/ — live API, FY2023→FY2024
                 // Workload table
                 const tbody = document.getElementById('workload-table-body');
                 if (!Object.keys(workloads).length) {
-                    tbody.innerHTML = '<tr><td colspan="7" style="padding:2rem;text-align:center;color:var(--fg-muted);">No data</td></tr>';
+                    tbody.innerHTML = '<tr><td colspan="8" style="padding:2rem;text-align:center;color:var(--fg-muted);">No data</td></tr>';
                     return;
                 }
+
+                const perWorkloadVel = (d.derived_signals?.substitution_velocity?.per_workload) || {};
 
                 let rows = '';
                 for (const [id, w] of Object.entries(workloads)) {
@@ -460,6 +509,15 @@ Source: USAspending.gov spending_by_category/psc/ — live API, FY2023→FY2024
                     const fteStr = abs.fte_current
                         ? abs.fte_current.toLocaleString() + (fteDelta != null ? ` (${fteDelta > 0 ? '+' : ''}${fteDelta.toFixed(1)}%)` : '')
                         : '—';
+
+                    const velObj = perWorkloadVel[id] || {};
+                    const vel = velObj.velocity_monthly_pp;
+                    const velStr = (vel === null || vel === undefined)
+                        ? '—'
+                        : (vel > 0 ? '+' : '') + vel.toFixed(2);
+                    const velColor = (vel == null) ? 'var(--fg-muted)'
+                        : (vel > 0 ? 'var(--warning)' : (vel < 0 ? 'var(--accent)' : 'var(--fg-muted)'));
+
                     rows += `<tr style="border-bottom: 1px solid var(--border);">
                         <td style="padding: 0.75rem 1rem;">
                             <div style="font-weight: 600; color: var(--fg); margin-bottom: 0.1rem;">${w.name || id}</div>
@@ -470,6 +528,7 @@ Source: USAspending.gov spending_by_category/psc/ — live API, FY2023→FY2024
                         <td style="padding: 0.75rem 0.75rem; text-align: right; font-family: monospace;">${dispTotal ? fmtDollars(dispTotal) : '—'}</td>
                         <td style="padding: 0.75rem 0.75rem; text-align: right; font-weight: 600;">${costRatio ? costRatio.toLocaleString() + 'x' : '—'}</td>
                         <td style="padding: 0.75rem 0.75rem; text-align: right; font-family: monospace;">${fmt(sub.rate_pct, 1)}%</td>
+                        <td style="padding: 0.75rem 0.75rem; text-align: right; font-family: monospace; color: ${velColor};">${velStr}</td>
                         <td style="padding: 0.75rem 0.75rem;">
                             ${absorptionBadge(abs.classification)}
                             <div style="font-size: 0.65rem; color: var(--fg-muted); margin-top: 0.2rem; font-family: monospace;">FTE ${fteStr}</div>

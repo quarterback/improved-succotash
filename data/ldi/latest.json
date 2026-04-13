@@ -568,5 +568,72 @@
     "cpi_value": 69.1,
     "methodology_version": "1.1",
     "note": "substitution_rate is the observable signal (FPDS procurement proxy). cost_displacement is structural/technical potential at 100% substitution \u2014 not realized savings. These are distinct measurements."
+  },
+  "derived_signals": {
+    "substitution_velocity": {
+      "composite_monthly_pp": 0.2347,
+      "composite_acceleration_monthly_pp_per_month": 0.1441,
+      "window_days": 90,
+      "samples": 59,
+      "samples_live": 1,
+      "per_workload": {
+        "snap_eligibility": {
+          "velocity_monthly_pp": 0.105,
+          "acceleration_monthly_pp_per_month": 0.184,
+          "samples": 59,
+          "samples_live": 1
+        },
+        "unemployment_claims": {
+          "velocity_monthly_pp": 0.105,
+          "acceleration_monthly_pp_per_month": 0.184,
+          "samples": 59,
+          "samples_live": 1
+        },
+        "call_center_triage": {
+          "velocity_monthly_pp": 0.3475,
+          "acceleration_monthly_pp_per_month": 0.3334,
+          "samples": 59,
+          "samples_live": 1
+        },
+        "document_summarization": {
+          "velocity_monthly_pp": 0.105,
+          "acceleration_monthly_pp_per_month": 0.184,
+          "samples": 59,
+          "samples_live": 1
+        },
+        "it_help_desk": {
+          "velocity_monthly_pp": 0.105,
+          "acceleration_monthly_pp_per_month": 0.184,
+          "samples": 59,
+          "samples_live": 1
+        },
+        "foia_processing": {
+          "velocity_monthly_pp": 0.105,
+          "acceleration_monthly_pp_per_month": 0.184,
+          "samples": 59,
+          "samples_live": 1
+        },
+        "uscis_form_intake": {
+          "velocity_monthly_pp": 0.105,
+          "acceleration_monthly_pp_per_month": 0.184,
+          "samples": 59,
+          "samples_live": 1
+        },
+        "irs_notice_generation": {
+          "velocity_monthly_pp": 0.105,
+          "acceleration_monthly_pp_per_month": 0.184,
+          "samples": 59,
+          "samples_live": 1
+        },
+        "va_appointment_scheduling": {
+          "velocity_monthly_pp": 0.3044,
+          "acceleration_monthly_pp_per_month": 0.5336,
+          "samples": 59,
+          "samples_live": 1
+        }
+      },
+      "method": "Least-squares slope of substitution_rate_pct vs date over the last 90 days. Acceleration is the difference between the slope on the recent half of the window and the prior half. Reconstructed entries dominate today; samples_live shows how many live entries fed the slope.",
+      "interpretation": "Positive velocity = substitution rate is rising (more procurement-level evidence of AI displacement over time). Positive acceleration = it's rising faster than it was a window ago."
+    }
   }
 }
