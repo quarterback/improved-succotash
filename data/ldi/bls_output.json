@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-13T16:33:05.957461+00:00",
+  "generated_at": "2026-04-13T21:38:25.939882+00:00",
   "source": "BLS OEWS + ECEC",
   "api_data": false,
   "ecec_multiplier": 1.385,
@@ -85,6 +85,70 @@
       "cost_per_unit": 8.464,
       "cost_per_unit_unit": "USD per workload unit",
       "methodology": "hourly_wage = $60,530 / 2080 = $29.1010; fully_loaded = $29.1010 \u00d7 1.385 (ECEC) \u00d7 1.05 (overhead) = $42.3201/hr; cost_per_unit = $42.3201 / 60 \u00d7 12 min = $8.4640"
+    },
+    "foia_processing": {
+      "soc_code": "23-1011",
+      "soc_title": "Lawyers (proxy for FOIA officers and government information specialists)",
+      "annual_wage": 145760,
+      "wage_year": "2023",
+      "wage_source": "BLS OEWS May 2023 (static fallback)",
+      "hourly_wage": 70.0769,
+      "ecec_multiplier": 1.385,
+      "overhead_factor": 1.05,
+      "ecec_source": "BLS ECEC Q4 2024 (https://www.bls.gov/ect/): Government worker wages are approximately 72.2% of total compensation (implies benefit multiplier = 1/0.722 = 1.385). Additional overhead factor 1.05\u00d7 applied for training, equipment, and facilities. Combined fully loaded factor = 1.385 \u00d7 1.05 = 1.4543. Note: ECEC parameters are static constants derived from published ECEC tables, not fetched via API. ECEC API does not provide a machine-readable series for the government benefit cost share.",
+      "fully_loaded_hourly": 101.9094,
+      "minutes_per_unit": 220,
+      "cost_per_unit": 373.6677,
+      "cost_per_unit_unit": "USD per workload unit",
+      "methodology": "hourly_wage = $145,760 / 2080 = $70.0769; fully_loaded = $70.0769 \u00d7 1.385 (ECEC) \u00d7 1.05 (overhead) = $101.9094/hr; cost_per_unit = $101.9094 / 60 \u00d7 220 min = $373.6677"
+    },
+    "uscis_form_intake": {
+      "soc_code": "13-1041",
+      "soc_title": "Eligibility Interviewers, Government Programs (USCIS Immigration Services Officers map to this SOC family)",
+      "annual_wage": 47930,
+      "wage_year": "2023",
+      "wage_source": "BLS OEWS May 2023 (static fallback)",
+      "hourly_wage": 23.0433,
+      "ecec_multiplier": 1.385,
+      "overhead_factor": 1.05,
+      "ecec_source": "BLS ECEC Q4 2024 (https://www.bls.gov/ect/): Government worker wages are approximately 72.2% of total compensation (implies benefit multiplier = 1/0.722 = 1.385). Additional overhead factor 1.05\u00d7 applied for training, equipment, and facilities. Combined fully loaded factor = 1.385 \u00d7 1.05 = 1.4543. Note: ECEC parameters are static constants derived from published ECEC tables, not fetched via API. ECEC API does not provide a machine-readable series for the government benefit cost share.",
+      "fully_loaded_hourly": 33.5107,
+      "minutes_per_unit": 30,
+      "cost_per_unit": 16.7553,
+      "cost_per_unit_unit": "USD per workload unit",
+      "methodology": "hourly_wage = $47,930 / 2080 = $23.0433; fully_loaded = $23.0433 \u00d7 1.385 (ECEC) \u00d7 1.05 (overhead) = $33.5107/hr; cost_per_unit = $33.5107 / 60 \u00d7 30 min = $16.7553"
+    },
+    "irs_notice_generation": {
+      "soc_code": "13-2081",
+      "soc_title": "Tax Examiners and Collectors, and Revenue Agents",
+      "annual_wage": 60330,
+      "wage_year": "2023",
+      "wage_source": "BLS OEWS May 2023 (static fallback)",
+      "hourly_wage": 29.0048,
+      "ecec_multiplier": 1.385,
+      "overhead_factor": 1.05,
+      "ecec_source": "BLS ECEC Q4 2024 (https://www.bls.gov/ect/): Government worker wages are approximately 72.2% of total compensation (implies benefit multiplier = 1/0.722 = 1.385). Additional overhead factor 1.05\u00d7 applied for training, equipment, and facilities. Combined fully loaded factor = 1.385 \u00d7 1.05 = 1.4543. Note: ECEC parameters are static constants derived from published ECEC tables, not fetched via API. ECEC API does not provide a machine-readable series for the government benefit cost share.",
+      "fully_loaded_hourly": 42.1802,
+      "minutes_per_unit": 6,
+      "cost_per_unit": 4.218,
+      "cost_per_unit_unit": "USD per workload unit",
+      "methodology": "hourly_wage = $60,330 / 2080 = $29.0048; fully_loaded = $29.0048 \u00d7 1.385 (ECEC) \u00d7 1.05 (overhead) = $42.1802/hr; cost_per_unit = $42.1802 / 60 \u00d7 6 min = $4.2180"
+    },
+    "va_appointment_scheduling": {
+      "soc_code": "43-4051",
+      "soc_title": "Customer Service Representatives (VA Medical Support Assistants map here)",
+      "annual_wage": 42040,
+      "wage_year": "2023",
+      "wage_source": "BLS OEWS May 2023 (static fallback)",
+      "hourly_wage": 20.2115,
+      "ecec_multiplier": 1.385,
+      "overhead_factor": 1.05,
+      "ecec_source": "BLS ECEC Q4 2024 (https://www.bls.gov/ect/): Government worker wages are approximately 72.2% of total compensation (implies benefit multiplier = 1/0.722 = 1.385). Additional overhead factor 1.05\u00d7 applied for training, equipment, and facilities. Combined fully loaded factor = 1.385 \u00d7 1.05 = 1.4543. Note: ECEC parameters are static constants derived from published ECEC tables, not fetched via API. ECEC API does not provide a machine-readable series for the government benefit cost share.",
+      "fully_loaded_hourly": 29.3926,
+      "minutes_per_unit": 7,
+      "cost_per_unit": 3.4291,
+      "cost_per_unit_unit": "USD per workload unit",
+      "methodology": "hourly_wage = $42,040 / 2080 = $20.2115; fully_loaded = $20.2115 \u00d7 1.385 (ECEC) \u00d7 1.05 (overhead) = $29.3926/hr; cost_per_unit = $29.3926 / 60 \u00d7 7 min = $3.4291"
     }
   }
 }

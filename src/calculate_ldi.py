@@ -29,6 +29,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from fetch_bls import run as run_bls
 from fetch_fpds import run as run_fpds
+from fetch_opm import run as run_opm
 
 
 AI_COST_MAP = {
@@ -75,6 +76,22 @@ VOLUME_ESTIMATES = {
     "it_help_desk": {
         "annual_units": 18_000_000,
         "source": "Federal civilian workforce 2.1M × ~8.5 tickets/employee/year (ITSM benchmark)"
+    },
+    "foia_processing": {
+        "annual_units": 1_500_000,
+        "source": "DOJ OIP FOIA Annual Report FY2023: ~1.5M federal FOIA requests received government-wide"
+    },
+    "uscis_form_intake": {
+        "annual_units": 8_000_000,
+        "source": "USCIS FY2024 quarterly data: ~8M form filings annually across all benefit categories"
+    },
+    "irs_notice_generation": {
+        "annual_units": 200_000_000,
+        "source": "IRS Data Book FY2023: ~200M pieces of correspondence (math-error, balance-due, identity-verification, routine response notices)"
+    },
+    "va_appointment_scheduling": {
+        "annual_units": 130_000_000,
+        "source": "VA Health Care FY2023 utilization: 130M outpatient appointments (each with ≥1 scheduling touch)"
     }
 }
 
@@ -118,6 +135,38 @@ ABSORPTION_RULES = {
             "AI-assisted ticketing tools deployed (ServiceNow AI, AWS Connect). "
             "No backfill of vacated Tier-1 positions. Budget justification omits replacement headcount."
         )
+    },
+    "foia_processing": {
+        "classification": "reallocated",
+        "reasoning": (
+            "FOIA officer headcount roughly flat while request volume grows 5-7%/yr. "
+            "AI-assisted redaction (DoD's RELYANT, State Department's FOIA Online) "
+            "redirects officers from mechanical redaction to exemption-decision work."
+        )
+    },
+    "uscis_form_intake": {
+        "classification": "reallocated",
+        "reasoning": (
+            "USCIS Immigration Services Officers seeing case-mix shift toward complex "
+            "adjudications as ELIS automates routine intake. Backlog still growing — "
+            "absorption is into harder cases, not headcount cuts."
+        )
+    },
+    "irs_notice_generation": {
+        "classification": "frozen",
+        "reasoning": (
+            "IRS hiring restraint after FY2024 staffing recalibration. Notice generation "
+            "automation reduces need for manual correspondence drafting; vacated routine "
+            "correspondence positions not backfilled."
+        )
+    },
+    "va_appointment_scheduling": {
+        "classification": "reallocated",
+        "reasoning": (
+            "VHA Medical Support Assistants being redirected to in-person patient navigation "
+            "as AI voice scheduling agents handle routine slot-finding. Headcount stable; "
+            "task mix shifting toward complex care coordination."
+        )
     }
 }
 
@@ -139,6 +188,14 @@ def load_bls_output() -> dict:
 
 def load_fpds_output() -> dict:
     path = LDI_DIR / "fpds_output.json"
+    if path.exists():
+        with open(path) as f:
+            return json.load(f)
+    return {}
+
+
+def load_opm_output() -> dict:
+    path = LDI_DIR / "opm_output.json"
     if path.exists():
         with open(path) as f:
             return json.load(f)
@@ -318,9 +375,17 @@ def run_pipeline(force_refresh: bool = False):
     else:
         print(f"[LDI] Using cached FPDS data ({fpds_path})")
 
+    opm_path = LDI_DIR / "opm_output.json"
+    if force_refresh or not opm_path.exists():
+        print("\n--- Running OPM FedScope pipeline ---")
+        run_opm()
+    else:
+        print(f"[LDI] Using cached OPM data ({opm_path})")
+
     workload_map = load_workload_map()
     bls_data = load_bls_output()
     fpds_data = load_fpds_output()
+    opm_data = load_opm_output()
     cpi_data = load_cpi_data()
 
     if not workload_map:
@@ -342,6 +407,7 @@ def run_pipeline(force_refresh: bool = False):
 
         bls_workload = bls_data.get("workloads", {}).get(workload_id)
         fpds_workload = fpds_data.get("workloads", {}).get(workload_id, {})
+        opm_workload = opm_data.get("workloads", {}).get(workload_id, {})
         volume_info = VOLUME_ESTIMATES.get(workload_id, {})
         absorption_info = ABSORPTION_RULES.get(workload_id, {})
 
@@ -390,12 +456,22 @@ def run_pipeline(force_refresh: bool = False):
                 "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
                 "current_fy_spend": fpds_workload.get("current_spend"),
                 "yoy_change_pct": fpds_workload.get("yoy_change_pct"),
-                "ai_procurement_yoy": fpds_workload.get("ai_procurement_yoy_change_pct")
+                "ai_procurement_current": fpds_workload.get("ai_procurement_current"),
+                "ai_procurement_prior": fpds_workload.get("ai_procurement_prior"),
+                "ai_procurement_yoy": fpds_workload.get("ai_procurement_yoy_change_pct"),
+                "ai_growth_rate": fpds_workload.get("ai_growth_rate_used"),
+                "ai_growth_source": fpds_workload.get("ai_growth_source"),
             },
             "absorption": {
                 "classification": absorption_info.get("classification", "unknown"),
                 "reasoning": absorption_info.get("reasoning", ""),
-                "color": ABSORPTION_COLOR.get(absorption_info.get("classification", ""), "accent")
+                "color": ABSORPTION_COLOR.get(absorption_info.get("classification", ""), "accent"),
+                "fte_current": opm_workload.get("fte_current"),
+                "fte_prior": opm_workload.get("fte_prior"),
+                "fte_delta_pct": opm_workload.get("fte_delta_pct"),
+                "absorption_quant": opm_workload.get("absorption_quant"),
+                "primary_agencies": opm_workload.get("primary_agencies"),
+                "fte_source": opm_workload.get("source"),
             },
             "volume": {
                 "annual_units": annual_units,
@@ -435,7 +511,7 @@ def run_pipeline(force_refresh: bool = False):
         },
         "workloads": workload_results,
         "meta": {
-            "sources": ["BLS OEWS", "BLS ECEC", "USAspending.gov FPDS", "Compute CPI basket"],
+            "sources": ["BLS OEWS", "BLS ECEC", "USAspending.gov FPDS", "OPM FedScope", "Compute CPI basket"],
             "pilot_workload_ids": list(workload_results.keys()),
             "cpi_value": cpi_data.get("compute_cpi", {}).get("value"),
             "methodology_version": "1.1",

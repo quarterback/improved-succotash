@@ -1,11 +1,3710 @@
 {
   "entries": [
     {
-      "date": "2026-04-13",
-      "substitution_rate_pct": 2.21,
-      "cost_displacement_usd": 2203859276.25,
-      "avg_cost_ratio": 49515.0,
-      "workload_count": 5,
+      "date": "2025-02-01",
+      "substitution_rate_pct": 0.3,
+      "cost_displacement_usd": 4184477101.25,
+      "avg_cost_ratio": 25733.0,
+      "workload_count": 9,
+      "cpi_value": 100.0,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.00037,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.00037,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 0.31,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.009009,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.026375,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.00037,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.026375,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.00037,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.009009,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.009009,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2025-05-01",
+      "substitution_rate_pct": 0.55,
+      "cost_displacement_usd": 4185064257.25,
+      "avg_cost_ratio": 30135.0,
+      "workload_count": 9,
+      "cpi_value": 85.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000316,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000316,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 0.568,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007675,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022471,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000316,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022471,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000316,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007675,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007675,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2025-08-01",
+      "substitution_rate_pct": 0.92,
+      "cost_displacement_usd": 4185325792.25,
+      "avg_cost_ratio": 32720.0,
+      "workload_count": 9,
+      "cpi_value": 78.6,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000291,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000291,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 0.95,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.020731,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000291,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.020731,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000291,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2025-11-01",
+      "substitution_rate_pct": 1.4,
+      "cost_displacement_usd": 4185476771.0,
+      "avg_cost_ratio": 34374.0,
+      "workload_count": 9,
+      "cpi_value": 74.8,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000277,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000277,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 1.446,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.006738,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.019728,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000277,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.019728,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000277,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.006738,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.006738,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-01-01",
+      "substitution_rate_pct": 1.698,
+      "cost_displacement_usd": 4185540168.5,
+      "avg_cost_ratio": 35135.0,
+      "workload_count": 9,
+      "cpi_value": 73.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000271,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000271,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 1.753,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.006594,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.019306,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000271,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.019306,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000271,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.006594,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.006594,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-02-04",
+      "substitution_rate_pct": 1.865,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 1.926,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-02-14",
+      "substitution_rate_pct": 1.916,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 1.978,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-02-15",
+      "substitution_rate_pct": 1.921,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 1.984,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-02-16",
+      "substitution_rate_pct": 1.926,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 1.989,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-02-17",
+      "substitution_rate_pct": 1.931,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 1.994,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-02-18",
+      "substitution_rate_pct": 1.936,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 1.999,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-02-19",
+      "substitution_rate_pct": 1.941,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.004,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-02-20",
+      "substitution_rate_pct": 1.946,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.009,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-02-21",
+      "substitution_rate_pct": 1.951,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.015,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-02-22",
+      "substitution_rate_pct": 1.956,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.02,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-02-23",
+      "substitution_rate_pct": 1.962,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.026,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-02-24",
+      "substitution_rate_pct": 1.967,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.031,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-02-25",
+      "substitution_rate_pct": 1.972,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.036,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-02-26",
+      "substitution_rate_pct": 1.977,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.041,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-02-27",
+      "substitution_rate_pct": 1.982,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.047,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-02-28",
+      "substitution_rate_pct": 1.987,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.052,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-01",
+      "substitution_rate_pct": 1.992,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.057,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-02",
+      "substitution_rate_pct": 1.997,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.062,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-03",
+      "substitution_rate_pct": 2.002,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.067,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-04",
+      "substitution_rate_pct": 2.007,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.072,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-05",
+      "substitution_rate_pct": 2.012,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.078,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-06",
+      "substitution_rate_pct": 2.017,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.083,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-07",
+      "substitution_rate_pct": 2.022,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.088,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-08",
+      "substitution_rate_pct": 2.027,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.093,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-09",
+      "substitution_rate_pct": 2.033,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.099,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-10",
+      "substitution_rate_pct": 2.038,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.104,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-11",
+      "substitution_rate_pct": 2.043,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.11,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-12",
+      "substitution_rate_pct": 2.048,
+      "cost_displacement_usd": 4184984623.25,
+      "avg_cost_ratio": 29479.0,
+      "workload_count": 9,
+      "cpi_value": 87.2,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.115,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.022999,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000323,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.007856,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-13",
+      "substitution_rate_pct": 2.053,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.12,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-14",
+      "substitution_rate_pct": 2.058,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.125,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-15",
+      "substitution_rate_pct": 2.063,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.13,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-16",
+      "substitution_rate_pct": 2.068,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.135,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-17",
+      "substitution_rate_pct": 2.073,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.141,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-18",
+      "substitution_rate_pct": 2.078,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.146,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-19",
+      "substitution_rate_pct": 2.083,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.151,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-20",
+      "substitution_rate_pct": 2.088,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.156,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-21",
+      "substitution_rate_pct": 2.093,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.161,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-22",
+      "substitution_rate_pct": 2.098,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.166,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-23",
+      "substitution_rate_pct": 2.104,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.173,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-24",
+      "substitution_rate_pct": 2.109,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.178,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-25",
+      "substitution_rate_pct": 2.114,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.183,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-26",
+      "substitution_rate_pct": 2.119,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.188,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-27",
+      "substitution_rate_pct": 2.124,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.193,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-28",
+      "substitution_rate_pct": 2.129,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.198,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-29",
+      "substitution_rate_pct": 2.134,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.204,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-30",
+      "substitution_rate_pct": 2.139,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.209,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "substitution_rate_pct": 2.144,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.214,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-04-01",
+      "substitution_rate_pct": 2.149,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.219,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-04-02",
+      "substitution_rate_pct": 2.154,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.224,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-04-03",
+      "substitution_rate_pct": 2.159,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.229,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-04-04",
+      "substitution_rate_pct": 2.164,
+      "cost_displacement_usd": 4184885598.5,
+      "avg_cost_ratio": 28679.0,
+      "workload_count": 9,
+      "cpi_value": 89.7,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.235,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.023658,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000332,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.008081,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-04-05",
+      "substitution_rate_pct": 2.169,
+      "cost_displacement_usd": 4185702590.75,
+      "avg_cost_ratio": 37195.0,
+      "workload_count": 9,
+      "cpi_value": 69.1,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
       "workloads": {
         "snap_eligibility": {
           "substitution_rate_pct": 0.0,
@@ -20,7 +3719,7 @@
           "absorption": "frozen"
         },
         "call_center_triage": {
-          "substitution_rate_pct": 3.99,
+          "substitution_rate_pct": 2.24,
           "human_cost_per_unit": 3.919,
           "ai_cost_per_unit": 0.006225,
           "absorption": "reallocated"
@@ -36,6 +3735,489 @@
           "human_cost_per_unit": 8.464,
           "ai_cost_per_unit": 0.000256,
           "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.018225,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-04-06",
+      "substitution_rate_pct": 2.175,
+      "cost_displacement_usd": 4185702590.75,
+      "avg_cost_ratio": 37195.0,
+      "workload_count": 9,
+      "cpi_value": 69.1,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.246,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.018225,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.018225,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-04-08",
+      "substitution_rate_pct": 2.185,
+      "cost_displacement_usd": 4185702590.75,
+      "avg_cost_ratio": 37195.0,
+      "workload_count": 9,
+      "cpi_value": 69.1,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.256,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.018225,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.018225,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-04-09",
+      "substitution_rate_pct": 2.19,
+      "cost_displacement_usd": 4185702590.75,
+      "avg_cost_ratio": 37195.0,
+      "workload_count": 9,
+      "cpi_value": 69.1,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.261,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.018225,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.018225,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-04-10",
+      "substitution_rate_pct": 2.195,
+      "cost_displacement_usd": 4185702590.75,
+      "avg_cost_ratio": 37195.0,
+      "workload_count": 9,
+      "cpi_value": 69.1,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.267,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.018225,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.018225,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-04-11",
+      "substitution_rate_pct": 2.2,
+      "cost_displacement_usd": 4185702590.75,
+      "avg_cost_ratio": 37195.0,
+      "workload_count": 9,
+      "cpi_value": 69.1,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.272,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.018225,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.018225,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-04-12",
+      "substitution_rate_pct": 2.205,
+      "cost_displacement_usd": 4185702590.75,
+      "avg_cost_ratio": 37195.0,
+      "workload_count": 9,
+      "cpi_value": 69.1,
+      "reconstructed": true,
+      "reconstruction_method": "AI cost scaled by CPI ratio against current snapshot. Substitution rate interpolated from monthly anchors. Human cost / volume / absorption held constant.",
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 2.277,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.018225,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.018225,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 0.0,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "reallocated"
+        }
+      }
+    },
+    {
+      "date": "2026-04-13",
+      "substitution_rate_pct": 3.86,
+      "cost_displacement_usd": 4185702590.75,
+      "avg_cost_ratio": 37195.0,
+      "workload_count": 9,
+      "workloads": {
+        "snap_eligibility": {
+          "substitution_rate_pct": 2.1,
+          "human_cost_per_unit": 25.133,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "reallocated"
+        },
+        "unemployment_claims": {
+          "substitution_rate_pct": 2.1,
+          "human_cost_per_unit": 29.381,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "frozen"
+        },
+        "call_center_triage": {
+          "substitution_rate_pct": 6.09,
+          "human_cost_per_unit": 3.919,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "reallocated"
+        },
+        "document_summarization": {
+          "substitution_rate_pct": 2.1,
+          "human_cost_per_unit": 17.0799,
+          "ai_cost_per_unit": 0.018225,
+          "absorption": "reallocated"
+        },
+        "it_help_desk": {
+          "substitution_rate_pct": 2.1,
+          "human_cost_per_unit": 8.464,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "frozen"
+        },
+        "foia_processing": {
+          "substitution_rate_pct": 2.1,
+          "human_cost_per_unit": 373.6677,
+          "ai_cost_per_unit": 0.018225,
+          "absorption": "reallocated"
+        },
+        "uscis_form_intake": {
+          "substitution_rate_pct": 2.1,
+          "human_cost_per_unit": 16.7553,
+          "ai_cost_per_unit": 0.000256,
+          "absorption": "reallocated"
+        },
+        "irs_notice_generation": {
+          "substitution_rate_pct": 2.1,
+          "human_cost_per_unit": 4.218,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "frozen"
+        },
+        "va_appointment_scheduling": {
+          "substitution_rate_pct": 6.09,
+          "human_cost_per_unit": 3.4291,
+          "ai_cost_per_unit": 0.006225,
+          "absorption": "reallocated"
         }
       }
     }

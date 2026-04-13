@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-13T16:33:07.886109+00:00",
+  "generated_at": "2026-04-13T21:38:47.937402+00:00",
   "source": "USAspending.gov FPDS",
   "fiscal_years": {
     "current": 2024,
@@ -24,6 +24,16 @@
       "U099": 1449949845.44,
       "D302": 881270828.28
     }
+  },
+  "ai_procurement_summary": {
+    "fy2024_total": 1683741573.48,
+    "fy2023_total": 1599966119.3,
+    "global_yoy_growth_rate": 0.0524,
+    "fy2024_award_count": 655,
+    "fy2023_award_count": 622,
+    "workload_attribution_fy2024": {},
+    "workload_attribution_fy2023": {},
+    "method": "spending_by_award keyword search across 13 AI-related keywords. Awards deduped by award_id; per-workload attribution via description/recipient text matching against AI_KEYWORD_WORKLOAD_HINTS."
   },
   "workloads": {
     "snap_eligibility": {
@@ -51,12 +61,15 @@
       "current_spend": 47960957191.3,
       "prior_spend": 44208615533.57,
       "yoy_change_pct": 8.49,
-      "ai_procurement_spend": null,
-      "ai_procurement_notes": "AI-specific procurement share not computable from PSC-level totals. Requires contract-level keyword search (award title/description) on USAspending.gov \u2014 not yet implemented. AI component set to 0 in sub_rate.",
-      "substitution_rate_proxy": 0.0,
+      "ai_procurement_current": 0.0,
+      "ai_procurement_prior": 0.0,
+      "ai_procurement_yoy_change_pct": null,
+      "ai_growth_rate_used": 0.0524,
+      "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)",
+      "substitution_rate_proxy": 0.021,
       "source": "USAspending.gov API (live)",
       "missing_psc_codes": [],
-      "substitution_rate_methodology": "sub_rate = contractor_decline_rate \u00d7 0.6 + 0 (AI component pending). contractor_decline_rate = max(0, -yoy_change_pct/100). Only applied when contractor spend is declining. Note: PSC categories are government-wide and broader than the specific workloads."
+      "substitution_rate_methodology": "sub_rate = contractor_decline_rate \u00d7 0.6 + ai_growth_rate \u00d7 0.4. contractor_decline_rate = max(0, -yoy_change_pct/100), capped at 1.0. ai_growth_rate from spending_by_award keyword search (per-workload if any keyword attribution, else global AI growth). Note: PSC categories are government-wide and broader than the specific workloads."
     },
     "unemployment_claims": {
       "psc_codes": [
@@ -83,12 +96,15 @@
       "current_spend": 47135721552.09,
       "prior_spend": 42911469717.44,
       "yoy_change_pct": 9.84,
-      "ai_procurement_spend": null,
-      "ai_procurement_notes": "AI-specific procurement share not computable from PSC-level totals. Requires contract-level keyword search (award title/description) on USAspending.gov \u2014 not yet implemented. AI component set to 0 in sub_rate.",
-      "substitution_rate_proxy": 0.0,
+      "ai_procurement_current": 0.0,
+      "ai_procurement_prior": 0.0,
+      "ai_procurement_yoy_change_pct": null,
+      "ai_growth_rate_used": 0.0524,
+      "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)",
+      "substitution_rate_proxy": 0.021,
       "source": "USAspending.gov API (live)",
       "missing_psc_codes": [],
-      "substitution_rate_methodology": "sub_rate = contractor_decline_rate \u00d7 0.6 + 0 (AI component pending). contractor_decline_rate = max(0, -yoy_change_pct/100). Only applied when contractor spend is declining. Note: PSC categories are government-wide and broader than the specific workloads."
+      "substitution_rate_methodology": "sub_rate = contractor_decline_rate \u00d7 0.6 + ai_growth_rate \u00d7 0.4. contractor_decline_rate = max(0, -yoy_change_pct/100), capped at 1.0. ai_growth_rate from spending_by_award keyword search (per-workload if any keyword attribution, else global AI growth). Note: PSC categories are government-wide and broader than the specific workloads."
     },
     "call_center_triage": {
       "psc_codes": [
@@ -115,12 +131,15 @@
       "current_spend": 17913068641.4,
       "prior_spend": 19190655457.33,
       "yoy_change_pct": -6.66,
-      "ai_procurement_spend": null,
-      "ai_procurement_notes": "AI-specific procurement share not computable from PSC-level totals. Requires contract-level keyword search (award title/description) on USAspending.gov \u2014 not yet implemented. AI component set to 0 in sub_rate.",
-      "substitution_rate_proxy": 0.0399,
+      "ai_procurement_current": 0.0,
+      "ai_procurement_prior": 0.0,
+      "ai_procurement_yoy_change_pct": null,
+      "ai_growth_rate_used": 0.0524,
+      "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)",
+      "substitution_rate_proxy": 0.0609,
       "source": "USAspending.gov API (live)",
       "missing_psc_codes": [],
-      "substitution_rate_methodology": "sub_rate = contractor_decline_rate \u00d7 0.6 + 0 (AI component pending). contractor_decline_rate = max(0, -yoy_change_pct/100). Only applied when contractor spend is declining. Note: PSC categories are government-wide and broader than the specific workloads."
+      "substitution_rate_methodology": "sub_rate = contractor_decline_rate \u00d7 0.6 + ai_growth_rate \u00d7 0.4. contractor_decline_rate = max(0, -yoy_change_pct/100), capped at 1.0. ai_growth_rate from spending_by_award keyword search (per-workload if any keyword attribution, else global AI growth). Note: PSC categories are government-wide and broader than the specific workloads."
     },
     "document_summarization": {
       "psc_codes": [
@@ -142,12 +161,15 @@
       "current_spend": 35812447551.11,
       "prior_spend": 35002602870.87,
       "yoy_change_pct": 2.31,
-      "ai_procurement_spend": null,
-      "ai_procurement_notes": "AI-specific procurement share not computable from PSC-level totals. Requires contract-level keyword search (award title/description) on USAspending.gov \u2014 not yet implemented. AI component set to 0 in sub_rate.",
-      "substitution_rate_proxy": 0.0,
+      "ai_procurement_current": 0.0,
+      "ai_procurement_prior": 0.0,
+      "ai_procurement_yoy_change_pct": null,
+      "ai_growth_rate_used": 0.0524,
+      "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)",
+      "substitution_rate_proxy": 0.021,
       "source": "USAspending.gov API (live)",
       "missing_psc_codes": [],
-      "substitution_rate_methodology": "sub_rate = contractor_decline_rate \u00d7 0.6 + 0 (AI component pending). contractor_decline_rate = max(0, -yoy_change_pct/100). Only applied when contractor spend is declining. Note: PSC categories are government-wide and broader than the specific workloads."
+      "substitution_rate_methodology": "sub_rate = contractor_decline_rate \u00d7 0.6 + ai_growth_rate \u00d7 0.4. contractor_decline_rate = max(0, -yoy_change_pct/100), capped at 1.0. ai_growth_rate from spending_by_award keyword search (per-workload if any keyword attribution, else global AI growth). Note: PSC categories are government-wide and broader than the specific workloads."
     },
     "it_help_desk": {
       "psc_codes": [
@@ -174,12 +196,155 @@
       "current_spend": 36405001866.6,
       "prior_spend": 35883873699.15,
       "yoy_change_pct": 1.45,
-      "ai_procurement_spend": null,
-      "ai_procurement_notes": "AI-specific procurement share not computable from PSC-level totals. Requires contract-level keyword search (award title/description) on USAspending.gov \u2014 not yet implemented. AI component set to 0 in sub_rate.",
-      "substitution_rate_proxy": 0.0,
+      "ai_procurement_current": 0.0,
+      "ai_procurement_prior": 0.0,
+      "ai_procurement_yoy_change_pct": null,
+      "ai_growth_rate_used": 0.0524,
+      "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)",
+      "substitution_rate_proxy": 0.021,
       "source": "USAspending.gov API (live)",
       "missing_psc_codes": [],
-      "substitution_rate_methodology": "sub_rate = contractor_decline_rate \u00d7 0.6 + 0 (AI component pending). contractor_decline_rate = max(0, -yoy_change_pct/100). Only applied when contractor spend is declining. Note: PSC categories are government-wide and broader than the specific workloads."
+      "substitution_rate_methodology": "sub_rate = contractor_decline_rate \u00d7 0.6 + ai_growth_rate \u00d7 0.4. contractor_decline_rate = max(0, -yoy_change_pct/100), capped at 1.0. ai_growth_rate from spending_by_award keyword search (per-workload if any keyword attribution, else global AI growth). Note: PSC categories are government-wide and broader than the specific workloads."
+    },
+    "foia_processing": {
+      "psc_codes": [
+        "R499",
+        "D399",
+        "D302"
+      ],
+      "psc_codes_resolved": {
+        "R499": {
+          "fy2024": 32517550230.9,
+          "fy2023": 29361708565.49
+        },
+        "D399": {
+          "fy2024": 3294897320.21,
+          "fy2023": 5640894305.38
+        },
+        "D302": {
+          "fy2024": 592554315.49,
+          "fy2023": 881270828.28
+        }
+      },
+      "current_fy": 2024,
+      "prior_fy": 2023,
+      "current_spend": 36405001866.6,
+      "prior_spend": 35883873699.15,
+      "yoy_change_pct": 1.45,
+      "ai_procurement_current": 0.0,
+      "ai_procurement_prior": 0.0,
+      "ai_procurement_yoy_change_pct": null,
+      "ai_growth_rate_used": 0.0524,
+      "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)",
+      "substitution_rate_proxy": 0.021,
+      "source": "USAspending.gov API (live)",
+      "missing_psc_codes": [],
+      "substitution_rate_methodology": "sub_rate = contractor_decline_rate \u00d7 0.6 + ai_growth_rate \u00d7 0.4. contractor_decline_rate = max(0, -yoy_change_pct/100), capped at 1.0. ai_growth_rate from spending_by_award keyword search (per-workload if any keyword attribution, else global AI growth). Note: PSC categories are government-wide and broader than the specific workloads."
+    },
+    "uscis_form_intake": {
+      "psc_codes": [
+        "R408",
+        "R499",
+        "D302"
+      ],
+      "psc_codes_resolved": {
+        "R408": {
+          "fy2024": 14025617005.7,
+          "fy2023": 12668490323.67
+        },
+        "R499": {
+          "fy2024": 32517550230.9,
+          "fy2023": 29361708565.49
+        },
+        "D302": {
+          "fy2024": 592554315.49,
+          "fy2023": 881270828.28
+        }
+      },
+      "current_fy": 2024,
+      "prior_fy": 2023,
+      "current_spend": 47135721552.09,
+      "prior_spend": 42911469717.44,
+      "yoy_change_pct": 9.84,
+      "ai_procurement_current": 0.0,
+      "ai_procurement_prior": 0.0,
+      "ai_procurement_yoy_change_pct": null,
+      "ai_growth_rate_used": 0.0524,
+      "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)",
+      "substitution_rate_proxy": 0.021,
+      "source": "USAspending.gov API (live)",
+      "missing_psc_codes": [],
+      "substitution_rate_methodology": "sub_rate = contractor_decline_rate \u00d7 0.6 + ai_growth_rate \u00d7 0.4. contractor_decline_rate = max(0, -yoy_change_pct/100), capped at 1.0. ai_growth_rate from spending_by_award keyword search (per-workload if any keyword attribution, else global AI growth). Note: PSC categories are government-wide and broader than the specific workloads."
+    },
+    "irs_notice_generation": {
+      "psc_codes": [
+        "R408",
+        "R499",
+        "D302"
+      ],
+      "psc_codes_resolved": {
+        "R408": {
+          "fy2024": 14025617005.7,
+          "fy2023": 12668490323.67
+        },
+        "R499": {
+          "fy2024": 32517550230.9,
+          "fy2023": 29361708565.49
+        },
+        "D302": {
+          "fy2024": 592554315.49,
+          "fy2023": 881270828.28
+        }
+      },
+      "current_fy": 2024,
+      "prior_fy": 2023,
+      "current_spend": 47135721552.09,
+      "prior_spend": 42911469717.44,
+      "yoy_change_pct": 9.84,
+      "ai_procurement_current": 0.0,
+      "ai_procurement_prior": 0.0,
+      "ai_procurement_yoy_change_pct": null,
+      "ai_growth_rate_used": 0.0524,
+      "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)",
+      "substitution_rate_proxy": 0.021,
+      "source": "USAspending.gov API (live)",
+      "missing_psc_codes": [],
+      "substitution_rate_methodology": "sub_rate = contractor_decline_rate \u00d7 0.6 + ai_growth_rate \u00d7 0.4. contractor_decline_rate = max(0, -yoy_change_pct/100), capped at 1.0. ai_growth_rate from spending_by_award keyword search (per-workload if any keyword attribution, else global AI growth). Note: PSC categories are government-wide and broader than the specific workloads."
+    },
+    "va_appointment_scheduling": {
+      "psc_codes": [
+        "R408",
+        "D302",
+        "D399"
+      ],
+      "psc_codes_resolved": {
+        "R408": {
+          "fy2024": 14025617005.7,
+          "fy2023": 12668490323.67
+        },
+        "D302": {
+          "fy2024": 592554315.49,
+          "fy2023": 881270828.28
+        },
+        "D399": {
+          "fy2024": 3294897320.21,
+          "fy2023": 5640894305.38
+        }
+      },
+      "current_fy": 2024,
+      "prior_fy": 2023,
+      "current_spend": 17913068641.4,
+      "prior_spend": 19190655457.33,
+      "yoy_change_pct": -6.66,
+      "ai_procurement_current": 0.0,
+      "ai_procurement_prior": 0.0,
+      "ai_procurement_yoy_change_pct": null,
+      "ai_growth_rate_used": 0.0524,
+      "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)",
+      "substitution_rate_proxy": 0.0609,
+      "source": "USAspending.gov API (live)",
+      "missing_psc_codes": [],
+      "substitution_rate_methodology": "sub_rate = contractor_decline_rate \u00d7 0.6 + ai_growth_rate \u00d7 0.4. contractor_decline_rate = max(0, -yoy_change_pct/100), capped at 1.0. ai_growth_rate from spending_by_award keyword search (per-workload if any keyword attribution, else global AI growth). Note: PSC categories are government-wide and broader than the specific workloads."
     }
   }
 }

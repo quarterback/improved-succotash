@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-13T16:33:07.878360+00:00",
+  "fetched_at": "2026-04-13T21:38:47.926882+00:00",
   "source": "USAspending.gov FPDS \u2014 spending_by_category/psc endpoint",
   "api_endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_category/psc/",
   "fiscal_years": {
@@ -66,7 +66,7 @@
         },
         "response": {
           "status_code": 200,
-          "fetched_at": "2026-04-13T16:33:06.229649+00:00",
+          "fetched_at": "2026-04-13T21:38:26.369953+00:00",
           "body": {
             "category": "psc",
             "spending_level": "transactions",
@@ -807,7 +807,7 @@
         },
         "response": {
           "status_code": 200,
-          "fetched_at": "2026-04-13T16:33:06.701893+00:00",
+          "fetched_at": "2026-04-13T21:38:27.780287+00:00",
           "body": {
             "category": "psc",
             "spending_level": "transactions",
@@ -1548,7 +1548,7 @@
         },
         "response": {
           "status_code": 200,
-          "fetched_at": "2026-04-13T16:33:07.173137+00:00",
+          "fetched_at": "2026-04-13T21:38:28.391129+00:00",
           "body": {
             "category": "psc",
             "spending_level": "transactions",
@@ -2330,7 +2330,7 @@
         },
         "response": {
           "status_code": 200,
-          "fetched_at": "2026-04-13T16:33:07.398264+00:00",
+          "fetched_at": "2026-04-13T21:38:29.782973+00:00",
           "body": {
             "category": "psc",
             "spending_level": "transactions",
@@ -3071,7 +3071,7 @@
         },
         "response": {
           "status_code": 200,
-          "fetched_at": "2026-04-13T16:33:07.876763+00:00",
+          "fetched_at": "2026-04-13T21:38:31.191518+00:00",
           "body": {
             "category": "psc",
             "spending_level": "transactions",
@@ -3793,5 +3793,1746 @@
         }
       }
     ]
+  },
+  "ai_keyword_search": {
+    "fy2024": {
+      "total_obligated": 1683741573.48,
+      "award_count": 655,
+      "by_keyword": {
+        "artificial intelligence": {
+          "obligated": 960711652.73,
+          "awards": 300
+        },
+        "machine learning": {
+          "obligated": 871631150.25,
+          "awards": 227
+        },
+        "large language model": {
+          "obligated": 32398235.66,
+          "awards": 19
+        },
+        "generative ai": {
+          "obligated": 9411127.07,
+          "awards": 16
+        },
+        "natural language processing": {
+          "obligated": 21051464.81,
+          "awards": 10
+        },
+        "OpenAI": {
+          "obligated": 559927.07,
+          "awards": 3
+        },
+        "Anthropic": {
+          "obligated": 0.0,
+          "awards": 0
+        },
+        "Palantir AIP": {
+          "obligated": 0.0,
+          "awards": 0
+        },
+        "ServiceNow AI": {
+          "obligated": 0.0,
+          "awards": 0
+        },
+        "AI chatbot": {
+          "obligated": 0.0,
+          "awards": 0
+        },
+        "AI assistant": {
+          "obligated": 0.0,
+          "awards": 0
+        },
+        "AI platform": {
+          "obligated": 19223515.2,
+          "awards": 8
+        },
+        "LLM": {
+          "obligated": 177800213.96,
+          "awards": 145
+        }
+      },
+      "workload_attribution": {},
+      "api_responses": [
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "artificial intelligence"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "artificial intelligence"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:31.745727+00:00",
+            "result_count": 100
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "artificial intelligence"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 2,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "artificial intelligence"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:32.443559+00:00",
+            "result_count": 100
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "artificial intelligence"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 3,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "artificial intelligence"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:33.182430+00:00",
+            "result_count": 100
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "machine learning"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "machine learning"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:33.727714+00:00",
+            "result_count": 100
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "machine learning"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 2,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "machine learning"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:34.449299+00:00",
+            "result_count": 100
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "machine learning"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 3,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "machine learning"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:35.065870+00:00",
+            "result_count": 27
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "large language model"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "large language model"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:35.497394+00:00",
+            "result_count": 19
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "generative ai"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "generative ai"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:35.932880+00:00",
+            "result_count": 16
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "natural language processing"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "natural language processing"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:36.384810+00:00",
+            "result_count": 10
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "OpenAI"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "OpenAI"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:36.798109+00:00",
+            "result_count": 3
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "Anthropic"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "Anthropic"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:37.186017+00:00",
+            "result_count": 0
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "Palantir AIP"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "Palantir AIP"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:37.369121+00:00",
+            "result_count": 0
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "ServiceNow AI"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "ServiceNow AI"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:37.753118+00:00",
+            "result_count": 0
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "AI chatbot"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "AI chatbot"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:38.119143+00:00",
+            "result_count": 0
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "AI assistant"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "AI assistant"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:38.609910+00:00",
+            "result_count": 0
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "AI platform"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "AI platform"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:39.045846+00:00",
+            "result_count": 8
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "LLM"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "LLM"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:39.355646+00:00",
+            "result_count": 100
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "LLM"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2023-10-01",
+                    "end_date": "2024-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 2,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2024,
+            "keyword": "LLM"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:40.079824+00:00",
+            "result_count": 45
+          }
+        }
+      ]
+    },
+    "fy2023": {
+      "total_obligated": 1599966119.3,
+      "award_count": 622,
+      "by_keyword": {
+        "artificial intelligence": {
+          "obligated": 882114990.7,
+          "awards": 300
+        },
+        "machine learning": {
+          "obligated": 913783260.87,
+          "awards": 250
+        },
+        "large language model": {
+          "obligated": 2498388.7,
+          "awards": 3
+        },
+        "generative ai": {
+          "obligated": 1136845.8,
+          "awards": 2
+        },
+        "natural language processing": {
+          "obligated": 16781355.53,
+          "awards": 12
+        },
+        "OpenAI": {
+          "obligated": 0.0,
+          "awards": 0
+        },
+        "Anthropic": {
+          "obligated": 0.0,
+          "awards": 0
+        },
+        "Palantir AIP": {
+          "obligated": 0.0,
+          "awards": 0
+        },
+        "ServiceNow AI": {
+          "obligated": 0.0,
+          "awards": 0
+        },
+        "AI chatbot": {
+          "obligated": 0.0,
+          "awards": 0
+        },
+        "AI assistant": {
+          "obligated": 100000.0,
+          "awards": 1
+        },
+        "AI platform": {
+          "obligated": 4984555.11,
+          "awards": 6
+        },
+        "LLM": {
+          "obligated": 141135786.71,
+          "awards": 128
+        }
+      },
+      "workload_attribution": {},
+      "api_responses": [
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "artificial intelligence"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "artificial intelligence"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:40.433493+00:00",
+            "result_count": 100
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "artificial intelligence"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 2,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "artificial intelligence"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:40.914805+00:00",
+            "result_count": 100
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "artificial intelligence"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 3,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "artificial intelligence"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:41.745874+00:00",
+            "result_count": 100
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "machine learning"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "machine learning"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:42.447691+00:00",
+            "result_count": 100
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "machine learning"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 2,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "machine learning"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:43.031364+00:00",
+            "result_count": 100
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "machine learning"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 3,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "machine learning"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:43.507924+00:00",
+            "result_count": 50
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "large language model"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "large language model"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:43.937611+00:00",
+            "result_count": 3
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "generative ai"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "generative ai"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:44.344992+00:00",
+            "result_count": 2
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "natural language processing"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "natural language processing"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:44.613739+00:00",
+            "result_count": 12
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "OpenAI"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "OpenAI"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:45.000835+00:00",
+            "result_count": 0
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "Anthropic"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "Anthropic"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:45.186666+00:00",
+            "result_count": 0
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "Palantir AIP"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "Palantir AIP"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:45.374009+00:00",
+            "result_count": 0
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "ServiceNow AI"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "ServiceNow AI"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:45.570342+00:00",
+            "result_count": 0
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "AI chatbot"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "AI chatbot"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:45.756104+00:00",
+            "result_count": 0
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "AI assistant"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "AI assistant"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:46.154678+00:00",
+            "result_count": 1
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "AI platform"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "AI platform"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:46.693926+00:00",
+            "result_count": 6
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "LLM"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 1,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "LLM"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:47.300292+00:00",
+            "result_count": 100
+          }
+        },
+        {
+          "request": {
+            "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+            "method": "POST",
+            "payload": {
+              "filters": {
+                "keywords": [
+                  "LLM"
+                ],
+                "time_period": [
+                  {
+                    "start_date": "2022-10-01",
+                    "end_date": "2023-09-30"
+                  }
+                ],
+                "award_type_codes": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Award Amount",
+                "Description",
+                "Awarding Agency"
+              ],
+              "limit": 100,
+              "page": 2,
+              "sort": "Award Amount",
+              "order": "desc"
+            },
+            "fiscal_year": 2023,
+            "keyword": "LLM"
+          },
+          "response": {
+            "status_code": 200,
+            "fetched_at": "2026-04-13T21:38:47.923049+00:00",
+            "result_count": 28
+          }
+        }
+      ]
+    },
+    "yoy_growth_rate": 0.0524,
+    "keywords_used": [
+      "artificial intelligence",
+      "machine learning",
+      "large language model",
+      "generative ai",
+      "natural language processing",
+      "OpenAI",
+      "Anthropic",
+      "Palantir AIP",
+      "ServiceNow AI",
+      "AI chatbot",
+      "AI assistant",
+      "AI platform",
+      "LLM"
+    ],
+    "workload_attribution_hints": {
+      "snap eligibility": [
+        "snap_eligibility"
+      ],
+      "supplemental nutrition": [
+        "snap_eligibility"
+      ],
+      "unemployment insurance": [
+        "unemployment_claims"
+      ],
+      "ui adjudication": [
+        "unemployment_claims"
+      ],
+      "claims adjudication": [
+        "unemployment_claims"
+      ],
+      "contact center": [
+        "call_center_triage"
+      ],
+      "call center": [
+        "call_center_triage"
+      ],
+      "ivr": [
+        "call_center_triage"
+      ],
+      "chatbot": [
+        "call_center_triage",
+        "it_help_desk"
+      ],
+      "document summarization": [
+        "document_summarization"
+      ],
+      "case file": [
+        "document_summarization"
+      ],
+      "claims processing": [
+        "unemployment_claims",
+        "document_summarization"
+      ],
+      "help desk": [
+        "it_help_desk"
+      ],
+      "tier 1 support": [
+        "it_help_desk"
+      ],
+      "itsm": [
+        "it_help_desk"
+      ],
+      "servicenow": [
+        "it_help_desk"
+      ]
+    },
+    "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_award/"
   }
 }

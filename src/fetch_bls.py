@@ -34,6 +34,8 @@ OEWS_SERIES_MAP = {
     "43-4051": "OEWS000000000000043405100000000W",
     "23-2093": "OEWS000000000000023209300000000W",
     "15-1232": "OEWS000000000000015123200000000W",
+    "23-1011": "OEWS000000000000023101100000000W",
+    "13-2081": "OEWS000000000000013208100000000W",
 }
 
 STATIC_OEWS_WAGES = {
@@ -52,6 +54,12 @@ STATIC_OEWS_WAGES = {
     "15-1232": {"annual_wage": 60_530, "year": "2023",
                 "source_url": "https://www.bls.gov/oes/tables.htm",
                 "source_doc": "BLS OEWS May 2023 — National estimates for SOC 15-1232 (Computer User Support Specialists)"},
+    "23-1011": {"annual_wage": 145_760, "year": "2023",
+                "source_url": "https://www.bls.gov/oes/current/oes231011.htm",
+                "source_doc": "BLS OEWS May 2023 — National estimates for SOC 23-1011 (Lawyers); used as proxy for senior FOIA officers"},
+    "13-2081": {"annual_wage": 60_330, "year": "2023",
+                "source_url": "https://www.bls.gov/oes/current/oes132081.htm",
+                "source_doc": "BLS OEWS May 2023 — National estimates for SOC 13-2081 (Tax Examiners and Collectors, and Revenue Agents)"},
 }
 
 ECEC_BENEFIT_MULTIPLIER = 1.385

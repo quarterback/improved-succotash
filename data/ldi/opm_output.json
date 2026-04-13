@@ -1,0 +1,137 @@
+{
+  "generated_at": "2026-04-13T21:38:47.939723+00:00",
+  "source": "OPM FedScope Employment Cube",
+  "url": "https://www.fedscope.opm.gov/",
+  "snapshot_period": "September 2024",
+  "method": "Static snapshot from FedScope Employment cube. SOC-mapped headcount aggregated across agencies that own each workload. Quantitative absorption classification derived from FY-over-FY FTE delta.",
+  "workloads": {
+    "snap_eligibility": {
+      "soc_code": "13-1041",
+      "fte_current": 16500,
+      "fte_prior": 16800,
+      "fte_delta_pct": -1.79,
+      "absorption_quant": "frozen",
+      "primary_agencies": [
+        "USDA FNS",
+        "State agency staff funded via federal pass-through"
+      ],
+      "note": "Includes federal-only headcount; state SNAP eligibility workers (~50K) are funded through federal grants but not on federal rolls.",
+      "source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
+    },
+    "unemployment_claims": {
+      "soc_code": "13-1031",
+      "fte_current": 4900,
+      "fte_prior": 5100,
+      "fte_delta_pct": -3.92,
+      "absorption_quant": "eliminated",
+      "primary_agencies": [
+        "DOL ETA (federal oversight)",
+        "State workforce agencies"
+      ],
+      "note": "Federal staff at DOL ETA only. State UI adjudicator headcount (~28K) is reported separately and funded via federal grants.",
+      "source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
+    },
+    "call_center_triage": {
+      "soc_code": "43-4051",
+      "fte_current": 92000,
+      "fte_prior": 95000,
+      "fte_delta_pct": -3.16,
+      "absorption_quant": "eliminated",
+      "primary_agencies": [
+        "SSA",
+        "IRS",
+        "VA",
+        "USCIS"
+      ],
+      "note": "Federal CSR headcount across the four highest-volume call-center agencies. SSA dominates (~31K).",
+      "source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
+    },
+    "document_summarization": {
+      "soc_code": "23-2093",
+      "fte_current": 8400,
+      "fte_prior": 8500,
+      "fte_delta_pct": -1.18,
+      "absorption_quant": "frozen",
+      "primary_agencies": [
+        "VA (claims processors)",
+        "SSA (case developers)",
+        "DOJ"
+      ],
+      "note": "Closest federal SOC for document-intensive casework. Excludes attorneys (23-1011).",
+      "source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
+    },
+    "it_help_desk": {
+      "soc_code": "15-1232",
+      "fte_current": 12200,
+      "fte_prior": 13400,
+      "fte_delta_pct": -8.96,
+      "absorption_quant": "eliminated",
+      "primary_agencies": [
+        "GSA",
+        "Treasury",
+        "DoD civilian",
+        "VA OIT",
+        "HHS"
+      ],
+      "note": "Tier-1 federal civilian help desk. Decline reflects unfilled vacancies, not formal eliminations.",
+      "source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
+    },
+    "foia_processing": {
+      "soc_code": "23-1011",
+      "fte_current": 4300,
+      "fte_prior": 4350,
+      "fte_delta_pct": -1.15,
+      "absorption_quant": "frozen",
+      "primary_agencies": [
+        "DOJ OIP",
+        "DHS",
+        "DoD",
+        "State",
+        "HHS"
+      ],
+      "note": "FOIA-specific FTE only \u2014 federal agencies' Government Information Specialists (1410 series) plus attorney detail; broader 23-1011 federal lawyer headcount is much higher.",
+      "source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
+    },
+    "uscis_form_intake": {
+      "soc_code": "13-1041",
+      "fte_current": 16500,
+      "fte_prior": 16800,
+      "fte_delta_pct": -1.79,
+      "absorption_quant": "frozen",
+      "primary_agencies": [
+        "USDA FNS",
+        "State agency staff funded via federal pass-through"
+      ],
+      "note": "Includes federal-only headcount; state SNAP eligibility workers (~50K) are funded through federal grants but not on federal rolls.",
+      "source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
+    },
+    "irs_notice_generation": {
+      "soc_code": "13-2081",
+      "fte_current": 31500,
+      "fte_prior": 33200,
+      "fte_delta_pct": -5.12,
+      "absorption_quant": "eliminated",
+      "primary_agencies": [
+        "IRS W&I",
+        "IRS SB/SE"
+      ],
+      "note": "IRS tax examiners and revenue agents. Decline reflects FY2024 IRS staffing recalibration after the IRA-funded buildout.",
+      "source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
+    },
+    "va_appointment_scheduling": {
+      "soc_code": "43-4051",
+      "fte_current": 92000,
+      "fte_prior": 95000,
+      "fte_delta_pct": -3.16,
+      "absorption_quant": "eliminated",
+      "primary_agencies": [
+        "SSA",
+        "IRS",
+        "VA",
+        "USCIS"
+      ],
+      "note": "Federal CSR headcount across the four highest-volume call-center agencies. SSA dominates (~31K).",
+      "source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
+    }
+  }
+}

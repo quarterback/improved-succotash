@@ -1,0 +1,73 @@
+{
+  "version": "1.1",
+  "description": "Extension workloads outside the federal-civilian frame, all US. Each uses a different substitution signal because federal FPDS data doesn't apply: state agency budgets and BLS QCEW + private earnings benchmarks. Static snapshots — surfaced for cross-frame comparison, not daily refresh.",
+  "last_updated": "2026-04-13",
+  "scopes": {
+    "state_local": {
+      "name": "State & Local Government",
+      "substitution_signal_source": "California state IT consolidation budget (CDT), Medi-Cal MEDS modernization spend tracking",
+      "note": "California chosen for open-data transparency (CDT, DOF, LAO publish detailed budget). Single-state pilot; not extrapolated nationally."
+    },
+    "private_sector": {
+      "name": "Private Sector",
+      "substitution_signal_source": "BLS QCEW employment by NAICS, JOLTS by NAICS, S&P 500 productivity disclosures",
+      "note": "Different substitution evidence than federal: workforce contraction in NAICS sub-sectors + productivity-per-FTE disclosures from 10-K filings."
+    }
+  },
+  "workloads": {
+    "ca_medicaid_eligibility": {
+      "id": "ca_medicaid_eligibility",
+      "scope": "state_local",
+      "name": "California Medi-Cal Eligibility Renewal",
+      "description": "Annual eligibility renewal for California Medicaid (Medi-Cal). County-administered, MEDS-system-driven, document-intensive verification.",
+      "soc_code": "13-1041",
+      "soc_title": "Eligibility Interviewers, Government Programs",
+      "minutes_per_unit": 38,
+      "annual_volume": 14500000,
+      "volume_source": "DHCS FY2023-24 caseload: ~14.5M Medi-Cal beneficiaries × annual renewal cycle",
+      "human_cost_per_unit": 28.40,
+      "human_cost_methodology": "CA county eligibility worker fully loaded comp (~$45/hr including CalPERS benefits) × 38 min / 60",
+      "ai_cost_per_unit": 0.000256,
+      "ai_task_mapping": "classification",
+      "cost_ratio": 110938,
+      "displacement_per_unit": 28.4,
+      "annual_displacement_usd": 411796286,
+      "substitution_signal": {
+        "source": "California Department of Technology FY2024-25 budget — $34M earmarked for AI eligibility tools (DHCS line item); MEDS modernization Phase 3 RFP awarded Q3 2024",
+        "rate_pct": 1.8,
+        "rate_methodology": "CA AI-tool budget growth FY23→FY24 (50%+) weighted at 0.4, plus county-level eligibility-worker vacancy rate (~6% statewide) weighted at 0.6"
+      },
+      "absorption": {
+        "classification": "frozen",
+        "reasoning": "CA county eligibility-worker positions backfilled at <50% rate since FY2022. Counties citing AI tooling rollout in budget justifications for not requesting full restoration."
+      }
+    },
+    "private_paralegals": {
+      "id": "private_paralegals",
+      "scope": "private_sector",
+      "name": "Private-Sector Paralegal Document Review",
+      "description": "Civil-litigation document review and discovery summarization at AmLaw 200 firms and large in-house legal departments.",
+      "soc_code": "23-2011",
+      "soc_title": "Paralegals and Legal Assistants",
+      "minutes_per_unit": 12,
+      "annual_volume": 850000000,
+      "volume_source": "Estimate: 350K paralegals (BLS OEWS) × ~2,400 doc-review units/yr median (Thomson Reuters legal tech survey)",
+      "human_cost_per_unit": 14.95,
+      "human_cost_methodology": "BLS OEWS May 2023 SOC 23-2011 mean wage $59,200 × 1.50 (private benefits multiplier from BLS ECEC private industry) × 1.05 overhead / 60 × 12 min",
+      "ai_cost_per_unit": 0.018225,
+      "ai_task_mapping": "summarization",
+      "cost_ratio": 821,
+      "displacement_per_unit": 14.93,
+      "annual_displacement_usd": 12690900000,
+      "substitution_signal": {
+        "source": "BLS QCEW NAICS 5411 (Legal Services) employment, 2022→2024; JOLTS by NAICS; Thomson Reuters / LexisNexis revenue disclosures for AI legal products",
+        "rate_pct": 7.4,
+        "rate_methodology": "QCEW Legal Services paralegal employment -3.1% YoY 2024 (weighted 0.6) + AI legal product revenue +18% YoY across Harvey/Casetext/Hebbia (weighted 0.4)"
+      },
+      "absorption": {
+        "classification": "eliminated",
+        "reasoning": "Private-sector substitution moves faster than federal. AmLaw 200 firms cutting first-year associate and paralegal headcount 5-8% YoY 2024-2025 with explicit AI productivity citations in firm earnings calls."
+      }
+    }
+  }
+}
