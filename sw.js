@@ -1,15 +1,16 @@
-const CACHE_NAME = 'occupant-v1';
-const STATIC_CACHE = 'occupant-static-v1';
-const DATA_CACHE = 'occupant-data-v1';
+const CACHE_NAME = 'occupant-v2';
+const STATIC_CACHE = 'occupant-static-v2';
+const DATA_CACHE = 'occupant-data-v2';
 
 // Files to cache immediately on install
 const STATIC_FILES = [
   '/',
   '/index.html',
   '/cpi-data.html',
-  '/calculator.html',
+  '/aeai.html',
   '/sabermetrics.html',
-  '/gov.html',
+  '/calculator.html',
+  '/glossary.html',
   '/about.html',
   '/styles.css',
   '/theme.js',
