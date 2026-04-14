@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-13T16:33:05.956018+00:00",
+  "fetched_at": "2026-04-13T21:51:56.447111+00:00",
   "source": "BLS OEWS",
   "api_attempt": {
     "endpoint": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
@@ -8,36 +8,36 @@
       "13-1031": "OEWS000000000000013103100000000W",
       "43-4051": "OEWS000000000000043405100000000W",
       "23-2093": "OEWS000000000000023209300000000W",
-      "15-1232": "OEWS000000000000015123200000000W"
+      "15-1232": "OEWS000000000000015123200000000W",
+      "23-1011": "OEWS000000000000023101100000000W",
+      "13-2081": "OEWS000000000000013208100000000W"
     },
     "api_log": {
       "endpoint": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
-      "request_at": "2026-04-13T16:33:05.363187+00:00",
+      "request_at": "2026-04-13T21:51:56.011739+00:00",
       "status": "REQUEST_SUCCEEDED",
       "status_code": 200,
       "request_payload": {
         "seriesid": [
-          "OEWS000000000000013104100000000W",
-          "OEWS000000000000015123200000000W",
-          "OEWS000000000000023209300000000W",
           "OEWS000000000000013103100000000W",
-          "OEWS000000000000043405100000000W"
+          "OEWS000000000000023209300000000W",
+          "OEWS000000000000013208100000000W",
+          "OEWS000000000000015123200000000W",
+          "OEWS000000000000043405100000000W",
+          "OEWS000000000000013104100000000W",
+          "OEWS000000000000023101100000000W"
         ],
         "startyear": "2023",
         "endyear": "2024"
       },
       "response_body": {
         "status": "REQUEST_SUCCEEDED",
-        "responseTime": 93,
+        "responseTime": 98,
         "message": [],
         "Results": {
           "series": [
             {
-              "seriesID": "OEWS000000000000013104100000000W",
-              "data": []
-            },
-            {
-              "seriesID": "OEWS000000000000015123200000000W",
+              "seriesID": "OEWS000000000000013103100000000W",
               "data": []
             },
             {
@@ -45,11 +45,23 @@
               "data": []
             },
             {
-              "seriesID": "OEWS000000000000013103100000000W",
+              "seriesID": "OEWS000000000000013208100000000W",
+              "data": []
+            },
+            {
+              "seriesID": "OEWS000000000000015123200000000W",
               "data": []
             },
             {
               "seriesID": "OEWS000000000000043405100000000W",
+              "data": []
+            },
+            {
+              "seriesID": "OEWS000000000000013104100000000W",
+              "data": []
+            },
+            {
+              "seriesID": "OEWS000000000000023101100000000W",
               "data": []
             }
           ]
@@ -95,6 +107,18 @@
         "year": "2023",
         "source_url": "https://www.bls.gov/oes/tables.htm",
         "source_doc": "BLS OEWS May 2023 \u2014 National estimates for SOC 15-1232 (Computer User Support Specialists)"
+      },
+      "23-1011": {
+        "annual_wage": 145760,
+        "year": "2023",
+        "source_url": "https://www.bls.gov/oes/current/oes231011.htm",
+        "source_doc": "BLS OEWS May 2023 \u2014 National estimates for SOC 23-1011 (Lawyers); used as proxy for senior FOIA officers"
+      },
+      "13-2081": {
+        "annual_wage": 60330,
+        "year": "2023",
+        "source_url": "https://www.bls.gov/oes/current/oes132081.htm",
+        "source_doc": "BLS OEWS May 2023 \u2014 National estimates for SOC 13-2081 (Tax Examiners and Collectors, and Revenue Agents)"
       }
     },
     "citation": "Bureau of Labor Statistics, Occupational Employment and Wage Statistics, May 2023. https://www.bls.gov/oes/tables.htm"
@@ -140,6 +164,20 @@
       "source": "BLS OEWS May 2023 (static fallback)",
       "source_url": "https://www.bls.gov/oes/tables.htm",
       "source_doc": "BLS OEWS May 2023 \u2014 National estimates for SOC 15-1232 (Computer User Support Specialists)"
+    },
+    "23-1011": {
+      "annual_wage": 145760,
+      "year": "2023",
+      "source": "BLS OEWS May 2023 (static fallback)",
+      "source_url": "https://www.bls.gov/oes/current/oes231011.htm",
+      "source_doc": "BLS OEWS May 2023 \u2014 National estimates for SOC 23-1011 (Lawyers); used as proxy for senior FOIA officers"
+    },
+    "13-2081": {
+      "annual_wage": 60330,
+      "year": "2023",
+      "source": "BLS OEWS May 2023 (static fallback)",
+      "source_url": "https://www.bls.gov/oes/current/oes132081.htm",
+      "source_doc": "BLS OEWS May 2023 \u2014 National estimates for SOC 13-2081 (Tax Examiners and Collectors, and Revenue Agents)"
     }
   }
 }

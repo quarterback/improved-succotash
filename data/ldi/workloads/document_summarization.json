@@ -1,0 +1,65 @@
+{
+  "date": "2026-04-13",
+  "workload_id": "document_summarization",
+  "id": "document_summarization",
+  "name": "Document Summarization in Casework",
+  "soc_code": "23-2093",
+  "soc_title": "Title Examiners, Abstractors, and Searchers",
+  "human_cost": {
+    "cost_per_unit": 17.0799,
+    "cost_per_unit_unit": "USD per workload unit",
+    "fully_loaded_hourly": 40.9917,
+    "annual_wage": 58630,
+    "minutes_per_unit": 25,
+    "source": "BLS OEWS May 2023 (static fallback)"
+  },
+  "ai_cost": {
+    "cost_per_unit": 0.018225,
+    "cost_per_unit_unit": "USD per workload unit",
+    "task_type": "summarization",
+    "source": "Compute CPI basket live data (CPI=69.1)"
+  },
+  "displacement": {
+    "displacement_per_unit": 17.061675,
+    "annual_volume": 750000,
+    "total_annual_displacement": 12796256.25,
+    "displacement_ratio": 0.9989,
+    "displacement_pct": 99.89
+  },
+  "substitution_rate": {
+    "rate": 0.021,
+    "rate_pct": 2.1,
+    "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
+    "current_fy_spend": 35812447551.11,
+    "yoy_change_pct": 2.31,
+    "ai_procurement_current": 0.0,
+    "ai_procurement_prior": 0.0,
+    "ai_procurement_yoy": null,
+    "ai_growth_rate": 0.0524,
+    "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)"
+  },
+  "absorption": {
+    "classification": "reallocated",
+    "reasoning": "VA deploying AI-assisted claims development tools. Legal staff redirected from mechanical summarization to judgment-intensive review. Reclassification signal: GS-7 to GS-9 band for remaining roles.",
+    "color": "warning",
+    "fte_current": 8400,
+    "fte_prior": 8500,
+    "fte_delta_pct": -1.18,
+    "absorption_quant": "frozen",
+    "primary_agencies": [
+      "VA (claims processors)",
+      "SSA (case developers)",
+      "DOJ"
+    ],
+    "fte_source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
+  },
+  "volume": {
+    "annual_units": 750000,
+    "source": "VA disability claims 250K/yr + SSA hearings 500K/yr"
+  },
+  "_links": {
+    "deep_dive_html": "/displacement/document_summarization.html",
+    "composite_latest": "/data/ldi/latest.json",
+    "historical": "/data/ldi/historical.json"
+  }
+}

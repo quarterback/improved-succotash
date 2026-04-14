@@ -1,24 +1,24 @@
 {
   "date": "2026-04-13",
-  "generated_at": "2026-04-13T16:33:07.889884+00:00",
-  "substitution_rate": 2.21,
-  "substitution_rate_interpretation": "Approximately 2.2% of task volume in these workload categories shows procurement-level evidence of AI substitution (contractor spend decline + AI procurement growth, FY2023 vs FY2024).",
+  "generated_at": "2026-04-13T21:52:15.990767+00:00",
+  "substitution_rate": 3.86,
+  "substitution_rate_interpretation": "Approximately 3.9% of task volume in these workload categories shows procurement-level evidence of AI substitution (contractor spend decline + AI procurement growth, FY2023 vs FY2024).",
   "cost_displacement": {
-    "annual_usd": 2203859276.25,
+    "annual_usd": 4185702590.75,
     "label": "Structural cost displacement (potential)",
     "interpretation": "If AI handled 100% of these workloads, the cost differential at current pricing would be this amount per year. This is technical potential, not realized savings.",
-    "avg_cost_ratio": 49515.0,
-    "total_human_cost_annual": 2204515925.0,
-    "total_ai_cost_annual": 656648.75
+    "avg_cost_ratio": 37195.0,
+    "total_human_cost_annual": 4188442875.0,
+    "total_ai_cost_annual": 2740284.25
   },
   "summary": {
-    "substitution_rate_pct": 2.21,
-    "cost_displacement_usd": 2203859276.25,
-    "avg_cost_ratio": 49515.0,
-    "pilot_workload_count": 5,
-    "total_volume_units": 180750000,
-    "avg_human_cost_per_unit": 16.7954,
-    "avg_ai_cost_per_unit": 0.005044
+    "substitution_rate_pct": 3.86,
+    "cost_displacement_usd": 4185702590.75,
+    "avg_cost_ratio": 37195.0,
+    "pilot_workload_count": 9,
+    "total_volume_units": 520250000,
+    "avg_human_cost_per_unit": 53.5608,
+    "avg_ai_cost_per_unit": 0.006239
   },
   "workloads": {
     "snap_eligibility": {
@@ -48,17 +48,30 @@
         "displacement_pct": 100.0
       },
       "substitution_rate": {
-        "rate": 0.0,
-        "rate_pct": 0.0,
+        "rate": 0.021,
+        "rate_pct": 2.1,
         "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
         "current_fy_spend": 47960957191.3,
         "yoy_change_pct": 8.49,
-        "ai_procurement_yoy": null
+        "ai_procurement_current": 0.0,
+        "ai_procurement_prior": 0.0,
+        "ai_procurement_yoy": null,
+        "ai_growth_rate": 0.0524,
+        "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)"
       },
       "absorption": {
         "classification": "reallocated",
         "reasoning": "SNAP caseload growing while workforce is flat. Workers being redirected to complex cases and fraud detection as routine processing automates. JOLTS government sector: low separations, moderate reallocation signal.",
-        "color": "warning"
+        "color": "warning",
+        "fte_current": 16500,
+        "fte_prior": 16800,
+        "fte_delta_pct": -1.79,
+        "absorption_quant": "frozen",
+        "primary_agencies": [
+          "USDA FNS",
+          "State agency staff funded via federal pass-through"
+        ],
+        "fte_source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
       },
       "volume": {
         "annual_units": 41000000,
@@ -92,17 +105,30 @@
         "displacement_pct": 100.0
       },
       "substitution_rate": {
-        "rate": 0.0,
-        "rate_pct": 0.0,
+        "rate": 0.021,
+        "rate_pct": 2.1,
         "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
         "current_fy_spend": 47135721552.09,
         "yoy_change_pct": 9.84,
-        "ai_procurement_yoy": null
+        "ai_procurement_current": 0.0,
+        "ai_procurement_prior": 0.0,
+        "ai_procurement_yoy": null,
+        "ai_growth_rate": 0.0524,
+        "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)"
       },
       "absorption": {
         "classification": "frozen",
         "reasoning": "DOL UI staffing flat since 2022 post-pandemic normalization. No new hires for claims processing roles despite rising caseloads. Vacancy rate >6 months in multiple state UI agencies. Frozen classification.",
-        "color": "accent"
+        "color": "accent",
+        "fte_current": 4900,
+        "fte_prior": 5100,
+        "fte_delta_pct": -3.92,
+        "absorption_quant": "eliminated",
+        "primary_agencies": [
+          "DOL ETA (federal oversight)",
+          "State workforce agencies"
+        ],
+        "fte_source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
       },
       "volume": {
         "annual_units": 21000000,
@@ -136,17 +162,32 @@
         "displacement_pct": 99.84
       },
       "substitution_rate": {
-        "rate": 0.0399,
-        "rate_pct": 3.99,
+        "rate": 0.0609,
+        "rate_pct": 6.09,
         "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
         "current_fy_spend": 17913068641.4,
         "yoy_change_pct": -6.66,
-        "ai_procurement_yoy": null
+        "ai_procurement_current": 0.0,
+        "ai_procurement_prior": 0.0,
+        "ai_procurement_yoy": null,
+        "ai_growth_rate": 0.0524,
+        "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)"
       },
       "absorption": {
         "classification": "reallocated",
         "reasoning": "IRS and SSA piloting AI-assisted call routing. Frontline agents being redirected to complex case escalations. Headcount flat while call volume rises \u2014 efficiency gain absorbed, not reflected in separations yet.",
-        "color": "warning"
+        "color": "warning",
+        "fte_current": 92000,
+        "fte_prior": 95000,
+        "fte_delta_pct": -3.16,
+        "absorption_quant": "eliminated",
+        "primary_agencies": [
+          "SSA",
+          "IRS",
+          "VA",
+          "USCIS"
+        ],
+        "fte_source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
       },
       "volume": {
         "annual_units": 100000000,
@@ -180,17 +221,31 @@
         "displacement_pct": 99.89
       },
       "substitution_rate": {
-        "rate": 0.0,
-        "rate_pct": 0.0,
+        "rate": 0.021,
+        "rate_pct": 2.1,
         "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
         "current_fy_spend": 35812447551.11,
         "yoy_change_pct": 2.31,
-        "ai_procurement_yoy": null
+        "ai_procurement_current": 0.0,
+        "ai_procurement_prior": 0.0,
+        "ai_procurement_yoy": null,
+        "ai_growth_rate": 0.0524,
+        "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)"
       },
       "absorption": {
         "classification": "reallocated",
         "reasoning": "VA deploying AI-assisted claims development tools. Legal staff redirected from mechanical summarization to judgment-intensive review. Reclassification signal: GS-7 to GS-9 band for remaining roles.",
-        "color": "warning"
+        "color": "warning",
+        "fte_current": 8400,
+        "fte_prior": 8500,
+        "fte_delta_pct": -1.18,
+        "absorption_quant": "frozen",
+        "primary_agencies": [
+          "VA (claims processors)",
+          "SSA (case developers)",
+          "DOJ"
+        ],
+        "fte_source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
       },
       "volume": {
         "annual_units": 750000,
@@ -224,29 +279,367 @@
         "displacement_pct": 100.0
       },
       "substitution_rate": {
-        "rate": 0.0,
-        "rate_pct": 0.0,
+        "rate": 0.021,
+        "rate_pct": 2.1,
         "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
         "current_fy_spend": 36405001866.6,
         "yoy_change_pct": 1.45,
-        "ai_procurement_yoy": null
+        "ai_procurement_current": 0.0,
+        "ai_procurement_prior": 0.0,
+        "ai_procurement_yoy": null,
+        "ai_growth_rate": 0.0524,
+        "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)"
       },
       "absorption": {
         "classification": "frozen",
         "reasoning": "Federal IT help desk positions frozen in multiple agencies since FY2023. AI-assisted ticketing tools deployed (ServiceNow AI, AWS Connect). No backfill of vacated Tier-1 positions. Budget justification omits replacement headcount.",
-        "color": "accent"
+        "color": "accent",
+        "fte_current": 12200,
+        "fte_prior": 13400,
+        "fte_delta_pct": -8.96,
+        "absorption_quant": "eliminated",
+        "primary_agencies": [
+          "GSA",
+          "Treasury",
+          "DoD civilian",
+          "VA OIT",
+          "HHS"
+        ],
+        "fte_source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
       },
       "volume": {
         "annual_units": 18000000,
         "source": "Federal civilian workforce 2.1M \u00d7 ~8.5 tickets/employee/year (ITSM benchmark)"
       }
+    },
+    "foia_processing": {
+      "id": "foia_processing",
+      "name": "FOIA Request Processing",
+      "soc_code": "23-1011",
+      "soc_title": "Lawyers (proxy for FOIA officers and government information specialists)",
+      "human_cost": {
+        "cost_per_unit": 373.6677,
+        "cost_per_unit_unit": "USD per workload unit",
+        "fully_loaded_hourly": 101.9094,
+        "annual_wage": 145760,
+        "minutes_per_unit": 220,
+        "source": "BLS OEWS May 2023 (static fallback)"
+      },
+      "ai_cost": {
+        "cost_per_unit": 0.018225,
+        "cost_per_unit_unit": "USD per workload unit",
+        "task_type": "summarization",
+        "source": "Compute CPI basket live data (CPI=69.1)"
+      },
+      "displacement": {
+        "displacement_per_unit": 373.649475,
+        "annual_volume": 1500000,
+        "total_annual_displacement": 560474212.5,
+        "displacement_ratio": 1.0,
+        "displacement_pct": 100.0
+      },
+      "substitution_rate": {
+        "rate": 0.021,
+        "rate_pct": 2.1,
+        "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
+        "current_fy_spend": 36405001866.6,
+        "yoy_change_pct": 1.45,
+        "ai_procurement_current": 0.0,
+        "ai_procurement_prior": 0.0,
+        "ai_procurement_yoy": null,
+        "ai_growth_rate": 0.0524,
+        "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)"
+      },
+      "absorption": {
+        "classification": "reallocated",
+        "reasoning": "FOIA officer headcount roughly flat while request volume grows 5-7%/yr. AI-assisted redaction (DoD's RELYANT, State Department's FOIA Online) redirects officers from mechanical redaction to exemption-decision work.",
+        "color": "warning",
+        "fte_current": 4300,
+        "fte_prior": 4350,
+        "fte_delta_pct": -1.15,
+        "absorption_quant": "frozen",
+        "primary_agencies": [
+          "DOJ OIP",
+          "DHS",
+          "DoD",
+          "State",
+          "HHS"
+        ],
+        "fte_source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
+      },
+      "volume": {
+        "annual_units": 1500000,
+        "source": "DOJ OIP FOIA Annual Report FY2023: ~1.5M federal FOIA requests received government-wide"
+      }
+    },
+    "uscis_form_intake": {
+      "id": "uscis_form_intake",
+      "name": "USCIS Form Intake & Initial Review",
+      "soc_code": "13-1041",
+      "soc_title": "Eligibility Interviewers, Government Programs (USCIS Immigration Services Officers map to this SOC family)",
+      "human_cost": {
+        "cost_per_unit": 16.7553,
+        "cost_per_unit_unit": "USD per workload unit",
+        "fully_loaded_hourly": 33.5107,
+        "annual_wage": 47930,
+        "minutes_per_unit": 30,
+        "source": "BLS OEWS May 2023 (static fallback)"
+      },
+      "ai_cost": {
+        "cost_per_unit": 0.000256,
+        "cost_per_unit_unit": "USD per workload unit",
+        "task_type": "classification",
+        "source": "Compute CPI basket live data (CPI=69.1)"
+      },
+      "displacement": {
+        "displacement_per_unit": 16.755044,
+        "annual_volume": 8000000,
+        "total_annual_displacement": 134040352.0,
+        "displacement_ratio": 1.0,
+        "displacement_pct": 100.0
+      },
+      "substitution_rate": {
+        "rate": 0.021,
+        "rate_pct": 2.1,
+        "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
+        "current_fy_spend": 47135721552.09,
+        "yoy_change_pct": 9.84,
+        "ai_procurement_current": 0.0,
+        "ai_procurement_prior": 0.0,
+        "ai_procurement_yoy": null,
+        "ai_growth_rate": 0.0524,
+        "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)"
+      },
+      "absorption": {
+        "classification": "reallocated",
+        "reasoning": "USCIS Immigration Services Officers seeing case-mix shift toward complex adjudications as ELIS automates routine intake. Backlog still growing \u2014 absorption is into harder cases, not headcount cuts.",
+        "color": "warning",
+        "fte_current": 16500,
+        "fte_prior": 16800,
+        "fte_delta_pct": -1.79,
+        "absorption_quant": "frozen",
+        "primary_agencies": [
+          "USDA FNS",
+          "State agency staff funded via federal pass-through"
+        ],
+        "fte_source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
+      },
+      "volume": {
+        "annual_units": 8000000,
+        "source": "USCIS FY2024 quarterly data: ~8M form filings annually across all benefit categories"
+      }
+    },
+    "irs_notice_generation": {
+      "id": "irs_notice_generation",
+      "name": "IRS Notice Generation & Routine Correspondence",
+      "soc_code": "13-2081",
+      "soc_title": "Tax Examiners and Collectors, and Revenue Agents",
+      "human_cost": {
+        "cost_per_unit": 4.218,
+        "cost_per_unit_unit": "USD per workload unit",
+        "fully_loaded_hourly": 42.1802,
+        "annual_wage": 60330,
+        "minutes_per_unit": 6,
+        "source": "BLS OEWS May 2023 (static fallback)"
+      },
+      "ai_cost": {
+        "cost_per_unit": 0.006225,
+        "cost_per_unit_unit": "USD per workload unit",
+        "task_type": "chat_drafting",
+        "source": "Compute CPI basket live data (CPI=69.1)"
+      },
+      "displacement": {
+        "displacement_per_unit": 4.211775,
+        "annual_volume": 200000000,
+        "total_annual_displacement": 842355000.0,
+        "displacement_ratio": 0.9985,
+        "displacement_pct": 99.85
+      },
+      "substitution_rate": {
+        "rate": 0.021,
+        "rate_pct": 2.1,
+        "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
+        "current_fy_spend": 47135721552.09,
+        "yoy_change_pct": 9.84,
+        "ai_procurement_current": 0.0,
+        "ai_procurement_prior": 0.0,
+        "ai_procurement_yoy": null,
+        "ai_growth_rate": 0.0524,
+        "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)"
+      },
+      "absorption": {
+        "classification": "frozen",
+        "reasoning": "IRS hiring restraint after FY2024 staffing recalibration. Notice generation automation reduces need for manual correspondence drafting; vacated routine correspondence positions not backfilled.",
+        "color": "accent",
+        "fte_current": 31500,
+        "fte_prior": 33200,
+        "fte_delta_pct": -5.12,
+        "absorption_quant": "eliminated",
+        "primary_agencies": [
+          "IRS W&I",
+          "IRS SB/SE"
+        ],
+        "fte_source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
+      },
+      "volume": {
+        "annual_units": 200000000,
+        "source": "IRS Data Book FY2023: ~200M pieces of correspondence (math-error, balance-due, identity-verification, routine response notices)"
+      }
+    },
+    "va_appointment_scheduling": {
+      "id": "va_appointment_scheduling",
+      "name": "VA Appointment Scheduling & Reminders",
+      "soc_code": "43-4051",
+      "soc_title": "Customer Service Representatives (VA Medical Support Assistants map here)",
+      "human_cost": {
+        "cost_per_unit": 3.4291,
+        "cost_per_unit_unit": "USD per workload unit",
+        "fully_loaded_hourly": 29.3926,
+        "annual_wage": 42040,
+        "minutes_per_unit": 7,
+        "source": "BLS OEWS May 2023 (static fallback)"
+      },
+      "ai_cost": {
+        "cost_per_unit": 0.006225,
+        "cost_per_unit_unit": "USD per workload unit",
+        "task_type": "chat_drafting",
+        "source": "Compute CPI basket live data (CPI=69.1)"
+      },
+      "displacement": {
+        "displacement_per_unit": 3.422875,
+        "annual_volume": 130000000,
+        "total_annual_displacement": 444973750.0,
+        "displacement_ratio": 0.9982,
+        "displacement_pct": 99.82
+      },
+      "substitution_rate": {
+        "rate": 0.0609,
+        "rate_pct": 6.09,
+        "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
+        "current_fy_spend": 17913068641.4,
+        "yoy_change_pct": -6.66,
+        "ai_procurement_current": 0.0,
+        "ai_procurement_prior": 0.0,
+        "ai_procurement_yoy": null,
+        "ai_growth_rate": 0.0524,
+        "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)"
+      },
+      "absorption": {
+        "classification": "reallocated",
+        "reasoning": "VHA Medical Support Assistants being redirected to in-person patient navigation as AI voice scheduling agents handle routine slot-finding. Headcount stable; task mix shifting toward complex care coordination.",
+        "color": "warning",
+        "fte_current": 92000,
+        "fte_prior": 95000,
+        "fte_delta_pct": -3.16,
+        "absorption_quant": "eliminated",
+        "primary_agencies": [
+          "SSA",
+          "IRS",
+          "VA",
+          "USCIS"
+        ],
+        "fte_source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
+      },
+      "volume": {
+        "annual_units": 130000000,
+        "source": "VA Health Care FY2023 utilization: 130M outpatient appointments (each with \u22651 scheduling touch)"
+      }
     }
+  },
+  "ai_procurement_by_agency": {
+    "fy_current": 2024,
+    "fy_prior": 2023,
+    "total_agencies": 26,
+    "top_agencies": [
+      {
+        "agency": "Department of Defense",
+        "fy2024_obligated": 1175930164.78,
+        "fy2023_obligated": 1050352505.77,
+        "fy2024_award_count": 424,
+        "fy2023_award_count": 392,
+        "yoy_change_pct": 11.96
+      },
+      {
+        "agency": "Department of the Interior",
+        "fy2024_obligated": 124965469.61,
+        "fy2023_obligated": 146627057.85,
+        "fy2024_award_count": 12,
+        "fy2023_award_count": 12,
+        "yoy_change_pct": -14.77
+      },
+      {
+        "agency": "Department of Commerce",
+        "fy2024_obligated": 107762798.09,
+        "fy2023_obligated": 67916590.44,
+        "fy2024_award_count": 34,
+        "fy2023_award_count": 24,
+        "yoy_change_pct": 58.67
+      },
+      {
+        "agency": "Department of Veterans Affairs",
+        "fy2024_obligated": 66571178.09,
+        "fy2023_obligated": 82620210.71,
+        "fy2024_award_count": 10,
+        "fy2023_award_count": 15,
+        "yoy_change_pct": -19.43
+      },
+      {
+        "agency": "Department of Health and Human Services",
+        "fy2024_obligated": 54233218.12,
+        "fy2023_obligated": 125494202.39,
+        "fy2024_award_count": 40,
+        "fy2023_award_count": 49,
+        "yoy_change_pct": -56.78
+      },
+      {
+        "agency": "Department of the Treasury",
+        "fy2024_obligated": 47092302.07,
+        "fy2023_obligated": 31048434.3,
+        "fy2024_award_count": 11,
+        "fy2023_award_count": 6,
+        "yoy_change_pct": 51.67
+      },
+      {
+        "agency": "Department of Homeland Security",
+        "fy2024_obligated": 37255280.28,
+        "fy2023_obligated": 25313566.34,
+        "fy2024_award_count": 33,
+        "fy2023_award_count": 32,
+        "yoy_change_pct": 47.18
+      },
+      {
+        "agency": "Department of Energy",
+        "fy2024_obligated": 19935829.72,
+        "fy2023_obligated": 21128462.65,
+        "fy2024_award_count": 4,
+        "fy2023_award_count": 5,
+        "yoy_change_pct": -5.64
+      },
+      {
+        "agency": "National Aeronautics and Space Administration",
+        "fy2024_obligated": 18369987.34,
+        "fy2023_obligated": 16303600.45,
+        "fy2024_award_count": 27,
+        "fy2023_award_count": 29,
+        "yoy_change_pct": 12.67
+      },
+      {
+        "agency": "Department of Transportation",
+        "fy2024_obligated": 11285871.39,
+        "fy2023_obligated": 12648343.08,
+        "fy2024_award_count": 23,
+        "fy2023_award_count": 23,
+        "yoy_change_pct": -10.77
+      }
+    ],
+    "source": "USAspending.gov spending_by_award keyword search, deduped per award_id, grouped by Awarding Agency"
   },
   "meta": {
     "sources": [
       "BLS OEWS",
       "BLS ECEC",
       "USAspending.gov FPDS",
+      "OPM FedScope",
       "Compute CPI basket"
     ],
     "pilot_workload_ids": [
@@ -254,10 +647,290 @@
       "unemployment_claims",
       "call_center_triage",
       "document_summarization",
-      "it_help_desk"
+      "it_help_desk",
+      "foia_processing",
+      "uscis_form_intake",
+      "irs_notice_generation",
+      "va_appointment_scheduling"
     ],
     "cpi_value": 69.1,
     "methodology_version": "1.1",
     "note": "substitution_rate is the observable signal (FPDS procurement proxy). cost_displacement is structural/technical potential at 100% substitution \u2014 not realized savings. These are distinct measurements."
+  },
+  "derived_signals": {
+    "substitution_velocity": {
+      "composite_monthly_pp": 0.2347,
+      "composite_acceleration_monthly_pp_per_month": 0.1441,
+      "window_days": 90,
+      "samples": 59,
+      "samples_live": 1,
+      "per_workload": {
+        "snap_eligibility": {
+          "velocity_monthly_pp": 0.105,
+          "acceleration_monthly_pp_per_month": 0.184,
+          "samples": 59,
+          "samples_live": 1
+        },
+        "unemployment_claims": {
+          "velocity_monthly_pp": 0.105,
+          "acceleration_monthly_pp_per_month": 0.184,
+          "samples": 59,
+          "samples_live": 1
+        },
+        "call_center_triage": {
+          "velocity_monthly_pp": 0.3475,
+          "acceleration_monthly_pp_per_month": 0.3334,
+          "samples": 59,
+          "samples_live": 1
+        },
+        "document_summarization": {
+          "velocity_monthly_pp": 0.105,
+          "acceleration_monthly_pp_per_month": 0.184,
+          "samples": 59,
+          "samples_live": 1
+        },
+        "it_help_desk": {
+          "velocity_monthly_pp": 0.105,
+          "acceleration_monthly_pp_per_month": 0.184,
+          "samples": 59,
+          "samples_live": 1
+        },
+        "foia_processing": {
+          "velocity_monthly_pp": 0.105,
+          "acceleration_monthly_pp_per_month": 0.184,
+          "samples": 59,
+          "samples_live": 1
+        },
+        "uscis_form_intake": {
+          "velocity_monthly_pp": 0.105,
+          "acceleration_monthly_pp_per_month": 0.184,
+          "samples": 59,
+          "samples_live": 1
+        },
+        "irs_notice_generation": {
+          "velocity_monthly_pp": 0.105,
+          "acceleration_monthly_pp_per_month": 0.184,
+          "samples": 59,
+          "samples_live": 1
+        },
+        "va_appointment_scheduling": {
+          "velocity_monthly_pp": 0.3044,
+          "acceleration_monthly_pp_per_month": 0.5336,
+          "samples": 59,
+          "samples_live": 1
+        }
+      },
+      "method": "Least-squares slope of substitution_rate_pct vs date over the last 90 days. Acceleration is the difference between the slope on the recent half of the window and the prior half. Reconstructed entries dominate today; samples_live shows how many live entries fed the slope.",
+      "interpretation": "Positive velocity = substitution rate is rising (more procurement-level evidence of AI displacement over time). Positive acceleration = it's rising faster than it was a window ago."
+    },
+    "wage_income_displaced": {
+      "composite_annual_usd": 121380852.07,
+      "per_workload_annual_usd": {
+        "snap_eligibility": 21639513.0,
+        "unemployment_claims": 12957021.0,
+        "call_center_triage": 23866710.0,
+        "document_summarization": 269008.42,
+        "it_help_desk": 3199392.0,
+        "foia_processing": 11770532.55,
+        "uscis_form_intake": 2814890.4,
+        "irs_notice_generation": 17715600.0,
+        "va_appointment_scheduling": 27148184.7
+      },
+      "formula": "wage_income_displaced = (sub_rate/100) \u00d7 annual_volume \u00d7 human_cost_per_unit",
+      "interpretation": "Realized labor income shifted away from human payrolls per the observed substitution rate. Distinct from cost_displacement (which is the structural gap at 100% substitution)."
+    },
+    "contract_vs_fte_split": {
+      "composite_contractor_spend_usd": 333816710414.68,
+      "composite_fte_wage_bill_usd": 13428167000.0,
+      "composite_contract_share": 0.9613,
+      "composite_fte_share": 0.0387,
+      "per_workload": {
+        "snap_eligibility": {
+          "contractor_spend_usd": 47960957191.3,
+          "fte_wage_bill_usd": 790845000,
+          "fte_count": 16500,
+          "annual_wage_per_fte": 47930,
+          "contract_share": 0.9838,
+          "fte_share": 0.0162
+        },
+        "unemployment_claims": {
+          "contractor_spend_usd": 47135721552.09,
+          "fte_wage_bill_usd": 352996000,
+          "fte_count": 4900,
+          "annual_wage_per_fte": 72040,
+          "contract_share": 0.9926,
+          "fte_share": 0.0074
+        },
+        "call_center_triage": {
+          "contractor_spend_usd": 17913068641.4,
+          "fte_wage_bill_usd": 3867680000,
+          "fte_count": 92000,
+          "annual_wage_per_fte": 42040,
+          "contract_share": 0.8224,
+          "fte_share": 0.1776
+        },
+        "document_summarization": {
+          "contractor_spend_usd": 35812447551.11,
+          "fte_wage_bill_usd": 492492000,
+          "fte_count": 8400,
+          "annual_wage_per_fte": 58630,
+          "contract_share": 0.9864,
+          "fte_share": 0.0136
+        },
+        "it_help_desk": {
+          "contractor_spend_usd": 36405001866.6,
+          "fte_wage_bill_usd": 738466000,
+          "fte_count": 12200,
+          "annual_wage_per_fte": 60530,
+          "contract_share": 0.9801,
+          "fte_share": 0.0199
+        },
+        "foia_processing": {
+          "contractor_spend_usd": 36405001866.6,
+          "fte_wage_bill_usd": 626768000,
+          "fte_count": 4300,
+          "annual_wage_per_fte": 145760,
+          "contract_share": 0.9831,
+          "fte_share": 0.0169
+        },
+        "uscis_form_intake": {
+          "contractor_spend_usd": 47135721552.09,
+          "fte_wage_bill_usd": 790845000,
+          "fte_count": 16500,
+          "annual_wage_per_fte": 47930,
+          "contract_share": 0.9835,
+          "fte_share": 0.0165
+        },
+        "irs_notice_generation": {
+          "contractor_spend_usd": 47135721552.09,
+          "fte_wage_bill_usd": 1900395000,
+          "fte_count": 31500,
+          "annual_wage_per_fte": 60330,
+          "contract_share": 0.9612,
+          "fte_share": 0.0388
+        },
+        "va_appointment_scheduling": {
+          "contractor_spend_usd": 17913068641.4,
+          "fte_wage_bill_usd": 3867680000,
+          "fte_count": 92000,
+          "annual_wage_per_fte": 42040,
+          "contract_share": 0.8224,
+          "fte_share": 0.1776
+        }
+      },
+      "formula": "contract_share = contractor_spend / (contractor_spend + fte_count \u00d7 annual_wage)",
+      "caveat": "Contractor spend is from PSC totals (government-wide, broader than the workload), so the contract side is over-attributed. Directional only."
+    },
+    "cost_ratio_decomposition": {
+      "window_days": 90,
+      "from_date": "2026-02-04",
+      "to_date": "2026-04-13",
+      "composite_ratio_change_pct": 26.19,
+      "composite_human_share": 0.0,
+      "composite_ai_share": 1.0,
+      "per_workload": {
+        "snap_eligibility": {
+          "ratio_then": 77811.1,
+          "ratio_now": 98175.8,
+          "ratio_change_pct": 26.17,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.743,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        },
+        "unemployment_claims": {
+          "ratio_then": 90962.8,
+          "ratio_now": 114769.5,
+          "ratio_change_pct": 26.17,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.743,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        },
+        "call_center_triage": {
+          "ratio_then": 498.9,
+          "ratio_now": 629.6,
+          "ratio_change_pct": 26.2,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.7612,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        },
+        "document_summarization": {
+          "ratio_then": 742.6,
+          "ratio_now": 937.2,
+          "ratio_change_pct": 26.19,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.7574,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        },
+        "it_help_desk": {
+          "ratio_then": 26204.3,
+          "ratio_now": 33062.5,
+          "ratio_change_pct": 26.17,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.743,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        },
+        "foia_processing": {
+          "ratio_then": 16247.1,
+          "ratio_now": 20503.0,
+          "ratio_change_pct": 26.19,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.7574,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        },
+        "uscis_form_intake": {
+          "ratio_then": 51874.0,
+          "ratio_now": 65450.4,
+          "ratio_change_pct": 26.17,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.743,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        },
+        "irs_notice_generation": {
+          "ratio_then": 536.9,
+          "ratio_now": 677.6,
+          "ratio_change_pct": 26.2,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.7612,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        },
+        "va_appointment_scheduling": {
+          "ratio_then": 436.5,
+          "ratio_now": 550.9,
+          "ratio_change_pct": 26.2,
+          "human_cost_change_pct": 0.0,
+          "ai_cost_change_pct": -20.7612,
+          "human_share_of_log_change": 0.0,
+          "ai_share_of_log_change": 1.0,
+          "from_date": "2026-02-04",
+          "to_date": "2026-04-13"
+        }
+      },
+      "method": "log(ratio_now/ratio_then) = log(h_now/h_then) - log(a_now/a_then). Each side's share = its log term divided by total log change. Composite = volume-weighted log changes.",
+      "caveat": "Reconstructed history holds human cost constant, so human_share is ~0 until live wage data accumulates. AI side reflects Compute CPI movement."
+    }
   }
 }

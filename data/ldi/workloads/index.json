@@ -1,0 +1,61 @@
+{
+  "date": "2026-04-13",
+  "workload_count": 9,
+  "composite_substitution_rate_pct": 3.86,
+  "workloads": [
+    {
+      "id": "snap_eligibility",
+      "name": "SNAP Eligibility Processing",
+      "soc_code": "13-1041",
+      "endpoint": "/data/ldi/workloads/snap_eligibility.json"
+    },
+    {
+      "id": "unemployment_claims",
+      "name": "Unemployment Claims Adjudication",
+      "soc_code": "13-1031",
+      "endpoint": "/data/ldi/workloads/unemployment_claims.json"
+    },
+    {
+      "id": "call_center_triage",
+      "name": "Call Center Triage",
+      "soc_code": "43-4051",
+      "endpoint": "/data/ldi/workloads/call_center_triage.json"
+    },
+    {
+      "id": "document_summarization",
+      "name": "Document Summarization in Casework",
+      "soc_code": "23-2093",
+      "endpoint": "/data/ldi/workloads/document_summarization.json"
+    },
+    {
+      "id": "it_help_desk",
+      "name": "Federal IT Help Desk",
+      "soc_code": "15-1232",
+      "endpoint": "/data/ldi/workloads/it_help_desk.json"
+    },
+    {
+      "id": "foia_processing",
+      "name": "FOIA Request Processing",
+      "soc_code": "23-1011",
+      "endpoint": "/data/ldi/workloads/foia_processing.json"
+    },
+    {
+      "id": "uscis_form_intake",
+      "name": "USCIS Form Intake & Initial Review",
+      "soc_code": "13-1041",
+      "endpoint": "/data/ldi/workloads/uscis_form_intake.json"
+    },
+    {
+      "id": "irs_notice_generation",
+      "name": "IRS Notice Generation & Routine Correspondence",
+      "soc_code": "13-2081",
+      "endpoint": "/data/ldi/workloads/irs_notice_generation.json"
+    },
+    {
+      "id": "va_appointment_scheduling",
+      "name": "VA Appointment Scheduling & Reminders",
+      "soc_code": "43-4051",
+      "endpoint": "/data/ldi/workloads/va_appointment_scheduling.json"
+    }
+  ]
+}

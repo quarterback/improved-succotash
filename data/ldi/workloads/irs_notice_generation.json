@@ -1,0 +1,64 @@
+{
+  "date": "2026-04-13",
+  "workload_id": "irs_notice_generation",
+  "id": "irs_notice_generation",
+  "name": "IRS Notice Generation & Routine Correspondence",
+  "soc_code": "13-2081",
+  "soc_title": "Tax Examiners and Collectors, and Revenue Agents",
+  "human_cost": {
+    "cost_per_unit": 4.218,
+    "cost_per_unit_unit": "USD per workload unit",
+    "fully_loaded_hourly": 42.1802,
+    "annual_wage": 60330,
+    "minutes_per_unit": 6,
+    "source": "BLS OEWS May 2023 (static fallback)"
+  },
+  "ai_cost": {
+    "cost_per_unit": 0.006225,
+    "cost_per_unit_unit": "USD per workload unit",
+    "task_type": "chat_drafting",
+    "source": "Compute CPI basket live data (CPI=69.1)"
+  },
+  "displacement": {
+    "displacement_per_unit": 4.211775,
+    "annual_volume": 200000000,
+    "total_annual_displacement": 842355000.0,
+    "displacement_ratio": 0.9985,
+    "displacement_pct": 99.85
+  },
+  "substitution_rate": {
+    "rate": 0.021,
+    "rate_pct": 2.1,
+    "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
+    "current_fy_spend": 47135721552.09,
+    "yoy_change_pct": 9.84,
+    "ai_procurement_current": 0.0,
+    "ai_procurement_prior": 0.0,
+    "ai_procurement_yoy": null,
+    "ai_growth_rate": 0.0524,
+    "ai_growth_source": "global AI procurement growth (no workload-specific keyword match)"
+  },
+  "absorption": {
+    "classification": "frozen",
+    "reasoning": "IRS hiring restraint after FY2024 staffing recalibration. Notice generation automation reduces need for manual correspondence drafting; vacated routine correspondence positions not backfilled.",
+    "color": "accent",
+    "fte_current": 31500,
+    "fte_prior": 33200,
+    "fte_delta_pct": -5.12,
+    "absorption_quant": "eliminated",
+    "primary_agencies": [
+      "IRS W&I",
+      "IRS SB/SE"
+    ],
+    "fte_source": "OPM FedScope Employment Cube, Sep 2024 (static snapshot)"
+  },
+  "volume": {
+    "annual_units": 200000000,
+    "source": "IRS Data Book FY2023: ~200M pieces of correspondence (math-error, balance-due, identity-verification, routine response notices)"
+  },
+  "_links": {
+    "deep_dive_html": "/displacement/irs_notice_generation.html",
+    "composite_latest": "/data/ldi/latest.json",
+    "historical": "/data/ldi/historical.json"
+  }
+}

@@ -16,6 +16,7 @@ Three computable signals:
 - Absorption classification: eliminated / reallocated / frozen (inferred from JOLTS + FPDS)
 """
 
+import csv
 import json
 import sys
 from datetime import datetime, timezone
@@ -29,6 +30,8 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from fetch_bls import run as run_bls
 from fetch_fpds import run as run_fpds
+from fetch_opm import run as run_opm
+from derive_signals import run as run_derive
 
 
 AI_COST_MAP = {
@@ -75,6 +78,22 @@ VOLUME_ESTIMATES = {
     "it_help_desk": {
         "annual_units": 18_000_000,
         "source": "Federal civilian workforce 2.1M × ~8.5 tickets/employee/year (ITSM benchmark)"
+    },
+    "foia_processing": {
+        "annual_units": 1_500_000,
+        "source": "DOJ OIP FOIA Annual Report FY2023: ~1.5M federal FOIA requests received government-wide"
+    },
+    "uscis_form_intake": {
+        "annual_units": 8_000_000,
+        "source": "USCIS FY2024 quarterly data: ~8M form filings annually across all benefit categories"
+    },
+    "irs_notice_generation": {
+        "annual_units": 200_000_000,
+        "source": "IRS Data Book FY2023: ~200M pieces of correspondence (math-error, balance-due, identity-verification, routine response notices)"
+    },
+    "va_appointment_scheduling": {
+        "annual_units": 130_000_000,
+        "source": "VA Health Care FY2023 utilization: 130M outpatient appointments (each with ≥1 scheduling touch)"
     }
 }
 
@@ -118,6 +137,38 @@ ABSORPTION_RULES = {
             "AI-assisted ticketing tools deployed (ServiceNow AI, AWS Connect). "
             "No backfill of vacated Tier-1 positions. Budget justification omits replacement headcount."
         )
+    },
+    "foia_processing": {
+        "classification": "reallocated",
+        "reasoning": (
+            "FOIA officer headcount roughly flat while request volume grows 5-7%/yr. "
+            "AI-assisted redaction (DoD's RELYANT, State Department's FOIA Online) "
+            "redirects officers from mechanical redaction to exemption-decision work."
+        )
+    },
+    "uscis_form_intake": {
+        "classification": "reallocated",
+        "reasoning": (
+            "USCIS Immigration Services Officers seeing case-mix shift toward complex "
+            "adjudications as ELIS automates routine intake. Backlog still growing — "
+            "absorption is into harder cases, not headcount cuts."
+        )
+    },
+    "irs_notice_generation": {
+        "classification": "frozen",
+        "reasoning": (
+            "IRS hiring restraint after FY2024 staffing recalibration. Notice generation "
+            "automation reduces need for manual correspondence drafting; vacated routine "
+            "correspondence positions not backfilled."
+        )
+    },
+    "va_appointment_scheduling": {
+        "classification": "reallocated",
+        "reasoning": (
+            "VHA Medical Support Assistants being redirected to in-person patient navigation "
+            "as AI voice scheduling agents handle routine slot-finding. Headcount stable; "
+            "task mix shifting toward complex care coordination."
+        )
     }
 }
 
@@ -139,6 +190,14 @@ def load_bls_output() -> dict:
 
 def load_fpds_output() -> dict:
     path = LDI_DIR / "fpds_output.json"
+    if path.exists():
+        with open(path) as f:
+            return json.load(f)
+    return {}
+
+
+def load_opm_output() -> dict:
+    path = LDI_DIR / "opm_output.json"
     if path.exists():
         with open(path) as f:
             return json.load(f)
@@ -288,6 +347,91 @@ def calculate_composite_ldi(workloads: dict) -> dict:
     }
 
 
+def emit_workload_endpoints(date_str: str, workload_results: dict, composite: dict) -> None:
+    """
+    Emit per-workload JSON files at data/ldi/workloads/<id>.json and a flat CSV at
+    data/ldi/workloads.csv. These are static endpoints peers can hit directly.
+    """
+    workloads_dir = LDI_DIR / "workloads"
+    workloads_dir.mkdir(parents=True, exist_ok=True)
+
+    # Per-workload JSON: one file per workload, flat enough to be linkable
+    for wid, w in workload_results.items():
+        path = workloads_dir / f"{wid}.json"
+        payload = {
+            "date": date_str,
+            "workload_id": wid,
+            **w,
+            "_links": {
+                "deep_dive_html": f"/displacement/{wid}.html",
+                "composite_latest": "/data/ldi/latest.json",
+                "historical": "/data/ldi/historical.json"
+            }
+        }
+        with open(path, "w") as f:
+            json.dump(payload, f, indent=2)
+
+    # Flat CSV: one row per workload with the headline fields
+    csv_path = LDI_DIR / "workloads.csv"
+    fieldnames = [
+        "date", "workload_id", "name", "soc_code", "soc_title",
+        "annual_volume", "human_cost_per_unit", "ai_cost_per_unit",
+        "cost_ratio", "displacement_per_unit", "total_annual_displacement",
+        "substitution_rate_pct", "current_fy_spend", "yoy_change_pct",
+        "ai_growth_rate", "absorption_classification", "fte_current",
+        "fte_prior", "fte_delta_pct",
+    ]
+    with open(csv_path, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for wid, w in workload_results.items():
+            human = w.get("human_cost", {}).get("cost_per_unit") or 0
+            ai = w.get("ai_cost", {}).get("cost_per_unit") or 0
+            ratio = round(human / ai, 2) if ai else None
+            writer.writerow({
+                "date": date_str,
+                "workload_id": wid,
+                "name": w.get("name"),
+                "soc_code": w.get("soc_code"),
+                "soc_title": w.get("soc_title"),
+                "annual_volume": w.get("volume", {}).get("annual_units"),
+                "human_cost_per_unit": human,
+                "ai_cost_per_unit": ai,
+                "cost_ratio": ratio,
+                "displacement_per_unit": w.get("displacement", {}).get("displacement_per_unit"),
+                "total_annual_displacement": w.get("displacement", {}).get("total_annual_displacement"),
+                "substitution_rate_pct": w.get("substitution_rate", {}).get("rate_pct"),
+                "current_fy_spend": w.get("substitution_rate", {}).get("current_fy_spend"),
+                "yoy_change_pct": w.get("substitution_rate", {}).get("yoy_change_pct"),
+                "ai_growth_rate": w.get("substitution_rate", {}).get("ai_growth_rate"),
+                "absorption_classification": w.get("absorption", {}).get("classification"),
+                "fte_current": w.get("absorption", {}).get("fte_current"),
+                "fte_prior": w.get("absorption", {}).get("fte_prior"),
+                "fte_delta_pct": w.get("absorption", {}).get("fte_delta_pct"),
+            })
+
+    # Index file so /data/ldi/workloads/ is browsable via a single JSON
+    index_path = workloads_dir / "index.json"
+    with open(index_path, "w") as f:
+        json.dump({
+            "date": date_str,
+            "workload_count": len(workload_results),
+            "composite_substitution_rate_pct": composite.get("substitution_rate"),
+            "workloads": [
+                {
+                    "id": wid,
+                    "name": w.get("name"),
+                    "soc_code": w.get("soc_code"),
+                    "endpoint": f"/data/ldi/workloads/{wid}.json",
+                }
+                for wid, w in workload_results.items()
+            ],
+        }, f, indent=2)
+
+    print(f"[LDI] Wrote {len(workload_results)} per-workload JSON files to {workloads_dir}")
+    print(f"[LDI] Wrote flat CSV to {csv_path}")
+
+
 def run_pipeline(force_refresh: bool = False):
     """
     Full LDI pipeline:
@@ -318,9 +462,17 @@ def run_pipeline(force_refresh: bool = False):
     else:
         print(f"[LDI] Using cached FPDS data ({fpds_path})")
 
+    opm_path = LDI_DIR / "opm_output.json"
+    if force_refresh or not opm_path.exists():
+        print("\n--- Running OPM FedScope pipeline ---")
+        run_opm()
+    else:
+        print(f"[LDI] Using cached OPM data ({opm_path})")
+
     workload_map = load_workload_map()
     bls_data = load_bls_output()
     fpds_data = load_fpds_output()
+    opm_data = load_opm_output()
     cpi_data = load_cpi_data()
 
     if not workload_map:
@@ -342,6 +494,7 @@ def run_pipeline(force_refresh: bool = False):
 
         bls_workload = bls_data.get("workloads", {}).get(workload_id)
         fpds_workload = fpds_data.get("workloads", {}).get(workload_id, {})
+        opm_workload = opm_data.get("workloads", {}).get(workload_id, {})
         volume_info = VOLUME_ESTIMATES.get(workload_id, {})
         absorption_info = ABSORPTION_RULES.get(workload_id, {})
 
@@ -390,12 +543,22 @@ def run_pipeline(force_refresh: bool = False):
                 "source": "FPDS procurement signal (contractor spend decline + AI procurement growth)",
                 "current_fy_spend": fpds_workload.get("current_spend"),
                 "yoy_change_pct": fpds_workload.get("yoy_change_pct"),
-                "ai_procurement_yoy": fpds_workload.get("ai_procurement_yoy_change_pct")
+                "ai_procurement_current": fpds_workload.get("ai_procurement_current"),
+                "ai_procurement_prior": fpds_workload.get("ai_procurement_prior"),
+                "ai_procurement_yoy": fpds_workload.get("ai_procurement_yoy_change_pct"),
+                "ai_growth_rate": fpds_workload.get("ai_growth_rate_used"),
+                "ai_growth_source": fpds_workload.get("ai_growth_source"),
             },
             "absorption": {
                 "classification": absorption_info.get("classification", "unknown"),
                 "reasoning": absorption_info.get("reasoning", ""),
-                "color": ABSORPTION_COLOR.get(absorption_info.get("classification", ""), "accent")
+                "color": ABSORPTION_COLOR.get(absorption_info.get("classification", ""), "accent"),
+                "fte_current": opm_workload.get("fte_current"),
+                "fte_prior": opm_workload.get("fte_prior"),
+                "fte_delta_pct": opm_workload.get("fte_delta_pct"),
+                "absorption_quant": opm_workload.get("absorption_quant"),
+                "primary_agencies": opm_workload.get("primary_agencies"),
+                "fte_source": opm_workload.get("source"),
             },
             "volume": {
                 "annual_units": annual_units,
@@ -404,6 +567,11 @@ def run_pipeline(force_refresh: bool = False):
         }
 
     composite = calculate_composite_ldi(workload_results)
+
+    # Per-agency AI procurement rollup (top N for surface area)
+    ai_summary = fpds_data.get("ai_procurement_summary", {})
+    agency_rollup_full = ai_summary.get("by_awarding_agency", []) or []
+    top_agencies = agency_rollup_full[:10]
 
     output = {
         "date": date_str,
@@ -434,8 +602,15 @@ def run_pipeline(force_refresh: bool = False):
             ) if workload_results else 0
         },
         "workloads": workload_results,
+        "ai_procurement_by_agency": {
+            "fy_current": fpds_data.get("fiscal_years", {}).get("current"),
+            "fy_prior": fpds_data.get("fiscal_years", {}).get("prior"),
+            "total_agencies": len(agency_rollup_full),
+            "top_agencies": top_agencies,
+            "source": "USAspending.gov spending_by_award keyword search, deduped per award_id, grouped by Awarding Agency",
+        },
         "meta": {
-            "sources": ["BLS OEWS", "BLS ECEC", "USAspending.gov FPDS", "Compute CPI basket"],
+            "sources": ["BLS OEWS", "BLS ECEC", "USAspending.gov FPDS", "OPM FedScope", "Compute CPI basket"],
             "pilot_workload_ids": list(workload_results.keys()),
             "cpi_value": cpi_data.get("compute_cpi", {}).get("value"),
             "methodology_version": "1.1",
@@ -492,6 +667,12 @@ def run_pipeline(force_refresh: bool = False):
     with open(historical_path, "w") as f:
         json.dump(history, f, indent=2)
     print(f"[LDI] Saved historical.json ({len(history['entries'])} entries)")
+
+    print("\n--- Computing derived signals (velocity, acceleration) ---")
+    run_derive()
+
+    print("\n--- Emitting per-workload JSON + flat CSV ---")
+    emit_workload_endpoints(date_str, workload_results, composite)
 
     print("\n" + "=" * 60)
     print("  LDI CALCULATION COMPLETE")

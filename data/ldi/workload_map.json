@@ -1,6 +1,6 @@
 {
-  "version": "1.1",
-  "description": "Workload-to-SOC mapping for LDI pilot workloads. Five pilot workloads selected for legible SOC mappings, observable procurement records, and plausible AI substitution paths.",
+  "version": "1.2",
+  "description": "Workload-to-SOC mapping for LDI pilot workloads. Federal workloads selected for legible SOC mappings, observable procurement records, and plausible AI substitution paths. v1.2 expands the federal set from 5 → 9 with FOIA, USCIS form intake, IRS notice generation, and VA appointment scheduling.",
   "last_updated": "2026-04-13",
   "sources": {
     "soc": "Standard Occupational Classification (2018), BLS",
@@ -99,6 +99,78 @@
       "fpds_psc_selection_rationale": "D302 and D399 are the most direct proxies for federal IT support contracts. R499 captures managed services and professional IT support contracts. These categories are government-wide and broader than Tier-1 help desk specifically.",
       "ai_task_mapping": "classification",
       "rationale": "Federal civilian workforce of ~2.1M generates high IT support volume. Tier-1 resolution (password resets, FAQs) represents ~40% of tickets. AI-driven ITSM tools widely deployed in private sector."
+    },
+    "foia_processing": {
+      "id": "foia_processing",
+      "name": "FOIA Request Processing",
+      "description": "Federal Freedom of Information Act request intake, search, redaction review, and release. Document-intensive review with statutory exemption analysis.",
+      "soc_code": "23-1011",
+      "soc_title": "Lawyers (proxy for FOIA officers and government information specialists)",
+      "minutes_per_unit": 220,
+      "minutes_per_unit_source": "DOJ OIP FOIA annual reports — average processing time per request, weighted across simple and complex tracks. SOC 23-1011 used as upper-bound proxy because most senior FOIA reviewers are attorneys; 43-9061 (Office Clerks) is used for intake-only steps but full lifecycle dominated by attorney/specialist time.",
+      "fpds_psc_codes": ["R499", "D399", "D302"],
+      "fpds_psc_descriptions": [
+        "R499 - SUPPORT- PROFESSIONAL: OTHER (FOIA support services contracts)",
+        "D399 - IT AND TELECOM- OTHER IT AND TELECOMMUNICATIONS (FOIA tracking systems, AI redaction tools)",
+        "D302 - IT AND TELECOM- SYSTEMS DEVELOPMENT (e-discovery and AI redaction system development)"
+      ],
+      "fpds_psc_selection_rationale": "R499 captures FOIA contractor support; D302/D399 capture e-discovery, redaction, and AI summarization platforms. DoJ, DHS, and DoD FOIA shops are the largest contract spenders.",
+      "ai_task_mapping": "summarization",
+      "rationale": "DOJ OIP reports 1.5M+ FOIA requests/yr across federal government with growing backlogs. AI-assisted document review and redaction has shown 50–70% time reduction in pilot deployments at State Department and DoD."
+    },
+    "uscis_form_intake": {
+      "id": "uscis_form_intake",
+      "name": "USCIS Form Intake & Initial Review",
+      "description": "First-touch review of immigration benefit applications (I-90, I-130, I-485, N-400, etc.). Completeness check, fee verification, biometric scheduling, RFE drafting for incomplete files.",
+      "soc_code": "13-1041",
+      "soc_title": "Eligibility Interviewers, Government Programs (USCIS Immigration Services Officers map to this SOC family)",
+      "minutes_per_unit": 30,
+      "minutes_per_unit_source": "USCIS workload time studies; processing time reports cross-referenced with field office benchmarks. Excludes adjudication interviews; covers intake + initial screening only.",
+      "fpds_psc_codes": ["R408", "R499", "D302"],
+      "fpds_psc_descriptions": [
+        "R408 - SUPPORT- PROFESSIONAL: PROGRAM MANAGEMENT/SUPPORT (USCIS contractor adjudication support)",
+        "R499 - SUPPORT- PROFESSIONAL: OTHER (immigration program services)",
+        "D302 - IT AND TELECOM- SYSTEMS DEVELOPMENT (ELIS / case management system development)"
+      ],
+      "fpds_psc_selection_rationale": "USCIS uses substantial contractor support for adjudication backlog. ELIS (Electronic Immigration System) modernization is a major D302 spend category.",
+      "ai_task_mapping": "classification",
+      "rationale": "USCIS receives 8M+ form filings annually with persistent backlogs. Initial intake and completeness review is rule-based and high-volume — strong AI substitution candidate. Form I-90 and I-130 already have AI-assisted classification pilots in production."
+    },
+    "irs_notice_generation": {
+      "id": "irs_notice_generation",
+      "name": "IRS Notice Generation & Routine Correspondence",
+      "description": "Drafting and personalizing IRS taxpayer correspondence: math-error notices, balance-due notices, identity-verification letters, and routine response letters. Templated but requires per-taxpayer fact selection.",
+      "soc_code": "13-2081",
+      "soc_title": "Tax Examiners and Collectors, and Revenue Agents",
+      "minutes_per_unit": 6,
+      "minutes_per_unit_source": "IRS Service-wide CCAR / W&I division processing benchmarks for routine correspondence; TIGTA reports on notice processing.",
+      "fpds_psc_codes": ["R408", "R499", "D302"],
+      "fpds_psc_descriptions": [
+        "R408 - SUPPORT- PROFESSIONAL: PROGRAM MANAGEMENT/SUPPORT (IRS modernization and operations support)",
+        "R499 - SUPPORT- PROFESSIONAL: OTHER (correspondence and processing services)",
+        "D302 - IT AND TELECOM- SYSTEMS DEVELOPMENT (CADE 2 modernization, notice generation systems)"
+      ],
+      "fpds_psc_selection_rationale": "IRS Modernization (BSM / CADE) is a large D302 spend area; correspondence services are bundled into R408/R499 contractor support.",
+      "ai_task_mapping": "chat_drafting",
+      "rationale": "IRS sends 200M+ pieces of correspondence/yr. Routine notices follow templates with per-taxpayer fact selection — exactly the chat_drafting tier sweet spot. IRS announced AI-drafted notice pilots under FY2024 IRS modernization plan."
+    },
+    "va_appointment_scheduling": {
+      "id": "va_appointment_scheduling",
+      "name": "VA Appointment Scheduling & Reminders",
+      "description": "Veterans Health Administration outpatient appointment scheduling: intake calls, slot finding across clinics, confirmation, rescheduling, and reminder follow-up.",
+      "soc_code": "43-4051",
+      "soc_title": "Customer Service Representatives (VA Medical Support Assistants map here)",
+      "minutes_per_unit": 7,
+      "minutes_per_unit_source": "VHA scheduling benchmarks; OIG reports on scheduling AHT (average handle time 6–8 minutes per appointment touch).",
+      "fpds_psc_codes": ["R408", "D302", "D399"],
+      "fpds_psc_descriptions": [
+        "R408 - SUPPORT- PROFESSIONAL: PROGRAM MANAGEMENT/SUPPORT (VHA scheduling support contracts)",
+        "D302 - IT AND TELECOM- SYSTEMS DEVELOPMENT (VistA / Cerner scheduling module development)",
+        "D399 - IT AND TELECOM- OTHER IT AND TELECOMMUNICATIONS (telephony, IVR, AI voice scheduling)"
+      ],
+      "fpds_psc_selection_rationale": "VA EHR Modernization (Oracle/Cerner) and contact center contracts are the dominant procurement vehicles for scheduling automation.",
+      "ai_task_mapping": "chat_drafting",
+      "rationale": "VHA conducts 130M+ outpatient appointments/yr with persistent scheduling bottlenecks. AI voice scheduling agents (Hyro, etc.) deployed at major health systems show 30–50% deflection of scheduling calls. VA piloting under MISSION Act access modernization."
     }
   }
 }
