@@ -355,7 +355,7 @@ Sources:
   · USAspending.gov spending_by_award/ — AI keyword search across description text
                     </code>
                     <p style="font-size: 0.8rem; color: var(--fg-muted); margin-top: 1rem; line-height: 1.6;">
-                        The contractor spend decline (60% weight) is from real USAspending.gov API data, aggregated at the PSC category level. The AI procurement component (40% weight) requires keyword-level contract title/description search to isolate AI-specific awards — this component is set to 0 pending that implementation. Important caveat: PSC categories are government-wide and far broader than the specific workloads (R499 "Professional Support: Other" is $32B/yr across all of government). As a result, the substitution rate is a very rough proxy and should be interpreted directionally, not as a precise share of tasks shifted to AI.
+                        The contractor decline (60% weight) is from PSC-aggregated FPDS spend, year-over-year. The AI growth (40% weight) is from a keyword search on USAspending's <code style="font-family: monospace;">spending_by_award</code> endpoint — awards deduped per <code style="font-family: monospace;">award_id</code>, attributed per workload via description/recipient text matching, and rolled back into a 0–1 growth rate. Important caveat: PSC categories are government-wide and far broader than the specific workloads (R499 "Professional Support: Other" alone is $32B/yr across all of government). The substitution rate is a directional proxy, not a precise task-share figure.
                     </p>
                 </div>
 

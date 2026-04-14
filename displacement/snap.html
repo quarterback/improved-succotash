@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f8f9fc" media="(prefers-color-scheme: light)">
+    <title>SNAP Eligibility — LDI Deep Dive | Occupant</title>
+    <meta name="description" content="SNAP Eligibility Processing — per-workload deep-dive from the Labor Displacement Index. Structural cost gap, substitution signal, absorption classification, and data provenance.">
+
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="apple-touch-icon" href="/logo.svg">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav role="navigation" aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a href="/cpi-data.html">CPI Data</a>
+            <a href="/aeai.html">AEAI</a>
+            <a href="/displacement.html">LDI</a>
+            <a href="/sabermetrics.html">Market Intel</a>
+            <a href="/calculator.html">Calculator</a>
+            <a href="/glossary.html">Glossary</a>
+            <a href="/about.html">About</a>
+            <div class="nav-right">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme">Light</button>
+            </div>
+        </nav>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator" aria-hidden="true">></span>
+            <a href="/displacement.html">LDI</a>
+            <span class="breadcrumb-separator" aria-hidden="true">></span>
+            <span class="breadcrumb-current" aria-current="page">SNAP Eligibility</span>
+        </nav>
+
+        <header>
+            <div class="logo" aria-label="Occupant">Occupant</div>
+        </header>
+
+        <main id="main-content" role="main">
+
+            <section class="hero">
+                <h1 class="hero-headline">SNAP Eligibility Processing</h1>
+                <p class="hero-description">Deep dive on one LDI workload: the annual eligibility interview and redetermination cycle for the Supplemental Nutrition Assistance Program. SOC 13-1041 · USDA FNS + state agency staff.</p>
+            </section>
+
+            <!-- Summary strip -->
+            <section aria-label="Workload summary" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2.5rem;">
+                <div class="live-index" style="margin: 0; flex-direction: column; align-items: flex-start; gap: 0.4rem;">
+                    <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6;">Human cost / unit</div>
+                    <div style="font-size: 1.5rem; font-weight: 600; font-family: monospace;" id="s-human-cost">—</div>
+                    <div style="font-size: 0.7rem; opacity: 0.7;" id="s-human-cost-sub">—</div>
+                </div>
+                <div class="live-index" style="margin: 0; flex-direction: column; align-items: flex-start; gap: 0.4rem;">
+                    <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6;">AI cost / unit</div>
+                    <div style="font-size: 1.5rem; font-weight: 600; font-family: monospace; color: var(--accent);" id="s-ai-cost">—</div>
+                    <div style="font-size: 0.7rem; opacity: 0.7;" id="s-ai-cost-sub">—</div>
+                </div>
+                <div class="live-index" style="margin: 0; flex-direction: column; align-items: flex-start; gap: 0.4rem;">
+                    <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6;">Cost ratio</div>
+                    <div style="font-size: 1.5rem; font-weight: 600; font-family: monospace;" id="s-ratio">—</div>
+                    <div style="font-size: 0.7rem; opacity: 0.7;">human vs AI per unit</div>
+                </div>
+                <div class="live-index" style="margin: 0; flex-direction: column; align-items: flex-start; gap: 0.4rem;">
+                    <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6;">Substitution rate</div>
+                    <div style="font-size: 1.5rem; font-weight: 600; font-family: monospace;" id="s-sub-rate">—</div>
+                    <div style="font-size: 0.7rem; opacity: 0.7;" id="s-sub-rate-sub">FPDS proxy</div>
+                </div>
+            </section>
+
+            <!-- The three measurement pillars, filled in for this workload -->
+            <section style="margin: 2rem 0 3rem 0;">
+                <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">How the number is built</h2>
+                <p style="color: var(--fg-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Same three-pillar method as the composite LDI page, but resolved to this workload's SOC code, PSC codes, and OPM FedScope rollup.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+                    <!-- Human cost pillar -->
+                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.25rem 1.5rem;">
+                        <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted); margin-bottom: 0.75rem;">1 — Human cost</div>
+                        <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
+                            <tbody>
+                                <tr><td style="padding: 0.4rem 0.5rem 0.4rem 0; color: var(--fg-muted); width: 40%;">SOC code</td><td style="padding: 0.4rem 0; font-family: monospace;" id="s-soc">—</td></tr>
+                                <tr><td style="padding: 0.4rem 0.5rem 0.4rem 0; color: var(--fg-muted);">Annual wage (BLS OEWS)</td><td style="padding: 0.4rem 0; font-family: monospace;" id="s-wage">—</td></tr>
+                                <tr><td style="padding: 0.4rem 0.5rem 0.4rem 0; color: var(--fg-muted);">Fully loaded hourly</td><td style="padding: 0.4rem 0; font-family: monospace;" id="s-loaded">—</td></tr>
+                                <tr><td style="padding: 0.4rem 0.5rem 0.4rem 0; color: var(--fg-muted);">Minutes per unit</td><td style="padding: 0.4rem 0; font-family: monospace;" id="s-minutes">—</td></tr>
+                                <tr><td style="padding: 0.4rem 0.5rem 0.4rem 0; color: var(--fg-muted);">Cost source</td><td style="padding: 0.4rem 0; font-size: 0.75rem; color: var(--fg-muted);" id="s-human-source">—</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Procurement pillar -->
+                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.25rem 1.5rem;">
+                        <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted); margin-bottom: 0.75rem;">2 — Procurement (substitution proxy)</div>
+                        <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
+                            <tbody>
+                                <tr><td style="padding: 0.4rem 0.5rem 0.4rem 0; color: var(--fg-muted); width: 40%;">PSC contractor spend, current FY</td><td style="padding: 0.4rem 0; font-family: monospace;" id="s-psc-current">—</td></tr>
+                                <tr><td style="padding: 0.4rem 0.5rem 0.4rem 0; color: var(--fg-muted);">PSC contractor spend, prior FY</td><td style="padding: 0.4rem 0; font-family: monospace;" id="s-psc-prior">—</td></tr>
+                                <tr><td style="padding: 0.4rem 0.5rem 0.4rem 0; color: var(--fg-muted);">Year-over-year change</td><td style="padding: 0.4rem 0; font-family: monospace;" id="s-psc-yoy">—</td></tr>
+                                <tr><td style="padding: 0.4rem 0.5rem 0.4rem 0; color: var(--fg-muted);">AI procurement growth (global fallback)</td><td style="padding: 0.4rem 0; font-family: monospace;" id="s-ai-growth">—</td></tr>
+                                <tr><td style="padding: 0.4rem 0.5rem 0.4rem 0; color: var(--fg-muted);">Composite sub rate</td><td style="padding: 0.4rem 0; font-family: monospace;" id="s-sub-composite">—</td></tr>
+                            </tbody>
+                        </table>
+                        <p style="font-size: 0.7rem; color: var(--fg-muted); margin-top: 0.75rem; line-height: 1.6;">
+                            PSC codes are broad government-wide categories. Treat this signal as directional, not precise.
+                        </p>
+                    </div>
+
+                    <!-- Absorption pillar -->
+                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.25rem 1.5rem;">
+                        <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted); margin-bottom: 0.75rem;">3 — Absorption (staffing fate)</div>
+                        <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
+                            <tbody>
+                                <tr><td style="padding: 0.4rem 0.5rem 0.4rem 0; color: var(--fg-muted); width: 40%;">Classification</td><td style="padding: 0.4rem 0;" id="s-absorption">—</td></tr>
+                                <tr><td style="padding: 0.4rem 0.5rem 0.4rem 0; color: var(--fg-muted);">FedScope FTE (current)</td><td style="padding: 0.4rem 0; font-family: monospace;" id="s-fte-current">—</td></tr>
+                                <tr><td style="padding: 0.4rem 0.5rem 0.4rem 0; color: var(--fg-muted);">FedScope FTE (prior)</td><td style="padding: 0.4rem 0; font-family: monospace;" id="s-fte-prior">—</td></tr>
+                                <tr><td style="padding: 0.4rem 0.5rem 0.4rem 0; color: var(--fg-muted);">FTE Δ%</td><td style="padding: 0.4rem 0; font-family: monospace;" id="s-fte-delta">—</td></tr>
+                                <tr><td style="padding: 0.4rem 0.5rem 0.4rem 0; color: var(--fg-muted);">Primary agencies</td><td style="padding: 0.4rem 0; font-size: 0.8rem;" id="s-agencies">—</td></tr>
+                            </tbody>
+                        </table>
+                        <p style="font-size: 0.7rem; color: var(--fg-muted); margin-top: 0.75rem; line-height: 1.6;" id="s-absorption-reason">—</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Realized numbers -->
+            <section style="margin: 3rem 0;">
+                <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Derived numbers</h2>
+                <p style="color: var(--fg-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Structural vs realized, plus the per-workload velocity from the 90-day historical window.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1rem 1.25rem;">
+                        <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted); margin-bottom: 0.35rem;">Volume</div>
+                        <div style="font-size: 1.25rem; font-weight: 600; font-family: monospace;" id="s-volume">—</div>
+                        <div style="font-size: 0.65rem; color: var(--fg-muted); margin-top: 0.3rem;" id="s-volume-source">units / yr</div>
+                    </div>
+                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1rem 1.25rem;">
+                        <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted); margin-bottom: 0.35rem;">Structural cost gap</div>
+                        <div style="font-size: 1.25rem; font-weight: 600; font-family: monospace;" id="s-disp-structural">—</div>
+                        <div style="font-size: 0.65rem; color: var(--fg-muted); margin-top: 0.3rem;">at 100% substitution / yr</div>
+                    </div>
+                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1rem 1.25rem;">
+                        <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted); margin-bottom: 0.35rem;">Wage income displaced</div>
+                        <div style="font-size: 1.25rem; font-weight: 600; font-family: monospace;" id="s-wage-displaced">—</div>
+                        <div style="font-size: 0.65rem; color: var(--fg-muted); margin-top: 0.3rem;">realized, per observed sub rate</div>
+                    </div>
+                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1rem 1.25rem;">
+                        <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted); margin-bottom: 0.35rem;">Velocity</div>
+                        <div style="font-size: 1.25rem; font-weight: 600; font-family: monospace;" id="s-velocity">—</div>
+                        <div style="font-size: 0.65rem; color: var(--fg-muted); margin-top: 0.3rem;">pp/month · 90d window</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data access -->
+            <section style="margin: 3rem 0; padding: 1.25rem 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px;">
+                <h2 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem;">Data access</h2>
+                <p style="font-size: 0.85rem; color: var(--fg-muted); line-height: 1.7; margin-bottom: 0.75rem;">
+                    Full LDI snapshot: <a href="/data/ldi/latest.json" style="color: var(--accent);"><code>/data/ldi/latest.json</code></a>.
+                    Per-workload snapshot: <a href="/data/ldi/workloads/snap_eligibility.json" style="color: var(--accent);"><code>/data/ldi/workloads/snap_eligibility.json</code></a>.
+                    Historical series: <a href="/data/ldi/historical.json" style="color: var(--accent);"><code>/data/ldi/historical.json</code></a>.
+                    CSV: <a href="/data/ldi/workloads.csv" style="color: var(--accent);"><code>/data/ldi/workloads.csv</code></a>.
+                </p>
+                <p style="font-size: 0.75rem; color: var(--fg-muted); line-height: 1.6;">
+                    Pipelines: <code>src/fetch_bls.py</code>, <code>src/fetch_fpds.py</code>, <code>src/fetch_opm.py</code>, <code>src/calculate_ldi.py</code>, <code>src/derive_signals.py</code>.
+                    FedScope cube used for FTE counts is Sep-2024 snapshot; OPM publishes no public API.
+                </p>
+            </section>
+
+        </main>
+
+        <footer>
+            <div class="footer-links">
+                <a href="/about.html">About</a>
+                <a href="https://ronbronson.com" rel="author">ronbronson.com</a>
+                <a href="/license.html">License</a>
+                <a href="/tardigrade.html">Tardigrade Disclosure</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/theme.js"></script>
+    <script>
+        const WORKLOAD_ID = 'snap_eligibility';
+
+        function fmtD(n, d) { return (n == null) ? '—' : n.toFixed(d == null ? 2 : d); }
+        function fmtDollars(n) {
+            if (n == null) return '—';
+            if (Math.abs(n) >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
+            if (Math.abs(n) >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M';
+            if (Math.abs(n) >= 1e3) return '$' + (n / 1e3).toFixed(1) + 'K';
+            return '$' + n.toFixed(2);
+        }
+        function fmtNum(n) { return (n == null) ? '—' : n.toLocaleString(); }
+
+        function absorptionBadge(cls) {
+            const colors = { eliminated: 'var(--danger)', reallocated: 'var(--warning)', frozen: 'var(--accent)', upgraded: 'var(--success)' };
+            const c = colors[cls] || 'var(--fg-muted)';
+            const lbl = cls ? cls.charAt(0).toUpperCase() + cls.slice(1) : '—';
+            return `<span style="font-size: 0.85rem; color: ${c}; font-weight: 600;">${lbl}</span>`;
+        }
+
+        async function load() {
+            const r = await fetch('/data/ldi/latest.json');
+            const d = await r.json();
+            const w = (d.workloads || {})[WORKLOAD_ID];
+            if (!w) return;
+
+            const hc = w.human_cost?.cost_per_unit;
+            const ac = w.ai_cost?.cost_per_unit;
+
+            document.getElementById('s-human-cost').textContent = hc ? '$' + hc.toFixed(2) : '—';
+            document.getElementById('s-human-cost-sub').textContent = w.human_cost?.source || '—';
+            document.getElementById('s-ai-cost').textContent = ac ? '$' + ac.toFixed(4) : '—';
+            document.getElementById('s-ai-cost-sub').textContent = w.ai_cost?.source || '—';
+            const ratio = (hc && ac && ac > 0) ? Math.round(hc / ac) : null;
+            document.getElementById('s-ratio').textContent = ratio ? ratio.toLocaleString() + 'x' : '—';
+
+            const sub = w.substitution_rate || {};
+            document.getElementById('s-sub-rate').textContent = fmtD(sub.rate_pct, 2) + '%';
+            document.getElementById('s-sub-rate-sub').textContent =
+                `FY${d.ai_procurement_by_agency?.fy_prior ?? ''}→FY${d.ai_procurement_by_agency?.fy_current ?? ''}`;
+
+            // Pillar 1: Human cost
+            document.getElementById('s-soc').textContent = `${w.soc_code} (${w.soc_title})`;
+            document.getElementById('s-wage').textContent = w.human_cost?.annual_wage ? '$' + w.human_cost.annual_wage.toLocaleString() + '/yr' : '—';
+            document.getElementById('s-loaded').textContent = w.human_cost?.fully_loaded_hourly ? '$' + w.human_cost.fully_loaded_hourly.toFixed(2) + '/hr' : '—';
+            document.getElementById('s-minutes').textContent = w.human_cost?.minutes_per_unit ? w.human_cost.minutes_per_unit + ' min' : '—';
+            document.getElementById('s-human-source').textContent = w.human_cost?.source || '—';
+
+            // Pillar 2: Procurement
+            document.getElementById('s-psc-current').textContent = fmtDollars(sub.current_fy_spend);
+            document.getElementById('s-psc-prior').textContent = fmtDollars(sub.current_fy_spend && sub.yoy_change_pct != null
+                ? sub.current_fy_spend / (1 + sub.yoy_change_pct / 100)
+                : null);
+            const yoy = sub.yoy_change_pct;
+            const yoyEl = document.getElementById('s-psc-yoy');
+            yoyEl.textContent = (yoy == null) ? '—' : (yoy > 0 ? '+' : '') + yoy.toFixed(1) + '%';
+            yoyEl.style.color = (yoy == null) ? 'var(--fg-muted)' : (yoy < 0 ? 'var(--accent)' : 'var(--warning)');
+            document.getElementById('s-ai-growth').textContent = sub.ai_growth_rate != null
+                ? (sub.ai_growth_rate * 100).toFixed(2) + '% (' + (sub.ai_growth_source || '') + ')'
+                : '—';
+            document.getElementById('s-sub-composite').textContent = fmtD(sub.rate_pct, 2) + '%';
+
+            // Pillar 3: Absorption
+            const abs = w.absorption || {};
+            document.getElementById('s-absorption').innerHTML = absorptionBadge(abs.classification) +
+                (abs.absorption_quant && abs.absorption_quant !== abs.classification
+                  ? ` <span style="font-size:0.7rem;color:var(--fg-muted);">(quantitative: ${abs.absorption_quant})</span>` : '');
+            document.getElementById('s-fte-current').textContent = fmtNum(abs.fte_current);
+            document.getElementById('s-fte-prior').textContent = fmtNum(abs.fte_prior);
+            const dlt = abs.fte_delta_pct;
+            const dltEl = document.getElementById('s-fte-delta');
+            dltEl.textContent = (dlt == null) ? '—' : (dlt > 0 ? '+' : '') + dlt.toFixed(2) + '%';
+            dltEl.style.color = (dlt == null) ? 'var(--fg-muted)' : (dlt < 0 ? 'var(--warning)' : 'var(--accent)');
+            document.getElementById('s-agencies').textContent = (abs.primary_agencies || []).join(', ') || '—';
+            document.getElementById('s-absorption-reason').textContent = abs.reasoning || '';
+
+            // Derived numbers
+            document.getElementById('s-volume').textContent = fmtNum(w.volume?.annual_units) + ' / yr';
+            document.getElementById('s-volume-source').textContent = w.volume?.source || '';
+            document.getElementById('s-disp-structural').textContent = fmtDollars(w.displacement?.total_annual_displacement);
+            const wageDisp = (d.derived_signals?.wage_income_displaced?.per_workload_annual_usd || {})[WORKLOAD_ID];
+            document.getElementById('s-wage-displaced').textContent = fmtDollars(wageDisp);
+            const velObj = (d.derived_signals?.substitution_velocity?.per_workload || {})[WORKLOAD_ID];
+            const vel = velObj?.velocity_monthly_pp;
+            const velEl = document.getElementById('s-velocity');
+            velEl.textContent = (vel == null) ? '—' : (vel > 0 ? '+' : '') + vel.toFixed(3);
+            velEl.style.color = (vel == null) ? 'var(--fg-muted)' : (vel > 0 ? 'var(--warning)' : 'var(--accent)');
+        }
+
+        load().catch(e => console.log('Deep-dive load error:', e));
+    </script>
+</body>
+</html>

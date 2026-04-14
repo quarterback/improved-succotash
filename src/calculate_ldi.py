@@ -16,6 +16,7 @@ Three computable signals:
 - Absorption classification: eliminated / reallocated / frozen (inferred from JOLTS + FPDS)
 """
 
+import csv
 import json
 import sys
 from datetime import datetime, timezone
@@ -346,6 +347,91 @@ def calculate_composite_ldi(workloads: dict) -> dict:
     }
 
 
+def emit_workload_endpoints(date_str: str, workload_results: dict, composite: dict) -> None:
+    """
+    Emit per-workload JSON files at data/ldi/workloads/<id>.json and a flat CSV at
+    data/ldi/workloads.csv. These are static endpoints peers can hit directly.
+    """
+    workloads_dir = LDI_DIR / "workloads"
+    workloads_dir.mkdir(parents=True, exist_ok=True)
+
+    # Per-workload JSON: one file per workload, flat enough to be linkable
+    for wid, w in workload_results.items():
+        path = workloads_dir / f"{wid}.json"
+        payload = {
+            "date": date_str,
+            "workload_id": wid,
+            **w,
+            "_links": {
+                "deep_dive_html": f"/displacement/{wid}.html",
+                "composite_latest": "/data/ldi/latest.json",
+                "historical": "/data/ldi/historical.json"
+            }
+        }
+        with open(path, "w") as f:
+            json.dump(payload, f, indent=2)
+
+    # Flat CSV: one row per workload with the headline fields
+    csv_path = LDI_DIR / "workloads.csv"
+    fieldnames = [
+        "date", "workload_id", "name", "soc_code", "soc_title",
+        "annual_volume", "human_cost_per_unit", "ai_cost_per_unit",
+        "cost_ratio", "displacement_per_unit", "total_annual_displacement",
+        "substitution_rate_pct", "current_fy_spend", "yoy_change_pct",
+        "ai_growth_rate", "absorption_classification", "fte_current",
+        "fte_prior", "fte_delta_pct",
+    ]
+    with open(csv_path, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for wid, w in workload_results.items():
+            human = w.get("human_cost", {}).get("cost_per_unit") or 0
+            ai = w.get("ai_cost", {}).get("cost_per_unit") or 0
+            ratio = round(human / ai, 2) if ai else None
+            writer.writerow({
+                "date": date_str,
+                "workload_id": wid,
+                "name": w.get("name"),
+                "soc_code": w.get("soc_code"),
+                "soc_title": w.get("soc_title"),
+                "annual_volume": w.get("volume", {}).get("annual_units"),
+                "human_cost_per_unit": human,
+                "ai_cost_per_unit": ai,
+                "cost_ratio": ratio,
+                "displacement_per_unit": w.get("displacement", {}).get("displacement_per_unit"),
+                "total_annual_displacement": w.get("displacement", {}).get("total_annual_displacement"),
+                "substitution_rate_pct": w.get("substitution_rate", {}).get("rate_pct"),
+                "current_fy_spend": w.get("substitution_rate", {}).get("current_fy_spend"),
+                "yoy_change_pct": w.get("substitution_rate", {}).get("yoy_change_pct"),
+                "ai_growth_rate": w.get("substitution_rate", {}).get("ai_growth_rate"),
+                "absorption_classification": w.get("absorption", {}).get("classification"),
+                "fte_current": w.get("absorption", {}).get("fte_current"),
+                "fte_prior": w.get("absorption", {}).get("fte_prior"),
+                "fte_delta_pct": w.get("absorption", {}).get("fte_delta_pct"),
+            })
+
+    # Index file so /data/ldi/workloads/ is browsable via a single JSON
+    index_path = workloads_dir / "index.json"
+    with open(index_path, "w") as f:
+        json.dump({
+            "date": date_str,
+            "workload_count": len(workload_results),
+            "composite_substitution_rate_pct": composite.get("substitution_rate"),
+            "workloads": [
+                {
+                    "id": wid,
+                    "name": w.get("name"),
+                    "soc_code": w.get("soc_code"),
+                    "endpoint": f"/data/ldi/workloads/{wid}.json",
+                }
+                for wid, w in workload_results.items()
+            ],
+        }, f, indent=2)
+
+    print(f"[LDI] Wrote {len(workload_results)} per-workload JSON files to {workloads_dir}")
+    print(f"[LDI] Wrote flat CSV to {csv_path}")
+
+
 def run_pipeline(force_refresh: bool = False):
     """
     Full LDI pipeline:
@@ -584,6 +670,9 @@ def run_pipeline(force_refresh: bool = False):
 
     print("\n--- Computing derived signals (velocity, acceleration) ---")
     run_derive()
+
+    print("\n--- Emitting per-workload JSON + flat CSV ---")
+    emit_workload_endpoints(date_str, workload_results, composite)
 
     print("\n" + "=" * 60)
     print("  LDI CALCULATION COMPLETE")
