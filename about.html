@@ -98,25 +98,25 @@
                 <h2>What this is</h2>
                 <div class="mandate-box">
                     <p>
-                        Occupant publishes two free, daily-updated indices for AI compute:
-                        <strong>Compute CPI</strong> (a price index across model tiers) and
-                        <strong>AEAI</strong> (an activity index for token volume, spend, and energy).
+                        Occupant publishes three free, daily-updated indexes for AI compute:
+                        <strong>Compute CPI</strong> (a price index across model tiers),
+                        <strong>AEAI</strong> (an activity index for token volume, spend, and energy),
+                        and <strong>LDI</strong> (a labor displacement tracker for US federal workloads).
                     </p>
                 </div>
                 <p>
                     The motivation is simple: AI compute prices move every week, the basket of available
                     models shifts constantly, and most public commentary on the AI market relies on
-                    point-in-time anecdotes. A standing benchmark &mdash; with a fixed methodology you can
-                    audit &mdash; makes the conversation comparable across time.
+                    point-in-time anecdotes. A standing benchmark &mdash; with a fixed methodology anyone
+                    can audit &mdash; makes the conversation comparable across time.
                 </p>
                 <p>
-                    Designed and maintained by <a href="https://ronbronson.com" rel="author">Ron Bronson</a>.
                     Methodology, source list, and update cadence are all on this page.
                 </p>
             </section>
 
             <section>
-                <h2>The indices</h2>
+                <h2>The indexes</h2>
 
                 <h3>Compute CPI</h3>
                 <p>
@@ -130,6 +130,16 @@
                     A composite of three signals: token throughput (60%), inferred spend (30%), and
                     energy consumption (10%). Designed to read like an economic activity gauge for the
                     AI sector rather than a stock-price proxy. February 2025 = 100.
+                </p>
+
+                <h3>LDI &mdash; Labor Displacement Index</h3>
+                <p>
+                    A per-workload tracker for the cost and staffing gap between human and AI labor
+                    across nine US federal workloads. Three pillars: human cost (BLS OEWS wage &times;
+                    loading factor), AI cost (Compute CPI basket), and substitution proxy (FPDS/USAspending
+                    contractor spend + AI procurement). Absorption classification is derived from OPM
+                    FedScope FTE counts. Structural gap and realized substitution are kept as distinct
+                    signals, not averaged.
                 </p>
             </section>
 
@@ -160,8 +170,11 @@
                 <p>
                     <strong>Compute CPI</strong> aggregates pricing data into a volume-weighted basket across
                     four workload tiers. <strong>AEAI</strong> tracks economic activity through token volumes (60%),
-                    inferred spend (30%), and energy consumption (10%). Cross-validated across sources.
-                    Discrepancies flagged before publication. January 2025 = 100 for both indices.
+                    inferred spend (30%), and energy consumption (10%). <strong>LDI</strong> resolves each of nine
+                    federal workloads into a cost-per-unit comparison (BLS wage &times; loading vs. Compute CPI
+                    inference cost), pairs it with an FPDS-derived substitution proxy, and classifies the
+                    staffing response from OPM FedScope FTE deltas. Cross-validated across sources.
+                    Discrepancies flagged before publication. January 2025 = 100 for CPI and AEAI.
                 </p>
 
                 <table class="methodology-table">
@@ -250,6 +263,21 @@
                             <td>Quality ratings (ELO)</td>
                             <td>Weekly</td>
                         </tr>
+                        <tr>
+                            <td>BLS OEWS</td>
+                            <td>Wage data by SOC code (LDI)</td>
+                            <td>Annual</td>
+                        </tr>
+                        <tr>
+                            <td>FPDS / USAspending</td>
+                            <td>Federal procurement (LDI)</td>
+                            <td>Daily</td>
+                        </tr>
+                        <tr>
+                            <td>OPM FedScope</td>
+                            <td>Federal FTE counts (LDI)</td>
+                            <td>Quarterly</td>
+                        </tr>
                     </tbody>
                 </table>
                 <p>
@@ -260,7 +288,7 @@
             <section>
                 <h2>Data Access</h2>
                 <p>
-                    All indices are public and free. Daily values publish by 09:00 UTC. Full historical data
+                    All indexes are public and free. Daily values publish by 09:00 UTC. Full historical data
                     available via JSON API. Commercial users, government agencies, and researchers welcome.
                 </p>
             </section>

@@ -297,6 +297,25 @@
             <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--fg-muted);" id="yield-interpretation">-</p>
         </section>
 
+        <section class="card" style="margin-top: 2rem;">
+            <div class="section-title">About this index</div>
+            <p style="font-size: 0.875rem; color: var(--fg-muted); line-height: 1.7; margin: 0.5rem 0 1rem 0;">
+                <strong>What it measures.</strong> A volume-weighted basket of inference prices across four workload tiers (frontier, reasoning, long-context, budget). Tracks price deflation in $/MTok against a January 2025 = 100 baseline.
+            </p>
+            <p style="font-size: 0.875rem; color: var(--fg-muted); line-height: 1.7; margin: 0 0 1rem 0;">
+                <strong>Sources.</strong> OpenRouter API (primary pricing), LiteLLM (cross-provider validation), pricepertoken.com (independent verification), OpenRouter Rankings (volume), Chatbot Arena (quality / ELO).
+            </p>
+            <p style="font-size: 0.875rem; color: var(--fg-muted); line-height: 1.7; margin: 0 0 1rem 0;">
+                <strong>Update cadence.</strong> Daily by 09:00 UTC.
+            </p>
+            <p style="font-size: 0.875rem; color: var(--fg-muted); line-height: 1.7; margin: 0 0 1rem 0;">
+                <strong>Limitations.</strong> Publicly listed prices only — enterprise discounts and committed-use pricing are not observed. The basket is fixed at reconstitution; mid-period model introductions enter at the next reweighting. Discrepancies exceeding 10% between sources trigger manual review before publication.
+            </p>
+            <p style="font-size: 0.875rem; color: var(--fg-muted); line-height: 1.7; margin: 0;">
+                <strong>Suggested citation.</strong> <em>Compute CPI, Occupant, 2026, https://occupant.ee/cpi-data.html</em>
+            </p>
+        </section>
+
         <footer>
             <div>Data from OpenRouter, Arena Leaderboard</div>
             <div style="margin-top: 1rem;">
