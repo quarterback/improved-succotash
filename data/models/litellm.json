@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-14T06:40:17.951270+00:00",
+  "fetched_at": "2026-04-15T06:40:19.815581+00:00",
   "models": {
     "ai21.j2-mid-v1": {
       "input_cost_per_token": 1.25e-05,
@@ -20632,6 +20632,34 @@
       "supports_vision": false,
       "supports_function_calling": false,
       "supports_reasoning": false,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "wandb/moonshotai/Kimi-K2.5": {
+      "input_cost_per_token": 6e-07,
+      "output_cost_per_token": 3e-06,
+      "context_length": 262144,
+      "max_output_tokens": 262144,
+      "provider": "wandb",
+      "supports_vision": true,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 1e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "wandb/MiniMaxAI/MiniMax-M2.5": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 1.2e-06,
+      "context_length": 197000,
+      "max_output_tokens": 197000,
+      "provider": "wandb",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
       "cache_read_cost": 0,
       "batch_input_cost": 0,
       "batch_output_cost": 0,
