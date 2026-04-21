@@ -1,6 +1,13 @@
 {
-  "fetched_at": "2026-04-20T06:48:59.039340+00:00",
+  "fetched_at": "2026-04-21T06:41:46.368488+00:00",
   "models": {
+    "moonshotai/kimi-k2.6": {
+      "input_cost_per_token": 6e-07,
+      "output_cost_per_token": 2.8e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "MoonshotAI: Kimi K2.6"
+    },
     "anthropic/claude-opus-4.7": {
       "input_cost_per_token": 5e-06,
       "output_cost_per_token": 2.5e-05,
@@ -16,8 +23,8 @@
       "name": "Anthropic: Claude Opus 4.6 (Fast)"
     },
     "z-ai/glm-5.1": {
-      "input_cost_per_token": 9.5e-07,
-      "output_cost_per_token": 3.15e-06,
+      "input_cost_per_token": 6.98e-07,
+      "output_cost_per_token": 4.4e-06,
       "context_length": 202752,
       "source": "openrouter",
       "name": "Z.ai: GLM 5.1"
@@ -289,8 +296,8 @@
       "name": "Qwen: Qwen3.5 397B A17B"
     },
     "minimax/minimax-m2.5": {
-      "input_cost_per_token": 1.18e-07,
-      "output_cost_per_token": 9.9e-07,
+      "input_cost_per_token": 1.5e-07,
+      "output_cost_per_token": 1.2e-06,
       "context_length": 196608,
       "source": "openrouter",
       "name": "MiniMax: MiniMax M2.5"
@@ -331,8 +338,8 @@
       "name": "StepFun: Step 3.5 Flash"
     },
     "moonshotai/kimi-k2.5": {
-      "input_cost_per_token": 3.827e-07,
-      "output_cost_per_token": 1.72e-06,
+      "input_cost_per_token": 4.4e-07,
+      "output_cost_per_token": 2e-06,
       "context_length": 262144,
       "source": "openrouter",
       "name": "MoonshotAI: Kimi K2.5"
@@ -415,8 +422,8 @@
       "name": "MiniMax: MiniMax M2.1"
     },
     "z-ai/glm-4.7": {
-      "input_cost_per_token": 3.9e-07,
-      "output_cost_per_token": 1.75e-06,
+      "input_cost_per_token": 3.8e-07,
+      "output_cost_per_token": 1.74e-06,
       "context_length": 202752,
       "source": "openrouter",
       "name": "Z.ai: GLM 4.7"
@@ -562,9 +569,9 @@
       "name": "DeepSeek: DeepSeek V3.2 Speciale"
     },
     "deepseek/deepseek-v3.2": {
-      "input_cost_per_token": 2.59e-07,
-      "output_cost_per_token": 4.2e-07,
-      "context_length": 163840,
+      "input_cost_per_token": 2.52e-07,
+      "output_cost_per_token": 3.78e-07,
+      "context_length": 131072,
       "source": "openrouter",
       "name": "DeepSeek: DeepSeek V3.2"
     },
