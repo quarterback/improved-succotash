@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-04-30T06:55:57.931667+00:00",
+    "generated_at": "2026-05-01T06:58:25.374895+00:00",
     "baseline_date": "2025-02-01",
     "launch_date": "2025-02-01",
     "data_sources": [
@@ -8,14 +8,14 @@
       "litellm"
     ],
     "methodology_version": "2.0",
-    "models_count": 2180
+    "models_count": 2182
   },
   "compute_cpi": {
     "ticker": "$CPI",
     "name": "Compute CPI",
     "value": 69.1,
     "mom_change": -22.97,
-    "yoy_change": null,
+    "yoy_change": -18.9,
     "trend": "down",
     "basket_cost": 28.4419,
     "basket_cost_unit": "$ per 1K standardized workloads"
@@ -30,7 +30,7 @@
     "yoy": {
       "ticker": "$CPI-Y",
       "name": "Year-over-Year",
-      "base_date": "2025-04-30",
+      "base_date": "2025-05-01",
       "value": 81.1
     },
     "qtd": {
@@ -42,13 +42,13 @@
     "mtd": {
       "ticker": "$CPI-M",
       "name": "Month-to-Date",
-      "base_date": "2026-04-01",
-      "value": 77.0
+      "base_date": "2026-05-01",
+      "value": 100.0
     },
     "wow": {
       "ticker": "$CPI-W",
       "name": "Week-over-Week",
-      "base_date": "2026-04-23",
+      "base_date": "2026-04-24",
       "value": 100.0
     }
   },
@@ -103,13 +103,13 @@
         "days": 7,
         "deflation_pct": 0.0,
         "annualized_pct": 0.0,
-        "source_date": "2026-04-23"
+        "source_date": "2026-04-24"
       },
       "1m": {
         "days": 30,
         "deflation_pct": -23.02,
         "annualized_pct": -280.09,
-        "source_date": "2026-03-31"
+        "source_date": "2026-04-01"
       },
       "3m": {
         "days": 90,
@@ -131,7 +131,7 @@
       }
     },
     "interpretation": "Rapid deflation - AI compute costs falling significantly",
-    "generated_at": "2026-04-30T06:55:57.928760+00:00"
+    "generated_at": "2026-05-01T06:58:25.371972+00:00"
   },
   "subindices": {
     "judgment": {
@@ -219,7 +219,7 @@
         "display": "1 $BULK = 4 $UTIL"
       }
     },
-    "generated_at": "2026-04-30T06:55:57.908547+00:00"
+    "generated_at": "2026-05-01T06:58:25.266131+00:00"
   },
   "persona_cpis": {
     "startup": {
