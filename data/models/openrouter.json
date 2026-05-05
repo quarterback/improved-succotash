@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-04T07:05:56.009358+00:00",
+  "fetched_at": "2026-05-05T06:49:42.980734+00:00",
   "models": {
     "x-ai/grok-4.3": {
       "input_cost_per_token": 1.25e-06,
@@ -14,6 +14,13 @@
       "context_length": 131072,
       "source": "openrouter",
       "name": "IBM: Granite 4.1 8B"
+    },
+    "mistralai/mistral-medium-3-5": {
+      "input_cost_per_token": 1.5e-06,
+      "output_cost_per_token": 7.5e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Mistral: Mistral Medium 3.5"
     },
     "~anthropic/claude-haiku-latest": {
       "input_cost_per_token": 1e-06,
@@ -1775,7 +1782,7 @@
     "google/gemini-2.0-flash-001": {
       "input_cost_per_token": 1e-07,
       "output_cost_per_token": 4e-07,
-      "context_length": 1048576,
+      "context_length": 1000000,
       "source": "openrouter",
       "name": "Google: Gemini 2.0 Flash"
     },
