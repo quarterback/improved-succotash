@@ -1,6 +1,13 @@
 {
-  "fetched_at": "2026-05-05T06:49:42.980734+00:00",
+  "fetched_at": "2026-05-06T06:58:26.002552+00:00",
   "models": {
+    "openai/gpt-chat-latest": {
+      "input_cost_per_token": 5e-06,
+      "output_cost_per_token": 3e-05,
+      "context_length": 400000,
+      "source": "openrouter",
+      "name": "OpenAI: GPT Chat Latest"
+    },
     "x-ai/grok-4.3": {
       "input_cost_per_token": 1.25e-06,
       "output_cost_per_token": 2.5e-06,
@@ -44,9 +51,9 @@
       "name": "Google Gemini Pro Latest"
     },
     "~moonshotai/kimi-latest": {
-      "input_cost_per_token": 7.4e-07,
-      "output_cost_per_token": 3.49e-06,
-      "context_length": 262142,
+      "input_cost_per_token": 7.5e-07,
+      "output_cost_per_token": 3.5e-06,
+      "context_length": 262144,
       "source": "openrouter",
       "name": "MoonshotAI Kimi Latest"
     },
@@ -170,9 +177,9 @@
       "name": "Anthropic: Claude Opus Latest"
     },
     "moonshotai/kimi-k2.6": {
-      "input_cost_per_token": 7.4e-07,
-      "output_cost_per_token": 3.49e-06,
-      "context_length": 262142,
+      "input_cost_per_token": 7.5e-07,
+      "output_cost_per_token": 3.5e-06,
+      "context_length": 262144,
       "source": "openrouter",
       "name": "MoonshotAI: Kimi K2.6"
     },
@@ -472,7 +479,7 @@
     },
     "z-ai/glm-5": {
       "input_cost_per_token": 6e-07,
-      "output_cost_per_token": 2.08e-06,
+      "output_cost_per_token": 1.92e-06,
       "context_length": 202752,
       "source": "openrouter",
       "name": "Z.ai: GLM 5"
@@ -875,6 +882,13 @@
       "context_length": 131000,
       "source": "openrouter",
       "name": "IBM: Granite 4.0 Micro"
+    },
+    "microsoft/phi-4-mini-instruct": {
+      "input_cost_per_token": 8e-08,
+      "output_cost_per_token": 3.5e-07,
+      "context_length": 128000,
+      "source": "openrouter",
+      "name": "Microsoft: Phi 4 Mini Instruct"
     },
     "openai/gpt-5-image-mini": {
       "input_cost_per_token": 2.5e-06,
@@ -1782,7 +1796,7 @@
     "google/gemini-2.0-flash-001": {
       "input_cost_per_token": 1e-07,
       "output_cost_per_token": 4e-07,
-      "context_length": 1000000,
+      "context_length": 1048576,
       "source": "openrouter",
       "name": "Google: Gemini 2.0 Flash"
     },
