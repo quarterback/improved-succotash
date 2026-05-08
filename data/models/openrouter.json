@@ -1,6 +1,13 @@
 {
-  "fetched_at": "2026-05-07T07:03:24.324383+00:00",
+  "fetched_at": "2026-05-08T06:39:47.466360+00:00",
   "models": {
+    "google/gemini-3.1-flash-lite": {
+      "input_cost_per_token": 2.5e-07,
+      "output_cost_per_token": 1.5e-06,
+      "context_length": 1048576,
+      "source": "openrouter",
+      "name": "Google: Gemini 3.1 Flash Lite"
+    },
     "openai/gpt-chat-latest": {
       "input_cost_per_token": 5e-06,
       "output_cost_per_token": 3e-05,
@@ -140,6 +147,13 @@
       "context_length": 1048576,
       "source": "openrouter",
       "name": "DeepSeek: DeepSeek V4 Flash"
+    },
+    "inclusionai/ling-2.6-1t": {
+      "input_cost_per_token": 3e-07,
+      "output_cost_per_token": 2.5e-06,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "inclusionAI: Ling-2.6-1T"
     },
     "xiaomi/mimo-v2.5-pro": {
       "input_cost_per_token": 1e-06,
@@ -282,7 +296,7 @@
       "name": "Xiaomi: MiMo-V2-Pro"
     },
     "minimax/minimax-m2.7": {
-      "input_cost_per_token": 3e-07,
+      "input_cost_per_token": 2.99e-07,
       "output_cost_per_token": 1.2e-06,
       "context_length": 196608,
       "source": "openrouter",
@@ -331,7 +345,7 @@
       "name": "ByteDance Seed: Seed-2.0-Lite"
     },
     "qwen/qwen3.5-9b": {
-      "input_cost_per_token": 1e-07,
+      "input_cost_per_token": 4e-08,
       "output_cost_per_token": 1.5e-07,
       "context_length": 262144,
       "source": "openrouter",
@@ -387,7 +401,7 @@
       "name": "Google: Nano Banana 2 (Gemini 3.1 Flash Image Preview)"
     },
     "qwen/qwen3.5-35b-a3b": {
-      "input_cost_per_token": 1.5e-07,
+      "input_cost_per_token": 1.4e-07,
       "output_cost_per_token": 1e-06,
       "context_length": 262144,
       "source": "openrouter",
@@ -2031,13 +2045,6 @@
       "source": "openrouter",
       "name": "Qwen: Qwen2.5 7B Instruct"
     },
-    "nvidia/llama-3.1-nemotron-70b-instruct": {
-      "input_cost_per_token": 1.2e-06,
-      "output_cost_per_token": 1.2e-06,
-      "context_length": 131072,
-      "source": "openrouter",
-      "name": "NVIDIA: Llama 3.1 Nemotron 70B Instruct"
-    },
     "inflection/inflection-3-productivity": {
       "input_cost_per_token": 2.5e-06,
       "output_cost_per_token": 1e-05,
@@ -2268,13 +2275,6 @@
       "context_length": 4095,
       "source": "openrouter",
       "name": "OpenAI: GPT-3.5 Turbo (older v0613)"
-    },
-    "mistralai/mixtral-8x7b-instruct": {
-      "input_cost_per_token": 5.4e-07,
-      "output_cost_per_token": 5.4e-07,
-      "context_length": 32768,
-      "source": "openrouter",
-      "name": "Mistral: Mixtral 8x7B Instruct"
     },
     "alpindale/goliath-120b": {
       "input_cost_per_token": 3.75e-06,
