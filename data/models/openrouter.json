@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-08T06:39:47.466360+00:00",
+  "fetched_at": "2026-05-09T06:46:28.159952+00:00",
   "models": {
     "google/gemini-3.1-flash-lite": {
       "input_cost_per_token": 2.5e-07,
@@ -154,6 +154,13 @@
       "context_length": 262144,
       "source": "openrouter",
       "name": "inclusionAI: Ling-2.6-1T"
+    },
+    "tencent/hy3-preview": {
+      "input_cost_per_token": 6.6e-08,
+      "output_cost_per_token": 2.6e-07,
+      "context_length": 262144,
+      "source": "openrouter",
+      "name": "Tencent: Hy3 preview"
     },
     "xiaomi/mimo-v2.5-pro": {
       "input_cost_per_token": 1e-06,
@@ -611,8 +618,8 @@
       "name": "MiniMax: MiniMax M2.1"
     },
     "z-ai/glm-4.7": {
-      "input_cost_per_token": 3.8e-07,
-      "output_cost_per_token": 1.74e-06,
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 1.75e-06,
       "context_length": 202752,
       "source": "openrouter",
       "name": "Z.ai: GLM 4.7"
@@ -625,8 +632,8 @@
       "name": "Google: Gemini 3 Flash Preview"
     },
     "xiaomi/mimo-v2-flash": {
-      "input_cost_per_token": 9e-08,
-      "output_cost_per_token": 2.9e-07,
+      "input_cost_per_token": 1e-07,
+      "output_cost_per_token": 3e-07,
       "context_length": 262144,
       "source": "openrouter",
       "name": "Xiaomi: MiMo-V2-Flash"
@@ -1373,13 +1380,6 @@
       "source": "openrouter",
       "name": "Tencent: Hunyuan A13B Instruct"
     },
-    "tngtech/deepseek-r1t2-chimera": {
-      "input_cost_per_token": 3e-07,
-      "output_cost_per_token": 1.1e-06,
-      "context_length": 163840,
-      "source": "openrouter",
-      "name": "TNG: DeepSeek R1T2 Chimera"
-    },
     "morph/morph-v3-large": {
       "input_cost_per_token": 9e-07,
       "output_cost_per_token": 1.9e-06,
@@ -1564,7 +1564,7 @@
     },
     "qwen/qwen3-32b": {
       "input_cost_per_token": 8e-08,
-      "output_cost_per_token": 2.4e-07,
+      "output_cost_per_token": 2.8e-07,
       "context_length": 40960,
       "source": "openrouter",
       "name": "Qwen: Qwen3 32B"
@@ -1796,7 +1796,7 @@
     "google/gemini-2.0-flash-001": {
       "input_cost_per_token": 1e-07,
       "output_cost_per_token": 4e-07,
-      "context_length": 1048576,
+      "context_length": 1000000,
       "source": "openrouter",
       "name": "Google: Gemini 2.0 Flash"
     },
