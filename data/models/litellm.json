@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-09T06:46:28.213512+00:00",
+  "fetched_at": "2026-05-10T06:58:07.587529+00:00",
   "models": {
     "ai21.j2-mid-v1": {
       "input_cost_per_token": 1.25e-05,
@@ -15814,6 +15814,20 @@
       "max_output_tokens": 262144,
       "provider": "openrouter",
       "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": true,
+      "cache_read_cost": 0,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "openrouter/qwen/qwen3.6-plus": {
+      "input_cost_per_token": 3.25e-07,
+      "output_cost_per_token": 1.95e-06,
+      "context_length": 1000000,
+      "max_output_tokens": 65536,
+      "provider": "openrouter",
+      "supports_vision": true,
       "supports_function_calling": true,
       "supports_reasoning": true,
       "cache_read_cost": 0,

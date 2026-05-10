@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-09T06:46:28.159952+00:00",
+  "fetched_at": "2026-05-10T06:58:07.538144+00:00",
   "models": {
     "google/gemini-3.1-flash-lite": {
       "input_cost_per_token": 2.5e-07,
