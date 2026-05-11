@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-10T06:58:07.538144+00:00",
+  "fetched_at": "2026-05-11T07:16:35.594879+00:00",
   "models": {
     "google/gemini-3.1-flash-lite": {
       "input_cost_per_token": 2.5e-07,
@@ -541,8 +541,8 @@
       "name": "Arcee AI: Trinity Large Preview"
     },
     "moonshotai/kimi-k2.5": {
-      "input_cost_per_token": 4.4e-07,
-      "output_cost_per_token": 2e-06,
+      "input_cost_per_token": 4e-07,
+      "output_cost_per_token": 1.98e-06,
       "context_length": 262144,
       "source": "openrouter",
       "name": "MoonshotAI: Kimi K2.5"
@@ -1757,20 +1757,6 @@
       "context_length": 1048576,
       "source": "openrouter",
       "name": "Google: Gemini 2.0 Flash Lite"
-    },
-    "anthropic/claude-3.7-sonnet": {
-      "input_cost_per_token": 3e-06,
-      "output_cost_per_token": 1.5e-05,
-      "context_length": 200000,
-      "source": "openrouter",
-      "name": "Anthropic: Claude 3.7 Sonnet"
-    },
-    "anthropic/claude-3.7-sonnet:thinking": {
-      "input_cost_per_token": 3e-06,
-      "output_cost_per_token": 1.5e-05,
-      "context_length": 200000,
-      "source": "openrouter",
-      "name": "Anthropic: Claude 3.7 Sonnet (thinking)"
     },
     "mistralai/mistral-saba": {
       "input_cost_per_token": 2e-07,

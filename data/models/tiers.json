@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-10T06:58:07.612960+00:00",
+  "generated_at": "2026-05-11T07:16:35.664390+00:00",
   "tiers": {
     "budget": [
       "openai/gpt-4o-mini",
@@ -13,25 +13,21 @@
     "general": [
       "openai/gpt-4o",
       "google/gemini-2.0-flash-001",
-      "anthropic/claude-3.7-sonnet",
       "meta-llama/llama-3.1-70b-instruct"
     ],
     "frontier": [
       "openai/gpt-4o",
-      "anthropic/claude-3.7-sonnet",
       "google/gemini-2.5-pro",
       "anthropic/claude-opus-4"
     ],
     "reasoning": [
       "openai/o1",
       "openai/o3-mini",
-      "deepseek/deepseek-r1",
-      "anthropic/claude-3.7-sonnet:thinking"
+      "deepseek/deepseek-r1"
     ],
     "longctx": [
       "google/gemini-2.5-pro",
       "google/gemini-2.0-flash-001",
-      "anthropic/claude-3.7-sonnet",
       "openai/gpt-4o"
     ]
   },
