@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-12T07:02:24.262873+00:00",
+  "fetched_at": "2026-05-13T07:06:17.636140+00:00",
   "models": {
     "ai21.j2-mid-v1": {
       "input_cost_per_token": 1.25e-05,
@@ -10936,6 +10936,20 @@
       "source": "litellm"
     },
     "gpt-realtime-1.5": {
+      "input_cost_per_token": 4e-06,
+      "output_cost_per_token": 1.6e-05,
+      "context_length": 32000,
+      "max_output_tokens": 4096,
+      "provider": "openai",
+      "supports_vision": false,
+      "supports_function_calling": true,
+      "supports_reasoning": false,
+      "cache_read_cost": 4e-07,
+      "batch_input_cost": 0,
+      "batch_output_cost": 0,
+      "source": "litellm"
+    },
+    "gpt-realtime-2": {
       "input_cost_per_token": 4e-06,
       "output_cost_per_token": 1.6e-05,
       "context_length": 32000,
