@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-13T07:06:17.594061+00:00",
+  "fetched_at": "2026-05-14T07:04:14.603561+00:00",
   "models": {
     "anthropic/claude-opus-4.7-fast": {
       "input_cost_per_token": 3e-05,
@@ -156,8 +156,8 @@
       "name": "DeepSeek: DeepSeek V4 Pro"
     },
     "deepseek/deepseek-v4-flash": {
-      "input_cost_per_token": 1.4e-07,
-      "output_cost_per_token": 2.8e-07,
+      "input_cost_per_token": 1.26e-07,
+      "output_cost_per_token": 2.52e-07,
       "context_length": 1048576,
       "source": "openrouter",
       "name": "DeepSeek: DeepSeek V4 Flash"
@@ -317,7 +317,7 @@
       "name": "Xiaomi: MiMo-V2-Pro"
     },
     "minimax/minimax-m2.7": {
-      "input_cost_per_token": 2.8e-07,
+      "input_cost_per_token": 2.79e-07,
       "output_cost_per_token": 1.2e-06,
       "context_length": 196608,
       "source": "openrouter",
@@ -1003,9 +1003,9 @@
       "name": "OpenAI: GPT-5 Pro"
     },
     "z-ai/glm-4.6": {
-      "input_cost_per_token": 3.9e-07,
-      "output_cost_per_token": 1.9e-06,
-      "context_length": 204800,
+      "input_cost_per_token": 4.3e-07,
+      "output_cost_per_token": 1.74e-06,
+      "context_length": 202752,
       "source": "openrouter",
       "name": "Z.ai: GLM 4.6"
     },
@@ -1143,8 +1143,8 @@
       "name": "NVIDIA: Nemotron Nano 9B V2"
     },
     "moonshotai/kimi-k2-0905": {
-      "input_cost_per_token": 4e-07,
-      "output_cost_per_token": 2e-06,
+      "input_cost_per_token": 6e-07,
+      "output_cost_per_token": 2.5e-06,
       "context_length": 262144,
       "source": "openrouter",
       "name": "MoonshotAI: Kimi K2 0905"
