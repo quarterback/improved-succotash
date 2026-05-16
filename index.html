@@ -5,33 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#f8f9fc" media="(prefers-color-scheme: light)">
-    <title>Occupant | AI compute price &amp; activity benchmarks</title>
-    <meta name="description" content="A public benchmark for AI compute prices and market activity, updated daily across 2,300+ models.">
+    <title>Occupant</title>
+    <meta name="description" content="Daily indices for the AI compute market. Free, with open methodology. By Ron Bronson.">
 
-    <!-- PWA Meta Tags -->
     <link rel="manifest" href="/manifest.json">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Occupant">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://occupant.ee/">
-    <meta property="og:title" content="Occupant | AI compute price &amp; activity benchmarks">
-    <meta property="og:description" content="A public benchmark for AI compute prices and market activity, updated daily.">
+    <meta property="og:title" content="Occupant">
+    <meta property="og:description" content="Daily indices for the AI compute market. Free, with open methodology. By Ron Bronson.">
     <meta property="og:image" content="https://occupant.ee/og-image.svg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://occupant.ee/">
-    <meta name="twitter:title" content="Occupant | AI compute price &amp; activity benchmarks">
-    <meta name="twitter:description" content="A public benchmark for AI compute prices and market activity, updated daily.">
+    <meta name="twitter:title" content="Occupant">
+    <meta name="twitter:description" content="Daily indices for the AI compute market. Free, with open methodology. By Ron Bronson.">
     <meta name="twitter:image" content="https://occupant.ee/og-image.svg">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/logo.svg">
     <link rel="apple-touch-icon" href="/logo.svg">
 
@@ -40,89 +36,39 @@
 <body>
     <div class="container">
         <nav role="navigation" aria-label="Main navigation">
-            <a href="/" class="active" aria-current="page">Home</a>
-            <a href="/cpi-data.html">CPI Data</a>
-            <a href="/aeai.html">AEAI</a>
-            <a href="/displacement.html">LDI</a>
-            <a href="/sabermetrics.html">Market Intel</a>
-            <a href="/calculator.html">Calculator</a>
-            <a href="/glossary.html">Glossary</a>
+            <a href="/" class="active" aria-current="page">Occupant</a>
+            <a href="/indices.html">Inquiries</a>
             <a href="/about.html">About</a>
             <div class="nav-right">
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme">Light</button>
             </div>
         </nav>
 
-        <header>
-            <div class="logo" aria-label="Occupant">Occupant</div>
-            <p class="byline">A research project by <a href="https://ronbronson.com" rel="me author">Ron Bronson</a>.</p>
-        </header>
+        <main id="main-content" role="main" class="onepage">
 
-        <main id="main-content" role="main">
-            <!-- Hero Section -->
-            <section class="hero">
-                <h1 class="hero-headline">A public benchmark for AI compute.</h1>
-                <p class="hero-description">Daily-updated indices tracking model prices and market activity across 2,300+ models. Free, open methodology, no signup.</p>
+            <section>
+                <p class="overline">Occupant</p>
+                <h1 class="opener">Daily indices for the AI compute market.</h1>
+                <p class="lede">Free. Open methodology. By Ron Bronson.</p>
             </section>
 
-            <!-- Live CPI Index -->
-            <div class="live-index" id="live-index" role="region" aria-label="Live Compute CPI Index">
-                <div>
-                    <div class="live-index-label">COMPUTE CPI — LIVE</div>
-                    <div class="live-index-value" id="cpi-value" aria-label="Current CPI value">87.2</div>
-                    <div class="live-index-change" id="cpi-change" aria-label="Year over year change">-12.8% YoY</div>
-                </div>
-                <a href="/cpi-data.html" class="live-index-cta" aria-label="View full CPI data dashboard">View CPI Dashboard →</a>
-            </div>
-
-            <!-- Live AEAI Index -->
-            <div class="live-index" id="live-aeai" role="region" aria-label="Live AEAI Index" style="margin-top: 2rem;">
-                <div>
-                    <div class="live-index-label">AI ACTIVITY INDEX (AIU) — LIVE</div>
-                    <div class="live-index-value" id="aiu-value" aria-label="Current AIU value">100.0</div>
-                    <div class="live-index-change" id="aiu-change" aria-label="Activity change">Baseline: Feb 2025 = 100</div>
-                </div>
-                <a href="/aeai.html" class="live-index-cta" aria-label="View full AEAI dashboard">View AEAI Dashboard →</a>
-            </div>
-
-            <!-- Labor Displacement Index -->
-            <div class="live-index" id="live-ldi" role="region" aria-label="Labor Displacement Index" style="margin-top: 2rem;">
-                <div>
-                    <div class="live-index-label">LABOR DISPLACEMENT INDEX — STRUCTURAL</div>
-                    <div class="live-index-value" id="ldi-value" aria-label="Current LDI value" style="font-size: 2rem; letter-spacing: -0.01em;">—</div>
-                    <div class="live-index-change" id="ldi-change" style="font-size: 0.875rem; opacity: 0.7;">5 pilot workloads · BLS + FPDS + Compute CPI</div>
-                </div>
-                <a href="/displacement.html" class="live-index-cta" aria-label="View Labor Displacement Index">View LDI →</a>
-            </div>
-
-            <!-- The Indices -->
-            <section class="prose" style="margin: 3rem 0;">
-                <h2>The indices</h2>
-                <p>
-                    <strong>Compute CPI</strong> tracks price deflation across AI model tiers &mdash; a CPI-style basket
-                    for inference compute. <strong>AEAI</strong> measures economic activity: token throughput, inferred
-                    spend, and energy consumption. <strong>LDI</strong> tracks labor displacement: cost-per-workload
-                    where AI substitutes for human labor. All three update daily, all three publish full methodology,
-                    all three are free.
-                </p>
-                <p>
-                    Designed and maintained by <a href="https://ronbronson.com" rel="author">Ron Bronson</a>. The goal
-                    is a measurement layer for AI compute that anyone &mdash; researchers, engineers, journalists,
-                    procurement teams &mdash; can audit and cite.
-                </p>
+            <section class="chapter">
+                <h2>What it publishes.</h2>
+                <p>Three indices, updated daily. <a href="/cpi-data.html">Compute CPI</a> tracks the price of inference across model tiers. <a href="/aeai.html">AEAI</a> tracks activity &mdash; tokens, spend, energy. <a href="/displacement.html">LDI</a> tracks the cost margin between machine work and human work.</p>
+                <p>Each one is framed as a question, not a product. <a href="/indices.html">See the inquiries &rarr;</a></p>
             </section>
 
-            <!-- Notes / Recent -->
-            <section class="prose" style="margin: 3rem 0;">
-                <h2>Notes &amp; explorations</h2>
-                <ul class="link-list">
-                    <li><a href="/displacement.html">Labor Displacement Index</a> &mdash; cost-per-workload where AI substitutes for human labor</li>
-                    <li><a href="/sabermetrics.html">Market Intel</a> &mdash; sabermetric-style takes on the AI market</li>
-                    <li><a href="/glossary.html">Glossary</a> &mdash; terms used across the indices</li>
-                    <li><a href="/calculator.html">LLM Cost Calculator</a> &mdash; a toy estimator using live tier prices</li>
-                    <li><a href="/about.html">About &amp; methodology</a> &mdash; how the indices are calculated</li>
-                </ul>
+            <section class="chapter">
+                <h2>How the numbers are made.</h2>
+                <p>Vendor-independent. No referral fees, no paid placement, no consulting attached. Index values publish as JSON. Price discrepancies above ten percent trigger a manual review before they reach the page.</p>
+                <p>Nothing ships that cannot be defended in writing.</p>
             </section>
+
+            <section class="chapter">
+                <h2>Author.</h2>
+                <p>Occupant is designed and maintained by <a href="https://ronbronson.com" rel="author">Ron Bronson</a>. Method critique welcome at <a href="mailto:hello@occupant.ee">hello@occupant.ee</a>.</p>
+            </section>
+
         </main>
 
         <footer>
@@ -136,103 +82,5 @@
     </div>
 
     <script src="/theme.js"></script>
-    <script>
-        // Load CPI data
-        async function loadCPIData() {
-            try {
-                const response = await fetch('/data/compute-cpi.json');
-                const data = await response.json();
-
-                const current = data.compute_cpi?.value;
-                if (typeof current !== 'number') return;
-
-                document.getElementById('cpi-value').textContent = current.toFixed(1);
-
-                // Prefer the precomputed YoY change; fall back to deriving it
-                // from the year-ago index value in index_series.yoy.
-                let yoyChange = data.compute_cpi?.yoy_change;
-                if (typeof yoyChange !== 'number') {
-                    const yoyBase = data.index_series?.yoy?.value;
-                    if (typeof yoyBase === 'number' && yoyBase !== 0) {
-                        yoyChange = ((current - yoyBase) / yoyBase) * 100;
-                    }
-                }
-
-                if (typeof yoyChange === 'number') {
-                    const sign = yoyChange >= 0 ? '+' : '';
-                    document.getElementById('cpi-change').textContent = `${sign}${yoyChange.toFixed(1)}% YoY`;
-                } else {
-                    // No YoY baseline yet (index <1yr old) — show MoM instead.
-                    const mom = data.compute_cpi?.mom_change;
-                    if (typeof mom === 'number') {
-                        const sign = mom >= 0 ? '+' : '';
-                        document.getElementById('cpi-change').textContent = `${sign}${mom.toFixed(1)}% MoM`;
-                    }
-                }
-
-            } catch (error) {
-                console.log('CPI data not yet available');
-            }
-        }
-
-        loadCPIData();
-
-        // Load AEAI data
-        async function loadAEAIData() {
-            try {
-                const response = await fetch('/data/aeai/latest.json');
-                const data = await response.json();
-
-                // Update AIU index
-                document.getElementById('aiu-value').textContent = data.aiu_index.toFixed(1);
-
-                // Calculate change from baseline (100)
-                const changeFromBaseline = data.aiu_index - 100;
-                if (changeFromBaseline !== 0) {
-                    const changeText = changeFromBaseline >= 0 ?
-                        `+${changeFromBaseline.toFixed(1)}% from baseline` :
-                        `${changeFromBaseline.toFixed(1)}% from baseline`;
-                    document.getElementById('aiu-change').textContent = changeText;
-                } else {
-                    // Show activity summary instead
-                    const tokensT = (data.activity.tokens_weekly / 1e12).toFixed(1);
-                    const spendM = (data.activity.spend_usd_weekly / 1e6).toFixed(0);
-                    document.getElementById('aiu-change').textContent = `${tokensT}T tokens/week · $${spendM}M spend/week`;
-                }
-
-            } catch (error) {
-                console.log('AEAI data not yet available');
-            }
-        }
-
-        loadAEAIData();
-
-        // Load LDI data
-        async function loadLDIData() {
-            try {
-                const response = await fetch('/data/ldi/latest.json');
-                const data = await response.json();
-
-                // Show substitution rate (observable) as the primary number
-                const subRate = data.substitution_rate;
-                if (subRate !== null && subRate !== undefined) {
-                    document.getElementById('ldi-value').textContent = subRate.toFixed(1) + '%';
-                }
-
-                // Show cost context in the subtitle — human avg vs AI avg
-                const summary = data.summary || {};
-                const humanAvg = summary.avg_human_cost_per_unit;
-                const aiAvg = summary.avg_ai_cost_per_unit;
-                if (humanAvg && aiAvg) {
-                    document.getElementById('ldi-change').textContent =
-                        `$${humanAvg.toFixed(2)} human · $${aiAvg.toFixed(4)} AI · per workload unit`;
-                }
-            } catch (error) {
-                console.log('LDI data not yet available');
-            }
-        }
-
-        loadLDIData();
-    </script>
 </body>
 </html>
