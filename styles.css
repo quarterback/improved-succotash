@@ -1439,6 +1439,197 @@ li {
     line-height: var(--leading-prose);
 }
 
+/* One-pager: chaptered long-scroll layout */
+.onepage {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.onepage .overline {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 1.25rem;
+}
+
+.onepage h1.opener {
+    font-family: var(--font-prose);
+    font-size: 2rem;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    font-weight: 500;
+    color: var(--fg);
+    max-width: 22ch;
+    margin-bottom: 1.5rem;
+}
+
+.onepage p.lede {
+    font-family: var(--font-prose);
+    font-size: 1.125rem;
+    line-height: 1.55;
+    color: var(--fg-dim);
+    max-width: 52ch;
+}
+
+.chapter {
+    margin: 5rem 0;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.chapter:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.chapter-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.chapter h2 {
+    font-family: var(--font-prose);
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+    margin-bottom: 1.25rem;
+    max-width: 32ch;
+}
+
+.chapter p {
+    font-family: var(--font-prose);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--fg);
+    margin-bottom: 1.25rem;
+    max-width: 56ch;
+}
+
+.chapter p.aside {
+    color: var(--fg-dim);
+    font-size: 0.95rem;
+}
+
+.chapter a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.chapter a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.portfolio {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.portfolio li {
+    padding: 1rem 0;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-prose);
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--fg);
+}
+
+.portfolio li:last-child {
+    border-bottom: 1px solid var(--border);
+}
+
+.portfolio .name {
+    display: inline-block;
+    min-width: 9rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--fg);
+}
+
+/* Inquiries page rows */
+.inquiry-row {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--border);
+    max-width: 640px;
+}
+
+.inquiry-row:last-of-type {
+    border-bottom: 1px solid var(--border);
+}
+
+.inquiry-row .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 0.75rem;
+}
+
+.inquiry-row h2 {
+    font-family: var(--font-prose);
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.75rem;
+}
+
+.inquiry-row h2 a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+}
+
+.inquiry-row h2 a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.inquiry-row p {
+    font-family: var(--font-prose);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: var(--fg-dim);
+    max-width: 48ch;
+}
+
+@media (max-width: 640px) {
+    .onepage h1.opener {
+        font-size: 1.5rem;
+    }
+    .onepage p.lede {
+        font-size: 1rem;
+    }
+    .chapter {
+        margin: 3.5rem 0;
+        padding-top: 2rem;
+    }
+    .chapter h2 {
+        font-size: 1.25rem;
+    }
+    .chapter p {
+        font-size: 1rem;
+    }
+    .portfolio .name {
+        display: block;
+        min-width: 0;
+        margin-bottom: 0.25rem;
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .container {
