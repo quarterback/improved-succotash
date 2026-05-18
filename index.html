@@ -1,238 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#f8f9fc" media="(prefers-color-scheme: light)">
-    <title>Occupant | AI compute price &amp; activity benchmarks</title>
-    <meta name="description" content="A public benchmark for AI compute prices and market activity, updated daily across 2,300+ models.">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Occupant</title>
+<meta name="description" content="A studio for problems that should already be solved." />
+<link rel="icon" type="image/svg+xml" href="logo.svg" />
 
-    <!-- PWA Meta Tags -->
-    <link rel="manifest" href="/manifest.json">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Occupant">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://occupant.ee/">
-    <meta property="og:title" content="Occupant | AI compute price &amp; activity benchmarks">
-    <meta property="og:description" content="A public benchmark for AI compute prices and market activity, updated daily.">
-    <meta property="og:image" content="https://occupant.ee/og-image.svg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+<style>
+@font-face {
+  font-family: 'Aminute';
+  src: url('fonts/aminute-regular.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://occupant.ee/">
-    <meta name="twitter:title" content="Occupant | AI compute price &amp; activity benchmarks">
-    <meta name="twitter:description" content="A public benchmark for AI compute prices and market activity, updated daily.">
-    <meta name="twitter:image" content="https://occupant.ee/og-image.svg">
+:root {
+  --paper: #ecd56c;
+  --ink: #1a1612;
+  --ink-soft: #4b4339;
+  --ink-mute: #6b6049;
+  --rule: #c4b04c;
+  --rule-soft: #d4c25a;
+  --accent: #8a3a1f;
+  --accent-wash: rgba(138, 58, 31, 0.10);
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/logo.svg">
-    <link rel="apple-touch-icon" href="/logo.svg">
+  --serif: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+  --mono: 'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, monospace;
+  --display: 'Aminute', 'Newsreader', serif;
 
-    <link rel="stylesheet" href="/styles.css">
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --paper: #14110e;
+  --ink: #ebe3d3;
+  --ink-soft: #b1a692;
+  --ink-mute: #6f6759;
+  --rule: #2a241c;
+  --rule-soft: #1f1a14;
+  --accent: #d97757;
+  --accent-wash: rgba(217, 119, 87, 0.10);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern", "liga", "onum";
+  transition: background-color .3s ease, color .3s ease;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--accent); color: var(--paper); }
+
+/* MASTHEAD — wordmark + a single quiet link */
+.masthead {
+  padding: 1.75rem 2.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.wordmark {
+  font-family: var(--display);
+  font-size: 0.95rem;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.masthead a.to-indices {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  padding: 0.35rem 0;
+  border-bottom: 1px solid transparent;
+  transition: color .15s ease, border-color .15s ease;
+}
+.masthead a.to-indices:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+.masthead a.to-indices .arrow {
+  display: inline-block;
+  margin-left: 0.5rem;
+  transition: transform .2s ease;
+}
+.masthead a.to-indices:hover .arrow { transform: translateX(3px); }
+
+/* CENTER STAGE */
+main {
+  display: grid;
+  place-items: center;
+  padding: 4rem 2.25rem;
+}
+
+.statement {
+  max-width: 48rem;
+  text-align: left;
+}
+
+.mark {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+.mark::before {
+  content: "";
+  display: inline-block;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+.statement h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 6.4vw, 5.2rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.statement h1 em {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.statement h1 .stop {
+  color: var(--accent);
+}
+
+/* SIGN-OFF */
+.signoff {
+  margin-top: 3.5rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-mute);
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+}
+.signoff .glyph {
+  color: var(--accent);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  letter-spacing: 0;
+}
+
+/* FOOTER */
+footer {
+  padding: 1.5rem 2.25rem 1.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+footer .stamp {
+  font-family: var(--display);
+  letter-spacing: 0.32em;
+  color: var(--ink-soft);
+}
+
+/* MOBILE */
+@media (max-width: 640px) {
+  .masthead { padding: 1.25rem 1.4rem; }
+  main { padding: 2.5rem 1.4rem 3rem; }
+  .mark { margin-bottom: 2rem; }
+  .signoff { margin-top: 2.5rem; }
+  footer { padding: 1.25rem 1.4rem 1.4rem; gap: 1rem; }
+}
+
+/* ENTRANCE */
+.in {
+  animation: enter 1.1s ease both;
+}
+.in.delay-1 { animation-delay: .12s; }
+.in.delay-2 { animation-delay: .26s; }
+.in.delay-3 { animation-delay: .42s; }
+@keyframes enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .in, .masthead a.to-indices .arrow { animation: none !important; transition: none !important; }
+}
+
+/* TWEAKS PANEL */
+.tweaks-panel {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 1rem 1.25rem;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.10);
+  z-index: 100;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: none;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-width: 220px;
+}
+.tweaks-panel.open { display: flex; }
+.tweaks-panel header {
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid var(--rule-soft);
+  padding-bottom: 0.5rem;
+}
+.tweaks-panel header span { color: var(--ink); }
+.tweaks-panel header button {
+  background: none; border: 0; color: var(--ink-mute); cursor: pointer;
+  font-family: inherit; font-size: 0.9rem; padding: 0;
+}
+.tweaks-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.tweaks-row .label { color: var(--ink-mute); }
+.tweaks-options { display: inline-flex; border: 1px solid var(--rule); }
+.tweaks-options button {
+  background: var(--paper);
+  border: 0;
+  border-right: 1px solid var(--rule);
+  color: var(--ink-mute);
+  padding: 0.35rem 0.6rem;
+  font-family: inherit;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.tweaks-options button:last-child { border-right: 0; }
+.tweaks-options button.active { background: var(--ink); color: var(--paper); }
+.tweaks-options.swatches button { padding: 0.25rem 0.5rem; font-size: 1rem; line-height: 1; }
+.tweaks-options.swatches button[data-value][style*="background"] {
+  width: 1.4rem; height: 1.4rem; padding: 0;
+  border-right: 1px solid var(--rule);
+}
+.tweaks-options.swatches button[data-value][style*="background"]:last-child { border-right: 0; }
+.tweaks-options.swatches button[data-value][style*="background"].active {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+  background-clip: padding-box;
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <nav role="navigation" aria-label="Main navigation">
-            <a href="/" class="active" aria-current="page">Home</a>
-            <a href="/cpi-data.html">CPI Data</a>
-            <a href="/aeai.html">AEAI</a>
-            <a href="/displacement.html">LDI</a>
-            <a href="/sabermetrics.html">Market Intel</a>
-            <a href="/calculator.html">Calculator</a>
-            <a href="/glossary.html">Glossary</a>
-            <a href="/about.html">About</a>
-            <div class="nav-right">
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme">Light</button>
-            </div>
-        </nav>
 
-        <header>
-            <div class="logo" aria-label="Occupant">Occupant</div>
-            <p class="byline">A research project by <a href="https://ronbronson.com" rel="me author">Ron Bronson</a>.</p>
-        </header>
+<header class="masthead">
+  <a href="index.html" class="wordmark in">Occupant</a>
+  <a href="indices.html" class="to-indices in delay-1">Indices <span class="arrow">→</span></a>
+</header>
 
-        <main id="main-content" role="main">
-            <!-- Hero Section -->
-            <section class="hero">
-                <h1 class="hero-headline">A public benchmark for AI compute.</h1>
-                <p class="hero-description">Daily-updated indices tracking model prices and market activity across 2,300+ models. Free, open methodology, no signup.</p>
-            </section>
-
-            <!-- Live CPI Index -->
-            <div class="live-index" id="live-index" role="region" aria-label="Live Compute CPI Index">
-                <div>
-                    <div class="live-index-label">COMPUTE CPI — LIVE</div>
-                    <div class="live-index-value" id="cpi-value" aria-label="Current CPI value">87.2</div>
-                    <div class="live-index-change" id="cpi-change" aria-label="Year over year change">-12.8% YoY</div>
-                </div>
-                <a href="/cpi-data.html" class="live-index-cta" aria-label="View full CPI data dashboard">View CPI Dashboard →</a>
-            </div>
-
-            <!-- Live AEAI Index -->
-            <div class="live-index" id="live-aeai" role="region" aria-label="Live AEAI Index" style="margin-top: 2rem;">
-                <div>
-                    <div class="live-index-label">AI ACTIVITY INDEX (AIU) — LIVE</div>
-                    <div class="live-index-value" id="aiu-value" aria-label="Current AIU value">100.0</div>
-                    <div class="live-index-change" id="aiu-change" aria-label="Activity change">Baseline: Feb 2025 = 100</div>
-                </div>
-                <a href="/aeai.html" class="live-index-cta" aria-label="View full AEAI dashboard">View AEAI Dashboard →</a>
-            </div>
-
-            <!-- Labor Displacement Index -->
-            <div class="live-index" id="live-ldi" role="region" aria-label="Labor Displacement Index" style="margin-top: 2rem;">
-                <div>
-                    <div class="live-index-label">LABOR DISPLACEMENT INDEX — STRUCTURAL</div>
-                    <div class="live-index-value" id="ldi-value" aria-label="Current LDI value" style="font-size: 2rem; letter-spacing: -0.01em;">—</div>
-                    <div class="live-index-change" id="ldi-change" style="font-size: 0.875rem; opacity: 0.7;">5 pilot workloads · BLS + FPDS + Compute CPI</div>
-                </div>
-                <a href="/displacement.html" class="live-index-cta" aria-label="View Labor Displacement Index">View LDI →</a>
-            </div>
-
-            <!-- The Indices -->
-            <section class="prose" style="margin: 3rem 0;">
-                <h2>The indices</h2>
-                <p>
-                    <strong>Compute CPI</strong> tracks price deflation across AI model tiers &mdash; a CPI-style basket
-                    for inference compute. <strong>AEAI</strong> measures economic activity: token throughput, inferred
-                    spend, and energy consumption. <strong>LDI</strong> tracks labor displacement: cost-per-workload
-                    where AI substitutes for human labor. All three update daily, all three publish full methodology,
-                    all three are free.
-                </p>
-                <p>
-                    Designed and maintained by <a href="https://ronbronson.com" rel="author">Ron Bronson</a>. The goal
-                    is a measurement layer for AI compute that anyone &mdash; researchers, engineers, journalists,
-                    procurement teams &mdash; can audit and cite.
-                </p>
-            </section>
-
-            <!-- Notes / Recent -->
-            <section class="prose" style="margin: 3rem 0;">
-                <h2>Notes &amp; explorations</h2>
-                <ul class="link-list">
-                    <li><a href="/displacement.html">Labor Displacement Index</a> &mdash; cost-per-workload where AI substitutes for human labor</li>
-                    <li><a href="/sabermetrics.html">Market Intel</a> &mdash; sabermetric-style takes on the AI market</li>
-                    <li><a href="/glossary.html">Glossary</a> &mdash; terms used across the indices</li>
-                    <li><a href="/calculator.html">LLM Cost Calculator</a> &mdash; a toy estimator using live tier prices</li>
-                    <li><a href="/about.html">About &amp; methodology</a> &mdash; how the indices are calculated</li>
-                </ul>
-            </section>
-        </main>
-
-        <footer>
-            <div class="footer-links">
-                <a href="/about.html">About</a>
-                <a href="https://ronbronson.com" rel="author">ronbronson.com</a>
-                <a href="/license.html">License</a>
-                <a href="/tardigrade.html">Tardigrade Disclosure</a>
-            </div>
-        </footer>
+<main>
+  <div class="statement">
+    <div class="mark in delay-1"></div>
+    <h1 class="in delay-2">
+      For problems<br />
+      that should already <em>be solved<span class="stop">.</span></em>
+    </h1>
+    <div class="signoff in delay-3">
+      <span class="glyph">
+</span>
+      <span>
+</span>
     </div>
+  </div>
+</main>
 
-    <script src="/theme.js"></script>
-    <script>
-        // Load CPI data
-        async function loadCPIData() {
-            try {
-                const response = await fetch('/data/compute-cpi.json');
-                const data = await response.json();
+<footer>
+  <span class="stamp">Occupant</span>
+</footer>
 
-                const current = data.compute_cpi?.value;
-                if (typeof current !== 'number') return;
+<!-- TWEAKS PANEL -->
+<div class="tweaks-panel" id="tweaks">
+  <header>
+    <span>Tweaks</span>
+    <button id="tweaks-close" aria-label="Close">×</button>
+  </header>
+  <div class="tweaks-row">
+    <span class="label">Theme</span>
+    <div class="tweaks-options" data-tweak="theme">
+      <button data-value="light" class="active">Paper</button>
+      <button data-value="dark">Ink</button>
+    </div>
+  </div>
+  <div class="tweaks-row">
+    <span class="label">Palette</span>
+    <div class="tweaks-options swatches" data-tweak="palette">
+      <button data-value="mustard" class="active" style="background:#ecd56c">&nbsp;</button>
+      <button data-value="salmon" style="background:#ffb999">&nbsp;</button>
+      <button data-value="sage" style="background:#b8d4b8">&nbsp;</button>
+      <button data-value="lilac" style="background:#d0bce0">&nbsp;</button>
+      <button data-value="cream" style="background:#f1ece1">&nbsp;</button>
+    </div>
+  </div>
+  <div class="tweaks-row">
+    <span class="label">Accent</span>
+    <div class="tweaks-options swatches" data-tweak="accent">
+      <button data-value="sienna" class="active" style="color:#8a3a1f">●</button>
+      <button data-value="ink" style="color:#1a1612">●</button>
+      <button data-value="navy" style="color:#1d3557">●</button>
+      <button data-value="moss" style="color:#4a5d3a">●</button>
+    </div>
+  </div>
+</div>
 
-                document.getElementById('cpi-value').textContent = current.toFixed(1);
+<script>
+/* ============ TWEAKS ============ */
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "theme": "light",
+  "palette": "mustard",
+  "accent": "sienna"
+}/*EDITMODE-END*/;
 
-                // Prefer the precomputed YoY change; fall back to deriving it
-                // from the year-ago index value in index_series.yoy.
-                let yoyChange = data.compute_cpi?.yoy_change;
-                if (typeof yoyChange !== 'number') {
-                    const yoyBase = data.index_series?.yoy?.value;
-                    if (typeof yoyBase === 'number' && yoyBase !== 0) {
-                        yoyChange = ((current - yoyBase) / yoyBase) * 100;
-                    }
-                }
+const PALETTES = {
+  /* All AA-compliant body text on these backgrounds with --ink #1a1612 + tuned --ink-mute */
+  mustard: { paper: '#ecd56c', mute: '#6b6049', rule: '#c4b04c', ruleSoft: '#d4c25a' },
+  salmon:  { paper: '#ffb999', mute: '#6f4536', rule: '#d99373', ruleSoft: '#ea9d7e' },
+  sage:    { paper: '#b8d4b8', mute: '#4a5d4a', rule: '#8fb08f', ruleSoft: '#a3c4a3' },
+  lilac:   { paper: '#d0bce0', mute: '#5a4a6e', rule: '#ad97c4', ruleSoft: '#c3acd6' },
+  cream:   { paper: '#f1ece1', mute: '#7a7163', rule: '#d0c7b3', ruleSoft: '#ddd4c0' }
+};
 
-                if (typeof yoyChange === 'number') {
-                    const sign = yoyChange >= 0 ? '+' : '';
-                    document.getElementById('cpi-change').textContent = `${sign}${yoyChange.toFixed(1)}% YoY`;
-                } else {
-                    // No YoY baseline yet (index <1yr old) — show MoM instead.
-                    const mom = data.compute_cpi?.mom_change;
-                    if (typeof mom === 'number') {
-                        const sign = mom >= 0 ? '+' : '';
-                        document.getElementById('cpi-change').textContent = `${sign}${mom.toFixed(1)}% MoM`;
-                    }
-                }
+const ACCENTS = {
+  sienna: { light: '#8a3a1f', dark: '#d97757', wash: 'rgba(138,58,31,0.08)', washDark: 'rgba(217,119,87,0.1)' },
+  ink:    { light: '#1a1612', dark: '#ebe3d3', wash: 'rgba(26,22,18,0.06)',  washDark: 'rgba(235,227,211,0.08)' },
+  navy:   { light: '#1d3557', dark: '#7aa1d6', wash: 'rgba(29,53,87,0.08)',  washDark: 'rgba(122,161,214,0.1)' },
+  moss:   { light: '#4a5d3a', dark: '#9bb27c', wash: 'rgba(74,93,58,0.08)',  washDark: 'rgba(155,178,124,0.1)' }
+};
 
-            } catch (error) {
-                console.log('CPI data not yet available');
-            }
-        }
+const state = { ...TWEAK_DEFAULTS };
 
-        loadCPIData();
+function applyTweaks() {
+  document.documentElement.setAttribute('data-theme', state.theme);
+  const isDark = state.theme === 'dark';
 
-        // Load AEAI data
-        async function loadAEAIData() {
-            try {
-                const response = await fetch('/data/aeai/latest.json');
-                const data = await response.json();
+  // Palette only affects light theme; dark stays its own thing.
+  if (!isDark) {
+    const p = PALETTES[state.palette] || PALETTES.mustard;
+    document.documentElement.style.setProperty('--paper',     p.paper);
+    document.documentElement.style.setProperty('--ink-mute',  p.mute);
+    document.documentElement.style.setProperty('--rule',      p.rule);
+    document.documentElement.style.setProperty('--rule-soft', p.ruleSoft);
+  } else {
+    document.documentElement.style.removeProperty('--paper');
+    document.documentElement.style.removeProperty('--ink-mute');
+    document.documentElement.style.removeProperty('--rule');
+    document.documentElement.style.removeProperty('--rule-soft');
+  }
 
-                // Update AIU index
-                document.getElementById('aiu-value').textContent = data.aiu_index.toFixed(1);
+  const a = ACCENTS[state.accent] || ACCENTS.sienna;
+  document.documentElement.style.setProperty('--accent', isDark ? a.dark : a.light);
+  document.documentElement.style.setProperty('--accent-wash', isDark ? a.washDark : a.wash);
 
-                // Calculate change from baseline (100)
-                const changeFromBaseline = data.aiu_index - 100;
-                if (changeFromBaseline !== 0) {
-                    const changeText = changeFromBaseline >= 0 ?
-                        `+${changeFromBaseline.toFixed(1)}% from baseline` :
-                        `${changeFromBaseline.toFixed(1)}% from baseline`;
-                    document.getElementById('aiu-change').textContent = changeText;
-                } else {
-                    // Show activity summary instead
-                    const tokensT = (data.activity.tokens_weekly / 1e12).toFixed(1);
-                    const spendM = (data.activity.spend_usd_weekly / 1e6).toFixed(0);
-                    document.getElementById('aiu-change').textContent = `${tokensT}T tokens/week · $${spendM}M spend/week`;
-                }
+  document.querySelectorAll('.tweaks-options').forEach(group => {
+    const key = group.getAttribute('data-tweak');
+    group.querySelectorAll('button').forEach(b => {
+      b.classList.toggle('active', b.getAttribute('data-value') === state[key]);
+    });
+  });
+}
 
-            } catch (error) {
-                console.log('AEAI data not yet available');
-            }
-        }
+function setTweak(key, value) {
+  state[key] = value;
+  applyTweaks();
+  try {
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: value } }, '*');
+  } catch (e) {}
+}
 
-        loadAEAIData();
+document.querySelectorAll('.tweaks-options').forEach(group => {
+  const key = group.getAttribute('data-tweak');
+  group.querySelectorAll('button').forEach(b => {
+    b.addEventListener('click', () => setTweak(key, b.getAttribute('data-value')));
+  });
+});
 
-        // Load LDI data
-        async function loadLDIData() {
-            try {
-                const response = await fetch('/data/ldi/latest.json');
-                const data = await response.json();
+applyTweaks();
 
-                // Show substitution rate (observable) as the primary number
-                const subRate = data.substitution_rate;
-                if (subRate !== null && subRate !== undefined) {
-                    document.getElementById('ldi-value').textContent = subRate.toFixed(1) + '%';
-                }
+const panel = document.getElementById('tweaks');
+window.addEventListener('message', (e) => {
+  if (!e.data || typeof e.data !== 'object') return;
+  if (e.data.type === '__activate_edit_mode')   panel.classList.add('open');
+  if (e.data.type === '__deactivate_edit_mode') panel.classList.remove('open');
+});
+document.getElementById('tweaks-close').addEventListener('click', () => {
+  panel.classList.remove('open');
+  try { window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*'); } catch (e) {}
+});
+try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch (e) {}
+</script>
 
-                // Show cost context in the subtitle — human avg vs AI avg
-                const summary = data.summary || {};
-                const humanAvg = summary.avg_human_cost_per_unit;
-                const aiAvg = summary.avg_ai_cost_per_unit;
-                if (humanAvg && aiAvg) {
-                    document.getElementById('ldi-change').textContent =
-                        `$${humanAvg.toFixed(2)} human · $${aiAvg.toFixed(4)} AI · per workload unit`;
-                }
-            } catch (error) {
-                console.log('LDI data not yet available');
-            }
-        }
-
-        loadLDIData();
-    </script>
 </body>
 </html>
