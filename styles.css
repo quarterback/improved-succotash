@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap');
+
 /* Occupant Index - Theme System */
 
 /* Custom Fonts */
@@ -10,41 +12,46 @@
 }
 
 :root {
-    /* Dark theme (default) - Neon Blue accent */
-    --bg: #0a0a0a;
-    --bg-card: #111111;
-    --fg: #e8e8e8;
-    --fg-dim: #888888;
-    --fg-muted: #666666;
-    --accent: #00aaff;
-    --accent-glow: rgba(0, 170, 255, 0.15);
-    --border: #222222;
-    --success: #00ff88;
-    --warning: #ffaa00;
-    --danger: #ff4444;
+    /* Light theme (default) - Paper & Sienna */
+    --bg: #ecd56c;
+    --bg-card: #f4edd2;
+    --fg: #1a1612;
+    --fg-dim: #4b4339;
+    --fg-muted: #6b6049;
+    --accent: #8a3a1f;
+    --accent-glow: rgba(138, 58, 31, 0.10);
+    --border: #c4b04c;
+    --success: #2e7d4f;
+    --warning: #9a6700;
+    --danger: #b3261e;
 
     /* Typography tokens */
-    --font-prose: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-    --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Consolas', monospace;
+    --font-prose: 'Newsreader', 'Source Serif Pro', Georgia, serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, monospace;
+    --font-display: 'Aminute', 'Newsreader', serif;
     --measure: 68ch;
     --leading-prose: 1.7;
     --space-paragraph: 1.25rem;
     --space-section: 3rem;
+
+    color-scheme: light;
 }
 
-[data-theme="light"] {
-    /* Light theme - Electric Blue & Slate */
-    --bg: #f8f9fc;
-    --bg-card: #ffffff;
-    --fg: #1a1f36;
-    --fg-dim: #525f7f;
-    --fg-muted: #8898aa;
-    --accent: #0066ff;
-    --accent-glow: rgba(0, 102, 255, 0.1);
-    --border: #e3e8ee;
-    --success: #00875a;
-    --warning: #d97706;
-    --danger: #dc2626;
+[data-theme="dark"] {
+    /* Dark theme - Ink */
+    --bg: #14110e;
+    --bg-card: #1c1813;
+    --fg: #ebe3d3;
+    --fg-dim: #b1a692;
+    --fg-muted: #8a8071;
+    --accent: #d97757;
+    --accent-glow: rgba(217, 119, 87, 0.12);
+    --border: #2a241c;
+    --success: #6fbf8f;
+    --warning: #d9a441;
+    --danger: #e0604a;
+
+    color-scheme: dark;
 }
 
 /* Base Reset */
@@ -61,12 +68,34 @@
 }
 
 body {
-    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Consolas', monospace;
+    font-family: var(--font-prose);
     background: var(--bg);
     color: var(--fg);
     line-height: 1.6;
     min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern", "liga", "onum";
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Flat, editorial chrome to match the index/landing pages —
+   neutralize legacy rounded corners (including inline border-radius). */
+[style*="border-radius"],
+.theme-toggle, .signal, .tier-bar, .tier-bar-fill,
+.card, .section, input, select, textarea, button {
+    border-radius: 0 !important;
+}
+
+/* Data, tickers and numeric values stay monospace; prose is serif. */
+.value-cell, .cpi-value, .cpi-ticker, .subindex-value, .subindex-ticker,
+.live-index-value, .stat-value, .tier-price, .tier-elo, .exchange-rate,
+.exchange-ticker, .spread-value, .spread-ticker, .series-value, .series-ticker,
+.variant-value, .variant-ticker, .yield-deflation, .trend-value, .persona-value,
+.persona-ticker, .rate-ticker, .rate-value, .term-ticker, .ticker,
+.leaders-table, .basket-value, .basket-weight {
+    font-family: var(--font-mono);
+    font-feature-settings: "tnum";
 }
 
 .container {
@@ -89,7 +118,10 @@ nav {
 nav a {
     color: var(--fg-muted);
     text-decoration: none;
-    font-size: 0.875rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
     transition: color 0.2s ease;
     padding: 0.5rem;
     min-height: 44px;
@@ -175,11 +207,11 @@ header {
 }
 
 .logo {
-    font-family: 'Aminute', sans-serif;
-    font-size: 0.875rem;
-    letter-spacing: 0.2em;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--fg-dim);
+    color: var(--fg);
     margin-bottom: 0.5rem;
 }
 
@@ -189,12 +221,14 @@ header {
 }
 
 .hero-headline {
-    font-size: 2.5rem;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    font-family: var(--font-prose);
+    font-size: 2.8rem;
+    font-weight: 400;
+    line-height: 1.06;
+    letter-spacing: -0.025em;
     margin-bottom: 1rem;
     color: var(--fg);
+    text-wrap: balance;
 }
 
 .hero-description {
@@ -509,15 +543,20 @@ header {
 }
 
 h1 {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-family: var(--font-prose);
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
     margin-bottom: 0.5rem;
 }
 
 h2 {
+    font-family: var(--font-mono);
     font-size: 0.75rem;
+    font-weight: 500;
     color: var(--accent);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
@@ -571,10 +610,13 @@ h2 {
 }
 
 .cpi-value {
+    font-family: var(--font-mono);
     font-size: 4rem;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1;
+    letter-spacing: -0.02em;
     margin-bottom: 0.5rem;
+    font-feature-settings: "tnum";
 }
 
 .cpi-changes {
