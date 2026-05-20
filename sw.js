@@ -1,6 +1,6 @@
-const CACHE_NAME = 'occupant-v3';
-const STATIC_CACHE = 'occupant-static-v3';
-const DATA_CACHE = 'occupant-data-v3';
+const CACHE_NAME = 'occupant-v4';
+const STATIC_CACHE = 'occupant-static-v4';
+const DATA_CACHE = 'occupant-data-v4';
 
 // Files to cache immediately on install
 const STATIC_FILES = [
@@ -75,7 +75,33 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Handle static files with cache-first strategy
+  // Documents, CSS, and JS must stay fresh: use network-first so new
+  // deploys are picked up immediately, falling back to cache when offline.
+  const isFreshAsset =
+    request.mode === 'navigate' ||
+    request.destination === 'document' ||
+    request.destination === 'style' ||
+    request.destination === 'script' ||
+    /\.(?:css|js|html)$/.test(url.pathname);
+
+  if (isFreshAsset) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response && response.status === 200 && response.type !== 'error') {
+            const responseToCache = response.clone();
+            caches.open(STATIC_CACHE).then((cache) => {
+              cache.put(request, responseToCache);
+            });
+          }
+          return response;
+        })
+        .catch(() => caches.match(request))
+    );
+    return;
+  }
+
+  // Other static assets (fonts, images, manifest): cache-first.
   event.respondWith(
     caches.match(request).then((response) => {
       if (response) {
