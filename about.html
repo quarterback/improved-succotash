@@ -1,290 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Occupant</title>
-    <meta name="description" content="Occupant is a public benchmark for AI compute prices and market activity, designed and maintained by Ron Bronson.">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://occupant.ee/about">
-    <meta property="og:title" content="About | Occupant">
-    <meta property="og:description" content="Occupant is a public benchmark for AI compute prices and market activity, designed and maintained by Ron Bronson.">
-    <meta property="og:image" content="https://occupant.ee/og-image.svg">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About | Occupant">
-    <meta name="twitter:description" content="Occupant is a public benchmark for AI compute prices and market activity, designed and maintained by Ron Bronson.">
-    <meta name="twitter:image" content="https://occupant.ee/og-image.svg">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/logo.svg">
-
-    <link rel="stylesheet" href="/styles.css">
-    <style>
-        .mandate-box {
-            background: var(--accent-glow);
-            border-left: 3px solid var(--accent);
-            padding: 1.25rem 1.5rem;
-            margin: 1.5rem 0;
-        }
-        .mandate-box p {
-            margin: 0;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        .methodology-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-            font-size: 0.875rem;
-        }
-        .methodology-table th,
-        .methodology-table td {
-            text-align: left;
-            padding: 0.75rem;
-            border-bottom: 1px solid var(--border);
-        }
-        .methodology-table th {
-            color: var(--fg-dim);
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 0.05em;
-        }
-        .tech-footer {
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.8rem;
-            color: var(--fg-dim);
-        }
-        .tech-footer a {
-            color: var(--fg-muted);
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Occupant</title>
+<meta http-equiv="refresh" content="0; url=index.html" />
+<link rel="canonical" href="index.html" />
+<link rel="icon" type="image/svg+xml" href="logo.svg" />
+<style>
+  :root { --paper:#ecd56c; --ink:#1a1612; --ink-mute:#6b6049; --accent:#8a3a1f; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { height:100%; }
+  body {
+    background:var(--paper); color:var(--ink);
+    font-family:'Newsreader', Georgia, serif;
+    display:grid; place-items:center; min-height:100vh; padding:2rem;
+    -webkit-font-smoothing:antialiased;
+  }
+  .msg p {
+    font-family:'JetBrains Mono', ui-monospace, monospace;
+    font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--ink-mute); text-align:center;
+  }
+  .msg a { color:var(--accent); }
+</style>
 </head>
 <body>
-    <div class="container" style="max-width: 700px;">
-        <nav>
-            <a href="/">Home</a>
-            <a href="/cpi-data.html">CPI Data</a>
-            <a href="/aeai.html">AEAI</a>
-            <a href="/displacement.html">LDI</a>
-            <a href="/sabermetrics.html">Market Intel</a>
-            <a href="/calculator.html">Calculator</a>
-            <a href="/glossary.html">Glossary</a>
-            <a href="/about.html" class="active">About</a>
-            <div class="nav-right">
-                <button id="theme-toggle" class="theme-toggle">Light</button>
-            </div>
-        </nav>
-
-        <div class="breadcrumb">
-            <a href="/">Home</a>
-            <span class="breadcrumb-separator">></span>
-            <span class="breadcrumb-current">About</span>
-        </div>
-
-        <header>
-            <h1>About Occupant</h1>
-            <p class="subtitle">A public benchmark for AI compute, by <a href="https://ronbronson.com" rel="author">Ron Bronson</a>.</p>
-        </header>
-
-        <main class="prose">
-            <section>
-                <h2>What this is</h2>
-                <div class="mandate-box">
-                    <p>
-                        Occupant publishes two free, daily-updated indices for AI compute:
-                        <strong>Compute CPI</strong> (a price index across model tiers) and
-                        <strong>AEAI</strong> (an activity index for token volume, spend, and energy).
-                    </p>
-                </div>
-                <p>
-                    The motivation is simple: AI compute prices move every week, the basket of available
-                    models shifts constantly, and most public commentary on the AI market relies on
-                    point-in-time anecdotes. A standing benchmark &mdash; with a fixed methodology you can
-                    audit &mdash; makes the conversation comparable across time.
-                </p>
-                <p>
-                    Designed and maintained by <a href="https://ronbronson.com" rel="author">Ron Bronson</a>.
-                    Methodology, source list, and update cadence are all on this page.
-                </p>
-            </section>
-
-            <section>
-                <h2>The indices</h2>
-
-                <h3>Compute CPI</h3>
-                <p>
-                    A volume-weighted basket of inference prices across four workload tiers (frontier,
-                    reasoning-intensive, long-context, budget). Tracks deflation in $/MTok over time.
-                    January 2025 = 100.
-                </p>
-
-                <h3>AEAI &mdash; AI Activity Index</h3>
-                <p>
-                    A composite of three signals: token throughput (60%), inferred spend (30%), and
-                    energy consumption (10%). Designed to read like an economic activity gauge for the
-                    AI sector rather than a stock-price proxy. February 2025 = 100.
-                </p>
-            </section>
-
-            <section>
-                <h2>Related work</h2>
-                <p>
-                    Other projects under the same research umbrella:
-                </p>
-                <ul class="link-list">
-                    <li><strong>Glowrm</strong> &mdash; cross-platform reputation infrastructure (20&ndash;80 scale, portable across applications). API: <a href="https://drydown.replit.app">drydown.replit.app</a>.</li>
-                    <li><strong>Stratified Preference Allocation (SPA)</strong> &mdash; a method for turning unbounded low-cost actions into finite, priced decisions. Tested in PBJ, Leafroll, Roomies.</li>
-                    <li><strong>Judgment Routing</strong> &mdash; stateful middleware that evaluates agent proposals against uncertainty, stakes, authority, and novelty, and emits a decision receipt.</li>
-                </ul>
-            </section>
-
-            <section>
-                <h2>Operating principles</h2>
-                <ul class="link-list">
-                    <li><strong>Vendor independence.</strong> No referral fees, no paid placement.</li>
-                    <li><strong>Public data.</strong> All index values published as JSON.</li>
-                    <li><strong>Auditable methodology.</strong> Calculations are open and reviewable.</li>
-                    <li><strong>Free.</strong> Indices stay free for researchers, journalists, and operators.</li>
-                </ul>
-            </section>
-
-            <section>
-                <h2>Methodology</h2>
-                <p>
-                    <strong>Compute CPI</strong> aggregates pricing data into a volume-weighted basket across
-                    four workload tiers. <strong>AEAI</strong> tracks economic activity through token volumes (60%),
-                    inferred spend (30%), and energy consumption (10%). Cross-validated across sources.
-                    Discrepancies flagged before publication. January 2025 = 100 for both indices.
-                </p>
-
-                <table class="methodology-table">
-                    <thead>
-                        <tr>
-                            <th>Index</th>
-                            <th>Composition</th>
-                            <th>Weighting</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span class="ticker">$CPI</span></td>
-                            <td>Composite of all tiers</td>
-                            <td>Volume-weighted</td>
-                        </tr>
-                        <tr>
-                            <td><span class="ticker">$AIU</span></td>
-                            <td>Token volumes, spend, energy</td>
-                            <td>60/30/10 weighted basket</td>
-                        </tr>
-                        <tr>
-                            <td><span class="ticker">$BULK</span></td>
-                            <td>Budget-tier models (&lt;$1/MTok)</td>
-                            <td>Equal-weighted basket</td>
-                        </tr>
-                        <tr>
-                            <td><span class="ticker">$FRONT</span></td>
-                            <td>Frontier capability models</td>
-                            <td>Top-5 by Arena ELO</td>
-                        </tr>
-                        <tr>
-                            <td><span class="ticker">$JUDGE</span></td>
-                            <td>Reasoning-intensive workloads</td>
-                            <td>o1/o3/R1 class models</td>
-                        </tr>
-                        <tr>
-                            <td><span class="ticker">$LCTX</span></td>
-                            <td>Long-context workloads</td>
-                            <td>128K+ context models</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p>
-                    Build Cost Indices (<span class="ticker">$START</span>,
-                    <span class="ticker">$AGENT</span>, <span class="ticker">$THRU</span>)
-                    apply fixed workload mixes to current tier prices. Track costs
-                    relevant to your specific use patterns.
-                </p>
-            </section>
-
-            <section>
-                <h2>Data Sources</h2>
-                <table class="methodology-table">
-                    <thead>
-                        <tr>
-                            <th>Source</th>
-                            <th>Data Type</th>
-                            <th>Update Frequency</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>OpenRouter API</td>
-                            <td>Primary pricing</td>
-                            <td>Daily</td>
-                        </tr>
-                        <tr>
-                            <td>LiteLLM</td>
-                            <td>Cross-provider validation</td>
-                            <td>Daily</td>
-                        </tr>
-                        <tr>
-                            <td>pricepertoken.com</td>
-                            <td>Independent verification</td>
-                            <td>Daily</td>
-                        </tr>
-                        <tr>
-                            <td>OpenRouter Rankings</td>
-                            <td>Volume / market share</td>
-                            <td>Weekly</td>
-                        </tr>
-                        <tr>
-                            <td>Chatbot Arena</td>
-                            <td>Quality ratings (ELO)</td>
-                            <td>Weekly</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p>
-                    Price discrepancies exceeding 10% trigger manual review before publication.
-                </p>
-            </section>
-
-            <section>
-                <h2>Data Access</h2>
-                <p>
-                    All indices are public and free. Daily values publish by 09:00 UTC. Full historical data
-                    available via JSON API. Commercial users, government agencies, and researchers welcome.
-                </p>
-            </section>
-
-            <section>
-                <h2>Author</h2>
-                <p>
-                    Occupant is designed and maintained by <a href="https://ronbronson.com" rel="author">Ron Bronson</a>.
-                    Questions, corrections, and method critique welcome at
-                    <a href="mailto:hello@occupant.ee">hello@occupant.ee</a>.
-                </p>
-            </section>
-        </main>
-
-        <footer>
-            <div class="footer-links">
-                <a href="/about.html">About</a>
-                <a href="https://ronbronson.com" rel="author">ronbronson.com</a>
-                <a href="/license.html">License</a>
-                <a href="/tardigrade.html">Tardigrade Disclosure</a>
-            </div>
-        </footer>
-    </div>
-
-    <script src="/theme.js"></script>
+  <div class="msg"><p>Redirecting to <a href="index.html">Occupant</a>&hellip;</p></div>
 </body>
 </html>
