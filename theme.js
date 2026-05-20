@@ -3,15 +3,15 @@
 (function() {
     const THEME_KEY = 'occupant-theme';
 
-    // Get saved theme or default to dark
+    // Get saved theme or default to light (paper)
     function getSavedTheme() {
-        return localStorage.getItem(THEME_KEY) || 'dark';
+        return localStorage.getItem(THEME_KEY) || 'light';
     }
 
     // Apply theme to document
     function applyTheme(theme) {
-        if (theme === 'light') {
-            document.documentElement.setAttribute('data-theme', 'light');
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
         } else {
             document.documentElement.removeAttribute('data-theme');
         }
