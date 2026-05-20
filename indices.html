@@ -176,6 +176,67 @@ main {
   letter-spacing: 0.01em;
 }
 
+/* DETAIL LINK */
+.more {
+  display: inline-block;
+  margin-top: 1.4rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  border-bottom: 1px solid transparent;
+  transition: color .15s, border-color .15s;
+}
+.more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.more .arrow { display: inline-block; margin-left: 0.4rem; transition: transform .2s ease; }
+.more:hover .arrow { transform: translateX(3px); }
+
+/* TOOLS */
+.tools {
+  border-top: 1px solid var(--rule);
+  padding-top: 3rem;
+  margin-top: 1rem;
+}
+.tools h2 {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 1.75rem;
+}
+.tool {
+  display: block;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.tool:last-child { border-bottom: 0; padding-bottom: 0; }
+.tool .name {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--ink);
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+}
+.tool .name .arrow {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--ink-mute);
+  transition: transform .2s ease, color .2s ease;
+}
+.tool:hover .name .arrow { transform: translateX(3px); color: var(--accent); }
+.tool .blurb {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  color: var(--ink-soft);
+  margin-top: 0.3rem;
+  max-width: 34rem;
+  text-wrap: pretty;
+}
+
 /* FOOTER */
 footer {
   padding: 1.5rem 2.25rem 1.75rem;
@@ -193,6 +254,17 @@ footer .stamp {
   letter-spacing: 0.32em;
   color: var(--ink-soft);
 }
+footer .meta {
+  display: flex;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+footer .meta a {
+  border-bottom: 1px solid transparent;
+  transition: color .15s, border-color .15s;
+}
+footer .meta a:hover { color: var(--ink); border-bottom-color: var(--ink); }
 
 /* MOBILE */
 @media (max-width: 640px) {
@@ -234,6 +306,7 @@ footer .stamp {
       <span class="ticker">$CPI</span><span class="em">—</span><span class="value" id="cpi-val">87.2</span>
     </div>
     <p class="description">The price of a million tokens, weighted across four workload tiers: commodity, frontier, reasoning, and long-context. Volume-weighted across 2,300+ models. January 2025 = 100.</p>
+    <a class="more" href="cpi-data.html">Methodology &amp; data <span class="arrow">→</span></a>
   </article>
 
   <article class="index fade d2">
@@ -242,6 +315,7 @@ footer .stamp {
       <span class="ticker">$AIU</span><span class="em">—</span><span class="value" id="aiu-val">142.4</span>
     </div>
     <p class="description">A composite of three inputs: token throughput (60%), inferred spend (30%), and energy use (10%), read as a single number. February 2025 = 100.</p>
+    <a class="more" href="aeai.html">Methodology &amp; data <span class="arrow">→</span></a>
   </article>
 
   <article class="index fade d3">
@@ -250,12 +324,49 @@ footer .stamp {
       <span class="ticker">$LDI</span><span class="em">—</span><span class="value" id="ldi-val">18.6%</span>
     </div>
     <p class="description">The substitution rate between human and AI cost across five federal workloads. Human cost from BLS wage data; AI cost from the <span class="term">$CPI</span> basket; substitution inferred from federal procurement records.</p>
+    <a class="more" href="displacement.html">Methodology &amp; data <span class="arrow">→</span></a>
   </article>
+
+  <section class="tools fade">
+    <h2>Tools</h2>
+
+    <a class="tool" href="gov-worksheet.html">
+      <span class="name">AI Services Price Reasonableness Worksheet <span class="arrow">→</span></span>
+      <span class="blurb">A fill-in procurement determination sheet for federal AI buyers, built on the $CPI basket. The benchmark rates predate the current data — treat them as a starting point, not a current quote.</span>
+    </a>
+
+    <a class="tool" href="calculator.html">
+      <span class="name">LLM Cost Calculator <span class="arrow">→</span></span>
+      <span class="blurb">Price a workload across models using the live Compute CPI rates.</span>
+    </a>
+
+    <a class="tool" href="displacement/calculator.html">
+      <span class="name">LDI Workload Calculator <span class="arrow">→</span></span>
+      <span class="blurb">Compute the human-vs-AI cost differential and substitution rate for a workload of your own.</span>
+    </a>
+
+    <a class="tool" href="displacement/snap.html">
+      <span class="name">SNAP Eligibility — LDI Deep Dive <span class="arrow">→</span></span>
+      <span class="blurb">A worked example of the Labor Displacement Index applied end-to-end to one federal workload.</span>
+    </a>
+
+    <a class="tool" href="sabermetrics.html">
+      <span class="name">Market Intelligence <span class="arrow">→</span></span>
+      <span class="blurb">Statistics that reprice market assumptions — quality-adjusted price, cognitive arbitrage, and tier analysis across the model market.</span>
+    </a>
+
+  </section>
 
 </main>
 
 <footer>
   <span class="stamp">Occupant</span>
+  <span class="meta">
+    <a href="about.html">About</a>
+    <a href="glossary.html">Glossary</a>
+    <a href="license.html">License</a>
+    <a href="tardigrade.html">Tardigrade</a>
+  </span>
 </footer>
 
 <script>
