@@ -294,7 +294,7 @@ footer .stamp {
     <div class="headline">
       <span class="ticker">$CPI</span><span class="em">—</span><span class="value" id="cpi-val">·</span>
     </div>
-    <p class="description">The price of a million tokens, weighted across four workload tiers: commodity, frontier, reasoning, and long-context. Volume-weighted across 2,300+ models. January 2025 = 100.</p>
+    <p class="description">The price of a million tokens, weighted across four workload tiers: commodity, frontier, reasoning, and long-context. Volume-weighted across <span id="cpi-models">2,000+</span> models. January 2025 = 100.</p>
     <a class="more" href="cpi-data.html">Methodology &amp; data <span class="arrow">→</span></a>
   </article>
 
@@ -357,6 +357,7 @@ async function tryLive() {
   try {
     const cpi = await fetch('data/compute-cpi.json').then(r => r.ok ? r.json() : null);
     if (cpi?.compute_cpi?.value != null) document.getElementById('cpi-val').textContent = cpi.compute_cpi.value.toFixed(1);
+    if (cpi?.meta?.models_count != null) document.getElementById('cpi-models').textContent = cpi.meta.models_count.toLocaleString();
   } catch (e) {}
   try {
     const aiu = await fetch('data/aeai/latest.json').then(r => r.ok ? r.json() : null);
