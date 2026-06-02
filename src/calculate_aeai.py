@@ -79,6 +79,17 @@ def load_grid_investment() -> Dict[str, Any]:
         return json.load(f)
 
 
+def load_datacenter_construction() -> Dict[str, Any]:
+    """Load data-center construction spending data for energy index blending."""
+    dc_path = AEAI_DIR / "datacenter_construction.json"
+
+    if not dc_path.exists():
+        return {}
+
+    with open(dc_path) as f:
+        return json.load(f)
+
+
 def load_model_tiers() -> Dict[str, Any]:
     """Load model tier classifications for energy estimation."""
     tiers_path = DATA_DIR / "models" / "tiers.json"
@@ -351,6 +362,56 @@ def calculate_grid_investment_index(
     return {"grid_investment_index": round(index, 2), "source_year": last_year}
 
 
+def calculate_datacenter_construction_index(
+    dc_data: Dict[str, Any],
+    reference_date: Optional[datetime] = None
+) -> Dict[str, Any]:
+    """
+    Calculate the U.S. data-center construction index relative to its baseline (= 100).
+
+    Uses monthly Census "value of construction put in place" data (SAAR). Because the
+    Census report carries a ~2-month lag, this uses the most recent monthly data point
+    on or before the reference month rather than interpolating forward.
+    """
+    if not dc_data or "series" not in dc_data:
+        return {
+            "datacenter_construction_index": 100.0,
+            "note": "No data-center construction data; using baseline value"
+        }
+
+    if reference_date is None:
+        reference_date = datetime.now(timezone.utc)
+
+    series = {entry["period"]: entry["value_billions_usd_saar"] for entry in dc_data["series"]}
+    baseline_value = dc_data.get("baseline_value_billions_usd_saar")
+    baseline_period = dc_data.get("baseline_period")
+
+    if baseline_value is None and baseline_period:
+        baseline_value = series.get(baseline_period)
+
+    if not baseline_value or not series:
+        return {"datacenter_construction_index": 100.0,
+                "note": "Baseline value or series missing"}
+
+    ref_period = reference_date.strftime("%Y-%m")
+    available = sorted(series.keys())
+
+    # Most recent monthly data point on or before the reference month
+    eligible = [p for p in available if p <= ref_period]
+    use_period = eligible[-1] if eligible else available[0]
+
+    index = (series[use_period] / baseline_value) * 100
+    result = {
+        "datacenter_construction_index": round(index, 2),
+        "source_period": use_period,
+        "value_billions_usd_saar": series[use_period]
+    }
+    if use_period != ref_period:
+        result["note"] = (f"Using {use_period} data (most recent available; "
+                          "Census reports monthly with a ~2-month lag)")
+    return result
+
+
 def load_aeai_baseline() -> Optional[Dict[str, Any]]:
     """Load the immutable AEAI baseline (January 2025 = 100)."""
     baseline_path = AEAI_DIR / "baseline.json"
@@ -398,7 +459,8 @@ def calculate_aeai(
     current_spend: float,
     current_energy: float,
     baseline: Dict[str, Any],
-    grid_investment_index: Optional[float] = None
+    grid_investment_index: Optional[float] = None,
+    datacenter_construction_index: Optional[float] = None
 ) -> Dict[str, Any]:
     """
     Calculate the AI Economic Activity Index (AIU).
@@ -406,10 +468,14 @@ def calculate_aeai(
     Each component is normalized to its baseline value (Jan 2025 = 100),
     then weighted: 60% tokens, 30% spend, 10% energy.
 
-    The energy component is a blended index when grid investment data is available:
-      energy_index = 0.7 × token_energy_index + 0.3 × grid_investment_index
-    This gives the energy component an independent external signal (grid capex)
-    rather than being purely derived from token volumes.
+    The energy component is a blended index when external infrastructure data is
+    available:
+      energy_index = 0.7 × token_energy_index + 0.3 × infrastructure_index
+    where infrastructure_index is the equal-weighted average of the available
+    external AI-infrastructure capex signals — BloombergNEF grid investment and
+    U.S. Census data-center construction spending. This gives the energy component
+    an independent external signal rather than being purely derived from token
+    volumes.
     """
     baseline_components = baseline["components"]
 
@@ -418,13 +484,30 @@ def calculate_aeai(
     spend_index = (current_spend / baseline_components["spend_usd_weekly"]) * 100
     token_energy_index = (current_energy / baseline_components["energy_gwh_weekly"]) * 100
 
-    # Blend energy index: 70% token-derived + 30% grid investment (if available)
+    # External infrastructure capex signals (each normalized to its own baseline = 100)
+    infra_signals = []
     if grid_investment_index is not None:
-        energy_index = 0.7 * token_energy_index + 0.3 * grid_investment_index
-        energy_methodology = "70% token-derived proxy + 30% grid investment growth (BloombergNEF)"
+        infra_signals.append(grid_investment_index)
+    if datacenter_construction_index is not None:
+        infra_signals.append(datacenter_construction_index)
+
+    # Blend energy index: 70% token-derived + 30% external infrastructure capex
+    if infra_signals:
+        infrastructure_index = sum(infra_signals) / len(infra_signals)
+        energy_index = 0.7 * token_energy_index + 0.3 * infrastructure_index
+        signal_names = []
+        if grid_investment_index is not None:
+            signal_names.append("grid investment (BloombergNEF)")
+        if datacenter_construction_index is not None:
+            signal_names.append("data-center construction (U.S. Census)")
+        energy_methodology = (
+            "70% token-derived proxy + 30% external infrastructure capex "
+            f"(avg of {', '.join(signal_names)})"
+        )
     else:
+        infrastructure_index = None
         energy_index = token_energy_index
-        energy_methodology = "Token-derived proxy only (no grid investment data)"
+        energy_methodology = "Token-derived proxy only (no external infrastructure data)"
 
     # Apply weights: 60/30/10
     aiu_index = (
@@ -453,6 +536,8 @@ def calculate_aeai(
         "energy_detail": {
             "token_energy_index": round(token_energy_index, 2),
             "grid_investment_index": round(grid_investment_index, 2) if grid_investment_index is not None else None,
+            "datacenter_construction_index": round(datacenter_construction_index, 2) if datacenter_construction_index is not None else None,
+            "infrastructure_index": round(infrastructure_index, 2) if infrastructure_index is not None else None,
             "blended_energy_index": round(energy_index, 2),
             "methodology": energy_methodology
         }
@@ -534,6 +619,7 @@ def main():
     prices = load_prices()
     tiers_data = load_model_tiers()
     grid_data = load_grid_investment()
+    dc_data = load_datacenter_construction()
 
     model_count = len(rankings.get("models", {}))
     print(f"[1/6] Loaded {model_count} models with volume data")
@@ -562,6 +648,13 @@ def main():
     grid_note = grid_result.get("note", "")
     print(f"[4/6] Grid investment index: {grid_inv_index:.2f} (source year: {grid_result['source_year']}){' — ' + grid_note if grid_note else ''}")
 
+    # Calculate data-center construction index (independent AI-infrastructure signal)
+    dc_result = calculate_datacenter_construction_index(dc_data)
+    dc_index = dc_result["datacenter_construction_index"]
+    dc_note = dc_result.get("note", "")
+    dc_src = dc_result.get("source_period", "baseline")
+    print(f"[4/6] Data-center construction index: {dc_index:.2f} (source period: {dc_src}){' — ' + dc_note if dc_note else ''}")
+
     # Load or set baseline
     print("\n[5/6] Checking baseline...")
     baseline = load_aeai_baseline()
@@ -575,7 +668,8 @@ def main():
     # Calculate AEAI
     print("\n[6/6] Calculating AIU index...")
     aeai_result = calculate_aeai(total_tokens, total_spend, total_energy, baseline,
-                                 grid_investment_index=grid_inv_index)
+                                 grid_investment_index=grid_inv_index,
+                                 datacenter_construction_index=dc_index)
     aiu_index = aeai_result["aiu_index"]
     print(f"[6/6] AIU Index: {aiu_index:.2f}")
 
@@ -591,6 +685,7 @@ def main():
         "contribution": aeai_result["contribution"],
         "energy_detail": aeai_result["energy_detail"],
         "grid_investment": grid_result,
+        "datacenter_construction": dc_result,
         "activity": {
             "tokens_weekly": total_tokens,
             "spend_usd_weekly": total_spend,
@@ -606,7 +701,7 @@ def main():
             "basket": "60% token volumes, 30% inferred spend, 10% energy proxy",
             "baseline": "January 2025 = 100",
             "spend_calculation": "tokens × blended_price (70% input, 30% output)",
-            "energy_estimation": "Blended: 70% token-derived proxy + 30% grid investment growth (BloombergNEF)"
+            "energy_estimation": "Blended: 70% token-derived proxy + 30% external infrastructure capex (avg of BloombergNEF grid investment & U.S. Census data-center construction)"
         }
     }
 
@@ -625,8 +720,12 @@ def main():
     print(f"  Spend:         {aeai_result['components']['spend_index']:6.2f} (30% weight → {aeai_result['contribution']['spend']:5.2f})")
     print(f"  Energy:        {aeai_result['components']['energy_index']:6.2f} (10% weight → {aeai_result['contribution']['energy']:5.2f})")
     print(f"    ↳ token-derived:   {ed['token_energy_index']:6.2f} (70% of energy)")
-    if ed['grid_investment_index'] is not None:
-        print(f"    ↳ grid investment: {ed['grid_investment_index']:6.2f} (30% of energy, BloombergNEF)")
+    if ed.get('infrastructure_index') is not None:
+        print(f"    ↳ infrastructure:  {ed['infrastructure_index']:6.2f} (30% of energy, external capex avg)")
+        if ed['grid_investment_index'] is not None:
+            print(f"        ↳ grid investment:     {ed['grid_investment_index']:6.2f} (BloombergNEF)")
+        if ed.get('datacenter_construction_index') is not None:
+            print(f"        ↳ datacenter constr.:  {ed['datacenter_construction_index']:6.2f} (U.S. Census)")
 
     print(f"\nActivity Levels:")
     print(f"  Tokens/week:   {total_tokens/1e12:6.2f}T")
