@@ -93,8 +93,10 @@ IMF's Special Drawing Rights. The AIU is a weighted composite:
 - **60% token throughput** (usage intensity, from OpenRouter rankings)
 - **30% inferred spend** (tokens × blended pricing — economic scale)
 - **10% energy proxy** (a *blended* signal: 70% token-derived energy estimate +
-  30% BloombergNEF global grid-investment growth, so the energy component carries
-  genuinely independent information rather than just echoing the token count)
+  30% external AI-infrastructure capex — itself the equal-weighted average of
+  BloombergNEF global grid-investment growth and U.S. Census data-center
+  construction spending — so the energy component carries genuinely independent
+  information rather than just echoing the token count)
 
 Baseline **February 2025 = 100**. **As of mid-May 2026 the AIU is ~503.65** —
 roughly a 5× expansion in activity in about fifteen months, on ~42.7 trillion

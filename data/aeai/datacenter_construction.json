@@ -1,0 +1,30 @@
+{
+  "source": "U.S. Census Bureau — Construction Spending (Value of Construction Put in Place)",
+  "series_name": "Data-center construction (private). Census does not break data centers out in its press release; the figure is reported within the broader 'office' category and itemized in the value-put-in-place tables.",
+  "description": "Monthly U.S. data-center construction spending at seasonally adjusted annual rates (SAAR). Data centers are the physical infrastructure that AI compute runs on, so this is a direct AI-infrastructure capex signal. Used as a co-signal (alongside BloombergNEF grid investment) in the 30% external-infrastructure portion of the AEAI blended energy index.",
+  "units": "billions_usd_saar",
+  "baseline_period": "2025-04",
+  "baseline_value_billions_usd_saar": 39.6,
+  "series": [
+    {
+      "period": "2025-04",
+      "value_billions_usd_saar": 39.6,
+      "notes": "Baseline period. Derived from the reported +28% YoY change for April 2026 (50.7 / 1.28 ≈ 39.6); used as the index baseline (= 100)."
+    },
+    {
+      "period": "2026-04",
+      "value_billions_usd_saar": 50.7,
+      "notes": "First month above $50B. +28% YoY. Data centers = 2.3% of all U.S. construction spending. Private data-center outlays exceeded public transportation-structure spending ($49.3B SAAR) for the first time. Reported by the Census Bureau on 2026-06-01."
+    }
+  ],
+  "datacenter_demand_driver": true,
+  "ai_infrastructure_signal": true,
+  "update_frequency": "Monthly (Census Construction Spending report, released ~first business day of the month, two-month reporting lag)",
+  "references": [
+    "U.S. Census Bureau, Construction Spending (Value of Construction Put in Place), April 2026 release (2026-06-01)",
+    "Bloomberg, 'US Construction Spending on Data Centers Eclipses $50 Billion' (2026-06-01)",
+    "MarketWatch / Dow Jones, 'It's official: More money is now spent building data centers than the government spends on transportation' (2026-06-02)"
+  ],
+  "limitations": "Census does not publish a standalone data-center line in its press release; the series lives in the itemized value-put-in-place tables and is part of the broader 'office' category. The 2025-04 baseline is derived from the reported year-over-year change, not read directly from a published April 2025 figure.",
+  "last_updated": "2026-06-02"
+}
