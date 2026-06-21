@@ -161,6 +161,24 @@ def parse_arena_elo(arena_data: dict) -> dict:
     return elo_map
 
 
+def load_deepswe_capability() -> dict:
+    """
+    Load the DeepSWE coding-capability source.
+
+    A second, independent quality signal alongside Arena ELO: instead of general
+    preference, it measures whether a model actually ships working code, and at
+    what cost. Returns the full payload (data keyed by model_id, plus benchmark
+    provenance). Source: https://deepswe.datacurve.ai/
+    """
+    path = MARKET_DATA_DIR / "deepswe.json"
+    if path.exists():
+        with open(path) as f:
+            payload = json.load(f)
+            print(f"[DeepSWE] Loaded {len(payload.get('data', {}))} capability records")
+            return payload
+    return {}
+
+
 def normalize_model_id(name: str) -> str:
     """Normalize various model name formats to our standard ID format."""
     if not name:
@@ -476,7 +494,8 @@ def calculate_switch_index(tier_migrations: dict) -> dict:
 # =============================================================================
 
 def build_model_stats(registry: dict, arena_data: dict = None,
-                     previous_snapshot: dict = None) -> dict:
+                     previous_snapshot: dict = None,
+                     deepswe_data: dict = None) -> dict:
     """
     Build computed statistics for all models.
 
@@ -493,6 +512,9 @@ def build_model_stats(registry: dict, arena_data: dict = None,
 
     # Parse arena data
     elo_map = parse_arena_elo(arena_data) if arena_data else {}
+
+    # DeepSWE coding-capability records, keyed by model_id (provider/model)
+    swe_map = (deepswe_data or {}).get("data", {})
 
     # Get all models with pricing
     models = registry.get("models", {})
@@ -543,6 +565,13 @@ def build_model_stats(registry: dict, arena_data: dict = None,
             "price_velocity": price_velocity,
             "msv": msv,
         }
+
+        # Attach DeepSWE coding capability if this model was benchmarked.
+        # A second quality source, with its own quality-adjusted cost metric.
+        swe = swe_map.get(model_id)
+        if swe:
+            stats[model_id]["swe_pass_at_1"] = swe.get("swe_pass_at_1")
+            stats[model_id]["cost_per_solved_task"] = swe.get("cost_per_solved_task_usd")
 
     # Calculate price ranks
     price_list.sort(key=lambda x: x[1])
@@ -612,11 +641,12 @@ def generate_market_report(registry: dict, rankings_data: dict = None) -> dict:
     """
     now = datetime.now(timezone.utc)
 
-    # Fetch quality data
+    # Fetch quality data — two independent capability sources.
     arena_data = fetch_lmsys_arena()
+    deepswe = load_deepswe_capability()
 
     # Build model stats
-    model_stats = build_model_stats(registry, arena_data)
+    model_stats = build_model_stats(registry, arena_data, deepswe_data=deepswe)
 
     # Load rankings data if not provided
     if rankings_data is None:
@@ -760,10 +790,55 @@ def generate_market_report(registry: dict, rankings_data: dict = None) -> dict:
             )[0] if model_stats else None,
         },
 
+        "coding_capability": build_coding_capability(deepswe),
+
+        "sources": [
+            {"name": "OpenRouter", "use": "pricing & volume", "url": "https://openrouter.ai/"},
+            {"name": "Arena Leaderboard", "use": "general quality (ELO)", "url": "https://arena.ai/leaderboard"},
+            {"name": deepswe.get("source", "DeepSWE Leaderboard"),
+             "use": "coding capability & cost per solved task",
+             "url": deepswe.get("source_url", "https://deepswe.datacurve.ai/")},
+        ],
+
         "model_stats": model_stats,
     }
 
     return report
+
+
+def build_coding_capability(deepswe: dict) -> dict:
+    """
+    Digest of the DeepSWE coding-capability source — a metric, not a leaderboard.
+
+    Surfaces the capability leader, the cost-per-solved-task value leader, and the
+    benchmark's provenance, so the quality signal can cite a coding-specific source
+    in addition to Arena ELO.
+    """
+    records = (deepswe or {}).get("data", {})
+    if not records:
+        return {}
+
+    def fields(model_id):
+        r = records[model_id]
+        return {
+            "model": r.get("model"),
+            "model_id": model_id,
+            "pass_at_1": r.get("swe_pass_at_1"),
+            "cost_per_solved_task": r.get("cost_per_solved_task_usd"),
+        }
+
+    capability_leader = max(records, key=lambda m: records[m].get("swe_pass_at_1") or 0)
+    value_leader = min(records, key=lambda m: records[m].get("cost_per_solved_task_usd") or float("inf"))
+
+    return {
+        "source": deepswe.get("source"),
+        "source_url": deepswe.get("source_url"),
+        "benchmark_version": deepswe.get("benchmark_version"),
+        "benchmark": deepswe.get("benchmark"),
+        "models_benchmarked": len(records),
+        "capability_leader": fields(capability_leader),
+        "value_leader": fields(value_leader),
+    }
 
 
 def generate_headline_insight(tier_stats: dict, judgment_share: float, model_stats: dict) -> str:
