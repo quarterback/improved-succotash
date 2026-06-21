@@ -50,6 +50,10 @@ jobs:
         run: |
           python src/calculate_aeai.py
 
+      - name: Refresh DeepSWE capability benchmark
+        run: |
+          python src/fetch_deepswe.py
+
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"

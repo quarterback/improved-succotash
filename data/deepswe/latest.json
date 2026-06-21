@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "generated_at": "2026-06-21T14:43:07.522630+00:00",
+    "source": "DeepSWE Leaderboard",
+    "source_url": "https://deepswe.datacurve.ai/",
+    "benchmark_version": "v1.1",
+    "tasks": 113,
+    "repositories": 91,
+    "languages": 5,
+    "models_evaluated": 9,
+    "methodology_note": "Tasks are newly authored rather than scraped from existing projects, span diverse codebases, demand ~5.5x more code than comparable benchmarks, and are graded by verifiers that test actual software behavior, not implementation specifics."
+  },
+  "headline": "claude-fable-5 leads at 70% pass@1; glm-5.2 is the value leader at $8.91 per solved task.",
+  "leaderboard": [
+    {
+      "model": "claude-fable-5",
+      "config": "max",
+      "provider": "Anthropic",
+      "pass_at_1": 70,
+      "pass_at_1_ci": 4,
+      "avg_cost_usd": 21.63,
+      "output_tokens": 119000,
+      "steps": 88,
+      "cost_per_solved_task_usd": 30.9,
+      "rank": 1
+    },
+    {
+      "model": "gpt-5.5",
+      "config": "xhigh",
+      "provider": "OpenAI",
+      "pass_at_1": 67,
+      "pass_at_1_ci": 6,
+      "avg_cost_usd": 7.23,
+      "output_tokens": 46000,
+      "steps": 82,
+      "cost_per_solved_task_usd": 10.79,
+      "rank": 2
+    },
+    {
+      "model": "claude-opus-4.8",
+      "config": "max",
+      "provider": "Anthropic",
+      "pass_at_1": 59,
+      "pass_at_1_ci": 2,
+      "avg_cost_usd": 13.22,
+      "output_tokens": 135000,
+      "steps": 120,
+      "cost_per_solved_task_usd": 22.41,
+      "rank": 3
+    },
+    {
+      "model": "gpt-5.4",
+      "config": "xhigh",
+      "provider": "OpenAI",
+      "pass_at_1": 52,
+      "pass_at_1_ci": 2,
+      "avg_cost_usd": 5.65,
+      "output_tokens": 71000,
+      "steps": 70,
+      "cost_per_solved_task_usd": 10.87,
+      "rank": 4
+    },
+    {
+      "model": "glm-5.2",
+      "config": "max",
+      "provider": "Zhipu AI",
+      "pass_at_1": 44,
+      "pass_at_1_ci": 2,
+      "avg_cost_usd": 3.92,
+      "output_tokens": 78000,
+      "steps": 129,
+      "cost_per_solved_task_usd": 8.91,
+      "rank": 5
+    },
+    {
+      "model": "gemini-3.5-flash",
+      "config": "medium",
+      "provider": "Google",
+      "pass_at_1": 37,
+      "pass_at_1_ci": 2,
+      "avg_cost_usd": 7.34,
+      "output_tokens": 276000,
+      "steps": 86,
+      "cost_per_solved_task_usd": 19.84,
+      "rank": 6
+    },
+    {
+      "model": "kimi-k2.7-code",
+      "config": null,
+      "provider": "Moonshot",
+      "pass_at_1": 31,
+      "pass_at_1_ci": 1,
+      "avg_cost_usd": 2.82,
+      "output_tokens": 59000,
+      "steps": 149,
+      "cost_per_solved_task_usd": 9.1,
+      "rank": 7
+    },
+    {
+      "model": "claude-sonnet-4.6",
+      "config": "high",
+      "provider": "Anthropic",
+      "pass_at_1": 30,
+      "pass_at_1_ci": 4,
+      "avg_cost_usd": 5.52,
+      "output_tokens": 76000,
+      "steps": 134,
+      "cost_per_solved_task_usd": 18.4,
+      "rank": 8
+    },
+    {
+      "model": "gemini-3.1-pro",
+      "config": "high",
+      "provider": "Google",
+      "pass_at_1": 12,
+      "pass_at_1_ci": 2,
+      "avg_cost_usd": 9.48,
+      "output_tokens": 196000,
+      "steps": 81,
+      "cost_per_solved_task_usd": 79.0,
+      "rank": 9
+    }
+  ]
+}
