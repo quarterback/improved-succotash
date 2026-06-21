@@ -1,0 +1,97 @@
+{
+  "fetched_at": "2026-06-21T14:51:04.868462+00:00",
+  "source": "DeepSWE Leaderboard",
+  "source_url": "https://deepswe.datacurve.ai/",
+  "benchmark_version": "v1.1",
+  "note": "Coding-capability source for Market Intelligence \u2014 not a standalone index.",
+  "benchmark": {
+    "tasks": 113,
+    "repositories": 91,
+    "languages": 5,
+    "models_evaluated": 9,
+    "note": "Tasks are newly authored rather than scraped from existing projects, span diverse codebases, demand ~5.5x more code than comparable benchmarks, and are graded by verifiers that test actual software behavior, not implementation specifics."
+  },
+  "data": {
+    "anthropic/claude-fable-5": {
+      "model": "claude-fable-5",
+      "provider": "Anthropic",
+      "config": "max",
+      "swe_pass_at_1": 70,
+      "swe_pass_at_1_ci": 4,
+      "swe_avg_cost_usd": 21.63,
+      "cost_per_solved_task_usd": 30.9
+    },
+    "openai/gpt-5.5": {
+      "model": "gpt-5.5",
+      "provider": "OpenAI",
+      "config": "xhigh",
+      "swe_pass_at_1": 67,
+      "swe_pass_at_1_ci": 6,
+      "swe_avg_cost_usd": 7.23,
+      "cost_per_solved_task_usd": 10.79
+    },
+    "anthropic/claude-opus-4.8": {
+      "model": "claude-opus-4.8",
+      "provider": "Anthropic",
+      "config": "max",
+      "swe_pass_at_1": 59,
+      "swe_pass_at_1_ci": 2,
+      "swe_avg_cost_usd": 13.22,
+      "cost_per_solved_task_usd": 22.41
+    },
+    "openai/gpt-5.4": {
+      "model": "gpt-5.4",
+      "provider": "OpenAI",
+      "config": "xhigh",
+      "swe_pass_at_1": 52,
+      "swe_pass_at_1_ci": 2,
+      "swe_avg_cost_usd": 5.65,
+      "cost_per_solved_task_usd": 10.87
+    },
+    "z-ai/glm-5.2": {
+      "model": "glm-5.2",
+      "provider": "Zhipu AI",
+      "config": "max",
+      "swe_pass_at_1": 44,
+      "swe_pass_at_1_ci": 2,
+      "swe_avg_cost_usd": 3.92,
+      "cost_per_solved_task_usd": 8.91
+    },
+    "google/gemini-3.5-flash": {
+      "model": "gemini-3.5-flash",
+      "provider": "Google",
+      "config": "medium",
+      "swe_pass_at_1": 37,
+      "swe_pass_at_1_ci": 2,
+      "swe_avg_cost_usd": 7.34,
+      "cost_per_solved_task_usd": 19.84
+    },
+    "moonshotai/kimi-k2.7-code": {
+      "model": "kimi-k2.7-code",
+      "provider": "Moonshot",
+      "config": null,
+      "swe_pass_at_1": 31,
+      "swe_pass_at_1_ci": 1,
+      "swe_avg_cost_usd": 2.82,
+      "cost_per_solved_task_usd": 9.1
+    },
+    "anthropic/claude-sonnet-4.6": {
+      "model": "claude-sonnet-4.6",
+      "provider": "Anthropic",
+      "config": "high",
+      "swe_pass_at_1": 30,
+      "swe_pass_at_1_ci": 4,
+      "swe_avg_cost_usd": 5.52,
+      "cost_per_solved_task_usd": 18.4
+    },
+    "google/gemini-3.1-pro": {
+      "model": "gemini-3.1-pro",
+      "provider": "Google",
+      "config": "high",
+      "swe_pass_at_1": 12,
+      "swe_pass_at_1_ci": 2,
+      "swe_avg_cost_usd": 9.48,
+      "cost_per_solved_task_usd": 79.0
+    }
+  }
+}
